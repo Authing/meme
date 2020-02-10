@@ -767,10 +767,6 @@ h4,
   font-size: 1.35rem;
 }
 
-.site-content {
-  margin-top: 11px;
-}
-
 .mb-1.h4 {
   font-size: 1.1rem !important;
   font-weight: 500;
@@ -10112,8 +10108,13 @@ a.text-light:focus {
   color: #dae0e5 !important;
 }
 
+.site-content {
+  margin-top: 11px;
+}
+
 .text-dark {
   color: #212529 !important;
+  font-size: 16px !important;
 }
 
 a.text-dark:hover,
@@ -10199,6 +10200,13 @@ a.text-lightblue:focus {
 
 .text-muted {
   color: #6c757d !important;
+  font-size: 12px!important;
+}
+
+.excerpt {
+  color: rgba(0,0,0,.54)!important;
+  fill: rgba(0,0,0,.54)!important;
+  font-size: 12px!important;
 }
 
 .text-black-50 {
@@ -12671,7 +12679,7 @@ ol.list-featured li {
 ol.list-featured li:before {
   content: "0" counter(my-awesome-counter);
   font-weight: 400;
-  font-size: 2.3rem;
+  font-size: 2rem;
   margin-right: 1rem;
   font-family: inherit;
   color: #d9d9d9;
