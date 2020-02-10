@@ -4,20 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jane | Authing 官方博客</title>
+    <title>为什么所有软件都应该使用单点登录来管理用户？ | Authing 官方博客</title>
 
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Jane | Authing 官方博客</title>
+<title>为什么所有软件都应该使用单点登录来管理用户？ | Authing 官方博客</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Jane" />
+<meta property="og:title" content="为什么所有软件都应该使用单点登录来管理用户？" />
+<meta name="author" content="ivy" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。" />
-<meta property="og:description" content="Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。" />
-<link rel="canonical" href="http://localhost:4000/blog/author-jane.html" />
-<meta property="og:url" content="http://localhost:4000/blog/author-jane.html" />
+<meta name="description" content="单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。" />
+<meta property="og:description" content="单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。" />
+<link rel="canonical" href="http://localhost:4000/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%80%E6%9C%89%E8%BD%AF%E4%BB%B6%E9%83%BD%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E6%9D%A5%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7/" />
+<meta property="og:url" content="http://localhost:4000/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%80%E6%9C%89%E8%BD%AF%E4%BB%B6%E9%83%BD%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E6%9D%A5%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7/" />
 <meta property="og:site_name" content="Authing 官方博客" />
+<meta property="og:image" content="https://cdn.authing.cn/blog/20191025183717.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-10-25T00:00:00+08:00" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/blog/author-jane.html","headline":"Jane","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"}},"description":"Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。","@type":"WebPage","@context":"http://schema.org"}</script>
+{"url":"http://localhost:4000/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%80%E6%9C%89%E8%BD%AF%E4%BB%B6%E9%83%BD%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E6%9D%A5%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7/","headline":"为什么所有软件都应该使用单点登录来管理用户？","dateModified":"2019-10-25T00:00:00+08:00","datePublished":"2019-10-25T00:00:00+08:00","image":"https://cdn.authing.cn/blog/20191025183717.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"},"name":"ivy"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%80%E6%9C%89%E8%BD%AF%E4%BB%B6%E9%83%BD%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E6%9D%A5%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7/"},"author":{"@type":"Person","name":"ivy"},"description":"单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -115,7 +119,7 @@ var documents = [{
     "id": 2,
     "url": "http://localhost:4000/blog/author-jane.html",
     "title": "Jane",
-    "body": "                        Jane Follow:                                                    Posts by Jane:               "
+    "body": "                        {{page. title}} Follow:         {{ site. authors. jane. site }}         {{ site. authors. jane. bio }}                                   Posts by {{page. title}}:       {% assign posts = site. posts | where: author , jane  %}      {% for post in posts %}      {% include main-loop-card. html %}      {% endfor %}  "
     }, {
     "id": 3,
     "url": "http://localhost:4000/blog/author-sal.html",
@@ -298,24 +302,237 @@ function lunr_search(term) {
 
     <!-- Content -->
     <main role="main" class="site-content">
-        <div class="container">
-<div class="row justify-content-center">
-    <div class="col-md-8">        
-        <div class="row align-items-center mb-5">
-            <div class="col-md-9">
-                <h2 class="font-weight-bold">Jane <span class="small btn btn-outline-success btn-sm btn-round"><a href="">Follow</a></span></h2>
-                <p><a href=""></a></p>
-                <p class="excerpt"></p>
-            </div>
-            <div class="col-md-3 text-right">
-                <img alt="" src="/blog/" class="rounded-circle" height="100" width="100">
-            </div>
-        </div>
-        <h4 class="font-weight-bold spanborder"><span>Posts by Jane</span></h4>
-            
-            
-    </div>
+        
+
+<div class="container">
+<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+		<div class="h-100 tofront">
+			<div class="row  justify-content-between ">
+				<div class=" col-md-6  pr-0 pr-md-4 pt-4 pb-4 align-self-center">
+					<p class="text-uppercase font-weight-bold">
+                        <span class="catlist">
+						
+                          <a class="sscroll text-danger" href="/blog/CATEGORIES.html#developers">developers</a><span class="sep">, </span>
+                        
+                          <a class="sscroll text-danger" href="/blog/CATEGORIES.html#tutorial">tutorial</a><span class="sep">, </span>
+                        
+                        </span>
+					</p>
+					<h1 class="display-4 mb-4 article-headline">为什么所有软件都应该使用单点登录来管理用户？</h1>
+					<div class="d-flex align-items-center">
+                        
+                        <img class="rounded-circle" src="/blog//assets/images/avatar1.jpg" alt="谢扬" width="70"/>
+                        
+						<small class="ml-3"> 谢扬 <span><a target="_blank" href="http://ivydom.com" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Oct 25, 2019 · <span class="reading-time">
+  
+  
+    1 min read
+  
+</span>
+    </span>
+						</small>
+					</div>
+				</div>
+                
+				<div class="col-md-6 pr-0 align-self-center">
+					<img class="rounded" src="https://cdn.authing.cn/blog/20191025183717.png" alt="为什么所有软件都应该使用单点登录来管理用户？">
+				</div>
+                
+			</div>
+		</div>
+	</div>
 </div>
+
+
+
+
+
+<div class="container-lg pt-4 pb-4">
+	<div class="row justify-content-center">
+        
+        
+        <!-- Share -->
+		<div class="col-lg-2 pr-4 mb-4 col-md-12">
+			<div class="sticky-top sticky-top-offset text-center">
+				<div class="text-muted">
+					Share this
+				</div>
+				<div class="share d-inline-block">
+					<!-- AddToAny BEGIN -->
+					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+					</div>
+					<script async src="https://static.addtoany.com/menu/page.js"></script>
+					<!-- AddToAny END -->
+				</div>
+			</div>
+		</div>
+        
+        
+		<div class="col-md-12 col-lg-8">
+            
+            <!-- Article -->
+			<article class="article-post">                
+			<p>单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。</p>
+
+<h2 id="一什么是单点登录">一、什么是单点登录？</h2>
+
+<p>&lt;div align=center&gt;<img src="https://cdn.authing.cn/blog/20190908080023.png" width="300" /> &lt;/div&gt;
+单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。</p>
+
+<h2 id="二使用-sso-带来的业务优势">二、使用 SSO 带来的「业务优势」</h2>
+
+<h3 id="1提高用户的效率">1）提高用户的效率</h3>
+
+<p>用户不再被多次登录困扰，也不需要记住多个 ID 和密码。另外，用户忘记密码并求助于支持人员的情况也会减少。</p>
+
+<h3 id="2提高开发人员的效率">2）提高开发人员的效率</h3>
+
+<p>SSO 为开发人员提供了一个通用的身份验证框架。实际上，如果 SSO 机制是独立的，那么开发人员就完全不需要为身份验证操心。他们可以假设，只要对应用程序的请求附带一个用户名，身份验证就已经完成了。</p>
+
+<h3 id="3简化管理">3）简化管理</h3>
+
+<p>如果应用程序加入了单点登录协议，管理用户帐号的负担就会减轻。简化的程度取决于应用程序，因为 SSO 只处理身份验证。所以，应用程序可能仍然需要设置用户的属性（比如访问特权）。</p>
+
+<p>这些都属于业务上的优势，除了业务上的优势外，还有软件架构层面的优势。</p>
+<h2 id="三使用-sso-带来的软件架构层面的优势">三、使用 SSO 带来的「软件架构层面的优势」</h2>
+
+<h3 id="1向下兼容">1）向下兼容</h3>
+
+<p>单点登录是一种比普通的账号密码登录更加规范化的解决方案，如果有一天你的业务扩大，想要聚合所有平台的用户，<strong>那么提前用上了单点登录的你会使整个过程变得非常容易</strong>。有太多前期的用户系统做的很不规范，系统壮大后需要投入大量人力物力来进行迁移的案例出现。造成软件前期不使用单点登录的主要原因是单点登录的复杂性，<strong>如果单点登录的复杂性和实施成本能被降低，那么我相信很多人都愿意直接使用</strong>。</p>
+
+<p>再类比一下，使用单点登录对你的系统向下兼容就好像 C++ 可以兼容 C 语言一样，你在用 C++ 时，使用面向对象编程的同时，不会耽误你面向过程编程。相反，如果你使用了 C 语言，在理论上你当然也可以面向对象编程，只不过过程过于复杂，异常痛苦，甚至不符合 C 语言的设计思想。为什么要将不合适的东西强行扭成合适的呢？这就是单点登录相较于普通登录方式最本质的区别。</p>
+
+<p>教科书为了让你快速上手，所以选择 C 语言开始；PHP 为了让你快速上手，选择让你学习最简单的单向「用户名 - 密码」登录开始。但是我们都知道，软件最好从一开始就使用面向对象编程，那么任何的互联网应用，从一开始就使用「单点登录」也是同样的道理。</p>
+
+<p>&lt;div align=center&gt;<img src="https://cdn.authing.cn/blog/20191025183746.png" width="400" /> &lt;/div&gt;</p>
+<h3 id="2简化迁移迁出流程">2）简化迁移迁出流程</h3>
+
+<p>假设你的软件从一开始就没有考虑过使用单点登录，那么当你的业务拓展成功并且有多个平台后，多平台用户的 Merge 就会变成很大的一个难点，比如如何确定注册到 A 平台的邮箱和 B 平台的邮箱是同一个、用户的密码如何重置、如何确定 Merge 完成后的用户信息没有任何损失等等。</p>
+
+<p>如果你从一开始就使用了单点登录，那么这些问题都将不复存在。将用户从平台中迁移出来将像导出 Excel 到 CSV 一样简单。</p>
+
+<p>&lt;div align=center&gt;<img src="https://cdn.authing.cn/blog/20191025185902.png" /> &lt;/div&gt;</p>
+<h3 id="3强化管理和安全流程">3）强化管理和安全流程</h3>
+
+<p>进行身份认证的目的是为了授权用户可访问哪些资源，单点登录都有十分规范化的权限授权系统，RBAC 是业内比较认可的授权管理方案。单点登录系统一般都自带开发者友好和组织友好的 RBAC 方案，可以让开发者快速实现中心化授权体系。</p>
+
+<p>除此之外，用户的历史活动为判定可信度提供了丰富的分析素材。系统可以通过挖掘用户的历史操作构建其行为基线，然后通过比较当前操作和其行为基线来计算用户的信任评分。</p>
+
+<p>通过比较当前用户的地理位置坐标可以发现是否有异常，比如一个用户的设备在一个较小的时间窗口内突然出现在某个用户不可能达到的坐标；再比如用户有多个设备，但其报告了不一样的地理位置。但是必须注意，地理位置是存在偏差的，所以地理位置的权重不应该过高，而是作为一种参考。</p>
+
+<p>成熟的单点登录系统都会提供这些功能，除此之外还有可定制的加密算法、用户密码泄漏检测等多维化功能，保障整个系统的管理安全和流程安全。</p>
+
+<p>&lt;div align=center&gt;<img src="https://cdn.authing.cn/blog/20191025185937.png" /> &lt;/div&gt;</p>
+<h2 id="四如何低成本的实现单点登录-">四、如何低成本的实现单点登录 ？</h2>
+
+<p>前面我们讲了为什么所有软件都应该使用单点登录来管理用户，<strong>那么如何最低成本的实现单点登录呢？</strong>这里就要介绍下 Authing 了。</p>
+
+<p>Authing 是一款身份认证云，提供了开发者优先和极易拓展的开发平台，简化了身份管理的流程，使用 Authing 可以用极短的时间和极低的成本实现单点登录<strong>（用户量数十万的应用从迁移进 Authing 到上线到生产环境只需要两天）</strong>，如果你对此感兴趣，可以查看这篇文章：<a href="https://learn.authing.cn/authing/quickstart/implement-sso-with-authing">用 Authing 10 分钟实现单点登录</a>。</p>
+
+<p>最后，希望这篇文章能对你的下一次软件开发有帮助～</p>
+                
+			</article>
+			
+			<!-- Tags -->
+			<div class="mb-4">
+				<span class="taglist">
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#featured">featured</a>
+				
+				</span>
+			</div>
+ 
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+							
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+							
+							
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+							
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            
+            
+             <!-- Author Box -->
+                				
+				<div class="row mt-5">
+					<div class="col-md-2 align-self-center">
+                         
+                        <img class="rounded-circle" src="/blog//assets/images/avatar1.jpg" alt="谢扬" width="90"/>
+                         
+					</div>
+					<div class="col-md-10">		
+                        <h5 class="font-weight-bold">Written by 谢扬 <span><a target="_blank" href="http://ivydom.com" class="btn btn-outline-success btn-sm btn-round ml-2">Follow</a></span></h5>
+						Hi, I am Sal, the author of Mundana, the theme you're currently previewing. I hope you like it!					
+					</div>
+				</div>				
+                
+            
+            <!-- Comments -->
+            
+                <!--  Don't edit anything here. Set your disqus id in _config.yml -->
+
+<div id="comments" class="mt-5">
+    <div id="disqus_thread">
+    </div>
+    <script type="text/javascript">
+        var disqus_shortname = 'Authing 博客'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+</div>
+            
+            
+		</div>
+        
+        
+	</div>
+</div>
+
+
+<!-- Aletbar Prev/Next -->
+<div class="alertbar">
+    <div class="container">
+        <div class="row prevnextlinks small font-weight-bold">
+          
+            <div class="col-md-6 rightborder pl-0">
+                <a class="text-dark" href="/blog/%E5%B0%86%E5%86%85%E5%AE%B9%E7%9C%8B%E4%BD%9C%E6%96%B0%E7%9A%84%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BDCaaS/"> <img height="30px" class="mr-1" src="/blog/assets/images/2.jpg">  将内容看作新的基础设施：Content as a Service</a>
+            </div>
+          
+          
+            <div class="col-md-6 text-right pr-0">
+                <a class="text-dark" href="/blog/%E8%BA%AB%E4%BB%BD%E4%B8%8A%E4%BA%91-or-%E8%87%AA%E5%BB%BA-%E8%BF%99%E9%87%8C%E6%9C%89-20-%E4%B8%AA%E9%97%AE%E9%A2%98%E5%80%BC%E5%BE%97%E4%BD%A0%E6%80%9D%E8%80%83/"> 身份上云 or 自建？这里有 20 个问题值得你思考  <img height="30px" class="ml-1" src="/blog/https://cdn.authing.cn/blog/20191027184218.png"> </a>
+            </div>
+          
+        </div>
+	</div>
 </div>
     </main>
 

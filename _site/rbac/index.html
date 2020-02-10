@@ -4,20 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jane | Authing 官方博客</title>
+    <title>RBAC | 组织机构管理最佳实践 | Authing 官方博客</title>
 
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Jane | Authing 官方博客</title>
+<title>RBAC 组织机构管理最佳实践 | Authing 官方博客</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Jane" />
+<meta property="og:title" content="RBAC 组织机构管理最佳实践" />
+<meta name="author" content="cj" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。" />
-<meta property="og:description" content="Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。" />
-<link rel="canonical" href="http://localhost:4000/blog/author-jane.html" />
-<meta property="og:url" content="http://localhost:4000/blog/author-jane.html" />
+<meta name="description" content="在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。" />
+<meta property="og:description" content="在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。" />
+<link rel="canonical" href="http://localhost:4000/blog/rbac/" />
+<meta property="og:url" content="http://localhost:4000/blog/rbac/" />
 <meta property="og:site_name" content="Authing 官方博客" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1528784351875-d797d86873a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-02-05T00:00:00+08:00" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/blog/author-jane.html","headline":"Jane","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"}},"description":"Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。","@type":"WebPage","@context":"http://schema.org"}</script>
+{"url":"http://localhost:4000/blog/rbac/","headline":"RBAC 组织机构管理最佳实践","dateModified":"2020-02-05T00:00:00+08:00","datePublished":"2020-02-05T00:00:00+08:00","image":"https://images.unsplash.com/photo-1528784351875-d797d86873a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"},"name":"cj"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/rbac/"},"author":{"@type":"Person","name":"cj"},"description":"在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -115,7 +119,7 @@ var documents = [{
     "id": 2,
     "url": "http://localhost:4000/blog/author-jane.html",
     "title": "Jane",
-    "body": "                        Jane Follow:                                                    Posts by Jane:               "
+    "body": "                        {{page. title}} Follow:         {{ site. authors. jane. site }}         {{ site. authors. jane. bio }}                                   Posts by {{page. title}}:       {% assign posts = site. posts | where: author , jane  %}      {% for post in posts %}      {% include main-loop-card. html %}      {% endfor %}  "
     }, {
     "id": 3,
     "url": "http://localhost:4000/blog/author-sal.html",
@@ -298,24 +302,576 @@ function lunr_search(term) {
 
     <!-- Content -->
     <main role="main" class="site-content">
-        <div class="container">
-<div class="row justify-content-center">
-    <div class="col-md-8">        
-        <div class="row align-items-center mb-5">
-            <div class="col-md-9">
-                <h2 class="font-weight-bold">Jane <span class="small btn btn-outline-success btn-sm btn-round"><a href="">Follow</a></span></h2>
-                <p><a href=""></a></p>
-                <p class="excerpt"></p>
-            </div>
-            <div class="col-md-3 text-right">
-                <img alt="" src="/blog/" class="rounded-circle" height="100" width="100">
-            </div>
-        </div>
-        <h4 class="font-weight-bold spanborder"><span>Posts by Jane</span></h4>
-            
-            
-    </div>
+        
+
+<div class="container">
+<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+		<div class="h-100 tofront">
+			<div class="row  justify-content-between ">
+				<div class=" col-md-6  pr-0 pr-md-4 pt-4 pb-4 align-self-center">
+					<p class="text-uppercase font-weight-bold">
+                        <span class="catlist">
+						
+                          <a class="sscroll text-danger" href="/blog/CATEGORIES.html#developers">developers</a><span class="sep">, </span>
+                        
+                          <a class="sscroll text-danger" href="/blog/CATEGORIES.html#tutorial">tutorial</a><span class="sep">, </span>
+                        
+                        </span>
+					</p>
+					<h1 class="display-4 mb-4 article-headline">RBAC | 组织机构管理最佳实践</h1>
+					<div class="d-flex align-items-center">
+                        
+                        <img class="rounded-circle" src="/blog//assets/images/avatar2.jpg" alt="廖长江" width="70"/>
+                        
+						<small class="ml-3"> 廖长江 <span><a target="_blank" href="https://twitter.com/wowthemesnet" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Feb 05, 2020 · <span class="reading-time">
+  
+  
+    4 mins read
+  
+</span>
+    </span>
+						</small>
+					</div>
+				</div>
+                
+				<div class="col-md-6 pr-0 align-self-center">
+					<img class="rounded" src="https://images.unsplash.com/photo-1528784351875-d797d86873a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="RBAC | 组织机构管理最佳实践">
+				</div>
+                
+			</div>
+		</div>
+	</div>
 </div>
+
+
+
+
+
+<div class="container-lg pt-4 pb-4">
+	<div class="row justify-content-center">
+        
+        
+        <!-- Share -->
+		<div class="col-lg-2 pr-4 mb-4 col-md-12">
+			<div class="sticky-top sticky-top-offset text-center">
+				<div class="text-muted">
+					Share this
+				</div>
+				<div class="share d-inline-block">
+					<!-- AddToAny BEGIN -->
+					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+					</div>
+					<script async src="https://static.addtoany.com/menu/page.js"></script>
+					<!-- AddToAny END -->
+				</div>
+			</div>
+		</div>
+        
+        
+		<div class="col-md-12 col-lg-8">
+            
+            <!-- Article -->
+			<article class="article-post">                
+			<p>在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。</p>
+
+<p>借助 Authing，可以快速<a href="https://mp.weixin.qq.com/s/zRiymhIjTqfUlymjkGfEsA">实现基于角色的访问控制（RBAC）</a>。简单来说，RBAC 指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。</p>
+
+<p>而在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会设想一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。</p>
+
+<!-- more -->
+
+<h2 id="一非凡科技有限公司背景介绍">一、非凡科技有限公司背景介绍</h2>
+
+<p>该公司约 300 名员工，其公司架构大致如下：</p>
+
+<ul>
+  <li>
+    <p>一级部门有产品部、研发部、运营部、综合管理部</p>
+  </li>
+  <li>
+    <p>一级部门下面又有二级部门，如产品部中包含产品经理和设计等。</p>
+  </li>
+</ul>
+
+<p><img src="https://cdn.authing.cn/blog/20200205182710.png" alt="" /></p>
+
+<p>这是一个典型的树状数据结构，有且仅有一个根节点，以及多个分层的节点。一般而言，根节点就是一家公司、一个组织，其他的每个节点都对应一个部门。</p>
+
+<p>‌</p>
+
+<p>这里有一点需要注意：在 Authing 中，这样的节点对应的是一个 Group，比如「非凡科技有限公司」是一个 Group，「产品部」也是一个 Group。我们要做的，是要把这些 Group 放到他在树上所属的位置。</p>
+
+<p>一个 Group 可以拥有多个角色（Role），一个角色包含一个或多个权限（Permission）；而一个 Group 由若干用户（User）组成，某个 Group 中的用户会继承该 Group 下的所有角色，从而具备相关权限。</p>
+
+<p>了解如何管理  Group 中的 User、如何管理 Group 中的 Role、如何配置 Role 的 Permission，请见文档：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/rbac">角色权限管理</a>。</p>
+
+<p>了解如何查询单个用户的 Group, Role, Permission 列表，请见文档：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/query-permissions">查询用户权限</a>。</p>
+
+<p>如何使用 Authing 完成组织机构管理</p>
+
+<h3 id="1梳理组织机构节点">1、梳理组织机构节点</h3>
+
+<p>首先，我们需要列举出该组织结构拥有的所有节点：</p>
+
+<ul>
+  <li>
+    <p>非凡科技有限公司</p>
+  </li>
+  <li>
+    <p>产品部</p>
+  </li>
+  <li>
+    <p>研发部</p>
+  </li>
+  <li>
+    <p>运营部</p>
+  </li>
+  <li>
+    <p>综合管理部</p>
+  </li>
+  <li>
+    <p>产品经理</p>
+  </li>
+  <li>
+    <p>设计</p>
+  </li>
+  <li>
+    <p>开发</p>
+  </li>
+  <li>
+    <p>测试</p>
+  </li>
+  <li>
+    <p>运维</p>
+  </li>
+  <li>
+    <p>用户运营</p>
+  </li>
+  <li>
+    <p>渠道运营</p>
+  </li>
+  <li>
+    <p>HR</p>
+  </li>
+  <li>
+    <p>财务</p>
+  </li>
+  <li>
+    <p>行政</p>
+  </li>
+</ul>
+
+<p>这些节点在 Authing 中都是一个 Group，所以需要先创建这些 Group：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const 非凡科技有限公司 = await createGroup("非凡科技有限公司")
+const 产品部 = await createGroup('产品部')
+const 产品经理 = await createGroup('产品经理')
+const 设计 = await createGroup('设计')
+const 研发部 = await createGroup('研发部')
+const 开发 = await createGroup('开发')
+const 测试 = await createGroup('测试')
+const 运维 = await createGroup('运维')
+const 运营部 = await createGroup('运营部')
+const 用户运营 = await createGroup('用户运营')
+const 渠道运营 = await createGroup('渠道运营')
+const 综合管理部 = await createGroup('综合管理部')
+const HR = await createGroup('HR')
+const 财务 = await createGroup('财务')
+const 行政 = await createGroup('行政')
+</code></pre></div></div>
+
+<p>‌</p>
+
+<h3 id="2创建组织机构">2、创建组织机构</h3>
+
+<p>接着创建组织机构（一组树状的 Group），这需要指定根节点对应的 Group:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let org = await authing.org.createOrg({
+ rootGroupId: 非凡科技有限公司._id
+})
+</code></pre></div></div>
+
+<h3 id="3加入产品部及其子部门节点">3、加入产品部及其子部门节点</h3>
+
+<p>‌</p>
+
+<p>接着插入产品部的各级节点：</p>
+
+<p>‌</p>
+
+<p>这里需要指定以下参数：</p>
+
+<ul>
+  <li>
+    <p>组织机构 ID</p>
+  </li>
+  <li>
+    <p>该节点对应的 Group ID</p>
+  </li>
+  <li>
+    <p>该节点的父节点的 Group ID</p>
+  </li>
+</ul>
+
+<p>如加入产品部节点时，groupId 为 Group<产品部> 的 ID，parentGroupId 为 Group<非凡科技有限公司> 的 ID。</非凡科技有限公司></产品部></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>await authing.org.addNode({
+ orgId: org._id,
+ groupId: 产品部._id,
+ parentGroupId: 非凡科技有限公司._id
+})
+await authing.org.addNode({
+ orgId: org._id,
+ groupId: 产品经理._id,
+ parentGroupId: 产品部._id
+})
+await authing.org.addNode({
+ orgId: org._id,
+ groupId: 设计._id,
+ parentGroupId: 产品部._id
+})
+</code></pre></div></div>
+
+<h3 id="4以此类推加入所有节点">4、以此类推，加入所有节点</h3>
+
+<p>研发部：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 添加研发部
+await authing.org.addNode({
+ orgId: org._id,
+ groupId: 研发部._id,
+ parentGroupId: 非凡科技有限公司._id
+})
+await authing.org.addNode({
+ orgId: org._id,
+ groupId: 开发._id,
+ parentGroupId: 研发部._id
+})
+await authing.org.addNode({
+ orgId: org._id,
+ groupId: 测试._id,
+ parentGroupId: 研发部._id
+})
+await authing.org.addNode({
+ orgId: org._id,
+ groupId: 运维._id,
+ parentGroupId: 研发部._id
+})
+</code></pre></div></div>
+
+<p>运营部：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>await authing.org.addNode({
+ orgId: org._id,
+ groupId: 运营部._id,
+ parentGroupId: 非凡科技有限公司._id
+})
+await authing.org.addNode({
+ orgId: org._id,
+ groupId: 用户运营._id,
+ parentGroupId: 运营部._id
+})
+await authing.org.addNode({
+ orgId: org._id,
+ groupId: 渠道运营._id,
+ parentGroupId: 运营部._id
+})
+</code></pre></div></div>
+
+<p>‌</p>
+
+<p>综合管理部：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 添加综合管理部
+await authing.org.addNode({
+ orgId: org._id,
+ groupId: 综合管理部._id,
+ parentGroupId: 非凡科技有限公司._id
+})
+await authing.org.addNode({
+ orgId: org._id,
+ groupId: HR._id,
+ parentGroupId: 综合管理部._id
+})
+await authing.org.addNode({
+ orgId: org._id,
+ groupId: 财务._id,
+ parentGroupId: 综合管理部._id
+})
+await authing.org.addNode({
+ orgId: org._id,
+ groupId: 行政._id,
+ parentGroupId: 综合管理部._id
+})
+</code></pre></div></div>
+
+<h3 id="5查看最新组织机构结构">5、查看最新组织机构结构</h3>
+
+<p>到现在，我们的非凡科技有限公司组织机构见建模完成了，是时候获取其最新的树状结构了：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const { tree } = await authing.org.findById(org._id)
+</code></pre></div></div>
+
+<p>​               <img src="https://internal-api-space-hl.feishu.cn/space/api/file/out/zSOvcI4ejux1n1410JnoDNfAHpsLAUIVoA9J04p9ssf7lQ2DlO/" alt="img" /></p>
+
+<h2 id="二如何向组织机构中添加用户和配置权限">二、如何向组织机构中添加用户和配置权限</h2>
+
+<p>前面说过，Authing 中一个组织结构节点对应一个  Group，对此我们提供了完整的 SDK。</p>
+
+<h3 id="1为组织机构节点配置权限">1、为组织机构节点配置权限</h3>
+
+<p>相关 SDK 见：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/rbac">角色权限管理</a>。</p>
+
+<p>非凡科技有限公司的所有员工，都具备开具发票、使用公司邮箱的权限。与此对应，在此我们创建两个角色：Invoice Submitter 和 Corp Email User。</p>
+
+<p>‌</p>
+
+<p>其中 Invoice Submitter 具备以下权限：</p>
+
+<ul>
+  <li>
+    <p>invoice:login</p>
+  </li>
+  <li>
+    <p>invoice:create</p>
+  </li>
+  <li>
+    <p>invoice:query</p>
+  </li>
+  <li>
+    <p>invoice:list</p>
+  </li>
+  <li>
+    <p>invoice:delete</p>
+  </li>
+</ul>
+
+<p>Corp Email User 具备以下权限：</p>
+
+<ul>
+  <li>
+    <p>corp-email:login</p>
+  </li>
+  <li>
+    <p>corp-email:send</p>
+  </li>
+  <li>
+    <p>corp-email:receive</p>
+  </li>
+  <li>
+    <p>corp-email:list</p>
+  </li>
+  <li>
+    <p>corp-email:detail</p>
+  </li>
+</ul>
+
+<p>这可以通过以下代码完成：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const InvoiceSubmitter = await createRole('Invoice Submitter')
+let permissions = await createPermissionBatch(['invoice:login', 'invoice:create', 'invoice:query', 'invoice:list', 'invoice:delete'])
+await authing.authz.addPermissionToRoleBatch({
+ roleId: InvoiceSubmitter._id,
+ permissionIdList: permissions.map(x =&gt; x._id)
+})
+const CorpEmailUser = await createRole('Corp Email Use')
+permissions = await createPermissionBatch(['corp-email:login', 'corp-email:send', 'corp-email:receive', 'corp-email:list', 'corp-email:detail'])
+await authing.authz.addPermissionToRoleBatch({
+ roleId: CorpEmailUser._id,
+ permissionIdList: permissions.map(x =&gt; x._id)
+})
+</code></pre></div></div>
+
+<p>接着让 Group 非凡科技有限公司具备 Invoice Submitter 和 Corp Email User 两个角色：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>await authing.authz.addRoleToGroup({
+ roleId: InvoiceSubmitter._id,
+ groupId: 非凡科技有限公司._id
+})
+await authing.authz.addRoleToGroup({
+ roleId: InvoiceSubmitter._id,
+ groupId: 非凡科技有限公司._id
+})
+</code></pre></div></div>
+
+<p>现在，非凡科技有限公司这个节点将会具备  Invoice Submitter 和 Corp Email User 两个角色</p>
+
+<h3 id="2向组织机构节点添加用户">2、向组织机构节点添加用户</h3>
+
+<p>相关 API 见：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/rbac">角色权限管理</a>。</p>
+
+<blockquote>
+  <p>某个 Group 内的用户会继承该 Group 内所有角色的权限（如果有重叠，将会取并集）。</p>
+</blockquote>
+
+<p>下面我们往用户池中注册新用户，然后将其加入非凡科技有限公司 Group 中：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const user = await createUser()
+await authing.authz.addUserToGroup({
+ groupId: 非凡科技有限公司._id,
+ userId: user._id
+})
+</code></pre></div></div>
+
+<h3 id="3查询用户具备的权限">3、查询用户具备的权限</h3>
+
+<p>相关 API  见：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/query-permissions">查询用户权限</a>。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const { rawList: permissionList } = await authing.userPermissionList(user._id)‌
+</code></pre></div></div>
+
+<p>permissionList 如下：可见，此用户已经继承了 Invoice Submitter 和 Corp Email User 两个角色的所有权限：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+  'invoice:login',
+  'invoice:create',
+  'invoice:query',
+  'invoice:list',
+  'invoice:delete',
+  'corp-email:login',
+  'corp-email:send',
+  'corp-email:receive',
+  'corp-email:list',
+  'corp-email:detail',
+ ]
+</code></pre></div></div>
+
+<p>开发者拿到用户权限列表之后，可以在业务代码层判断用户是否具备某一特定权限，如：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if "corp-email:login" not in user.permissionList:
+  return "Permission Denied"
+</code></pre></div></div>
+
+<h3 id="4使用-rbac-的优势">4、<strong>使用 RBAC 的优势</strong></h3>
+
+<ul>
+  <li>
+    <p>系统性、可重复性的权限指派</p>
+  </li>
+  <li>
+    <p>更方便的用户权限审计，快速定位问题</p>
+  </li>
+  <li>
+    <p>快速地添加、修改角色，甚至可以调用 API 实现</p>
+  </li>
+  <li>
+    <p>减少授予用户权限时发生错误的可能性</p>
+  </li>
+  <li>
+    <p>引入第三方用户/新用户/未登录用户时，赋予他们预先配置好的角色，比如 guest 分组</p>
+
+    <p>更多关于 RBAC 的介绍请参考<a href="https://mp.weixin.qq.com/s?__biz=MzU1OTk1NjU4MA==&amp;mid=2247484085&amp;idx=1&amp;sn=c59e44be19951c8f08725e8e25985b3f&amp;scene=21#wechat_redirect">实现基于角色的访问控制（RBAC）</a>。</p>
+  </li>
+</ul>
+
+<h2 id="三总结">三、总结</h2>
+
+<p>本文我们以「非凡科技有限公司」为例，介绍了如何将一棵组织机构树转换成一组嵌套、有层次的 Group。通过 Authing 提供的分组角色权限管理 API，可以为 Group 配置角色、指派成员，使得该 Group 中的用户继承所需的权限，从而完成组织机构建模与权限控制。</p>
+
+<h3 id="关于-authing">关于 Authing</h3>
+
+<p><img src="https://cdn.authing.cn/blog/20200205182918.png" alt="" />Authing 是中国领先的 IDaaS 服务提供商，对标美国独角兽 Auth0。创始团队来自字节跳动、百度、IBM、阿里云、滴滴出行等互联网企业。Authing 提供开发者友好、易拓展的身份认证和授权平台，赋能企业在云端管理身份，主要功能包括：单点登录、用户分析、扫码登录、多因素认证、行为审计、风险控制、跨平台设备管理、IoT 身份认证等；兼容国际各类标准协议：OAuth2.0、OIDC、SAML、AD/LDAP、WS-Fed、JWT 等。 支持云交付和私有化部署方式，帮助企业和开发者千倍级提升生产效率。</p>
+
+<p>Authing 自上线以来已经服务海内外超过 3000 名企业开发者、拥有约 50 万的开发者社区和托管数百万终端用户，每月百万人次通过 Authing 平台进行认证，并已经服务数十家付费企业客户，覆盖教育、人工智能、出版社、 物联网等多个行业。</p>
+                
+			</article>
+			
+			<!-- Tags -->
+			<div class="mb-4">
+				<span class="taglist">
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#rbac">rbac</a>
+				
+				</span>
+			</div>
+ 
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+							
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+							
+							
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+							
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            
+            
+             <!-- Author Box -->
+                				
+				<div class="row mt-5">
+					<div class="col-md-2 align-self-center">
+                         
+                        <img class="rounded-circle" src="/blog//assets/images/avatar2.jpg" alt="廖长江" width="90"/>
+                         
+					</div>
+					<div class="col-md-10">		
+                        <h5 class="font-weight-bold">Written by 廖长江 <span><a target="_blank" href="https://twitter.com/wowthemesnet" class="btn btn-outline-success btn-sm btn-round ml-2">Follow</a></span></h5>
+						Blogger, fashionista, love to explore new ideas and write on my morning coffee!					
+					</div>
+				</div>				
+                
+            
+            <!-- Comments -->
+            
+                <!--  Don't edit anything here. Set your disqus id in _config.yml -->
+
+<div id="comments" class="mt-5">
+    <div id="disqus_thread">
+    </div>
+    <script type="text/javascript">
+        var disqus_shortname = 'Authing 博客'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+</div>
+            
+            
+		</div>
+        
+        
+	</div>
+</div>
+
+
+<!-- Aletbar Prev/Next -->
+<div class="alertbar">
+    <div class="container">
+        <div class="row prevnextlinks small font-weight-bold">
+          
+            <div class="col-md-6 rightborder pl-0">
+                <a class="text-dark" href="/blog/a-intro-about-authing-to-everyone/"> <img height="30px" class="mr-1" src="/blog/https://cdn.authing.cn/blog/20200205191445.png?1=://">  一份所有人都能理解的关于 Authing 的介绍</a>
+            </div>
+          
+          
+        </div>
+	</div>
 </div>
     </main>
 

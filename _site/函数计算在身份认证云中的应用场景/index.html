@@ -4,20 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jane | Authing 官方博客</title>
+    <title>函数计算在身份认证云中的应用场景 | Authing 官方博客</title>
 
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Jane | Authing 官方博客</title>
+<title>函数计算在身份认证云中的应用场景 | Authing 官方博客</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Jane" />
+<meta property="og:title" content="函数计算在身份认证云中的应用场景" />
+<meta name="author" content="sal" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。" />
-<meta property="og:description" content="Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。" />
-<link rel="canonical" href="http://localhost:4000/blog/author-jane.html" />
-<meta property="og:url" content="http://localhost:4000/blog/author-jane.html" />
+<meta name="description" content="Authing 用来做用户验证，函数计算用来处理具体的逻辑，非常完美的搭配。" />
+<meta property="og:description" content="Authing 用来做用户验证，函数计算用来处理具体的逻辑，非常完美的搭配。" />
+<link rel="canonical" href="http://localhost:4000/blog/%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E5%9C%A8%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%BA%91%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/" />
+<meta property="og:url" content="http://localhost:4000/blog/%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E5%9C%A8%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%BA%91%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/" />
 <meta property="og:site_name" content="Authing 官方博客" />
+<meta property="og:image" content="http://img.staryu.cn/20190814-01.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-08-16T00:00:00+08:00" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/blog/author-jane.html","headline":"Jane","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"}},"description":"Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。","@type":"WebPage","@context":"http://schema.org"}</script>
+{"url":"http://localhost:4000/blog/%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E5%9C%A8%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%BA%91%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/","headline":"函数计算在身份认证云中的应用场景","dateModified":"2019-08-16T00:00:00+08:00","datePublished":"2019-08-16T00:00:00+08:00","image":"http://img.staryu.cn/20190814-01.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"},"name":"sal"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E5%9C%A8%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%BA%91%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/"},"author":{"@type":"Person","name":"sal"},"description":"Authing 用来做用户验证，函数计算用来处理具体的逻辑，非常完美的搭配。","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -115,7 +119,7 @@ var documents = [{
     "id": 2,
     "url": "http://localhost:4000/blog/author-jane.html",
     "title": "Jane",
-    "body": "                        Jane Follow:                                                    Posts by Jane:               "
+    "body": "                        {{page. title}} Follow:         {{ site. authors. jane. site }}         {{ site. authors. jane. bio }}                                   Posts by {{page. title}}:       {% assign posts = site. posts | where: author , jane  %}      {% for post in posts %}      {% include main-loop-card. html %}      {% endfor %}  "
     }, {
     "id": 3,
     "url": "http://localhost:4000/blog/author-sal.html",
@@ -298,24 +302,211 @@ function lunr_search(term) {
 
     <!-- Content -->
     <main role="main" class="site-content">
-        <div class="container">
-<div class="row justify-content-center">
-    <div class="col-md-8">        
-        <div class="row align-items-center mb-5">
-            <div class="col-md-9">
-                <h2 class="font-weight-bold">Jane <span class="small btn btn-outline-success btn-sm btn-round"><a href="">Follow</a></span></h2>
-                <p><a href=""></a></p>
-                <p class="excerpt"></p>
-            </div>
-            <div class="col-md-3 text-right">
-                <img alt="" src="/blog/" class="rounded-circle" height="100" width="100">
-            </div>
-        </div>
-        <h4 class="font-weight-bold spanborder"><span>Posts by Jane</span></h4>
-            
-            
-    </div>
+        
+
+<div class="container">
+<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+		<div class="h-100 tofront">
+			<div class="row  justify-content-between ">
+				<div class=" col-md-6  pr-0 pr-md-4 pt-4 pb-4 align-self-center">
+					<p class="text-uppercase font-weight-bold">
+                        <span class="catlist">
+						
+                          <a class="sscroll text-danger" href="/blog/CATEGORIES.html#developers">developers</a><span class="sep">, </span>
+                        
+                          <a class="sscroll text-danger" href="/blog/CATEGORIES.html#tutorial">tutorial</a><span class="sep">, </span>
+                        
+                        </span>
+					</p>
+					<h1 class="display-4 mb-4 article-headline">函数计算在身份认证云中的应用场景</h1>
+					<div class="d-flex align-items-center">
+                        
+						<small class="ml-3">  <span><a target="_blank" href="" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Aug 16, 2019 · <span class="reading-time">
+  
+  
+    1 min read
+  
+</span>
+    </span>
+						</small>
+					</div>
+				</div>
+                
+				<div class="col-md-6 pr-0 align-self-center">
+					<img class="rounded" src="http://img.staryu.cn/20190814-01.jpg" alt="函数计算在身份认证云中的应用场景">
+				</div>
+                
+			</div>
+		</div>
+	</div>
 </div>
+
+
+
+
+
+<div class="container-lg pt-4 pb-4">
+	<div class="row justify-content-center">
+        
+        
+        <!-- Share -->
+		<div class="col-lg-2 pr-4 mb-4 col-md-12">
+			<div class="sticky-top sticky-top-offset text-center">
+				<div class="text-muted">
+					Share this
+				</div>
+				<div class="share d-inline-block">
+					<!-- AddToAny BEGIN -->
+					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+					</div>
+					<script async src="https://static.addtoany.com/menu/page.js"></script>
+					<!-- AddToAny END -->
+				</div>
+			</div>
+		</div>
+        
+        
+		<div class="col-md-12 col-lg-8">
+            
+            <!-- Article -->
+			<article class="article-post">                
+			<p>Authing 用来做用户验证，函数计算用来处理具体的逻辑，非常完美的搭配。</p>
+
+<p>越来越多的企业接受身份认证上云后，Authing 也承接了越来越多「用户迁移」需求，在用户迁移的过程中，最重要的一点是「终端用户必须无感知」，而无感知主要有以下两点要求：</p>
+
+<ol>
+  <li>用户不需要修改密码；</li>
+  <li>完成切换后，用户的所有数据都能正常访问且具备相应的访问权限；</li>
+</ol>
+
+<p>在一个用户系统中，用户的密码通常情况下都会加密存储在数据库中，这个加密算法一般是不可逆的，同时可以由一个函数完成，因此将函数计算应用在身份认证云中就能满足第一个要求。</p>
+
+<p>首先我们看一下什么是函数计算：</p>
+
+<blockquote>
+  <p>通过函数计算，您无需管理服务器等基础设施，只需编写代码并上传。函数计算会为您准备好计算资源，以弹性、可靠的方式运行您的代码，并提供日志查询、性能监控、报警等功能。借助于函数计算，您可以快速构建任何类型的应用和服务，无需管理和运维。而且，您只需要为代码实际运行所消耗的资源付费，代码未运行则不产生费用。
+阿里云 - 函数计算
+简单来说，函数计算让程序员不需要再管理服务器，只需要上传代码，后台的云就可以帮你自动按需分配资源，这将极大释放程序员的生产力。</p>
+</blockquote>
+
+<p>函数计算非常适合解决身份认证云中自定义密码加密的问题，以下是应用了函数计算后，用户注册的流程图：</p>
+
+<p><img src="http://img.staryu.cn/20190814-02.jpg" alt="" /></p>
+
+<p>以下是用户登录的流程图：</p>
+
+<p><img src="http://img.staryu.cn/20190814-03.jpg" alt="" /></p>
+
+<p>以上流程图是一个简化版，只展示了几个比较核心的步骤。</p>
+
+<p>从开发者的角度来说，我们希望开发者只需要上传一个 index.js 文件就可以自定义密码的加密方式。如果开发者需要引入第三方包，那么仅需要将引入的 node_modules 打包为 .zip 上传即可。上传完成后，Authing 会取得一个可通过 HTTP 调用的网址，此网址不会公布给任何第三方，同时每个网址都会有独特的验证方式，最大限度的保证安全。</p>
+
+<p><img src="http://img.staryu.cn/20190814-04.jpg" alt="" /></p>
+
+<p>在 Authing 控制台中依次点击基础配置 -&gt; 密码管理即可自定义密码加密方法</p>
+
+<h1 id="其他场景">其他场景</h1>
+
+<p>除了自定义密码加密外，函数计算可以很好的和 Authing 配合，帮助开发者在后端十分容易的完成用户 Token 的验证。此外，在实际场景下，若开发者接受全部上云，完全可以基于 Authing + 函数计算完成所有业务流程：Authing 用来做用户验证，函数计算用来处理具体的逻辑，非常完美的搭配。</p>
+                
+			</article>
+			
+			<!-- Tags -->
+			<div class="mb-4">
+				<span class="taglist">
+				
+				</span>
+			</div>
+ 
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+							
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+							
+							
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+							
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            
+            
+             <!-- Author Box -->
+                				
+				<div class="row mt-5">
+					<div class="col-md-2 align-self-center">
+                          
+					</div>
+					<div class="col-md-10">		
+                        <h5 class="font-weight-bold">Written by  </h5>
+											
+					</div>
+				</div>				
+                
+            
+            <!-- Comments -->
+            
+                <!--  Don't edit anything here. Set your disqus id in _config.yml -->
+
+<div id="comments" class="mt-5">
+    <div id="disqus_thread">
+    </div>
+    <script type="text/javascript">
+        var disqus_shortname = 'Authing 博客'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+</div>
+            
+            
+		</div>
+        
+        
+	</div>
+</div>
+
+
+<!-- Aletbar Prev/Next -->
+<div class="alertbar">
+    <div class="container">
+        <div class="row prevnextlinks small font-weight-bold">
+          
+            <div class="col-md-6 rightborder pl-0">
+                <a class="text-dark" href="/blog/%E8%B5%B0%E8%BF%9B%E8%BA%AB%E4%BB%BD%E7%AE%A1%E7%90%86/"> <img height="30px" class="mr-1" src="/blog/http://img.staryu.cn/20190609-01.jpg">  走进身份管理</a>
+            </div>
+          
+          
+            <div class="col-md-6 text-right pr-0">
+                <a class="text-dark" href="/blog/%E5%B0%86%E5%86%85%E5%AE%B9%E7%9C%8B%E4%BD%9C%E6%96%B0%E7%9A%84%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BDCaaS/"> 将内容看作新的基础设施：Content as a Service  <img height="30px" class="ml-1" src="/blog/assets/images/2.jpg"> </a>
+            </div>
+          
+        </div>
+	</div>
 </div>
     </main>
 

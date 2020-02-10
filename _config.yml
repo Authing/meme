@@ -4,7 +4,7 @@ description: 'Authing 为个人和企业提供安全的云端身份认证服务�
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
 baseurl: '/blog'
-disqus: 'demowebsite'
+disqus: 'Authing 博客'
 email: 'services@authing.cn'
 mailchimp-list: ''
 
@@ -41,7 +41,15 @@ authors:
       avatar:         /assets/images/avatar2.jpg
       bio:            "Blogger, fashionista, love to explore new ideas and write on my morning coffee!"
       email:          fakemail@gmail.com
-      twitter:        https://twitter.com/wowthemesnet      
+      twitter:        https://twitter.com/wowthemesnet   
+      
+    duxinshuai:
+      name:           杜新帅
+      site:           https://www.wowthemes.net
+      avatar:         /assets/images/avatar2.jpg
+      bio:            "Blogger, fashionista, love to explore new ideas and write on my morning coffee!"
+      email:          fakemail@gmail.com
+      twitter:        https://twitter.com/wowthemesnet  
  
 # Defaults
 defaults:
@@ -66,8 +74,6 @@ highlighter: rouge
 
 # Paginate
 paginate: 10
-
-
 
 # Exclude metadata and development time dependencies (like Grunt plugins)
 exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]

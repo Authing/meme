@@ -2,6 +2,7 @@
 layout: default
 ---
 {% assign author = site.authors[page.author] %}
+
 <div class="container">
 <div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
 		<div class="h-100 tofront">
@@ -9,8 +10,8 @@ layout: default
 				<div class="{% if page.image %} col-md-6 {% else %} col-md-8 {% endif %} pr-0 pr-md-4 pt-4 pb-4 align-self-center">
 					<p class="text-uppercase font-weight-bold">
                         <span class="catlist">
-						{% for category in page.categories %}
-                          <a class="sscroll text-danger" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category | downcase }}</a><span class="sep">, </span>
+						{% for category in page.CATEGORIES %}
+                          <a class="sscroll text-danger" href="{{site.baseurl}}/CATEGORIES.html#{{ category | downcase }}">{{ category | downcase }}</a><span class="sep">, </span>
                         {% endfor %}
                         </span>
 					</p>
@@ -147,5 +148,5 @@ layout: default
             </div>
           {% endif %}
         </div>
-    </div>
+	</div>
 </div>

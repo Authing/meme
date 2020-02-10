@@ -1,5 +1,5 @@
 <div class="sticky-top sticky-top-offset">
-    <h4 class="font-weight-bold spanborder"><span>Featured</span></h4>  
+    <h4 class="font-weight-bold spanborder"><span>featured</span></h4>  
     <ol class="list-featured">				
         {% for post in site.tags.featured %}                
             <li class="mb-4">
@@ -9,8 +9,8 @@
                 </h6>
                 <span class="d-block text-muted">
                     In <span class="catlist">
-                    {% for category in post.categories %}
-                    <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
+                    {% for category in post.CATEGORIES %}
+                    <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/CATEGORIES.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
                     {% endfor %}
                     </span>
                 </span>

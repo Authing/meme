@@ -33,8 +33,8 @@ description: "Authing 为个人和企业提供安全的云端身份认证服务�
     <div>
         <small class="d-block text-muted">
             In <span class="catlist">
-                {% for category in latest_post.categories %}
-                <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
+                {% for category in latest_post.CATEGORIES %}
+                <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/CATEGORIES.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
                 {% endfor %}
                 </span>                   
         </small>
@@ -64,8 +64,8 @@ description: "Authing 为个人和企业提供安全的云端身份认证服务�
                     </h2>
                     <small class="d-block text-muted">
                         In <span class="catlist">
-                        {% for category in second_post.categories %}
-                        <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
+                        {% for category in second_post.CATEGORIES %}
+                        <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/CATEGORIES.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
                         {% endfor %}
                         </span>                   
                     </small>
@@ -91,8 +91,8 @@ description: "Authing 为个人和企业提供安全的云端身份认证服务�
                     </h2>
                     <small class="d-block text-muted">
                         In <span class="catlist">
-                        {% for category in third_post.categories %}
-                        <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
+                        {% for category in third_post.CATEGORIES %}
+                        <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/CATEGORIES.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
                         {% endfor %}
                         </span>                   
                     </small>
@@ -118,8 +118,8 @@ description: "Authing 为个人和企业提供安全的云端身份认证服务�
                     </h2>
                     <small class="d-block text-muted">
                         In <span class="catlist">
-                        {% for category in fourth_post.categories %}
-                        <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
+                        {% for category in fourth_post.CATEGORIES %}
+                        <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/CATEGORIES.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
                         {% endfor %}
                         </span>                   
                     </small>
@@ -144,9 +144,9 @@ description: "Authing 为个人和企业提供安全的云端身份认证服务�
                 <p class="mb-3 lead">
                     {{ post.excerpt | strip_html | strip_newlines | truncate: 136 }}
                 </p>
-                <a href="{{site.baseurl}}{{post.url}}" class="btn btn-dark">Read More</a>
+                <a href="{{site.baseurl}}{{post.url}}" class="btn btn-dark">阅读更多</a>
             </div>
-            <div class="col-md-6 d-none d-md-block pr-0" style="background-size:cover;background-image:url({{site.baseurl}}/{{ post.image }});">	
+            <div class="col-md-6 d-none d-md-block pr-0" style="background-size:cover;background-image:url({{ post.image }});">	
             </div>
         </div>
     </div>
@@ -168,7 +168,7 @@ description: "Authing 为个人和企业提供安全的云端身份认证服务�
    
     <div class="col-md-8 main-loop">
         
-        <h4 class="font-weight-bold spanborder"><span>All Stories</span></h4>
+        <h4 class="font-weight-bold spanborder"><span>所有文章</span></h4>
         
 
         {% for post in paginator.posts %}

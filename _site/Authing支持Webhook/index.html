@@ -4,20 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jane | Authing 官方博客</title>
+    <title>Authing 支持 Webhook | Authing 官方博客</title>
 
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Jane | Authing 官方博客</title>
+<title>Authing 支持 Webhook | Authing 官方博客</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Jane" />
+<meta property="og:title" content="Authing 支持 Webhook" />
+<meta name="author" content="sal" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。" />
-<meta property="og:description" content="Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。" />
-<link rel="canonical" href="http://localhost:4000/blog/author-jane.html" />
-<meta property="og:url" content="http://localhost:4000/blog/author-jane.html" />
+<meta name="description" content="Webhooks 允许你对用户注册、登录等行为进行监听，从而对其做一些自定义处理。" />
+<meta property="og:description" content="Webhooks 允许你对用户注册、登录等行为进行监听，从而对其做一些自定义处理。" />
+<link rel="canonical" href="http://localhost:4000/blog/Authing%E6%94%AF%E6%8C%81Webhook/" />
+<meta property="og:url" content="http://localhost:4000/blog/Authing%E6%94%AF%E6%8C%81Webhook/" />
 <meta property="og:site_name" content="Authing 官方博客" />
+<meta property="og:image" content="http://localhost:4000/blog/assets/images/4.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-06-04T00:00:00+08:00" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/blog/author-jane.html","headline":"Jane","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"}},"description":"Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。","@type":"WebPage","@context":"http://schema.org"}</script>
+{"url":"http://localhost:4000/blog/Authing%E6%94%AF%E6%8C%81Webhook/","headline":"Authing 支持 Webhook","dateModified":"2019-06-04T00:00:00+08:00","datePublished":"2019-06-04T00:00:00+08:00","image":"http://localhost:4000/blog/assets/images/4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"},"name":"sal"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/Authing%E6%94%AF%E6%8C%81Webhook/"},"author":{"@type":"Person","name":"sal"},"description":"Webhooks 允许你对用户注册、登录等行为进行监听，从而对其做一些自定义处理。","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -115,7 +119,7 @@ var documents = [{
     "id": 2,
     "url": "http://localhost:4000/blog/author-jane.html",
     "title": "Jane",
-    "body": "                        Jane Follow:                                                    Posts by Jane:               "
+    "body": "                        {{page. title}} Follow:         {{ site. authors. jane. site }}         {{ site. authors. jane. bio }}                                   Posts by {{page. title}}:       {% assign posts = site. posts | where: author , jane  %}      {% for post in posts %}      {% include main-loop-card. html %}      {% endfor %}  "
     }, {
     "id": 3,
     "url": "http://localhost:4000/blog/author-sal.html",
@@ -298,24 +302,345 @@ function lunr_search(term) {
 
     <!-- Content -->
     <main role="main" class="site-content">
-        <div class="container">
-<div class="row justify-content-center">
-    <div class="col-md-8">        
-        <div class="row align-items-center mb-5">
-            <div class="col-md-9">
-                <h2 class="font-weight-bold">Jane <span class="small btn btn-outline-success btn-sm btn-round"><a href="">Follow</a></span></h2>
-                <p><a href=""></a></p>
-                <p class="excerpt"></p>
-            </div>
-            <div class="col-md-3 text-right">
-                <img alt="" src="/blog/" class="rounded-circle" height="100" width="100">
-            </div>
-        </div>
-        <h4 class="font-weight-bold spanborder"><span>Posts by Jane</span></h4>
-            
-            
-    </div>
+        
+
+<div class="container">
+<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+		<div class="h-100 tofront">
+			<div class="row  justify-content-between ">
+				<div class=" col-md-6  pr-0 pr-md-4 pt-4 pb-4 align-self-center">
+					<p class="text-uppercase font-weight-bold">
+                        <span class="catlist">
+						
+                          <a class="sscroll text-danger" href="/blog/CATEGORIES.html#developers">developers</a><span class="sep">, </span>
+                        
+                          <a class="sscroll text-danger" href="/blog/CATEGORIES.html#tutorial">tutorial</a><span class="sep">, </span>
+                        
+                        </span>
+					</p>
+					<h1 class="display-4 mb-4 article-headline">Authing 支持 Webhook</h1>
+					<div class="d-flex align-items-center">
+                        
+						<small class="ml-3">  <span><a target="_blank" href="" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Jun 04, 2019 · <span class="reading-time">
+  
+  
+    1 min read
+  
+</span>
+    </span>
+						</small>
+					</div>
+				</div>
+                
+				<div class="col-md-6 pr-0 align-self-center">
+					<img class="rounded" src="/blog/assets/images/4.jpg" alt="Authing 支持 Webhook">
+				</div>
+                
+			</div>
+		</div>
+	</div>
 </div>
+
+
+
+
+
+<div class="container-lg pt-4 pb-4">
+	<div class="row justify-content-center">
+        
+        
+        <!-- Share -->
+		<div class="col-lg-2 pr-4 mb-4 col-md-12">
+			<div class="sticky-top sticky-top-offset text-center">
+				<div class="text-muted">
+					Share this
+				</div>
+				<div class="share d-inline-block">
+					<!-- AddToAny BEGIN -->
+					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+					</div>
+					<script async src="https://static.addtoany.com/menu/page.js"></script>
+					<!-- AddToAny END -->
+				</div>
+			</div>
+		</div>
+        
+        
+		<div class="col-md-12 col-lg-8">
+            
+            <!-- Article -->
+			<article class="article-post">                
+			<p>Webhooks 允许你对用户注册、登录等行为进行监听，从而对其做一些自定义处理。</p>
+
+<p>使用 Webhook 的方法是在 Authing 平台中配置 HTTP URL，当你的用户登录、注册、修改密码后，都会给远程 HTTP URL 发送一个 POST 请求。</p>
+
+<p>使用 Webhook 的方法是在 Authing 平台中配置 HTTP URL，当你的用户登录、注册、修改密码后，都会给远程 HTTP URL 发送一个 POST 请求。</p>
+
+<h2 id="配置-webhook">配置 Webhook</h2>
+
+<p><img src="http://img.staryu.cn/20190604-01.jpg" alt="" /></p>
+
+<p>点击页面的「添加」按钮即可开始配置，如下图所示：</p>
+
+<p><img src="http://img.staryu.cn/20190604-02.jpg" alt="" /></p>
+
+<h2 id="参数解释">参数解释</h2>
+<p><img src="http://img.staryu.cn/20190604-03.jpg" alt="" /></p>
+
+<h2 id="管理-webhook">管理 Webhook</h2>
+
+<p>在创建完 Webhook 之后可以看到详细的事件记录：
+<img src="http://img.staryu.cn/20190604-04.jpg" alt="" /></p>
+
+<p>刚创建好的 Hook 请求事件都为空，这时你可以点击「测试」触发一个「测试事件」
+<img src="http://img.staryu.cn/20190604-05.jpg" alt="" /></p>
+
+<p>测试成功后你将看到详细的请求信息和返回信息。</p>
+
+<h2 id="调试-webhook">调试 Webhook</h2>
+
+<p>调试 Webhook 的方法如下图所示：</p>
+
+<p><img src="http://img.staryu.cn/20190604-06.jpg" alt="" /></p>
+
+<p>点击后将发送一个 Post 请求到配置好的 HTTP URL 中。</p>
+
+<p>请求数据为：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+ "description": "A test from Authing Webhook"
+}
+</code></pre></div></div>
+
+<h2 id="支持的事件">支持的事件</h2>
+
+<h3 id="事件列表">事件列表</h3>
+<p><img src="http://img.staryu.cn/20190604-07.jpg" alt="" /></p>
+
+<h3 id="请求类型">请求类型</h3>
+
+<p>指定发起 Webhook 请求时 Request body 的数据格式，可选值有 application/json 和 application/x-www-form-urlencoded</p>
+
+<h3 id="附带的数据">附带的数据</h3>
+
+<p>每一个事件都会携带一些特定的请求参数。</p>
+
+<h3 id="request-headers">Request headers</h3>
+
+<p>我们会在 HTTP POST 头中携带一些自定义头信息，如下表所示：
+<img src="http://img.staryu.cn/20190604-08.jpg" alt="" /></p>
+
+<h3 id="request-body">Request body</h3>
+
+<p>请求体中也会携带一些特定参数
+<img src="http://img.staryu.cn/20190604-09.jpg" alt="" /></p>
+
+<h3 id="request-示例">Request 示例</h3>
+
+<p><strong>headers</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "Accept": "application/json, text/plain, */*",
+  "Content-Type": "application/json; charset=UTF-8",
+  "User-Agent": "authing-hook",
+  "X-Authing-Token": "",
+  "X-Authing-Event": "login",
+  "Content-Length": 337
+}
+</code></pre></div></div>
+
+<p><strong>Login Event Body</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "success": 1,
+  "message": "密码修改成功",
+  "executed_at": 1559453952531,
+  "params": {
+      "_id": "5cf3608753c403913e81f74b",
+      "password": "+5NllFUKNK/AgyJPd7QNfO7kH1x8J9L7S65NQh/n5TzgcwaveLg=",
+      "registerInClient": "59f86b4832eb28071bdd9214"
+  },
+  "emit_by": {
+      "_id": "5c00a5fbec1083000f5b27d4",
+      "username": "",
+      "email": "xieyang@dodora.cn",
+      "phone": ""
+  }
+}
+</code></pre></div></div>
+
+<p><strong>Register Event Body</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "success": 1,
+  "message": "注册成功",
+  "executedAt": 1559453155297,
+  "params": {
+      "_id": "590cd6b4832eb28071bdd9251"
+      "email": "example@example.com",
+      "password": "30f049f7ae9386d2ac2c203f5c4319a5",
+      "registerInClient": "59f86b4832eb28071bdd9214",
+      "username": "username",
+      "registerMethod": "default:username-password",
+      "nickname": "",
+      "emailVerified": true
+  }
+}
+</code></pre></div></div>
+
+<p><strong>Change-password Event body</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "success": 1,
+  "message": "注册成功",
+  "executedAt": 1559453831284,
+  "params": {
+      "__v": 0,
+      "email": "example@example2.com",
+      "registerInClient": "59f86b4832eb28071bdd9214",
+      "salt": "fhnli5d0ahoi",
+      "_id": "5cf3608753c403913e81f74b",
+      "updatedAt": "",
+      "country": "",
+      "postalCode": "",
+      "region": "",
+      "locality": "",
+      "streetAddress": "",
+      "formatted": "",
+      "address": "",
+      "locale": "",
+      "zoneinfo": "",
+      "birthdate": "",
+      "gender": "",
+      "website": "",
+      "preferredUsername": "",
+      "profile": "",
+      "middleName": "",
+      "familyName": "",
+      "givenName": "",
+      "name": "",
+      "phoneCode": "",
+      "oauth": "",
+      "isDeleted": false,
+      "blocked": false,
+      "signedUp": "2019-06-02T05:37:11.257Z",
+      "lastLogin": "2019-06-02T05:37:11.257Z",
+      "registerMethod": "default:username-password",
+      "loginsCount": 0,
+      "password": "bdcff42caccb7e2a889bfb490d91e67c",
+      "browser": "",
+      "photo": "https://usercontents.authing.cn/authing-avatar.png",
+      "company": "",
+      "nickname": "",
+      "username": "example2",
+      "phoneVerfified": false,
+      "emailVerified": true,
+      "phone": ""
+  },
+  "emit_by": {
+      "_id": "5c00a5fbec1083000f5b27d4",
+      "username": "root",
+      "email": "xieyang@dodora.cn",
+      "phone": ""
+  }
+}
+</code></pre></div></div>
+                
+			</article>
+			
+			<!-- Tags -->
+			<div class="mb-4">
+				<span class="taglist">
+				
+				</span>
+			</div>
+ 
+            <!-- Mailchimp Subscribe Form -->
+            
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+                            <form action="" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate w-100" target="_blank" novalidate>
+                            <div class="mc-field-group">
+							
+								<input type="email" placeholder="Enter e-mail address" name="EMAIL" class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+							
+							
+								<button type="submit" value="Subscribe" name="subscribe" class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+							
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            
+            
+             <!-- Author Box -->
+                				
+				<div class="row mt-5">
+					<div class="col-md-2 align-self-center">
+                          
+					</div>
+					<div class="col-md-10">		
+                        <h5 class="font-weight-bold">Written by  </h5>
+											
+					</div>
+				</div>				
+                
+            
+            <!-- Comments -->
+            
+                <!--  Don't edit anything here. Set your disqus id in _config.yml -->
+
+<div id="comments" class="mt-5">
+    <div id="disqus_thread">
+    </div>
+    <script type="text/javascript">
+        var disqus_shortname = 'Authing 博客'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+</div>
+            
+            
+		</div>
+        
+        
+	</div>
+</div>
+
+
+<!-- Aletbar Prev/Next -->
+<div class="alertbar">
+    <div class="container">
+        <div class="row prevnextlinks small font-weight-bold">
+          
+            <div class="col-md-6 rightborder pl-0">
+                <a class="text-dark" href="/blog/first-mass-produced/"> <img height="30px" class="mr-1" src="/blog/assets/images/17.jpg">  如何在远程办公中保持高效的研发效率</a>
+            </div>
+          
+          
+            <div class="col-md-6 text-right pr-0">
+                <a class="text-dark" href="/blog/%E8%B5%B0%E8%BF%9B%E8%BA%AB%E4%BB%BD%E7%AE%A1%E7%90%86/"> 走进身份管理  <img height="30px" class="ml-1" src="/blog/http://img.staryu.cn/20190609-01.jpg"> </a>
+            </div>
+          
+        </div>
+	</div>
 </div>
     </main>
 
