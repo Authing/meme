@@ -2,7 +2,7 @@
 layout: post
 title:  "使用 Authing 集成 AWS 服务"
 categories: [ Developers, tutorial ]
-image: assets/images/3.jpg
+image: https://pic3.zhimg.com/80/v2-f511c722b738c7eb1e95d13ca00b9202_hd.jpg
 tags: [featured]
 ---
 Authing 是一个开发者友好、拓展性极高的身份认证云服务，每月有超过 100 万次用户被 Authing 认证和授权。本次分享将介绍如何企业常见的认证授权场景，可以满足中国本地用户对于 Cognito User Pool 的需求，并且提供本地化的服务。同时本文将讲解 Authing 如何与 AWS 各类服务集成，如 Cognito Identity Pool, IAM, S3, Lambda, AD 等等。

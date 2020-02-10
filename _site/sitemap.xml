@@ -5,7 +5,7 @@
 <lastmod>2018-09-15T00:00:00+08:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/blog/first-mass-produced/</loc>
+<loc>http://localhost:4000/blog/%E5%A6%82%E4%BD%95%E5%9C%A8%E8%BF%9C%E7%A8%8B%E5%8A%9E%E5%85%AC%E4%B8%AD%E4%BF%9D%E6%8C%81%E9%AB%98%E6%95%88%E7%9A%84%E7%A0%94%E5%8F%91%E6%95%88%E7%8E%87/</loc>
 <lastmod>2019-02-02T00:00:00+08:00</lastmod>
 </url>
 <url>
@@ -66,9 +66,6 @@
 </url>
 <url>
 <loc>http://localhost:4000/blog/authors-list.html</loc>
-</url>
-<url>
-<loc>http://localhost:4000/blog/buy-me-a-coffee.html</loc>
 </url>
 <url>
 <loc>http://localhost:4000/blog/categories.html</loc>

@@ -2,7 +2,7 @@
 layout: post
 title:  "论文推荐：通过让公民控制自己的数据简化政府流程"
 categories: [ SoLiD ]
-image: https://cdn.authing.cn/blog/tim-berners-lee-solid.jpg
+image: https://inrupt.com/sites/default/files/2018-10/Thomas_explainer.png
 tags: [featured]
 ---
 SoLiD 是一个令人兴奋的新项目，由万维网发明者 Tim Berners-Lee 爵士在麻省理工学院启动。 该项目旨在从根本上改变 Web 应用程序的中心化趋势， 它将真正地让数据所有权属于用户，并改善隐私问题。
