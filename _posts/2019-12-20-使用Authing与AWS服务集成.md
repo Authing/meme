@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "使用 Authing 集成 AWS 服务"
+author: cj
 categories: [ Developers, tutorial ]
 image: https://pic3.zhimg.com/80/v2-f511c722b738c7eb1e95d13ca00b9202_hd.jpg
 tags: [featured]

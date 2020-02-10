@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Authing 支持 Webhook"
-author: sal
+author: ivy
 categories: [ Developers, tutorial ]
 image: assets/images/4.jpg
 ---

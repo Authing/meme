@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "论文推荐：通过让公民控制自己的数据简化政府流程"
+author: ivy
 categories: [ SoLiD ]
 image: https://inrupt.com/sites/default/files/2018-10/Thomas_explainer.png
 tags: [featured]

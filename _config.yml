@@ -21,32 +21,24 @@ authors:
     ivy:
       name:           谢扬
       site:           http://ivydom.com
-      avatar:         /assets/images/avatar1.jpg
-      bio:            "Hi, I am Sal, the author of Mundana, the theme you're currently previewing. I hope you like it!"
+      avatar:         /assets/images/ivy.jpg
+      bio:            "Working for computer technologies that can give new possibilities to science, engineering and art, while benefiting hundreds of millions of people."
       email:          xieyang@authing.cn
       twitter:        http://ivydom.com
 
     cj:
       name:           廖长江
       site:           https://www.wowthemes.net
-      avatar:         /assets/images/avatar2.jpg
-      bio:            "Blogger, fashionista, love to explore new ideas and write on my morning coffee!"
+      avatar:         /assets/images/cj.png
+      bio:            "Web fullstack developer."
       email:          fakemail@gmail.com
       twitter:        https://twitter.com/wowthemesnet
-
-    zuwei:
-      name:           叶祖伟
-      site:           https://www.wowthemes.net
-      avatar:         /assets/images/avatar2.jpg
-      bio:            "Blogger, fashionista, love to explore new ideas and write on my morning coffee!"
-      email:          fakemail@gmail.com
-      twitter:        https://twitter.com/wowthemesnet   
       
     duxinshuai:
       name:           杜新帅
       site:           https://www.wowthemes.net
-      avatar:         /assets/images/avatar2.jpg
-      bio:            "Blogger, fashionista, love to explore new ideas and write on my morning coffee!"
+      avatar:         /assets/images/duxinshuai.png
+      bio:            "Blogger, love to explore new ideas and write on my morning coffee!"
       email:          fakemail@gmail.com
       twitter:        https://twitter.com/wowthemesnet  
  
