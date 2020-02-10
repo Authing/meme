@@ -2,7 +2,7 @@
 layout: post
 title:  "如何在远程办公中保持高效的研发效率"
 author: ivy
-CATEGORIES: [ cultures, tutorial ]
+categories: [ cultures, tutorial ]
 image: assets/images/17.jpg
 ---
 

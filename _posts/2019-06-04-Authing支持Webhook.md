@@ -2,7 +2,7 @@
 layout: post
 title:  "Authing 支持 Webhook"
 author: sal
-CATEGORIES: [ Developers, tutorial ]
+categories: [ Developers, tutorial ]
 image: assets/images/4.jpg
 ---
 Webhooks 允许你对用户注册、登录等行为进行监听，从而对其做一些自定义处理。

@@ -2,7 +2,7 @@
 layout: post
 title:  "一份所有人都能理解的关于 Authing 的介绍"
 author: duxinshuai
-CATEGORIES: [ News, Developers ]
+categories: [ News, Developers ]
 image: https://cdn.authing.cn/blog/20200205191445.png?1=://
 tags: [sticky]
 ---

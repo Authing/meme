@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "论文推荐：通过让公民控制自己的数据简化政府流程"
-CATEGORIES: [ SoLiD ]
+categories: [ SoLiD ]
 image: https://cdn.authing.cn/blog/tim-berners-lee-solid.jpg
 tags: [featured]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "使用 Authing 集成 AWS 服务"
-CATEGORIES: [ Developers, tutorial ]
+categories: [ Developers, tutorial ]
 image: assets/images/3.jpg
 tags: [featured]
 ---

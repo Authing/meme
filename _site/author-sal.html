@@ -51,7 +51,9 @@
     <!-- Navbar -->
     <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="/blog/index.html"><strong>Authing 官方博客</strong></a>
+        <a class="navbar-brand" href="/blog/index.html">
+            <img src="https://usercontents.authing.cn/logo/authing@256x78.png" style="height:34px">
+        </a>
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -63,22 +65,22 @@
     <a class="nav-link" href="/blog/index.html">主页</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="/blog/CATEGORIES.html#developers">开发者</a>
+    <a class="nav-link" href="/blog/categories.html#developers">开发者</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="/blog/CATEGORIES.html#cases">案例</a>
+    <a class="nav-link" href="/blog/categories.html#cases">案例</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="/blog/CATEGORIES.html#cultures">文化</a>
+    <a class="nav-link" href="/blog/categories.html#cultures">文化</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="/blog/CATEGORIES.html#engenering">软件工程</a>
+    <a class="nav-link" href="/blog/categories.html#engenering">软件工程</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="/blog/CATEGORIES.html#news">新闻</a>
+    <a class="nav-link" href="/blog/categories.html#news">新闻</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="/blog/CATEGORIES.html#solid">SoLiD 数据主权</a>
+    <a class="nav-link" href="/blog/categories.html#solid">SoLiD 数据主权</a>
 </li>    
 
 <li class="nav-item">
@@ -133,9 +135,9 @@ var documents = [{
     "body": "Hi! I am Sal, web designer &amp; developer at WowThemes. net. The free items I create are my side projects and Mundana for Jekyll is one of them. You can find all the work I release for free here. You have my permission to use the free items I develop in your personal, commercial or client projects. If you’d like to reward my work, I would be honored and I could dedicate more time maintaining the free projects. Thank you so much! Buy me a coffee "
     }, {
     "id": 6,
-    "url": "http://localhost:4000/blog/CATEGORIES.html",
-    "title": "CATEGORIES",
-    "body": "          CATEGORIES          {% for category in site. CATEGORIES %}     {{ category[0] }}:           {% assign pages_list = category[1] %}    {% for post in pages_list %}    {% if post. title != null %}     {% if group == null or group == post. group %}           {% include main-loop-card. html %}     {% endif %}    {% endif %}    {% endfor %}    {% assign pages_list = nil %}    {% assign group = nil %}    {% endfor %}                  {% include sidebar-featured. html %}          "
+    "url": "http://localhost:4000/blog/categories.html",
+    "title": "categories",
+    "body": "          categories          {% for category in site. categories %}     {{ category[0] }}:           {% assign pages_list = category[1] %}    {% for post in pages_list %}    {% if post. title != null %}     {% if group == null or group == post. group %}           {% include main-loop-card. html %}     {% endif %}    {% endif %}    {% endfor %}    {% assign pages_list = nil %}    {% assign group = nil %}    {% endfor %}                  {% include sidebar-featured. html %}          "
     }, {
     "id": 7,
     "url": "http://localhost:4000/blog/contact.html",
@@ -145,7 +147,7 @@ var documents = [{
     "id": 8,
     "url": "http://localhost:4000/blog/",
     "title": "Authing 官方博客",
-    "body": "  {% if page. url ==  /  %}            {% assign latest_post = site. posts[0] %}          &lt;div class= topfirstimage  style= background-image: url({% if latest_post. image contains  ://  %}{{ latest_post. image }}{% else %} {{site. baseurl}}/{{ latest_post. image}}{% endif %}); height: 200px;  background-size: cover;  background-repeat: no-repeat; &gt;&lt;/div&gt;           {{ latest_post. title }}  :       {{ latest_post. excerpt | strip_html | strip_newlines | truncate: 136 }}               In         {% for category in latest_post. CATEGORIES %}        {{ category }},         {% endfor %}                                {{ latest_post. date | date: '%b %d, %Y' }}                            {%- assign second_post = site. posts[1] -%}                        {% if second_post. image %}                         &lt;img class= w-100  src= {% if second_post. image contains  ://  %}{{ second_post. image }}{% else %}{{ second_post. image | absolute_url }}{% endif %}  alt= {{ second_post. title }} &gt;                        {% endif %}                                    {{ second_post. title }}          :                       In             {% for category in second_post. CATEGORIES %}            {{ category }},             {% endfor %}                                                      {{ second_post. date | date: '%b %d, %Y' }}                                    {%- assign third_post = site. posts[2] -%}                        {% if third_post. image %}                         &lt;img class= w-100  src= {% if third_post. image contains  ://  %}{{ third_post. image }}{% else %}{{site. baseurl}}/{{ third_post. image }}{% endif %}  alt= {{ third_post. title }} &gt;                        {% endif %}                                    {{ third_post. title }}          :                       In             {% for category in third_post. CATEGORIES %}            {{ category }},             {% endfor %}                                                      {{ third_post. date | date: '%b %d, %Y' }}                                    {%- assign fourth_post = site. posts[3] -%}                        {% if fourth_post. image %}                        &lt;img class= w-100  src= {% if fourth_post. image contains  ://  %}{{ fourth_post. image }}{% else %}{{site. baseurl}}/{{ fourth_post. image }}{% endif %}  alt= {{ fourth_post. title }} &gt;                        {% endif %}                                    {{ fourth_post. title }}          :                       In             {% for category in fourth_post. CATEGORIES %}            {{ category }},             {% endfor %}                                                      {{ fourth_post. date | date: '%b %d, %Y' }}                                  {% for post in site. posts %} {% if post. tags contains  sticky  %}                    {{post. title}}                  {{ post. excerpt | strip_html | strip_newlines | truncate: 136 }}                 阅读更多            	             {% endif %}{% endfor %}  {% endif %}                所有文章:         {% for post in paginator. posts %}          {% include main-loop-card. html %}        {% endfor %}                   {% if paginator. total_pages &gt; 1 %}              {% if paginator. previous_page %}        &laquo; Prev       {% else %}        &laquo;       {% endif %}       {% for page in (1. . paginator. total_pages) %}        {% if page == paginator. page %}        {{ page }}        {% elsif page == 1 %}        {{ page }}        {% else %}        {{ page }}        {% endif %}       {% endfor %}       {% if paginator. next_page %}        Next &raquo;       {% else %}        &raquo;       {% endif %}            {% endif %}                     {% include sidebar-featured. html %}      "
+    "body": "  {% if page. url ==  /  %}            {% assign latest_post = site. posts[0] %}          &lt;div class= topfirstimage  style= background-image: url({% if latest_post. image contains  ://  %}{{ latest_post. image }}{% else %} {{site. baseurl}}/{{ latest_post. image}}{% endif %}); height: 200px;  background-size: cover;  background-repeat: no-repeat; &gt;&lt;/div&gt;           {{ latest_post. title }}  :       {{ latest_post. excerpt | strip_html | strip_newlines | truncate: 136 }}               In         {% for category in latest_post. categories %}        {{ category }},         {% endfor %}                                {{ latest_post. date | date: '%b %d, %Y' }}                            {%- assign second_post = site. posts[1] -%}                        {% if second_post. image %}                         &lt;img class= w-100  src= {% if second_post. image contains  ://  %}{{ second_post. image }}{% else %}{{ second_post. image | absolute_url }}{% endif %}  alt= {{ second_post. title }} &gt;                        {% endif %}                                    {{ second_post. title }}          :                       In             {% for category in second_post. categories %}            {{ category }},             {% endfor %}                                                      {{ second_post. date | date: '%b %d, %Y' }}                                    {%- assign third_post = site. posts[2] -%}                        {% if third_post. image %}                         &lt;img class= w-100  src= {% if third_post. image contains  ://  %}{{ third_post. image }}{% else %}{{site. baseurl}}/{{ third_post. image }}{% endif %}  alt= {{ third_post. title }} &gt;                        {% endif %}                                    {{ third_post. title }}          :                       In             {% for category in third_post. categories %}            {{ category }},             {% endfor %}                                                      {{ third_post. date | date: '%b %d, %Y' }}                                    {%- assign fourth_post = site. posts[3] -%}                        {% if fourth_post. image %}                        &lt;img class= w-100  src= {% if fourth_post. image contains  ://  %}{{ fourth_post. image }}{% else %}{{site. baseurl}}/{{ fourth_post. image }}{% endif %}  alt= {{ fourth_post. title }} &gt;                        {% endif %}                                    {{ fourth_post. title }}          :                       In             {% for category in fourth_post. categories %}            {{ category }},             {% endfor %}                                                      {{ fourth_post. date | date: '%b %d, %Y' }}                                  {% for post in site. posts %} {% if post. tags contains  sticky  %}                    {{post. title}}                  {{ post. excerpt | strip_html | strip_newlines | truncate: 136 }}                 阅读更多            	             {% endif %}{% endfor %}  {% endif %}                所有文章:         {% for post in paginator. posts %}          {% include main-loop-card. html %}        {% endfor %}                   {% if paginator. total_pages &gt; 1 %}              {% if paginator. previous_page %}        &laquo; Prev       {% else %}        &laquo;       {% endif %}       {% for page in (1. . paginator. total_pages) %}        {% if page == paginator. page %}        {{ page }}        {% elsif page == 1 %}        {{ page }}        {% else %}        {{ page }}        {% endif %}       {% endfor %}       {% if paginator. next_page %}        Next &raquo;       {% else %}        &raquo;       {% endif %}            {% endif %}                     {% include sidebar-featured. html %}      "
     }, {
     "id": 9,
     "url": "http://localhost:4000/blog/privacy-policy.html",
@@ -165,7 +167,7 @@ var documents = [{
     "id": 12,
     "url": "http://localhost:4000/blog/page2/",
     "title": "Authing 官方博客",
-    "body": "  {% if page. url ==  /  %}            {% assign latest_post = site. posts[0] %}          &lt;div class= topfirstimage  style= background-image: url({% if latest_post. image contains  ://  %}{{ latest_post. image }}{% else %} {{site. baseurl}}/{{ latest_post. image}}{% endif %}); height: 200px;  background-size: cover;  background-repeat: no-repeat; &gt;&lt;/div&gt;           {{ latest_post. title }}  :       {{ latest_post. excerpt | strip_html | strip_newlines | truncate: 136 }}               In         {% for category in latest_post. CATEGORIES %}        {{ category }},         {% endfor %}                                {{ latest_post. date | date: '%b %d, %Y' }}                            {%- assign second_post = site. posts[1] -%}                        {% if second_post. image %}                         &lt;img class= w-100  src= {% if second_post. image contains  ://  %}{{ second_post. image }}{% else %}{{ second_post. image | absolute_url }}{% endif %}  alt= {{ second_post. title }} &gt;                        {% endif %}                                    {{ second_post. title }}          :                       In             {% for category in second_post. CATEGORIES %}            {{ category }},             {% endfor %}                                                      {{ second_post. date | date: '%b %d, %Y' }}                                    {%- assign third_post = site. posts[2] -%}                        {% if third_post. image %}                         &lt;img class= w-100  src= {% if third_post. image contains  ://  %}{{ third_post. image }}{% else %}{{site. baseurl}}/{{ third_post. image }}{% endif %}  alt= {{ third_post. title }} &gt;                        {% endif %}                                    {{ third_post. title }}          :                       In             {% for category in third_post. CATEGORIES %}            {{ category }},             {% endfor %}                                                      {{ third_post. date | date: '%b %d, %Y' }}                                    {%- assign fourth_post = site. posts[3] -%}                        {% if fourth_post. image %}                        &lt;img class= w-100  src= {% if fourth_post. image contains  ://  %}{{ fourth_post. image }}{% else %}{{site. baseurl}}/{{ fourth_post. image }}{% endif %}  alt= {{ fourth_post. title }} &gt;                        {% endif %}                                    {{ fourth_post. title }}          :                       In             {% for category in fourth_post. CATEGORIES %}            {{ category }},             {% endfor %}                                                      {{ fourth_post. date | date: '%b %d, %Y' }}                                  {% for post in site. posts %} {% if post. tags contains  sticky  %}                    {{post. title}}                  {{ post. excerpt | strip_html | strip_newlines | truncate: 136 }}                 阅读更多            	             {% endif %}{% endfor %}  {% endif %}                所有文章:         {% for post in paginator. posts %}          {% include main-loop-card. html %}        {% endfor %}                   {% if paginator. total_pages &gt; 1 %}              {% if paginator. previous_page %}        &laquo; Prev       {% else %}        &laquo;       {% endif %}       {% for page in (1. . paginator. total_pages) %}        {% if page == paginator. page %}        {{ page }}        {% elsif page == 1 %}        {{ page }}        {% else %}        {{ page }}        {% endif %}       {% endfor %}       {% if paginator. next_page %}        Next &raquo;       {% else %}        &raquo;       {% endif %}            {% endif %}                     {% include sidebar-featured. html %}      "
+    "body": "  {% if page. url ==  /  %}            {% assign latest_post = site. posts[0] %}          &lt;div class= topfirstimage  style= background-image: url({% if latest_post. image contains  ://  %}{{ latest_post. image }}{% else %} {{site. baseurl}}/{{ latest_post. image}}{% endif %}); height: 200px;  background-size: cover;  background-repeat: no-repeat; &gt;&lt;/div&gt;           {{ latest_post. title }}  :       {{ latest_post. excerpt | strip_html | strip_newlines | truncate: 136 }}               In         {% for category in latest_post. categories %}        {{ category }},         {% endfor %}                                {{ latest_post. date | date: '%b %d, %Y' }}                            {%- assign second_post = site. posts[1] -%}                        {% if second_post. image %}                         &lt;img class= w-100  src= {% if second_post. image contains  ://  %}{{ second_post. image }}{% else %}{{ second_post. image | absolute_url }}{% endif %}  alt= {{ second_post. title }} &gt;                        {% endif %}                                    {{ second_post. title }}          :                       In             {% for category in second_post. categories %}            {{ category }},             {% endfor %}                                                      {{ second_post. date | date: '%b %d, %Y' }}                                    {%- assign third_post = site. posts[2] -%}                        {% if third_post. image %}                         &lt;img class= w-100  src= {% if third_post. image contains  ://  %}{{ third_post. image }}{% else %}{{site. baseurl}}/{{ third_post. image }}{% endif %}  alt= {{ third_post. title }} &gt;                        {% endif %}                                    {{ third_post. title }}          :                       In             {% for category in third_post. categories %}            {{ category }},             {% endfor %}                                                      {{ third_post. date | date: '%b %d, %Y' }}                                    {%- assign fourth_post = site. posts[3] -%}                        {% if fourth_post. image %}                        &lt;img class= w-100  src= {% if fourth_post. image contains  ://  %}{{ fourth_post. image }}{% else %}{{site. baseurl}}/{{ fourth_post. image }}{% endif %}  alt= {{ fourth_post. title }} &gt;                        {% endif %}                                    {{ fourth_post. title }}          :                       In             {% for category in fourth_post. categories %}            {{ category }},             {% endfor %}                                                      {{ fourth_post. date | date: '%b %d, %Y' }}                                  {% for post in site. posts %} {% if post. tags contains  sticky  %}                    {{post. title}}                  {{ post. excerpt | strip_html | strip_newlines | truncate: 136 }}                 阅读更多            	             {% endif %}{% endfor %}  {% endif %}                所有文章:         {% for post in paginator. posts %}          {% include main-loop-card. html %}        {% endfor %}                   {% if paginator. total_pages &gt; 1 %}              {% if paginator. previous_page %}        &laquo; Prev       {% else %}        &laquo;       {% endif %}       {% for page in (1. . paginator. total_pages) %}        {% if page == paginator. page %}        {{ page }}        {% elsif page == 1 %}        {{ page }}        {% else %}        {{ page }}        {% endif %}       {% endfor %}       {% if paginator. next_page %}        Next &raquo;       {% else %}        &raquo;       {% endif %}            {% endif %}                     {% include sidebar-featured. html %}      "
     }, {
     "id": 13,
     "url": "http://localhost:4000/blog/rbac/",
@@ -325,7 +327,7 @@ function lunr_search(term) {
 	<small class="d-block text-muted">
 		In <span class="catlist">
 		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/CATEGORIES.html#solid">SoLiD</a><span class="sep">, </span>
+		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#solid">SoLiD</a><span class="sep">, </span>
 		
 		</span>
 	</small>
@@ -353,9 +355,9 @@ function lunr_search(term) {
 	<small class="d-block text-muted">
 		In <span class="catlist">
 		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/CATEGORIES.html#developers">Developers</a><span class="sep">, </span>
+		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
 		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/CATEGORIES.html#tutorial">tutorial</a><span class="sep">, </span>
+		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
 		
 		</span>
 	</small>
@@ -383,9 +385,9 @@ function lunr_search(term) {
 	<small class="d-block text-muted">
 		In <span class="catlist">
 		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/CATEGORIES.html#developers">Developers</a><span class="sep">, </span>
+		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
 		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/CATEGORIES.html#tutorial">tutorial</a><span class="sep">, </span>
+		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
 		
 		</span>
 	</small>
@@ -413,9 +415,9 @@ function lunr_search(term) {
 	<small class="d-block text-muted">
 		In <span class="catlist">
 		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/CATEGORIES.html#developers">Developers</a><span class="sep">, </span>
+		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
 		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/CATEGORIES.html#tutorial">tutorial</a><span class="sep">, </span>
+		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
 		
 		</span>
 	</small>
@@ -443,9 +445,9 @@ function lunr_search(term) {
 	<small class="d-block text-muted">
 		In <span class="catlist">
 		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/CATEGORIES.html#developers">Developers</a><span class="sep">, </span>
+		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
 		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/CATEGORIES.html#news">news</a><span class="sep">, </span>
+		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#news">news</a><span class="sep">, </span>
 		
 		</span>
 	</small>
@@ -473,9 +475,9 @@ function lunr_search(term) {
 	<small class="d-block text-muted">
 		In <span class="catlist">
 		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/CATEGORIES.html#developers">Developers</a><span class="sep">, </span>
+		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
 		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/CATEGORIES.html#tutorial">tutorial</a><span class="sep">, </span>
+		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
 		
 		</span>
 	</small>
@@ -511,7 +513,9 @@ function lunr_search(term) {
         <div class="container">
         <div class="row align-items-center justify-content-between">
             <div>
-                <span class="navbar-brand mr-2 mb-0"><strong>Authing</strong></span>
+                <span class="navbar-brand mr-2 mb-0">
+                    <img src="https://usercontents.authing.cn/logo/authing@256x78.png" style="height:34px">
+                </span>
                 <span>Copyright © Authing.cn <script>document.write(new Date().getFullYear())</script>.</span>
 
                 <!--  Github Repo Star Btn-->
