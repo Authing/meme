@@ -6,7 +6,6 @@ favicon: 'assets/images/favicon.ico'
 baseurl: '/blog'
 disqus: 'Authing 博客'
 email: 'services@authing.cn'
-mailchimp-list: ''
 
 include: ["_pages"]
 permalink: /:title/

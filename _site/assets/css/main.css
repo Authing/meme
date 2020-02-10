@@ -6570,7 +6570,7 @@ button.close {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Source Sans Pro", "Segoe UI", "Helvetica Neue", "Arial";
+  font-family: "Segoe UI", "Helvetica Neue", "Arial";
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -6684,7 +6684,7 @@ button.close {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Source Sans Pro", "Segoe UI", "Helvetica Neue", "Arial";
+  font-family: "Segoe UI", "Helvetica Neue", "Arial";
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -12051,7 +12051,6 @@ a.text-dark:hover {
 }
 
 .btn {
-  font-family: Source Sans Pro;
   padding: 0.45rem 1.2rem;
   font-size: 1rem;
   line-height: 1.6;
@@ -12693,9 +12692,16 @@ ol.list-featured li:before {
 }
 
 article {
-  font-family: "sans-serif", "Georgia";
-  font-size: 20px;
+  font-size: 15px;
   line-height: 1.7;
+}
+article h1,
+article h2,
+article h3,
+article h4,
+article h5 {
+  margin-top: 22px;
+  margin-bottom: 22px;
 }
 article p,
 article pre,
@@ -12705,6 +12711,7 @@ article blockquote,
 article iframed,
 article embed {
   margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 article blockquote {
   padding-left: 40px;
