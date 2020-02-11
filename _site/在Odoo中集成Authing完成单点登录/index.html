@@ -4,24 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>为什么身份认证值得上云 | Authing 官方博客</title>
+    <title>案例 | 在 Odoo 中集成 Authing 完成单点登录 | Authing 官方博客</title>
 
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>为什么身份认证值得上云 | Authing 官方博客</title>
+<title>案例 在 Odoo 中集成 Authing 完成单点登录 | Authing 官方博客</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="为什么身份认证值得上云" />
+<meta property="og:title" content="案例 在 Odoo 中集成 Authing 完成单点登录" />
 <meta name="author" content="ivy" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="身份认证云本质上是一种“无服务器”应用，今天，我们就来讨论下这种模式的优点和缺点。如果没有权衡利弊，你或许不会使用身份认证云或其他“无服务器应用”。" />
-<meta property="og:description" content="身份认证云本质上是一种“无服务器”应用，今天，我们就来讨论下这种模式的优点和缺点。如果没有权衡利弊，你或许不会使用身份认证云或其他“无服务器应用”。" />
-<link rel="canonical" href="http://localhost:4000/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E5%80%BC%E5%BE%97%E4%B8%8A%E4%BA%91/" />
-<meta property="og:url" content="http://localhost:4000/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E5%80%BC%E5%BE%97%E4%B8%8A%E4%BA%91/" />
+<meta name="description" content="Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。" />
+<meta property="og:description" content="Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。" />
+<link rel="canonical" href="http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" />
+<meta property="og:url" content="http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" />
 <meta property="og:site_name" content="Authing 官方博客" />
-<meta property="og:image" content="https://inrupt.com/sites/default/files/2019-03/inrupt_blog_green%20track.jpg" />
+<meta property="og:image" content="http://localhost:4000/blog/assets/images/odooxauthing/odooxauthing.webp" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-09-15T00:00:00+08:00" />
+<meta property="article:published_time" content="2020-02-11T00:00:00+08:00" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E5%80%BC%E5%BE%97%E4%B8%8A%E4%BA%91/","headline":"为什么身份认证值得上云","dateModified":"2018-09-15T00:00:00+08:00","datePublished":"2018-09-15T00:00:00+08:00","image":"https://inrupt.com/sites/default/files/2019-03/inrupt_blog_green%20track.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"},"name":"ivy"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E5%80%BC%E5%BE%97%E4%B8%8A%E4%BA%91/"},"author":{"@type":"Person","name":"ivy"},"description":"身份认证云本质上是一种“无服务器”应用，今天，我们就来讨论下这种模式的优点和缺点。如果没有权衡利弊，你或许不会使用身份认证云或其他“无服务器应用”。","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"url":"http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/","headline":"案例 在 Odoo 中集成 Authing 完成单点登录","dateModified":"2020-02-11T00:00:00+08:00","datePublished":"2020-02-11T00:00:00+08:00","image":"http://localhost:4000/blog/assets/images/odooxauthing/odooxauthing.webp","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"},"name":"ivy"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/"},"author":{"@type":"Person","name":"ivy"},"description":"Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -316,15 +316,17 @@ function lunr_search(term) {
                         
                           <a class="sscroll text-danger" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
                         
+                          <a class="sscroll text-danger" href="/blog/categories.html#cases">cases</a><span class="sep">, </span>
+                        
                         </span>
 					</p>
-					<h1 class="display-4 mb-4 article-headline">为什么身份认证值得上云</h1>
+					<h1 class="display-4 mb-4 article-headline">案例 | 在 Odoo 中集成 Authing 完成单点登录</h1>
 					<div class="d-flex align-items-center">
                         
                         <img class="rounded-circle" src="/blog//assets/images/ivy.jpg" alt="谢扬" width="70"/>
                         
 						<small class="ml-3"> 谢扬 <span><a target="_blank" href="http://ivydom.com" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
-                            <span class="text-muted d-block mt-1">Sep 15, 2018 · <span class="reading-time">
+                            <span class="text-muted d-block mt-1">Feb 11, 2020 · <span class="reading-time">
   
   
     1 min read
@@ -336,7 +338,7 @@ function lunr_search(term) {
 				</div>
                 
 				<div class="col-md-6 pr-0 align-self-center">
-					<img class="rounded" src="https://inrupt.com/sites/default/files/2019-03/inrupt_blog_green%20track.jpg" alt="为什么身份认证值得上云">
+					<img class="rounded" src="/blog/assets/images/odooxauthing/odooxauthing.webp" alt="案例 | 在 Odoo 中集成 Authing 完成单点登录">
 				</div>
                 
 			</div>
@@ -386,68 +388,106 @@ function lunr_search(term) {
             
             <!-- Article -->
 			<article class="article-post">                
-			<p>身份认证云本质上是一种“无服务器”应用，今天，我们就来讨论下这种模式的优点和缺点。如果没有权衡利弊，你或许不会使用身份认证云或其他“无服务器应用”。</p>
+			<p>Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。</p>
 
-<p>先看一下“无服务器架构”的介绍：</p>
+<p>Authing 在云上提供适用于 Web、iOS 和 Android 的通用身份认证和授权平台，可以帮助开发者和企业使用全新的方式、最简单的手段解决复杂的用户身份问题。</p>
 
-<p>无服务器架构是包含 BaaS （后端即服务）和 FaaS （函数即服务）的程序开发 /部署方案（但未来远不止如此）。这类结构消除了对传统服务器的管理需求，使用无服务器架构可以显著降低运营成本、复杂性和开发时间。相应的代价是对供应商有更强的依赖性。</p>
+<p>本案例为 Odoo 集成 Authing 在云上实现单点登录的教程。</p>
 
-<p>身份认证云是无服务器架构的一个分支，使用身份认证云和使用无服务器架构拥有一样的好处。</p>
+<h2 id="问题">问题</h2>
 
-<h3 id="减少管理成本">减少管理成本</h3>
+<p>组织需要一套统一的账号体系来管理公司内外部的员工，并且能打通 Odoo；</p>
 
-<p>身份认证云本质上是一种外包解决方案，这种方案就是向某人付费以管理身份认证这个过程。由于一个服务同时被上千人使用，所以会产生一种规模经济效应：你所需支付的费用非常少，因为和其他人共享了基础设施（硬件、网络）。</p>
+<p>除 Odoo 外，还有自研的系统和其他第三方系统；</p>
 
-<p>除了与他人共享基础设施外，你还可以省掉大量的人工成本，不必开发基础设施，从而快速进入核心业务的开发。</p>
+<h2 id="解决方案">解决方案</h2>
 
-<p>如果说 PaaS 是为你解决了硬件和资源层的抽象，那么 Serverless 则是为你解决了软件层的抽象，这样你可以更加专注于市场和产品。</p>
+<p>通过在 Odoo 中配置 OAuth 2.0 集成「使用 Authing 登录」从而完成对 Odoo 的单点登录；</p>
 
-<h3 id="减少开发成本">减少开发成本</h3>
+<p>自研系统直接通过 Authing 的 SDK 集成，将 Authing 作为身份中台向各个业务系统分发身份；</p>
 
-<p>身份认证虽然听上去很简单，但他包括了注册、登录、密码管理、非法探测以及其他登录方式（如 OAuth，小程序扫码），而这些功能在大多数应用中都是相似的。Authing 便是应此而生的，我们希望将现成的身份认证功能集成到应用程序中，而不用每次开一个新项目都去重复开发相似的功能，这不仅浪费资源还浪费时间。</p>
+<h2 id="什么是-oauth-20">什么是 OAuth 2.0</h2>
 
-<p>另一个例子是 BaaS 数据库，如 Firebase。这源于一些团队发现客户端与数据库的连接完全可以从业务中剥离出来。BaaS 不仅消除了大部分数据库管理开销，也提供了 ACL 访问权限机制，这样能保证足够的安全性。</p>
+<p>OAuth 2.0 是目前最流行的授权机制，用来授权第三方应用，获取用户数据。
+这个标准比较抽象，使用了很多术语，初学者不容易理解。其实说起来并不复杂，阮一峰老师讲的非常好，请从这篇文章查看：<a href="http://www.ruanyifeng.com/blog/2019/04/oauth_design.html">http://www.ruanyifeng.com/blog/2019/04/oauth_design.html</a></p>
 
-<p>不可否认的是，没有一家公司仅能靠自己的代码开发出成功的产品。将自己的非核心业务通过云的方式托管到第三方服务上，不失为一个好的选择。</p>
+<h2 id="集成效果">集成效果</h2>
 
-<h3 id="减少伸缩成本">减少伸缩成本</h3>
+<p><img src="/blog/assets/images/odooxauthing/effect.webp" alt="assets/images/odooxauthing/effect.webp" /></p>
 
-<p>无服务器或 FaaS 最大的优势是其无限弹性拓展能力，而这带给你的最大好处是只需要支付所需的计算费用，不用支付为保障弹性伸缩而配置的其他计算资源。假设你在推广一个 APP，当峰值来临的时候，登录接口挂掉，新用户无法注册，这会对你的业务造成致命的打击。而使用 Authing 这种身份认证云的时候，你则完全不用操心，因为系统会在峰值时自动伸缩。</p>
+<p>如上图所示，用户点击「使用 Authing 登录」后跳转到「Authing 登录页面」，从 Authing 登录后跳回到 Odoo 完成登录。</p>
 
-<p><img src="https://usercontents.authing.cn/640.webp" alt="img" /></p>
+<p><img src="/blog/assets/images/odooxauthing/authing-guard.webp" alt="assets/images/odooxauthing/effect.webp" /></p>
 
-<p>上图的红线是你在自己做弹性伸缩时所需要的服务器数量，蓝线是使用 Authing 时所需要的服务器数量，线的高度越低，所需支付的费用就越少。比起闲置的红线，蓝线明显更加绿色节能，这对厂商和消费者来说都是好事。</p>
+<h2 id="集成流程">集成流程</h2>
 
-<blockquote>
-  <p>大公司的服务器集群利用率仅有 5%-15%。
-——福布斯</p>
-</blockquote>
+<h3 id="在-authing-中创建-oauth-应用">在 Authing 中创建 OAuth 应用</h3>
 
-<p>而使用无服务器应用后能显著提高资源利用率。</p>
+<p>如果你还没有 Authing 账号，请到 authing.cn/login 中注册一个账号，注册完成后按照以下流程完成一个 OAuth 应用的创建。</p>
 
-<h3 id="友好强大的管理界面">友好强大的管理界面</h3>
+<p>依次点击<strong>第三方登录</strong> -&gt; <strong>OAuth 应用</strong>  -&gt; <strong>创建 OAuth 应用</strong>开始创建，如下图所示：</p>
 
-<p>合格的的无服务器应用都会配备强大的管理界面，这些界面能让你更容易的管理数据，拥有这些也不需要编写任何代码。</p>
+<p><img src="/blog/assets/images/odooxauthing/oidc.webp" alt="assets/images/odooxauthing/effect.webp" /></p>
 
-<p><img src="https://usercontents.authing.cn/db.webp" alt="img" /></p>
+<p>点击后会弹出如下对话框：</p>
 
-<p>说完了优点，让我们看看缺点。</p>
+<p><img src="/blog/assets/images/odooxauthing/oauth-form.webp" alt="assets/images/odooxauthing/effect.webp" /></p>
 
-<h3 id="缺少控制权">缺少控制权</h3>
+<h4 id="必要参数解释">必要参数解释：</h4>
 
-<p>任何云服务，都有系统停机、成本变化、功能丧失或强制升级等问题（ Authing 自然不会例外），用户在这种情况下只能十分被动的接受。如果处理不及时，可能会造成一定损失。</p>
+<ol>
+  <li><strong>应用名称</strong>，必填，用户会在登录页面看到此应用名称；</li>
+  <li><strong>认证地址</strong>，必填，一个 *.authing.cn 的二级域名，用户将访问此网址进行登录；</li>
+  <li><strong>回调 URL</strong>，必填，回调到开发者自己业务的地址，此处请填写：
+    <ul>
+      <li>http://<您的 Odoo="" 网站域名="">/auth_oauth/oea;http://<您的 Odoo="" 网站域名="">/auth_oauth/signin；</您的></您的></li>
+    </ul>
+  </li>
+  <li><strong>授权模式</strong>，必填，该 OAuth 应用支持的授权模式，此处请勾选「<strong>implicit</strong>」模式：</li>
+</ol>
 
-<h3 id="多租户问题">多租户问题</h3>
+<p>示例：</p>
 
-<p>多租户问题指所有的认证请求都在同一批机器上，可能会引发由于交叉验证而产生的 BUG，这可能会间接影响到其他用户。这些 BUG 包括：安全问题（如一个客户能看到另一个客户的数据）、稳定性问题（一个客户产生的数据错误引发另一个客户的数据发生错误）和性能问题（一个高负载客户导致其他人减速）。</p>
+<p><img src="/blog/assets/images/odooxauthing/oauth-form-sample.webp" alt="assets/images/odooxauthing/effect.webp" /></p>
 
-<h3 id="强依赖性">强依赖性</h3>
+<p>创建完成后会获得应用密钥，如下所示，请保管好此信息。</p>
 
-<p>一旦你长时间使用 Authing，你可能会对 Authing 产生依赖，这时你在升级设计或架构时可能会遇到一些麻烦。</p>
+<p><img src="/blog/assets/images/odooxauthing/oauth-secret.webp" alt="assets/images/odooxauthing/effect.webp" /></p>
 
-<h3 id="总结">总结</h3>
+<h3 id="在-odoo-中配置使用-authing-登录">在 Odoo 中配置「使用 Authing 登录」</h3>
 
-<p>尽管身份认证云如今还不完美（因为他正处于一个青少年时期），但他的魅力已经开始展现。未来几年一定还会取得其他有趣进展，总有一天身份认证上云将会进入我们的架构工具包。</p>
+<p>创建完 Authing 后打开你的 Odoo 网站，依次点击<strong>设置</strong> -&gt; <strong>常规设置</strong> -&gt; <strong>集成</strong>，找到「<strong>OAuth 认证</strong>」后打开此开关，如下图所示：</p>
+
+<p><img src="/blog/assets/images/odooxauthing/odoo-open.webp" alt="assets/images/odooxauthing/effect.webp" /></p>
+
+<p>打开开关后点击「OAuth 服务商」进入配置页面，如下所示：</p>
+
+<p><img src="/blog/assets/images/odooxauthing/odoo-oauth-provider.webp" alt="assets/images/odooxauthing/effect.webp" /></p>
+
+<p>在新页面中填写以下信息：</p>
+
+<ol>
+  <li><strong>服务商名称</strong>，必填，写 Authing 便于标识；</li>
+  <li><strong>客户端 ID</strong>，必填，在 Authing 平台中配置好的应用 ID；</li>
+  <li><strong>允许</strong>，选填，是否启用此服务商，此处请勾选；</li>
+  <li><strong>正文</strong>，必填，显示在 Odoo 网站上登录按钮的文字；</li>
+  <li><strong>身份验证网址</strong>，必填，请填写：https://sso.authing.cn/authorize/</li>
+  <li><strong>作用域</strong>，必填，请填写：user；</li>
+  <li><strong>验证网址</strong>，必填，请填写：https://sso.authing.cn/authenticate/；</li>
+  <li><strong>数据网址</strong>，必填，请填写：https://users.authing.cn/oauth/user/userinfo；</li>
+</ol>
+
+<p><img src="/blog/assets/images/odooxauthing/odoo-oauth-info.webp" alt="assets/images/odooxauthing/effect.webp" /></p>
+
+<p>填写完成并保存后访问 <您的 Odoo="" 网址="">/web/login 可看到网页上出现了「**使用 Authing 登录**」。</您的></p>
+
+<p><img src="/blog/assets/images/odooxauthing/odoo-effect.webp" alt="assets/images/odooxauthing/effect.webp" /></p>
+
+<h2 id="体验登录">体验登录</h2>
+
+<p>访问 <您的 Odoo="" 网址="">/web/login 并点击「**使用 Authing 登录**」即可体验登录。</您的></p>
+
+<p><img src="/blog/assets/images/odooxauthing/odooxauthing.webp" alt="assets/images/odooxauthing/odooxauthing.webp" /></p>
                 
 			</article>
 			
@@ -455,7 +495,7 @@ function lunr_search(term) {
 			<div class="mb-4">
 				<span class="taglist">
 				
-				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#featured">featured</a>
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#odoo">odoo</a>
 				
 				</span>
 			</div>
@@ -513,10 +553,10 @@ function lunr_search(term) {
     <div class="container">
         <div class="row prevnextlinks small font-weight-bold">
           
-          
-            <div class="col-md-6 text-right pr-0">
-                <a class="text-dark" href="/blog/%E5%A6%82%E4%BD%95%E5%9C%A8%E8%BF%9C%E7%A8%8B%E5%8A%9E%E5%85%AC%E4%B8%AD%E4%BF%9D%E6%8C%81%E9%AB%98%E6%95%88%E7%9A%84%E7%A0%94%E5%8F%91%E6%95%88%E7%8E%87/"> 如何在远程办公中保持高效的研发效率  <img height="30px" class="ml-1" src="/blog/https://inrupt.com/sites/default/files/2018-12/inrupt_thankful_blog-08.jpg"> </a>
+            <div class="col-md-6 rightborder pl-0">
+                <a class="text-dark" href="/blog/rbac/"> <img height="30px" class="mr-1" src="/blog/https://inrupt.com/sites/default/files/2018-10/Layer%200%20%281%29_0.png">  RBAC | 组织机构管理最佳实践</a>
             </div>
+          
           
         </div>
 	</div>
