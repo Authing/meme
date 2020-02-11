@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2020-02-11T11:49:59+08:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Authing 官方博客</title><subtitle>Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。</subtitle><entry><title type="html">案例 | 在 Odoo 中集成 Authing 完成单点登录</title><link href="http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" rel="alternate" type="text/html" title="案例 | 在 Odoo 中集成 Authing 完成单点登录" /><published>2020-02-11T00:00:00+08:00</published><updated>2020-02-11T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95</id><content type="html" xml:base="http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">&lt;p&gt;Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2020-02-11T20:24:56+08:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Authing 官方博客</title><subtitle>Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。</subtitle><entry><title type="html">案例 | 在 Odoo 中集成 Authing 完成单点登录</title><link href="http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" rel="alternate" type="text/html" title="案例 | 在 Odoo 中集成 Authing 完成单点登录" /><published>2020-02-11T00:00:00+08:00</published><updated>2020-02-11T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95</id><content type="html" xml:base="http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">&lt;p&gt;Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。&lt;/p&gt;
 
 &lt;p&gt;Authing 在云上提供适用于 Web、iOS 和 Android 的通用身份认证和授权平台，可以帮助开发者和企业使用全新的方式、最简单的手段解决复杂的用户身份问题。&lt;/p&gt;
 
@@ -13,9 +13,10 @@
 
 &lt;h2 id=&quot;解决方案&quot;&gt;解决方案&lt;/h2&gt;
 
-&lt;p&gt;通过在 Odoo 中配置 OAuth 2.0 集成「使用 Authing 登录」从而完成对 Odoo 的单点登录；&lt;/p&gt;
-
-&lt;p&gt;自研系统直接通过 Authing 的 SDK 集成，将 Authing 作为身份中台向各个业务系统分发身份；&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;通过在 Odoo 中配置 OAuth 2.0 集成「使用 Authing 登录」从而完成对 Odoo 的单点登录；&lt;/li&gt;
+  &lt;li&gt;自研系统直接通过 Authing 的 SDK 集成，将 Authing 作为身份中台向各个业务系统分发身份；&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h2 id=&quot;什么是-oauth-20&quot;&gt;什么是 OAuth 2.0&lt;/h2&gt;
 
@@ -98,7 +99,43 @@
 
 &lt;p&gt;访问 &lt;您的 Odoo=&quot;&quot; 网址=&quot;&quot;&gt;/web/login 并点击「**使用 Authing 登录**」即可体验登录。&lt;/您的&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/odooxauthing/odooxauthing.webp&quot; alt=&quot;assets/images/odooxauthing/odooxauthing.webp&quot; /&gt;&lt;/p&gt;</content><author><name>ivy</name></author><category term="odoo" /><summary type="html">Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/blog/assets/images/odooxauthing/odooxauthing.webp" /></entry><entry><title type="html">RBAC | 组织机构管理最佳实践</title><link href="http://localhost:4000/blog/rbac/" rel="alternate" type="text/html" title="RBAC | 组织机构管理最佳实践" /><published>2020-02-05T00:00:00+08:00</published><updated>2020-02-05T00:00:00+08:00</updated><id>http://localhost:4000/blog/rbac</id><content type="html" xml:base="http://localhost:4000/blog/rbac/">&lt;p&gt;在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/assets/images/odooxauthing/odooxauthing.webp&quot; alt=&quot;assets/images/odooxauthing/odooxauthing.webp&quot; /&gt;&lt;/p&gt;</content><author><name>ivy</name></author><category term="odoo" /><summary type="html">Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/blog/assets/images/odooxauthing/odooxauthing.webp" /></entry><entry><title type="html">Geek Talk 036：Serverless 的前景和机会</title><link href="http://localhost:4000/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/" rel="alternate" type="text/html" title="Geek Talk 036：Serverless 的前景和机会" /><published>2020-02-10T00:00:00+08:00</published><updated>2020-02-10T00:00:00+08:00</updated><id>http://localhost:4000/blog/GeekTalk036Serverless%20%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A</id><content type="html" xml:base="http://localhost:4000/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">&lt;p&gt;本次与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。&lt;/p&gt;
+
+&lt;h2 id=&quot;主题serverless-的前景和机会&quot;&gt;主题：Serverless 的前景和机会&lt;/h2&gt;
+
+&lt;p&gt;简介：Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。&lt;/p&gt;
+
+&lt;p&gt;时间：2月13日 19:00 - 21:00&lt;/p&gt;
+
+&lt;p&gt;地点：&lt;strong&gt;线上视频会议&lt;/strong&gt;，报名确认后，邮件和微信通知视频入口。&lt;/p&gt;
+
+&lt;p&gt;邮件发送详细地址，请确保邮箱地址和 &lt;strong&gt;微信ID&lt;/strong&gt; 正确&lt;/p&gt;
+
+&lt;p&gt;人数：30人&lt;/p&gt;
+
+&lt;p&gt;嘉宾：谢扬&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200211201759.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;蒸汽记忆创始人，SoLiD 中文社区（learnsolid.cn）发起人，连续创业者。&lt;/p&gt;
+
+&lt;p&gt;曾任职字节跳动 LarkCloud 云服务部门核心 Hacker，负责⽇活过亿 Serverless 平台产品设计和技术研发，该平台支撑来头条系全产品矩阵：今日头条、抖音、西瓜视频、飞书等。&lt;/p&gt;
+
+&lt;p&gt;2016 年创⽴⻰猫科技，研发容器云和 Low/No Code 平台（Gospely.com），获得Plug and Play、PreAngel 等资本投资。曾任好东西传送⻔ CTO，负责知识推荐和亿级维度舆情分析、统计⼯作，服务数⼗万专业⼈群。&lt;/p&gt;
+
+&lt;p&gt;⻓期关注生产⼒科技，以提⾼社会生产⼒为个⼈使命。&lt;/p&gt;
+
+&lt;p&gt;扫描以下二维码报名：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200211202308.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;关于-geek2startup&quot;&gt;关于 Geek2Startup&lt;/h2&gt;
+
+&lt;p&gt;Geek2Startup 推出的专注于创业团队之间的小范围深度交流分享活动，定期邀请创业中 Geek 同 Startup 之间就产品、设计、开发和运营等维度进行交流，期待每次交流都能解决初创团队遇到的问题，并能互相碰撞出更多的火花，求质不求量，走心不走肾。&lt;/p&gt;
+
+&lt;p&gt;目前已经进行超过 30 期，每一位嘉宾都很精彩。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200211202415.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>ivy</name></author><category term="serverless" /><summary type="html">本次与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200211201759.png" /></entry><entry><title type="html">RBAC | 组织机构管理最佳实践</title><link href="http://localhost:4000/blog/rbac/" rel="alternate" type="text/html" title="RBAC | 组织机构管理最佳实践" /><published>2020-02-05T00:00:00+08:00</published><updated>2020-02-05T00:00:00+08:00</updated><id>http://localhost:4000/blog/rbac</id><content type="html" xml:base="http://localhost:4000/blog/rbac/">&lt;p&gt;在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。&lt;/p&gt;
 
 &lt;p&gt;借助 Authing，可以快速&lt;a href=&quot;https://mp.weixin.qq.com/s/zRiymhIjTqfUlymjkGfEsA&quot;&gt;实现基于角色的访问控制（RBAC）&lt;/a&gt;。简单来说，RBAC 指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。&lt;/p&gt;
 
@@ -1531,41 +1568,4 @@ https://oauth.authing.cn/oauth/oidc/validate_access_token&lt;/li&gt;
   &lt;li&gt;如果你是 JavaScript 开发者，我们建议到 Github 上搜索 &lt;strong&gt;Strapi&lt;/strong&gt; 使用；&lt;/li&gt;
   &lt;li&gt;如果你是其他语言开发者，请到 Google 上搜索 &lt;strong&gt;Headless CMS&lt;/strong&gt; 寻找你想要的语言使用；&lt;/li&gt;
   &lt;li&gt;如果你是非工程人员，请到 Google 上搜索 &lt;strong&gt;Content as a Service&lt;/strong&gt; 找到最适合你的在线 CaaS 使用。&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>ivy</name></author><category term="featured" /><summary type="html">内容是每家企业的必争之地，根据 CMI 的数据报告，88% 的 B2B 企业每天至少产生一篇内容。内容正在成为新的基础设施，Content as a Service 可以被简单理解为一种 CMS（Content Management Systen，内容管理系统），但是和传统的 CMS （如 Wordpress、Drupal 等）完全不同。传统 CMS 聚焦于内容管理和创建网站（比如 Wordpress 提供的大量网站模版），而 CaaS 只聚焦于内容的生产，并以 API （应用程序编程接口）的形式向外提供服务，这些 API 可被二次编程，从而用于打印机、移动应用或者其他设备上。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/caas.jpg" /></entry><entry><title type="html">函数计算在身份认证云中的应用场景</title><link href="http://localhost:4000/blog/%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E5%9C%A8%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%BA%91%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/" rel="alternate" type="text/html" title="函数计算在身份认证云中的应用场景" /><published>2019-08-16T00:00:00+08:00</published><updated>2019-08-16T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E5%9C%A8%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%BA%91%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF</id><content type="html" xml:base="http://localhost:4000/blog/%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E5%9C%A8%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%BA%91%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/">&lt;p&gt;Authing 用来做用户验证，函数计算用来处理具体的逻辑，非常完美的搭配。&lt;/p&gt;
-
-&lt;p&gt;越来越多的企业接受身份认证上云后，Authing 也承接了越来越多「用户迁移」需求，在用户迁移的过程中，最重要的一点是「终端用户必须无感知」，而无感知主要有以下两点要求：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;用户不需要修改密码；&lt;/li&gt;
-  &lt;li&gt;完成切换后，用户的所有数据都能正常访问且具备相应的访问权限；&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;在一个用户系统中，用户的密码通常情况下都会加密存储在数据库中，这个加密算法一般是不可逆的，同时可以由一个函数完成，因此将函数计算应用在身份认证云中就能满足第一个要求。&lt;/p&gt;
-
-&lt;p&gt;首先我们看一下什么是函数计算：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;通过函数计算，您无需管理服务器等基础设施，只需编写代码并上传。函数计算会为您准备好计算资源，以弹性、可靠的方式运行您的代码，并提供日志查询、性能监控、报警等功能。借助于函数计算，您可以快速构建任何类型的应用和服务，无需管理和运维。而且，您只需要为代码实际运行所消耗的资源付费，代码未运行则不产生费用。
-阿里云 - 函数计算
-简单来说，函数计算让程序员不需要再管理服务器，只需要上传代码，后台的云就可以帮你自动按需分配资源，这将极大释放程序员的生产力。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;函数计算非常适合解决身份认证云中自定义密码加密的问题，以下是应用了函数计算后，用户注册的流程图：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://img.staryu.cn/20190814-02.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;以下是用户登录的流程图：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://img.staryu.cn/20190814-03.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;以上流程图是一个简化版，只展示了几个比较核心的步骤。&lt;/p&gt;
-
-&lt;p&gt;从开发者的角度来说，我们希望开发者只需要上传一个 index.js 文件就可以自定义密码的加密方式。如果开发者需要引入第三方包，那么仅需要将引入的 node_modules 打包为 .zip 上传即可。上传完成后，Authing 会取得一个可通过 HTTP 调用的网址，此网址不会公布给任何第三方，同时每个网址都会有独特的验证方式，最大限度的保证安全。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://img.staryu.cn/20190814-04.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;在 Authing 控制台中依次点击基础配置 -&amp;gt; 密码管理即可自定义密码加密方法&lt;/p&gt;
-
-&lt;h1 id=&quot;其他场景&quot;&gt;其他场景&lt;/h1&gt;
-
-&lt;p&gt;除了自定义密码加密外，函数计算可以很好的和 Authing 配合，帮助开发者在后端十分容易的完成用户 Token 的验证。此外，在实际场景下，若开发者接受全部上云，完全可以基于 Authing + 函数计算完成所有业务流程：Authing 用来做用户验证，函数计算用来处理具体的逻辑，非常完美的搭配。&lt;/p&gt;</content><author><name>ivy</name></author><summary type="html">Authing 用来做用户验证，函数计算用来处理具体的逻辑，非常完美的搭配。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://img.staryu.cn/20190814-01.jpg" /></entry></feed>
+&lt;/ol&gt;</content><author><name>ivy</name></author><category term="featured" /><summary type="html">内容是每家企业的必争之地，根据 CMI 的数据报告，88% 的 B2B 企业每天至少产生一篇内容。内容正在成为新的基础设施，Content as a Service 可以被简单理解为一种 CMS（Content Management Systen，内容管理系统），但是和传统的 CMS （如 Wordpress、Drupal 等）完全不同。传统 CMS 聚焦于内容管理和创建网站（比如 Wordpress 提供的大量网站模版），而 CaaS 只聚焦于内容的生产，并以 API （应用程序编程接口）的形式向外提供服务，这些 API 可被二次编程，从而用于打印机、移动应用或者其他设备上。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/caas.jpg" /></entry></feed>
