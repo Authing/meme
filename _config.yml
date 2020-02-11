@@ -1,50 +1,49 @@
 # Site
-name: 'Authing 官方博客'
-description: 'Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。'
-logo: 'assets/images/logo.png'
-favicon: 'assets/images/favicon.ico'
-baseurl: '/blog'
-disqus: 'Authing 博客'
-email: 'services@authing.cn'
+name: "Authing 官方博客"
+description: "Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。"
+logo: "assets/images/logo.png"
+favicon: "assets/images/favicon.ico"
+baseurl: "/blog"
+disqus: "Authing 博客"
+email: "services@authing.cn"
 
 include: ["_pages"]
 permalink: /:title/
 
 # Plugins
-plugins: 
+plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-seo-tag
-  
-authors:
-    ivy:
-      name:           谢扬
-      site:           http://ivydom.com
-      avatar:         /assets/images/ivy.jpg
-      bio:            "Working for computer technologies that can give new possibilities to science, engineering and art, while benefiting hundreds of millions of people."
-      email:          xieyang@authing.cn
-      twitter:        http://ivydom.com
 
-    cj:
-      name:           廖长江
-      site:           https://www.wowthemes.net
-      avatar:         /assets/images/cj.png
-      bio:            "Web fullstack developer."
-      email:          fakemail@gmail.com
-      twitter:        https://twitter.com/wowthemesnet
-      
-    duxinshuai:
-      name:           杜新帅
-      site:           https://www.wowthemes.net
-      avatar:         /assets/images/duxinshuai.png
-      bio:            "Blogger, love to explore new ideas and write on my morning coffee!"
-      email:          fakemail@gmail.com
-      twitter:        https://twitter.com/wowthemesnet  
- 
+authors:
+  ivy:
+    name: 谢扬
+    site: http://ivydom.com
+    avatar: /assets/images/ivy.jpg
+    bio: "Working for computer technologies that can give new possibilities to science, engineering and art, while benefiting hundreds of millions of people."
+    email: xieyang@authing.cn
+    twitter: http://ivydom.com
+
+  cj:
+    name: 廖长江
+    site: https://www.zhihu.com/people/lcj1024
+    avatar: /assets/images/cj.png
+    bio: "Web fullstack developer."
+    email: changjiangthecoder@gmail.com
+    twitter: https://www.zhihu.com/people/lcj1024
+
+  duxinshuai:
+    name: 杜新帅
+    site: https://www.wowthemes.net
+    avatar: /assets/images/duxinshuai.png
+    bio: "Blogger, love to explore new ideas and write on my morning coffee!"
+    email: fakemail@gmail.com
+    twitter: https://twitter.com/wowthemesnet
+
 # Defaults
 defaults:
-
   # all posts
   - scope:
       path: "_posts"
@@ -52,13 +51,13 @@ defaults:
       layout: post
       author: sal
       avatar: /assets/images/avatar1.jpg
-      
+
   # all pages
   - scope:
       path: "_pages"
     values:
       layout: page
-      
+
 # Syntax
 markdown: kramdown
 highlighter: rouge
@@ -67,4 +66,12 @@ highlighter: rouge
 paginate: 10
 
 # Exclude metadata and development time dependencies (like Grunt plugins)
-exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
+exclude:
+  [
+    README.markdown,
+    package.json,
+    grunt.js,
+    Gruntfile.js,
+    Gruntfile.coffee,
+    node_modules,
+  ]

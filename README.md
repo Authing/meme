@@ -30,6 +30,10 @@
 
 That's it! Soon I'll be merging your changes into the master branch of this project. You will get a notification email once the changes have been merged. Thank you for your contribution.
 
+### How to build after you make change?
+
+1. Follow the instructions [here](https://jekyllrb.com/docs/installation) to install bundle and Jekyll.
+2. Run `bundle exec jekyll serve .`
 
 ### Copyright
 
