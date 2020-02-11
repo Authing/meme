@@ -33,7 +33,8 @@ That's it! Soon I'll be merging your changes into the master branch of this proj
 ### How to build after you make change?
 
 1. Follow the instructions [here](https://jekyllrb.com/docs/installation) to install bundle and Jekyll.
-2. Run `bundle exec jekyll serve .`
+2. Run `bundle install`
+3. Run `bundle exec jekyll serve .`
 
 ### Copyright
 
