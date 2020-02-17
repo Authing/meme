@@ -12685,6 +12685,10 @@ ol.list-featured li:before {
   line-height: 1;
 }
 
+a[title="站长统计"] {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .loginarea {
     z-index: 1111;
