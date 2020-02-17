@@ -3,7 +3,7 @@ layout: post
 title:  "案例 | 在 Odoo 中集成 Authing 完成单点登录"
 author: ivy
 categories: [ Developers, tutorial, cases ]
-image: assets/images/odooxauthing/odooxauthing.webp
+image: https://cdn.authing.cn/blog/20200217171108.png
 tags: [odoo]
 ---
 Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。
