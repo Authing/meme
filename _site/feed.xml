@@ -1,4 +1,342 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2020-02-11T20:25:08+08:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Authing 官方博客</title><subtitle>Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。</subtitle><entry><title type="html">案例 | 在 Odoo 中集成 Authing 完成单点登录</title><link href="http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" rel="alternate" type="text/html" title="案例 | 在 Odoo 中集成 Authing 完成单点登录" /><published>2020-02-11T00:00:00+08:00</published><updated>2020-02-11T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95</id><content type="html" xml:base="http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">&lt;p&gt;Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2020-02-17T16:23:12+08:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Authing 官方博客</title><subtitle>Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。</subtitle><entry><title type="html">Geek Talk 036 实录：Serverless 的前景和机会</title><link href="http://localhost:4000/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/" rel="alternate" type="text/html" title="Geek Talk 036 实录：Serverless 的前景和机会" /><published>2020-02-17T00:00:00+08:00</published><updated>2020-02-17T00:00:00+08:00</updated><id>http://localhost:4000/blog/GeekTalk036%E5%AE%9E%E5%BD%95:Serverless%20%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A</id><content type="html" xml:base="http://localhost:4000/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">&lt;p&gt;Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。&lt;/p&gt;
+
+&lt;p&gt;大家好，我谢扬。很高兴能够有这个机会更加交流关于 Serverless 的技术，我们目前创业做的事情跟 Serverless 也是非常强相关的，目前聚焦研发一款 IDaaS 身份即服务产品 Authing。我之前在字节跳动负责一款日活过亿的 Serverless 产品 LarkCloud。我个人对 Serverless 保持着长期的关注，对 Serverless 行业的发展也有很多想法，今天也跟大家分享一下。&lt;/p&gt;
+
+&lt;p&gt;我们今晚的议题主要分为四个主题，第一个是 Serverless 架构的介绍，第二个是Serverless的一些使用场景，第三个是Serverless 的使用报告，这个报告是来自于：O’Reilly Serverless survey 2019 的调研，第四是跟大家展望一下未来的 Serverless 工具链是什么样子，然后它的前景和机会是什么。&lt;/p&gt;
+
+&lt;h2 id=&quot;1-serverless-架构介绍&quot;&gt;1. Serverless 架构介绍&lt;/h2&gt;
+
+&lt;h3 id=&quot;1云计算的发展&quot;&gt;1）云计算的发展&lt;/h3&gt;
+
+&lt;p&gt;首先开始我们的第一个议题：Serverless 架构，在看这个架构之前，我们先来回顾一下云计算的发展。 图中蓝色这部分是由用户来进行管理的这一部分，黄色这一部分是由云服务商来进行管理的。从早期的 On-Premises 到 FaaS ，这是云计算的发展历程。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217155704.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;On-Premises 的时候，机房所有的硬件、操作系统、容器、运行时环境、应用、函数等都需要自己管理；发展到 IaaS 之后，那么开发商他们不需要维护自己的硬件了，但是还是需要维护很多东西。&lt;/p&gt;
+
+&lt;p&gt;后来 CaaS 服务出现，容器即服务，我们自己不需要再维护操作系统层面的东西，只需要维护容器，K8s 这么短时间火起来，这也是一个很重要的原因。&lt;/p&gt;
+
+&lt;p&gt;那么再往下就是像阿里云、AWS 这种云计算 PaaS 平台出来，做了很多周边的一些工具，比如说各种各样的监控、报警，还有整个的服务器管理的控制台，然后有了这种服务之后，让客户连这些服务也不用自己来管理了，只需要管理自己的应用就好了，这就是 PaaS 服务。&lt;/p&gt;
+
+&lt;p&gt;那么再到现在，出现 FaaS 的产品形态，最右边的 FaaS 是蓝色的，下层所有模块都是黄色的，由云服务商提供，中间还有一个灰色模块 Application ，需要云服务商和用户一起进行管理。&lt;/p&gt;
+
+&lt;p&gt;那么这是 FaaS 的一个演进历史，总的来说 FaaS、PaaS、CaaS 等服务发展出来的缘由：&lt;strong&gt;就是让更多的客户能够专心自己的业务，而不需要去维护底层这么多跟业务无关的基础设施。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;2serverless-架构&quot;&gt;2）Serverless 架构&lt;/h3&gt;
+
+&lt;p&gt;接下来看一下 Serverless 架构，这里我们以 AWS 的一些服务为例，最左边的一个User Agent（用户），从浏览器去访问一个系统，首先会经过一个API Gateway，API Gateway会出发一个函数 Cloud Function，在AWS中叫 Lambda，然后 Lambda 会去执行一些获取资源、业务操作，这些资源都是受限的，它可能是亚马逊的 DynamoDB、也可能是 AWS S3 存储、也可能是亚马逊的 EC2，也可能是你自己的一个社交数据以及通讯录好友等。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217155815.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这些资源默认是受限的，受限的时候就需要去访问一个&lt;strong&gt;无服务器的身份认证系统&lt;/strong&gt;，即图中的 Authing ，用户通过 Authing 进行登录，认证完成之后会获取一个 Token，然后用户带 Token 去请求资源，这个时候这个后端必须验证 Token 是合法的，才能够获取用户有权限访问的资源。这是 Serverless 整体的访问的一个流程。&lt;/p&gt;
+
+&lt;p&gt;现在很多人把 Serverless 分为两块，一块叫做 FaaS（函数即服务）Functions as a Service的缩写，只需要执行一个函数，上传一个函数，然后这些函数来执行一些操作，比如说读取你的通讯、你的地址，或读取其他的业务信息。&lt;/p&gt;
+
+&lt;p&gt;另外一块叫做 BaaS（后端即服务），全称是 Backend as a Service，就是把整个 BaaS 代码上传到服务器，然后它会自动给你做一些弹性伸缩。&lt;/p&gt;
+
+&lt;p&gt;其实函数的粒度更细一些，然后我们今天主要探讨的还是FaaS，BaaS 现在发展的不是特别好，我个人也不是很看好 BaaS 这块的市场。&lt;/p&gt;
+
+&lt;h3 id=&quot;3faas-函数的生命周期&quot;&gt;3）FaaS 函数的生命周期&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217155848.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;接下来我们了解一下 FaaS 的生命周期，FaaS 的全称是 Functions as a Service，开发者只需要开发一个函数，然后这个函数会根据函数的访问量来自动的做一些收缩。FaaS 有触发器，就是从哪一方进行调用，比如：你在浏览器上请求一个 FaaS ，那么就是收到一个 HTTP 请求。 又如说某个图片被上传到了腾讯云的 OSS 里面（OSS 是腾讯的存储服务），那么上传成功之后有一个回调消息，这个消息会去触发 FaaS 函数，这个就叫做 Webhook。还有一类物联网场景，比如温度采集器，测量到温度之后，会有一种 Pub/Sub 这种消息模型，这种消息模型是异步的，也是会执行这样一个 FaaS 触发器。&lt;/p&gt;
+
+&lt;p&gt;那么一旦是触发了 FaaS 的执行，就会启动一个VM （虚拟机），那么这个 VM （虚拟机）目前主要分为两类：一类是直接 Fork 进程，然后在进程里执行这段代码，另一类就是去启动一个容器，然后在容器里面执行。在 Process 进程里执行代码的方式是不太安全的，所以现在很多人都转向了容器。当然容器的问题在于冷启动时间会非常长，也就是说假如这个函数本身执行时间只有 200 毫秒，如果加上容器的启动时间可能也是 200 毫秒，总共的时间可能变成了 400 毫秒，那么就会造成一些网络延迟，最后对用户体验产生影响。&lt;/p&gt;
+
+&lt;p&gt;启动了这样一个 VM 之后，就会去运行这个函数，运行结束之后就会把这个实例给销毁掉，同时云服务商会根据你的运行时间来计算、所耗费的资源如：CPU、内存、包括带宽等等，然后计算这次运行花多少钱，来进行一次扣费。&lt;/p&gt;
+
+&lt;p&gt;这就是 FaaS 函数的生命周期，接下来给大家剖析一下：为什么我们要用 FaaS ？&lt;/p&gt;
+
+&lt;h3 id=&quot;4iaas-模型&quot;&gt;4）IaaS 模型&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217155916.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;首先，我们先来看 IaaS 模型。分别从四个视角来看一下 IaaS 的整体架构：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;第一是从 Service Models 视角&lt;/strong&gt;，即服务模式，分为 IaaS、PaaS、SaaS。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;第二是从 Cloud Stack 视角&lt;/strong&gt;，阐释来云计算是由最底层基础设施层、应用程序栈、应用程序、用户层 来构成。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;第三是从 Stack Components 视角&lt;/strong&gt;，来看一下详细的构成组件：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;基础设施层&lt;/strong&gt;：就是各种各样的硬件资源，如CPU、网络、带宽、硬盘等等，由基础设施厂商来提供服务，并保障最基础的系统安全。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Application Stack&lt;/strong&gt;：就是需要构建应用所需要的基础软件技术栈，包括了操作系统、编程语言、应用服务器、中间件、数据库（关系数据库、图数据库、亦或是非关系数据库等）、还有报警监控服务、DevOps、CI/CD、API Gateway 等。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Application 层&lt;/strong&gt;：开发者去建立自己的业务模型、业务应用的时候所需要的开发组件，「认证、授权」是其中最基础的组件，然后是 UI（即用户界面）、一些事务，比如你的支付、或直播的事务等。另外是一些报告，涉及与业务相关的用户的增长数据的报告、管理业务的使用情况，Key Metrics 是什么样子；另外还需要一个后台对所有资源进行管理。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;用户层&lt;/strong&gt;：包含用户登录、注册、管理等。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;第四是从不同服务模式下计算服务供应商和客户之间的责任边界。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;IaaS 模式下&lt;/strong&gt;：IDC 供应商的责任是搭建最基础的硬件基础设施、并对保障整个系统的安全。而客户需要从 OS 底层来搭建整个计算、应用环境、以及业务的开发。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;PaaS 模式下&lt;/strong&gt;：类似 AWS、阿里云等云服务提供商承担了基础设施的建设、以及核心基础软件环境的搭建。如操作系统、数据库、中间件、监控服务，把这些服务抽象成了一层云，然后提供给企业进行使用。客户只需要专注在应用环境搭建、及业务层面的开发。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;SaaS 模式下&lt;/strong&gt;：云服务厂商更进一步的把「应用环境」也服务化，客户仅需考虑业务层面的事情。比如应用层比较重要的两个模块：认证和授权模块也被SaaS 服务化；甚至 User 层的用户注册、登录、管理功能也被 SaaS 化，在美国的已经有 Auth0、Okta 等厂商提供这方面的服务，在中国我们 Authing 也在做类似的事情：IDaaS 身份即服务。有了 IDaaS 客户可以更直接开发业务，不需要操心：注册、登录、用户管理、认证、授权等功能。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;回头来看在 IaaS 时代客户需要做很多事情，基建和研发成本极高，进入市场的时间成本很大。但是经过一系列「服务化」进程后，客户愈加仅需关注自己的业务代码，快速实现、快速进入市场进行验证及销售，这也是从2019年开始，Low code/No code 的创业项目备受资本热捧。&lt;/p&gt;
+
+&lt;h3 id=&quot;5caas-容器模型&quot;&gt;5）CaaS 容器模型&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217160041.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;随着技术迭代，进入到了容器模型的时代，企业的运维需要管理更多的产品矩阵及服务的稳定。首先是各种各样的服务发现、Container Runtime、包括整个容器集群的管理，还有一些安全性问题、性能问题，基于角色的访问控制（RBAC）、 LDAP/AD 的管理、以及 SSO 的实现等。&lt;/p&gt;
+
+&lt;p&gt;对于开发者、运维需要学习很多 SSO 的知识，以及其他跟业务无关的很多东西，这加重了他们管理的负担。CaaS 容器模型让我们整个服务的可伸缩性大大提高了，但是也大大加重了运维人员的负担。&lt;/p&gt;
+
+&lt;h3 id=&quot;6serverless-模型&quot;&gt;6）Serverless 模型&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217160116.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;行业逐步发展到了今天的 Serverless 模型，在之前模型下客户需要操心很多的组件。但是，进入Serverless 模型后，客户仅需要关心是「业务代码」，设计好自己的业务模型，把代码部署到云服务中，就可以完成所有的复杂的一系列的部署、运维、监控等操作。&lt;/p&gt;
+
+&lt;h4 id=&quot;1faas-优势&quot;&gt;1）FaaS 优势&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217160243.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Serverless 带来的好处，首先是：零运维，也叫做零管理。除了零运维和零管理之外，还有其他很多优势，比如说按运行时间付费，你运行多长时间，就付多少钱；没有运行资源损耗的时候，不需要付任何钱。举个例子，可以看右边这张图，蓝色的线代表是每秒处理多少请求；红色的线是处理这些请求需要的服务器数量。可以看到蓝色的线有两个峰值，这代表需要 200 台服务器，在传统的架构下就需要准备 200 台服务器。 那么有了 FaaS 之后，就不需要买那么多服务器，只需要是把这个业务逻辑写好，然后它会自动为你进行伸缩。伸缩的策略也非常多，比如用机器学习来进行预测，或者说可以用一些即时计算进行预测等等。运维人员只需要去考虑管理更少的服务器，开发人员只需要去关心业务代码，就可以让企业更快进入市场，并且能够造一个原生的微服务，显著降低企业的管理和维护负担。&lt;/p&gt;
+
+&lt;h4 id=&quot;2faas-劣势&quot;&gt;2）FaaS 劣势&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217160309.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;除了优势之外，FaaS 还有很多劣势，没有一个通用的标准。比如 AWS、Google，还有国内腾讯、阿里云、华为、京东云都有 FaaS 服务，但他们没有一个通用的标准；这也造成了：客户被供应商锁定的问题，无法便捷迁移。比如说我现在用 AWS，每天请求可能上亿，想要迁移到阿里云和腾讯云就非常的麻烦。第 2 点是 FaaS 是一个黑盒子环境，开发者需要去非常了解这个东西的底层是怎么回事，他才能敢去使用，否则他无法去预估一些潜在的风险。第 4 是冷启动的问题，也不算什么太大的问题，云厂商已经解决了这类问题，有很多处理方式。&lt;/p&gt;
+
+&lt;p&gt;第 5 个问题是最要命的一个问题，目前的 FaaS 是没有经过一个非常复杂应用案例的验证。假如说我想用 Serverless 开发一个淘宝、QQ、微信或者一个直播软件，目前是没有这种案例的。&lt;strong&gt;一方面主要是因为生态的缺乏，另外一方面的话也是因为开发人员的思维认知没有提升，这绝对不是一个技术的问题，技术已经非常成熟。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;3faas-厂商&quot;&gt;3）FaaS 厂商&lt;/h4&gt;
+
+&lt;p&gt;下图是全球范围内在做 FaaS 的厂商，第一个 OpenWhisk 是 IBM 的开源的 FaaS 框架。另外一个是大家都知道的 AWS 的 Lambda，亚马逊的云服务算是业界的一个标准，还有 Google、微软都有类似的服务。国内主要是阿里云、腾讯云、华为云，除了这三家之外，其实京东、滴滴其他的云都有。另外一家就是字节跳动，他们叫做轻服务，这也是我当时在字节跳动开发的一款服务。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217160355.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;此外，还有一股不可忽视的力量，就是美国的 Auth0，是一款 IDaaS - 身份认证即服务，把身份认证上云，他们拥有一个 Webtasks 产品，可以让用户、开发者通过他们的服务快速完成身份认证功能，更多的精力聚焦到具体的业务方面。另外一个就是我们在做的 Authing ，未来的话也会有一个 FnSuite 这样一款函数产品，会和我们的业务有一个非常好的打通。&lt;/p&gt;
+
+&lt;h2 id=&quot;2-serverless-使用场景&quot;&gt;2. Serverless 使用场景&lt;/h2&gt;
+
+&lt;h3 id=&quot;1无服务器的应用后端场景&quot;&gt;1）无服务器的应用后端场景&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217160436.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;接下来介绍一下 Serverless 的使用场景。&lt;/p&gt;
+
+&lt;p&gt;首先第一类就是这种无服务器的应用后端，比如说我写了一段代码，然后我把它 push 到 Github 上去，这个时候 Github 的 webhook，我需要让它通知到我的 Slack 或者我的飞书。&lt;/p&gt;
+
+&lt;p&gt;假如没有 Serverless 的情况下，需要自己写一个代码后端框架，然后自己拼接一下，写个路由，写完路由之后，还需要再把它部署到服务器上去，然后再部署运维。&lt;/p&gt;
+
+&lt;p&gt;那么有了 FaaS 之后，只需要写个函数，把它传到阿里云或者腾讯云上，云服务商返回一个 API 链接，开发者把链接填到 Github 上去，就完成了整个操作流程，非常简单。&lt;/p&gt;
+
+&lt;p&gt;还有一种是新闻消息推送应用，一个新的用户，它注册了一个应用，然后在我们这个消息里面就推送给他一些新闻。&lt;/p&gt;
+
+&lt;p&gt;再比如物联网的应用的后端，比如说一个温度的信息推送系统，经过 Pub/Sub 之后来去调用一个函数，然后我们的函数来执行一些具体业务操作，比如推送到我们后台里面进行监测和管理，以及一些报警等。&lt;/p&gt;
+
+&lt;p&gt;这就是 Serverless 的第一类无服务器应用后端场景，如 QQ、微博、微信 IM 以及简单的消息推送场景，都可以使用Serverless。&lt;/p&gt;
+
+&lt;h3 id=&quot;2人工智能应用场景&quot;&gt;2）人工智能应用场景&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217160548.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;第二类场景：人工智能应用。这张图来自 Google，大家可以从左往右看，比如通过 Slack、 Messenger、或 Google Home 和机器人对话，会发送一个 Http 请求，这个请求会在云端执行函数，然后这个函数会请求谷歌的 Dialogflow 是谷歌的一项对话管理服务。&lt;/p&gt;
+
+&lt;p&gt;Dialogflow 把多轮的对话管理起来，后面的其他服务：ML、Vision API 等都是由云服务商提供的能力，&lt;strong&gt;该厂商的 Cloud Functions （云函数）就可以直接调用这些能力，这对云服务厂商来说是非常大的一个优势&lt;/strong&gt;。所以说 Serverless 只能由这些 BigTech 来研发，一些小公司或者创业公司想做Serverless 基础设施基本上是不太可能的，因为，&lt;strong&gt;Serverless 最核心竞争优势不仅仅前面的函数，更重要的是服务商本身所提供其他的能力可以供函数调用&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;3实时数据处理场景&quot;&gt;3）实时数据处理场景&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217160640.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;第三类场景：实时数据处理，最典型的就是物联网应用，数据量非常大，用 Serverless 也是非常匹配。假如需要 1万 QPS ，函数可以立马生成支持 1万 QPS 的集群，如果你自己搭一个 EC 2 服务器或者是其他应用的话，还需要自己去管理集群，成本会变得很大。&lt;/p&gt;
+
+&lt;h3 id=&quot;4aaas-认证即服务场景&quot;&gt;4）AaaS 认证即服务场景&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217160720.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;那么还有一类最不容忽视的一个场景是：&lt;strong&gt;AaaS （Authentication as a Service：认证即服务），把用户注册、登录、用户管理、认证及授权等模块 SaaS 服务化。 为什么需要 AaaS 这类服务呢？主要有三点原因：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;第一点：&lt;strong&gt;身份管理，是云计算里面除了计算资源、存储资源和网络资源之外，最标准化的一个产品。&lt;/strong&gt;为什么说最标准化？前面 IaaS 图中可以看到：Stack Components 包含了注册、登录、注册、用户管理以及认证和授权模块，基本上所有的应用：不管 是to B、to C、to G、to Developer 基本上都是需要的且流程非常标准；甚至在基础设施层面的服务，也都需要标准化的认证服务，比如：K8S 容器编排场景中，也都有认证/授权这种需求，另外在多云管理、DevOps 不同工具流身份的管理等。&lt;/p&gt;
+
+&lt;p&gt;在没有 AaaS 云服务之前，大家都需要自己造的轮子，那么 AaaS 云服务的出现就让这种重复造轮子的事情不在发生，节省巨大的社会生产力，并且让身份管理变得非常简单安全。这个也是很多的厂商都看到的这样一个机会。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217160755.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;第二点：&lt;/strong&gt;身份管理问题在数十年间，从未得到一个很好的解决，用户以自己隐私代价来为企业「身份管理不善」买单。比如很多站点的用户数据泄露事故，这些用户泄露事故不仅给企业的名声造成很大的影响，而且，严重损害了用户的隐私。近期了解到的一家公司每年花几百万来购买身份管理服务。AaaS云服务产品的出现，将大大降低客户的投入成本及安全成本。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;第三点：&lt;/strong&gt;合规成本逐年上升：随着 GDPR、CCPA 、包括加拿大的 Castle 等，这些法律出台之后，政府对于企业在身份管理方面提出了更高的要求。假如企业要去满足这些要求，会花费巨大的成本，而使用AaaS 云服务，就可以保证企业可以非常高效、简单、安全的拥有一个合规身份管理产品。&lt;/p&gt;
+
+&lt;h2 id=&quot;3-serverless-使用报告&quot;&gt;3. Serverless 使用报告&lt;/h2&gt;
+
+&lt;p&gt;接下来看一个 Serverless 使用报告，一起来了解产业现状，数据来源于&lt;a href=&quot;https://www.oreilly.com/radar/oreilly-serverless-survey-2019-concerns-what-works-and-what-to-expect/&quot;&gt;O’Reilly serverless survey 2019&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;首先是 40% 的企业已经采用了 Serverless，这个占比还是比较大的，60% 没有采用，市场空间还是有很大的提升空间。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217160907.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;30% 的 Serverless 用户是一线工程师，然后是架构师、技术 leader 占 25%左右；还有技术类的也不少，另外一个出乎我意料的是：VP、总监、经理级别的用户也近20%；&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217160921.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;另外报告显示，采纳 Serverless 技术的行业也非常广泛，采用最多的是软件行业，第二大是金融及银行业，第三大行业是咨询行业。所以如果要在 Serverless 领域创业的话，可能最好的客户是金融业，要么做外包，要么服务金融业。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217160946.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;60% 的中大型规模企业采纳 Serverless：这个数字也是比较出乎意料，我们潜意识觉得采用 Serverless 新技术的可能都是小企业，但是从图中可以看到，其中一万人以上规模的公司，占到了 20%。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217161005.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;50%的 Serverless 用户，以经常使用 Serverless 超过一年时间，采用 Serverless 技术超过三年时间的企业也超过了10%&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217161023.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然后 66% 的用户表示，采用 Serverless 技术后效果显著。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217161039.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这是为什么要使用 Serverless 的一些调查。我们看前三个最主要的几个理由，分别是减少运营成本、可以按序的自动的伸缩。第3个是不需要再关心服务器的维护问题，和第一点差不多，降低成本。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217161105.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;为什么不用 Serverless 的原因调查显示：&lt;/p&gt;
+
+&lt;p&gt;企业在采纳 Serverless 技术之后面临最大的挑战是：对于当下员工的教育成本很高，去教育员工还是比较难的，所以如果说要在 Serverless 领域创业的话，能做一家Serverless 领域的咨询公司也不错，与教育机构合作培训人才。&lt;/p&gt;
+
+&lt;p&gt;第二大挑战是因为 Serverless 领域缺乏标准，很容易被供应商锁定，不容易迁移到其他供应商，这个可能需要加快推动 Serverless 行业的标准化进程，防止被供应商锁定，现在 CNCF 基金会也在推动着这个事情。第三大挑战是集成测试、调试非常困难，这也反映了 Serverless 生态供应链的不健全问题，同样，也存在创业机会。&lt;/p&gt;
+
+&lt;p&gt;不采用 Serverless 最大的原因是：考虑到安全问题。如果要创业的话，那么去解决 Serverless 的安全性问题也是一个很大的机会。第二大原因是：因为对于 Serverless 的未知而产生的畏难情绪，不知道使用了 Serverless 会发生什么的问题。第 3 个原因是：底层云服务商正在迁移中，来不及采用 Serverless。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217161217.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;什么角色在管理公司内部 Serverless 的基础设施？&lt;/strong&gt;首先是负责DevOps 的运营人员，第二是：软件工程师、第三是技术架构师。
+这个是一个全球调查，我认为和中国的实际情况可能不太吻合，中国可能要反过来，第一可能是架构师来决定。 第二是具有话语权的软件工程师来决定是否采纳。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217161243.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;最后一个调查显示：50%+ 的企业愿意在未来三年尝试 Serverless，所以说 Serverless 在未来还会有一个非常大的增长。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217161727.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;4-serverless-工具链前景和机会&quot;&gt;4. Serverless 工具链、前景和机会&lt;/h2&gt;
+
+&lt;p&gt;最后的话我们来聊一下，Serverless 工具链、前景和机会。首先我们来看工具链，分为三个版块，分别是开发、部署、监控。&lt;/p&gt;
+
+&lt;h3 id=&quot;1开发工具&quot;&gt;1）开发工具：&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;第一是 CLI 工具：&lt;/strong&gt;主要是兼容商业 FaaS 以及开源的 FaaS ，Servereless.com 做的非常不错了，他们已经兼容了十几种 FaaS 平台。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;第二是编辑器的插件：&lt;/strong&gt;现在很多程序员还是习惯使用 VS Code 或者 Sublime 之类的工具进行开发的，所以需要一个非常方便的插件，可以便于管理、调试。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;第三是 WebIDE：&lt;/strong&gt;WebIDE 是一个衍生品，主要是作为方便去开发、调试的小工具，大多数开发者应该还是会基于本地的编辑器插件来开发。&lt;/p&gt;
+
+&lt;p&gt;此外，可能还有一些其它工具有待于补充。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217161734.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;2部署工具&quot;&gt;2）部署工具&lt;/h3&gt;
+
+&lt;p&gt;常用的部署部署工具包括：Git 集成、CI/CD 持续集成、Hooks （用于同步消息到 IM 工具）等。&lt;/p&gt;
+
+&lt;p&gt;那么还需要做一些 Cronjob ，比如说能够非常方便的部署定时任务，并且我能够发布预览版和生产版。&lt;/p&gt;
+
+&lt;h3 id=&quot;3监控工具&quot;&gt;3）监控工具&lt;/h3&gt;
+
+&lt;p&gt;最后我们需要 monitor 来报警，需要短信通知、公司邮件通知，还需要日志等。&lt;/p&gt;
+
+&lt;p&gt;我说的这三点其实只是产品层面的一些小打小闹，有没有这些功能，对 Serverless 的普及和产业的提高并没有太大的影响。我觉得如果要真正促进 Serverless 发展的话，还需要做以下三件事情。&lt;/p&gt;
+
+&lt;h2 id=&quot;5-三个能促进产业发展的机会&quot;&gt;5. 三个能促进产业发展的机会&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217161819.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;第一件事情是有一个 FaaS Framework 专门用来编写大型项目，同时他是完全兼容 FaaS 架构的。为什么需要 FaaS Framework 呢？如果没有 FaaS Framework 的话，我们是没有办法用 FaaS 编写大型项目的。一个函数，只能做一些简单的事情，假如说需要做一个QQ，做一个微信，一个函数是肯定不行的。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;第二件事是 Content as a Service&lt;/strong&gt;，CaaS 是 FaaS 本身的更高层级的抽象，FaaS 是提供计算能力，然后最重要的其实还是需要一个存储能力，尤其是结构化数据存储，那么就需要一个 CaaS 将存储云化。比如我我的 CaaS 平台去设计一些表和字段，然后这些字段中间还可以互相连接，最后他可以马上帮我我生成 REST API 或 GraphQL 等，并且它还有和 FaaS 结合的能力，我觉得它是未来一个很大的机会。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;第三类就叫做云原生编程语言。&lt;/strong&gt;这种编程语言的话，它完全是架构在现有的云计算厂商上去的，它的逻辑循环是不变的。但是他对硬盘的读写是在云上，并且它兼容各大云平台，比如说我要调用 AWS 的S3，我只需要写原生编程语言就可以，不需要去使用任何的框架，同时它可以启动云上的服务器进行调试。他从语言层面就是一个可伸缩的，比如说我我写了一个 1+1=2 这样一个计算，假如有一亿请求过来，那么在他语言层面就可以帮我调度可以抵抗一亿流量的计算资源。我觉得如果说这三件事情做好的话，能对整个产业有一个巨大的促进作用。&lt;/p&gt;
+
+&lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217161852.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;最后总结一下，Serverless 是真正的云计算，它真的是按需付费，然后不需要去自己去管理任何的基础设施，只需要关注自己的核心业务，目前的云计算还没有真正做到这一点。然后小公司做 Serverlss 的话基本上没戏，主要原因是缺乏信任。&lt;/p&gt;
+
+&lt;p&gt;如果是创业公司的话，可以从以下几个层面切入。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;第一是做一个 FaaS 聚合器提升开发便捷度，就像 Serverless.com 做的事情一样，&lt;/li&gt;
+  &lt;li&gt;第二就是做一个 FaaS 没然后接外包，这种大型的外包业务能用 Serverless 来做最好。&lt;/li&gt;
+  &lt;li&gt;第三是开发一个 CaaS 然后覆盖查询业务，然后再通过和 FaaS 打通，进而完成一些高阶操作，进而赋能业务。&lt;/li&gt;
+  &lt;li&gt;第四个是开发云原生变成语言，然后与教育机构、培训机构、咨询机构合作，培养人才，人才有了这个意识之后，整个产业才能有一个更大的改变。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;大概是这样，谢谢大家。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;https://github.com/Authing/serverless-oidc&lt;/p&gt;
+
+  &lt;p&gt;身份认证云是无服务器架构的一个分支，使用身份认证云和使用无服务器架构拥有一样的好处。&lt;/p&gt;
+
+  &lt;p&gt;请看 Authing 的思考及实践：&lt;/p&gt;
+
+  &lt;ol&gt;
+    &lt;li&gt;为什么身份认证值得上云？&lt;/li&gt;
+    &lt;li&gt;FnGroup 制定的 FaaS 规范&lt;/li&gt;
+    &lt;li&gt;中国首个 FaaS 规范出炉&lt;/li&gt;
+  &lt;/ol&gt;
+
+  &lt;p&gt;主页：&lt;a href=&quot;https://github.com/fngroup/fnlib&quot;&gt;https://github.com/fngroup/fnlib&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217162029.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;7-qa&quot;&gt;7. Q&amp;amp;A&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;周家泽：&lt;/strong&gt;我叫周家泽，我在西塔科技工作，我本身不是程序员，我们公司是主要做区块链当中底层的联盟链的开发。 本来我只是想了解一下 Authing 这个项目，所以我就进来一起听一下介绍这样子。然后我这边有一个问题，就是说因为 Authing 这个项目本身跟身份认证这块相关的，所以我想了解一下，就是说像从我们的角度看，这个项目或者说身份认证的项目跟区块链这块有没有结合点，然后会在什么样子的业务场景里面，&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;谢扬：&lt;/strong&gt;Authing 没有区块链，但是和区块链可以有很大的联系。比如数据的主权和身份的主权。场景的话，我觉得还是政府这一块，尤其是政府对公民数据的一个管理，是非常好的一个方向。我们在中国除了运营 Authing 外，还在运营 SoLiD，SoLiD 是万维网之父 Tim 发起的项目，它想要身份和数据由个人来控制。他们在欧洲、在芬兰、在比利时已经有了一个非常好的一个政府的实践经验。稍候，我可以把把一篇论文发给大家看一下这块的实践经验。从我的个人经验来看，区块链对政府的社会治理会有很大的帮助。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;论文推荐：&lt;a href=&quot;https://authing.cn/blog/solid-flemish/&quot;&gt;通过让公民控制自己的数据简化政府流程&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;李涛：&lt;/strong&gt;我补充一下，包括我们这次的新冠疫情，其实我们对人群的追踪，每个人都要填很多表格，其实我们都可以用 SoLiD，把我们每个人信息是实时同步给政府的各级组织，而不需要来回筛查、反复填写。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;王凯：&lt;/strong&gt;大家好，首先感谢谢扬精彩的分享。我也学到很多，我也是一个程序员比较杂，然后什么都干，包括运维这些东西，docker 什么的，目前是自己在创业。&lt;/p&gt;
+
+&lt;p&gt;我主要做的一个事情是在线教育，主要是留学这块市场留学跟家教，但是我们这个业务比较复杂，是包含了中国跟东南亚，还有欧美的一些各个国家。我的问题是像我们这样的业务就是跨区域的，我该如何选择一个好的 Serverless 产品呢？我用 Serverless 的体验是比较糟糕，部署的稍候挺麻烦的。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;谢扬：&lt;/strong&gt;用 Serverless.com 就好，它集成了国内外的各种各样的一些服务，比如 AWS、Google、腾讯云等，它们都有一个集成，用他们的工具就可以很方便的完成工作，解决你刚才说的跨国的这样一个问题。另外 Serverless.com 现在的社区运营是有中国人的，所以中国人用起来也会比较友好。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Mingliang：&lt;/strong&gt;大家好，谢谢涛哥和谢扬今天给大家带来的分享，特别好。我之前在上海创业公司电商社交，然后现在把这个业务都清理掉了，目前在新加坡国立大学读博士。我是一年级刚开始读博，我的研究方向是分布式系统，所以自然对这个身份的也很感兴趣。然后我想请教一下谢扬的问题，这个身份有没有和 SDN 有一些契合的点，或者说其实没有的话，可能未来是不是也有一些可以结合的点。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;谢扬：&lt;/strong&gt;我对这个领域还不是很了解，不过 SDN 这个概念的话，我是非常认可的。软件确实可以定义很多的硬件资源的，把它给出抽出来，变成一种信息化资源，包括现在的 SD-WAN。网络通信这一块也是类似这样一个事情。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;宋军：&lt;/strong&gt;大家好，我是宋军，谢扬的分享挺好的，我也有些收获。我先简单自我介绍一下，我现在就职于 Google。Google 的 FaaS 这里有一个小的案例可以去分享，我们当时做了一个中国的一个客户，大概用了 3000 个FaaS，这家客户叫茄子快传，他们用了半年左右，但是过了半年之后基本上切回去了。&lt;/p&gt;
+
+&lt;p&gt;问题还是在于成本，我们都在讲，Lambda 是一个按量计费的产品，所以它成本会比较低。实际上当你的业务量特别大的时候，很有可能有非常大的成本，这种成本远远超过虚拟机的成本。&lt;/p&gt;
+
+&lt;p&gt;我的问题是，如果有开源的 FaaS 产品，你会优先使用开源 FaaS 还是云上的 FaaS？&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;谢扬：&lt;/strong&gt;从我的角度来说的话，我比较倾向于直接用云的，因为我用 FaaS 就是不想管理服务器，如果还要自己再部署一套 FaaS 对我来说是不太好的。 我还认识一个阿里的朋友，他把一个项目的成本从 800 万降到了 200 万，他怎么做到的呢？他把整个项目打包到一个函项里面去了。这个案例想说的是，每个项目都有一个阈值，然后你没有过阈值，可能就是省钱，阈值一过可能就要亏钱。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;王剑宇：&lt;/strong&gt;先谢谢涛哥和谢扬带给大家的一个技术分享！ 我来自北京，我在进行一个教育创业的项目，我比较关注的是认证服务这块，我一直在考虑到底是该怎么去实现这部分功能，以前是想说自己去写认证，但是认证其实说的是实现也容易，但是你要想把它做得很完善，其实并不容易。&lt;/p&gt;
+
+&lt;p&gt;Auth0 之前我也尝试过，但是不是太稳定，这是一个问题。然后还有一个问题，现在国内登录的习惯，大家都是用微信或者手机号，而 Auth0 对国内的这种微信还有手机的支持是没有的。AWS 的 Cognito 我也用过，也是同样的问题。所以也是这个机会，正好我想了解一下 Authing，咱们 Authing 是否更接近于国内的用户习惯。还有第二个问题，我想了解一下有没有好的工具，来简化 FaaS 开发流程的。我之前使用 FaaS 做一些图形处理，搞的非常麻烦。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;谢扬：&lt;/strong&gt;Authing 对于国内用户来说确实是更加友好的，从刚才你的描述来看，Authing 完全可以满足你的需求。再回答第二个问题，如果说要你要是跨国使用的话，那么肯定推荐 Severless.com。因为他基本上兼容市面上所有主流的云厂商。其次 Serverless 已经被腾讯战略合作了，包括他的社区其实现在是由中国人来维护的，咱们用的话其实是非常方便。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;王剑宇：&lt;/strong&gt;好的，再我问一下，因为我之前一直使用的都是国外公司的云产品，然后我就在想，就像这 Authing 这种对 AWS 的支持和对腾讯与阿里的支持，有没有一些可能，我的意思是说，他会不会更侧重于对国内一些云服务厂商的支持？&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;谢扬：&lt;/strong&gt;这事有点反直觉，我们现在对 AWS 的支持反而是最好的。另外 Authing 的流量来源，第一不是中国，是美国，中国只排第二。这说明我们是必须要走国际化路线的，也符合我们一开始的战略。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;胡鹏：&lt;/strong&gt;我先简单自我介绍一下，我之前一直是在区块链领域的，然后之前的工作是钱包相关的研发。因为我们做区块链的话，可能就是思考方式就会比较倾向于那种会考虑理想化的一些场景，就像对安全的一些极端的要求，对隐私的一些极端的要求。然后像刚刚说的 FaaS 的话，其实我让我想到一个问题，就是将很多东西都交给服务器，那么服务器其实就是在这里面权限特别大，可能会有安全上的考虑，尤其是有特殊要求的人。在我们密码学里面，我们现在来看有一个方向，在云上托管的数据是加密的，然后在此基础上进行加密计算，所以我不知道你们内部的产品研发方面有没有这个方向？&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;谢扬：&lt;/strong&gt;我对加密这块不是很了解，我只知道有个同态加密的东西可以在加密结果上进行计算，而不用知道原文。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;胡鹏：&lt;/strong&gt;对，关于隐私计算还有零知识证明这样的技术。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;谢扬：&lt;/strong&gt;除了刚才说的这些，还有一个东西叫做 XAdES，这个是 W3C 的一个规范，比如可以用于你的毕业证的加密，然后给到公司，公司来验证你的文凭是否是真实的，这个也可以参考一下。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;王晓亮：&lt;/strong&gt;大家好，我现在在一家珠海移动公司，主要在大数据方向，所以我们在海外主要用的 Google Cloud，在国内用 AWS。我们用 Serverless 挺久了，其实就是因为我们的业务调用很复杂，比如说我整个的数据进来，然后触发了函数之后，会存储到 S3 什么地方去，或者说有一些数据会重新把它变成结构化的一些数据，最后可能再触发一些函数再存到另外一个地方。我看中间这样的很长的周期，其实整个的监控感觉不是特别好处理，因为涉及到很多不同的服务之间的一些中转，所以我想知道这块有没有相应的解决方案。这是第一个问题，第二个问题就是想知道有没有什么整合的 FaaS 方案。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;谢扬：&lt;/strong&gt;对。这可能只能用一些微服务的这种的措施来做服务治理，你写的每一个函数都需要注册到一个中央的函数服务中心里，然后用各种勾子来 track 他的访问轨迹，最后由一个可视化的界面来展示调用记录。第二个问题我还是推荐 Serverless.com，大家用起来会比较友好。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217162159.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>ivy</name></author><category term="serverless" /><summary type="html">Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200217155500.png" /></entry><entry><title type="html">案例 | 在 Odoo 中集成 Authing 完成单点登录</title><link href="http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" rel="alternate" type="text/html" title="案例 | 在 Odoo 中集成 Authing 完成单点登录" /><published>2020-02-11T00:00:00+08:00</published><updated>2020-02-11T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95</id><content type="html" xml:base="http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">&lt;p&gt;Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。&lt;/p&gt;
 
 &lt;p&gt;Authing 在云上提供适用于 Web、iOS 和 Android 的通用身份认证和授权平台，可以帮助开发者和企业使用全新的方式、最简单的手段解决复杂的用户身份问题。&lt;/p&gt;
 
@@ -1491,81 +1829,4 @@ https://oauth.authing.cn/oauth/oidc/validate_access_token&lt;/li&gt;
 
 &lt;p&gt;Authing 是一款身份认证云，提供了开发者优先和极易拓展的开发平台，简化了身份管理的流程，使用 Authing 可以用极短的时间和极低的成本实现单点登录&lt;strong&gt;（用户量数十万的应用从迁移进 Authing 到上线到生产环境只需要两天）&lt;/strong&gt;，如果你对此感兴趣，可以查看这篇文章：&lt;a href=&quot;https://learn.authing.cn/authing/quickstart/implement-sso-with-authing&quot;&gt;用 Authing 10 分钟实现单点登录&lt;/a&gt;。&lt;/p&gt;
 
-&lt;p&gt;最后，希望这篇文章能对你的下一次软件开发有帮助～&lt;/p&gt;</content><author><name>ivy</name></author><category term="featured" /><summary type="html">单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/sso.jpg" /></entry><entry><title type="html">将内容看作新的基础设施：Content as a Service</title><link href="http://localhost:4000/blog/%E5%B0%86%E5%86%85%E5%AE%B9%E7%9C%8B%E4%BD%9C%E6%96%B0%E7%9A%84%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BDCaaS/" rel="alternate" type="text/html" title="将内容看作新的基础设施：Content as a Service" /><published>2019-10-15T00:00:00+08:00</published><updated>2019-10-15T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E5%B0%86%E5%86%85%E5%AE%B9%E7%9C%8B%E4%BD%9C%E6%96%B0%E7%9A%84%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BDCaaS</id><content type="html" xml:base="http://localhost:4000/blog/%E5%B0%86%E5%86%85%E5%AE%B9%E7%9C%8B%E4%BD%9C%E6%96%B0%E7%9A%84%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BDCaaS/">&lt;p&gt;内容是每家企业的必争之地，根据 CMI 的数据报告，88% 的 B2B 企业每天至少产生一篇内容。内容正在成为新的基础设施，Content as a Service 可以被简单理解为一种 CMS（Content Management Systen，内容管理系统），但是和传统的 CMS （如 Wordpress、Drupal 等）完全不同。传统 CMS 聚焦于内容管理和创建网站（比如 Wordpress 提供的大量网站模版），而 CaaS 只聚焦于内容的生产，并以 API （应用程序编程接口）的形式向外提供服务，这些 API 可被二次编程，从而用于打印机、移动应用或者其他设备上。&lt;/p&gt;
-
-&lt;p&gt;在这篇文章中，你将了解到什么是 CaaS 以及为什么内容是一种新的基础设施。在你想要使用 CaaS 时，本文可作为对比 CMS 和 CaaS 优劣的参考文章。我们还会罗列一些 CaaS 的使用场景，帮助你更好的了解 CaaS。&lt;/p&gt;
-
-&lt;h2 id=&quot;内容是新的基础设施&quot;&gt;内容是新的基础设施&lt;/h2&gt;
-
-&lt;p&gt;互联网上的所有应用都是信息管理软件，这些软件在本质上是由&lt;strong&gt;一张张互相联系的表&lt;/strong&gt;组成的（如果你不理解这句话，那么你可以将一个网站想象成三张 Excel 表，一张表存储网站用户，一张表存储网站内容，还有一张表存储网站分类）。当你使用一个传统 CMS 时，你可以创建一些分类，并在分类上面撰写文章，这样的操作在网站时代是比较友好的，因为每个用户都只有一个平台 —— 那就是浏览器，这种方式在浏览器上分发非常容易。&lt;/p&gt;
-
-&lt;p&gt;进入移动时代后就不一样了，一家公司至少拥有三个平台（Web、iOS、Android），针对这些平台，每家企业都需要定制自己的 CMS，他们可能是在 Wordpress 上做深度定制，也可能是自己开发。做的多了之后，大家会发现，每家公司都在做同样的事情 —— 写管理界面、建表、写 API，这些界面可能是与公司业务高度结合的，比如头条 APP 的后台与微信公众号的后台肯定是不一样的。但细细研究却会发现，其本质就是五个事情：增删改查和联表。&lt;/p&gt;
-
-&lt;p&gt;于是有人做了一种名为「Headless CMS」的平台出来，这种平台可以在线设计表和表的字段（和 想象下 Excel 的建表，写字段，但是用起来要比 Excel 简单很多），然后系统会根据设计好的表和字段自动生成立马可以使用的 API，这些 API 符合一种名为 RESTful 的规范，这种规范是开发者们共同遵守的一种规范，只要看到这个规范，开发者就知道该如何使用这些 API。知道如何使用之后，开发者就可以将这些内容用于实际的应用中（也就是展示给终端用户看），可能是抖音，也可能是微博（这些本质上都是信息管理软件）。&lt;/p&gt;
-
-&lt;p&gt;这么做带来的好处是，假如一款产品上线后，产品经理想要新上一个「用户反馈功能」，在没有 Headless CMS 的时候需要开发者在数据库中建一个新的表，然后用一上午的时间调通 API 和图片上传功能，最后再做个界面。有了 Headless CMS 之后就不得了了，产品经理想要用户反馈什么内容直接在后台建好字段，然后 API 就自动生成了，开发者省去了建表、建字段、调 API 的时间，直接进入界面开发了。如果产品经理想修改需求，自己就能直接改，这样不但大幅提升了工作效率，还减少了很多产品经理与程序员之间由于需求变更带来的巨大摩擦，因此世界更加美好了。&lt;/p&gt;
-
-&lt;p&gt;这类 Headless CMS 正在开发者圈子中流行开来，开发者开始主动将这类软件用于公司业务中。Headless CMS 翻译成中文就是无头 CMS，简单来说就是不管界面生成的 CMS，他使用了一种名为「RESTful API」的规范对外提供服务，开发者根据这套规范可以做任何应用。&lt;/p&gt;
-
-&lt;p&gt;一旦标准化，就会变成基础设施，内容正在这条路上。&lt;/p&gt;
-
-&lt;h2 id=&quot;什么是-caas&quot;&gt;什么是 CaaS&lt;/h2&gt;
-
-&lt;p&gt;CaaS 是内容基础设施的云上版本，他提供云上的 Headless CMS，并提供公网可用的 API 让开发者可以直接使用，开发者省去了部署运维的精力开销。除此之外，其还有 Headless CMS 不具备的高性能高可用优势。大部分 Headless CMS 是开源的，只能处理百万级别的数据，对于千万或亿级的数据，仍需要做不少优化工作，而 CaaS 将这些也省去了，这就是云计算的好处，标准化一切可以标准化的东西。&lt;/p&gt;
-
-&lt;p&gt;企业对于 CaaS 的担忧主要还是安全和隐私问题，也就是大家经常听到的对云计算的质疑 —— 「凭什么我把数据、代码和业务给你还要给你钱」。&lt;/p&gt;
-
-&lt;p&gt;对于中国的企业来说可能还有合规问题。如果在中国做 CaaS，必须投入大量资金和人力到内容审查上。&lt;/p&gt;
-
-&lt;p&gt;如果一个 CaaS 能做到垄断做成寡头，那么未来的一个最大的可能就是开放版的微信公众号。通过其 CaaS 平台分发出去的内容不仅有社会大众的娱乐内容，还有很多专业知识，而所有这些内容都是开放可检索的 —— 如果说中国互联网最大的遗憾是什么，那就是大量优质内容无法通过搜索引擎检索，中国只是个互闭网。&lt;/p&gt;
-
-&lt;h2 id=&quot;caas-相比-cms-的优势&quot;&gt;CaaS 相比 CMS 的优势&lt;/h2&gt;
-
-&lt;p&gt;CaaS 相比 CMS 有非常多的优势。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;结构化的内容&lt;/strong&gt;。CaaS 可以让内容管理者从「管理页面」的思维转向「管理内容」，这将让我们互联网上的内容变得更加专业和优质。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;代码结构优化&lt;/strong&gt;。传统 CMS 的内容和界面都是耦合十分严重的，像 Wordpress 使用了非常多的自定义指令去表示网页内的信息，从开发者的角度来说，这点是无法忍受的。CaaS 允许内容代码和界面彻底分离，这对开发效率来说会有更大幅的提升，并且符合现代开发框架。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;内容和展示分离&lt;/strong&gt;。传统 CMS 由于其界面布局等原因会制约内容的发展，有了 CaaS 之后作者只用关心内容而不必关心界面设计，只需要生产优质内容。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;云原生应用&lt;/strong&gt;。CaaS 是一种云原生应用，也是 SaaS 的一种，云服务提供商会为你安装、维护和做自动伸缩、性能优化等工作，你需要做的只是将内容迁移到 CaaS 和使用。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;个性化&lt;/strong&gt;。使用 CaaS 可以随心所欲的定义你想要的表和字段，并且有可以立即投入生产环境的接口使用。这在做一些 A/B 测时会非常有用，因为所有的修改都不需要改动底层的数据库或代码结构。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;caas-的使用场景&quot;&gt;CaaS 的使用场景&lt;/h2&gt;
-
-&lt;p&gt;总的来说，CaaS 的主要特性就是自由和灵活，以下是依据这些特性的典型使用场景（其实 CaaS 的应用场景非常广泛，几乎所有信息系统都可以用 CaaS 完成，以下只是抛砖引玉）：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;多渠道分发&lt;/strong&gt;。这里的多渠道分发主要是指分发到不同的内容平台上，可能是三端相同的应用，也可能是三端不同的应用。通过 CaaS 的开放 API 特性，作者只需要写一次，就可以重用这些内容，并分发给所有兼容了这些 API 的网站。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;移动应用内容分发&lt;/strong&gt;。很多移动应用都直接内嵌网页来展示内容，而 CaaS 的 API 允许移动应用在很方便的进行内容展示（传统的 CMS 没有结构化的 API 可用）。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;移动应用后端&lt;/strong&gt;。移动应用本质上也是信息管理软件，使用 CaaS 管理移动应用的业务逻辑是个不错的解决方案，CaaS 是个成熟的方案，比自己写要容易且稳定很多。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;与身份认证云配套使用&lt;/strong&gt;。使用身份认证云（如 Authing.cn）的用户往往有自定义字段和内容管理的需求，这些在业务层面的功能身份认证云是不提供的，那么 CaaS 便成为了拓展这些字段的一个良好补充。我们所知道的案例是，将 Authing.cn 配置进 Strapi(一款 CaaS 产品)，登录 Strapi 时使用 Authing 登录，然后携带 Authing 的 Token 访问 Strapi 的资源并进行授权认证。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;个人博客&lt;/strong&gt;。与传统 CMS 一样，CaaS 也可以作博客，不过需要创作者懂一些编程能力。如果懂编程，CaaS 是个更容易实现个人博客的方案。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;一个优秀-caas-应该具有的功能特性&quot;&gt;一个优秀 CaaS 应该具有的功能特性&lt;/h2&gt;
-
-&lt;h3 id=&quot;作者角度&quot;&gt;作者角度&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;体验良好的编辑器。&lt;/strong&gt;有类似石墨文档或 Notion 的文档编辑体验，让作者尽可能舒适的创作内容。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;简单符合直觉的建表及字段配置。&lt;/strong&gt;让内容创作者可以很容易管理、修改和与团队协作。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;开发者角度&quot;&gt;开发者角度&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;支持 CRUD 的自动生成并符合 RESTful 规范。&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;支持每个 API 逻辑的增加和修改。&lt;/strong&gt; 开发者可以很方便的无限制的拓展 API 的业务逻辑。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;支持拓展计算能力。&lt;/strong&gt; 支持函数计算，让开发者可以无限制的拓展平台能力。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;支持数据的授权以及标准认真协议（OAuth 2.0 或 OIDC）。&lt;/strong&gt; 能基于 RBAC 或 WAC 对数据进行细粒度授权，同时支持 OAuth 2.0 或 OIDC 协议，能兼容各类身份提供商的登录认证，并能使用身份提供商的 Token 授权资源访问。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;高可用高性能。&lt;/strong&gt; 低时延，快速响应以及完善的日志记录和错误监控。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;如何开始使用-caas&quot;&gt;如何开始使用 CaaS&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;如果你是 JavaScript 开发者，我们建议到 Github 上搜索 &lt;strong&gt;Strapi&lt;/strong&gt; 使用；&lt;/li&gt;
-  &lt;li&gt;如果你是其他语言开发者，请到 Google 上搜索 &lt;strong&gt;Headless CMS&lt;/strong&gt; 寻找你想要的语言使用；&lt;/li&gt;
-  &lt;li&gt;如果你是非工程人员，请到 Google 上搜索 &lt;strong&gt;Content as a Service&lt;/strong&gt; 找到最适合你的在线 CaaS 使用。&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>ivy</name></author><category term="featured" /><summary type="html">内容是每家企业的必争之地，根据 CMI 的数据报告，88% 的 B2B 企业每天至少产生一篇内容。内容正在成为新的基础设施，Content as a Service 可以被简单理解为一种 CMS（Content Management Systen，内容管理系统），但是和传统的 CMS （如 Wordpress、Drupal 等）完全不同。传统 CMS 聚焦于内容管理和创建网站（比如 Wordpress 提供的大量网站模版），而 CaaS 只聚焦于内容的生产，并以 API （应用程序编程接口）的形式向外提供服务，这些 API 可被二次编程，从而用于打印机、移动应用或者其他设备上。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/caas.jpg" /></entry></feed>
+&lt;p&gt;最后，希望这篇文章能对你的下一次软件开发有帮助～&lt;/p&gt;</content><author><name>ivy</name></author><category term="featured" /><summary type="html">单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/sso.jpg" /></entry></feed>
