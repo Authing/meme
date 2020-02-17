@@ -2,7 +2,7 @@
 layout: post
 title:  "Geek Talk 036 实录：Serverless 的前景和机会"
 author: ivy
-categories: [ Developers, tutorial ]
+categories: [ Developers, tutorial, cultures ]
 image: https://cdn.authing.cn/blog/20200217155500.png
 tags: [serverless]
 ---
