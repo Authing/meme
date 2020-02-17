@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2020-02-17T16:25:28+08:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Authing 官方博客</title><subtitle>Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。</subtitle><entry><title type="html">Geek Talk 036 实录：Serverless 的前景和机会</title><link href="http://localhost:4000/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/" rel="alternate" type="text/html" title="Geek Talk 036 实录：Serverless 的前景和机会" /><published>2020-02-17T00:00:00+08:00</published><updated>2020-02-17T00:00:00+08:00</updated><id>http://localhost:4000/blog/GeekTalk036%E5%AE%9E%E5%BD%95:Serverless%20%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A</id><content type="html" xml:base="http://localhost:4000/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">&lt;p&gt;Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2020-02-17T16:31:04+08:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Authing 官方博客</title><subtitle>Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。</subtitle><entry><title type="html">Geek Talk 036 实录：Serverless 的前景和机会</title><link href="http://localhost:4000/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/" rel="alternate" type="text/html" title="Geek Talk 036 实录：Serverless 的前景和机会" /><published>2020-02-17T00:00:00+08:00</published><updated>2020-02-17T00:00:00+08:00</updated><id>http://localhost:4000/blog/GeekTalk036%E5%AE%9E%E5%BD%95:Serverless%20%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A</id><content type="html" xml:base="http://localhost:4000/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">&lt;p&gt;Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。&lt;/p&gt;
 
 &lt;p&gt;大家好，我谢扬。很高兴能够有这个机会更加交流关于 Serverless 的技术，我们目前创业做的事情跟 Serverless 也是非常强相关的，目前聚焦研发一款 IDaaS 身份即服务产品 Authing。我之前在字节跳动负责一款日活过亿的 Serverless 产品 LarkCloud。我个人对 Serverless 保持着长期的关注，对 Serverless 行业的发展也有很多想法，今天也跟大家分享一下。&lt;/p&gt;
 
@@ -873,7 +873,7 @@ await authing.authz.addUserToGroup({
 
 &lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200205182918.png&quot; alt=&quot;&quot; /&gt;Authing 是中国领先的 IDaaS 服务提供商，对标美国独角兽 Auth0。创始团队来自字节跳动、百度、IBM、阿里云、滴滴出行等互联网企业。Authing 提供开发者友好、易拓展的身份认证和授权平台，赋能企业在云端管理身份，主要功能包括：单点登录、用户分析、扫码登录、多因素认证、行为审计、风险控制、跨平台设备管理、IoT 身份认证等；兼容国际各类标准协议：OAuth2.0、OIDC、SAML、AD/LDAP、WS-Fed、JWT 等。 支持云交付和私有化部署方式，帮助企业和开发者千倍级提升生产效率。&lt;/p&gt;
 
-&lt;p&gt;Authing 自上线以来已经服务海内外超过 3000 名企业开发者、拥有约 50 万的开发者社区和托管数百万终端用户，每月百万人次通过 Authing 平台进行认证，并已经服务数十家付费企业客户，覆盖教育、人工智能、出版社、 物联网等多个行业。&lt;/p&gt;</content><author><name>cj</name></author><category term="rbac" /><summary type="html">在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://inrupt.com/sites/default/files/2018-10/Layer%200%20%281%29_0.png" /></entry><entry><title type="html">一份所有人都能理解的关于 Authing 的介绍</title><link href="http://localhost:4000/blog/a-intro-about-authing-to-everyone/" rel="alternate" type="text/html" title="一份所有人都能理解的关于 Authing 的介绍" /><published>2020-02-03T00:00:00+08:00</published><updated>2020-02-03T00:00:00+08:00</updated><id>http://localhost:4000/blog/a-intro-about-authing-to-everyone</id><content type="html" xml:base="http://localhost:4000/blog/a-intro-about-authing-to-everyone/">&lt;p&gt;我们加入了这场游戏，带着不同的视角。&lt;/p&gt;
+&lt;p&gt;Authing 自上线以来已经服务海内外超过 3000 名企业开发者、拥有约 50 万的开发者社区和托管数百万终端用户，每月百万人次通过 Authing 平台进行认证，并已经服务数十家付费企业客户，覆盖教育、人工智能、出版社、 物联网等多个行业。&lt;/p&gt;</content><author><name>cj</name></author><category term="RBAC" /><summary type="html">在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://inrupt.com/sites/default/files/2018-10/Layer%200%20%281%29_0.png" /></entry><entry><title type="html">一份所有人都能理解的关于 Authing 的介绍</title><link href="http://localhost:4000/blog/a-intro-about-authing-to-everyone/" rel="alternate" type="text/html" title="一份所有人都能理解的关于 Authing 的介绍" /><published>2020-02-03T00:00:00+08:00</published><updated>2020-02-03T00:00:00+08:00</updated><id>http://localhost:4000/blog/a-intro-about-authing-to-everyone</id><content type="html" xml:base="http://localhost:4000/blog/a-intro-about-authing-to-everyone/">&lt;p&gt;我们加入了这场游戏，带着不同的视角。&lt;/p&gt;
 
 &lt;h2 id=&quot;authing-解决什么问题&quot;&gt;Authing 解决什么问题？&lt;/h2&gt;
 
@@ -1196,7 +1196,432 @@ data. In 2015 IEEE Security and Privacy Workshops (pp. 180-184). IEEE (2015). do
 
 &lt;p&gt;Authing 是中国领先的 IDaaS 服务提供商，对标美国独角兽 Auth0。创始团队来自字节跳动、百度、IBM、阿里云、滴滴出行等互联网企业。Authing 提供开发者友好、易拓展的身份认证和授权平台，赋能企业在云端管理身份，主要功能包括：单点登录、用户分析、扫码登录、多因素认证、行为审计、风险控制、跨平台设备管理、IoT 身份认证等；兼容国际各类标准协议：OAuth2.0、OIDC、SAML、AD/LDAP、WS-Fed、JWT 等。 支持云交付和私有化部署方式，帮助企业和开发者千倍级提升生产效率。&lt;/p&gt;
 
-&lt;p&gt;Authing 自上线以来已经服务海内外超过 3000 名企业开发者、拥有约 50 万的开发者社区和托管数百万终端用户，每月百万人次通过 Authing 平台进行认证，并已经服务数十家付费企业客户，覆盖教育、人工智能、出版社、 物联网等多个行业。&lt;/p&gt;</content><author><name>ivy</name></author><category term="featured" /><summary type="html">SoLiD 是一个令人兴奋的新项目，由万维网发明者 Tim Berners-Lee 爵士在麻省理工学院启动。 该项目旨在从根本上改变 Web 应用程序的中心化趋势， 它将真正地让数据所有权属于用户，并改善隐私问题。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://inrupt.com/sites/default/files/2018-10/Thomas_explainer.png" /></entry><entry><title type="html">使用 Authing 集成 AWS 服务</title><link href="http://localhost:4000/blog/%E4%BD%BF%E7%94%A8Authing%E4%B8%8EAWS%E6%9C%8D%E5%8A%A1%E9%9B%86%E6%88%90/" rel="alternate" type="text/html" title="使用 Authing 集成 AWS 服务" /><published>2019-12-20T00:00:00+08:00</published><updated>2019-12-20T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E4%BD%BF%E7%94%A8Authing%E4%B8%8EAWS%E6%9C%8D%E5%8A%A1%E9%9B%86%E6%88%90</id><content type="html" xml:base="http://localhost:4000/blog/%E4%BD%BF%E7%94%A8Authing%E4%B8%8EAWS%E6%9C%8D%E5%8A%A1%E9%9B%86%E6%88%90/">&lt;p&gt;Authing 是一个开发者友好、拓展性极高的身份认证云服务，每月有超过 100 万次用户被 Authing 认证和授权。本次分享将介绍如何企业常见的认证授权场景，可以满足中国本地用户对于 Cognito User Pool 的需求，并且提供本地化的服务。同时本文将讲解 Authing 如何与 AWS 各类服务集成，如 Cognito Identity Pool, IAM, S3, Lambda, AD 等等。&lt;/p&gt;
+&lt;p&gt;Authing 自上线以来已经服务海内外超过 3000 名企业开发者、拥有约 50 万的开发者社区和托管数百万终端用户，每月百万人次通过 Authing 平台进行认证，并已经服务数十家付费企业客户，覆盖教育、人工智能、出版社、 物联网等多个行业。&lt;/p&gt;</content><author><name>ivy</name></author><category term="featured" /><summary type="html">SoLiD 是一个令人兴奋的新项目，由万维网发明者 Tim Berners-Lee 爵士在麻省理工学院启动。 该项目旨在从根本上改变 Web 应用程序的中心化趋势， 它将真正地让数据所有权属于用户，并改善隐私问题。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://inrupt.com/sites/default/files/2018-10/Thomas_explainer.png" /></entry><entry><title type="html">RBAC 实现基于角色的访问控制</title><link href="http://localhost:4000/blog/RBAC%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8E%E8%A7%92%E8%89%B2%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/" rel="alternate" type="text/html" title="RBAC 实现基于角色的访问控制" /><published>2020-01-17T00:00:00+08:00</published><updated>2020-01-17T00:00:00+08:00</updated><id>http://localhost:4000/blog/RBAC%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8E%E8%A7%92%E8%89%B2%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6</id><content type="html" xml:base="http://localhost:4000/blog/RBAC%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8E%E8%A7%92%E8%89%B2%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/">&lt;p&gt;基于角色的访问控制（Role-based access control，简称 RBAC），指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。&lt;/p&gt;
+
+&lt;h2 id=&quot;一认证-vs-授权&quot;&gt;&lt;strong&gt;一、认证 vs 授权？&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;首先让我们用一句话区分认证（Authentication）和授权（Authorization）：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;认证是识别请求方是谁的过程；&lt;/li&gt;
+  &lt;li&gt;授权是知道了请求方是谁之后，判断其是否具备某些权限的过程；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200205182555.png&quot; alt=&quot;&quot; /&gt;
+Authing 支持非常丰富的认证、授权手段：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;认证手段有：传统密码、验证码登录、丰富的第三方登录（微信、小程序、微博、GitHub、支付宝、QQ 等，未来还会有更多），以及企业级的 LDAP、SAML、OIDC 等。&lt;/li&gt;
+  &lt;li&gt;授权手段有：完整的 OAuth、OIDC 流程。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;对于授权流程，访问控制（Access Control）策略是非常重要的一环，目前 Authing 一共支持（或即将支持）三种访问控制手段：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;老版本的用户角色（deprecated）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;RBAC（基于角色的访问控制，2020/02/03 已经上线）&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;ABAC（基于属性的访问控制，未来即将支持）&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;二什么是-rbac-&quot;&gt;&lt;strong&gt;二、什么是 RBAC ?&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200205182755.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;基于角色的访问控制（Role-based access control，简称 RBAC），指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;当使用 RBAC 时，通过分析系统用户的实际情况，基于共同的职责和需求，将他们分配给不同的角色。然后可以授予每个用户一个或多个角色，每个角色具有一个或多个权限，这种 &lt;strong&gt;用户-角色&lt;/strong&gt;、&lt;strong&gt;角色-权限&lt;/strong&gt; 间的关系，让我们可以不用再单独管理单个用户，用户从具备的角色里面继承所需的权限，从而使得用户赋权这件事变得更加简单。&lt;/p&gt;
+
+&lt;p&gt;举一个公司内所有在职员工具备登录公司邮箱的权限的场景，如果应用 RBAC，就可以赋予所有在职员工 employee 角色，employee 角色具备 email:login 权限，如此所有员工就具备了登录公司邮箱的权限。如果有员工离职，只需要将其移出 employee 角色，而不需单独收回权限。本质上，一个角色（Role）就是一组权限（Permission）的集合。使用角色添加、删除、调整权限，相比单独赋予单个用户权限更加简单。当你的用户基数不断增长时，角色会变得尤为有用。&lt;/p&gt;
+
+&lt;p&gt;在规划访问控制策略时，&lt;strong&gt;最佳实践是给予用户完成工作必须的最小权限。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;三使用-rbac-的优势&quot;&gt;&lt;strong&gt;三、使用 RBAC 的优势&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;系统性、可重复性的权限指派&lt;/li&gt;
+  &lt;li&gt;更方便的用户权限审计，快速定位问题&lt;/li&gt;
+  &lt;li&gt;快速地添加、修改角色，甚至可以调用 API 实现&lt;/li&gt;
+  &lt;li&gt;减少授予用户权限时发生错误的可能性&lt;/li&gt;
+  &lt;li&gt;引入第三方用户/新用户/未登录用户时，赋予他们预先配置好的角色，比如 guest 分组&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;四下面是-authing--目前所支持或即将上线的相关-feature&quot;&gt;四、下面是 Authing  目前所支持或即将上线的相关 Feature：&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Feature&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;Authing 支持情况&lt;/th&gt;
+      &lt;th&gt;备注&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;角色&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;创建/修改/删除 角色&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;分页查询&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;通过名称、描述搜索角色&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;角色能被授予给分组&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;角色嵌套、分层&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;角色通过 namespace、多租户管理&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;查询角色具备的所有权限&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;查询角色中包含的所有用户&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;用户&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;创建/修改/删除 用户&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;分页查询&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;通过昵称、邮箱搜索用户&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;查看最近注册、登录的用户&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;通过第三方应用查找用户&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;通过 lucence 语法搜索用户&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;用户可以拥有一个或多个角色&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt;最多 50 个&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;用户能在一个或多个分组里&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt;最多 50 个&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;查看一个用户具备的所有角色&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;查看一个用户所在的所有分组&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;查看一个用户所具备的所有权限&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;通过 JSON 导入/导出用户&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;自定义密码加密函数&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;权限&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;创建/修改/删除 权限&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;分页查询&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;通过名称、描述搜索权限&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;能直接赋予用户权限&lt;/td&gt;
+      &lt;td&gt;To be determined&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;能授权给一个或多个角色&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;查询所有具有某个权限的用户&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;查询所有具有某个权限的角色&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;查询所有具有某个权限的分组&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;分组&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;分页查询&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;创建/修改/删除 分组&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;通过名称、描述搜索分组&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;直接从第三方用户目录导入（如 AD, LDAP, SAML）&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;分组嵌套、分层&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;查看分组的子分组&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;分组通过 namespace、多租户管理&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;查看一个分组具备的所有用户&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;查看一个分组具备的所有角色&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;查看一个分组具备的所有权限&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;配置&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;自定义授权流程策略（authorization policies）&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;自定义是否将权限加入 Token&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt;默认为否&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;自定义是否将角色加入 Token&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt;默认为否&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;自定义是否将分组加入 Token&lt;/td&gt;
+      &lt;td&gt;In future release&lt;/td&gt;
+      &lt;td&gt;默认为否&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;YES ：&lt;/strong&gt;当前支持。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;In future release ：&lt;/strong&gt;已加入未来规划，不久后将会支持。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;To be determined ：&lt;/strong&gt;还在设计是否需要添加此功能。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;五rbac-最佳实践分组管理用户&quot;&gt;五、RBAC 最佳实践：分组管理用户&lt;/h2&gt;
+
+&lt;p&gt;除了直接赋予用户某个角色，作为 RBAC 的最佳实践，我们还可以通过分组管理用户，将一个分组和一组角色绑定，在此分组内的所有用户就会继承这些角色，并自动具备了这些角色包含的权限。这些概念之间的关系为：&lt;strong&gt;Permission &amp;lt;-&amp;gt; Roles &amp;lt;-&amp;gt; Groups &amp;lt;-&amp;gt; Users&lt;/strong&gt;，如下图所示：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;分组：Employee, Contractor&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;角色：Vacation Requester, Invoice Submitter, Express Submitter&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;权限：Read vacation requests, Create vacation requests 等&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200205180933.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;用分组管理用户、分组包含一组权限，这也是我们推荐使用的方式。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;分组和角色的区别&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;分组(Group)和角色(Role)有什么区别？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;角色是一组权限的集合。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;分组侧重于管理用户，一个分组通常拥有多个角色，分组内的用户会继承分组内所有角色的所有权限。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;常见的 Group 和 Role 示例：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Group&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;admin: 系统管理员，通常包含系统维护者。&lt;/li&gt;
+      &lt;li&gt;employee: 正式雇员。&lt;/li&gt;
+      &lt;li&gt;employer: 面试官。&lt;/li&gt;
+      &lt;li&gt;hr&lt;/li&gt;
+      &lt;li&gt;intern: 实习生&lt;/li&gt;
+      &lt;li&gt;ops_engineer: 运维工程师&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Role&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Invoice Submitter: 具备发票报销的相关权限。&lt;/li&gt;
+      &lt;li&gt;Vacation Requester: 具备申请假期的相关权限。&lt;/li&gt;
+      &lt;li&gt;Corporation Email User: 具备使用公司邮箱的的相关权限。&lt;/li&gt;
+      &lt;li&gt;Production Server Operator: 具备线上服务器的操作权限。&lt;/li&gt;
+      &lt;li&gt;HR App User: 具备使用 HR 系统的相关权限。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;举例来说：可以这样建立 Role 和 Group 之间的关系：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;intern 具备 Corporation Email User 这个角色，但是不具备 Vacation Requester 和 Invoice Submitter 这两个角色。&lt;/li&gt;
+  &lt;li&gt;employee 拥有发票报销和申请假期角色，但是不具备线上服务器的操作权限。&lt;/li&gt;
+  &lt;li&gt;ops_engineer 拥有发票报销、申请假期、线上服务器的角色。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;我们推荐&lt;strong&gt;使用分组（Group）管理用户，用 Role（角色） 管理权限&lt;/strong&gt;，不要直接赋予单个用户某个权限。如果是某个用户临时需要具备某个角色，可以临时授予，结束之后再收回。&lt;/p&gt;
+
+&lt;h3 id=&quot;关于-authing&quot;&gt;关于 Authing&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200205182918.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Authing 是中国领先的 IDaaS 服务提供商，对标美国独角兽 Auth0。创始团队来自字节跳动、百度、IBM、阿里云、滴滴出行等互联网企业。Authing 提供开发者友好、易拓展的身份认证和授权平台，赋能企业在云端管理身份，主要功能包括：单点登录、用户分析、扫码登录、多因素认证、行为审计、风险控制、跨平台设备管理、IoT 身份认证等；兼容国际各类标准协议：OAuth2.0、OIDC、SAML、AD/LDAP、WS-Fed、JWT 等。 支持云交付和私有化部署方式，帮助企业和开发者千倍级提升生产效率。&lt;/p&gt;
+
+&lt;p&gt;Authing 自上线以来已经服务海内外超过 3000 名企业开发者、拥有约 50 万的开发者社区和托管数百万终端用户，每月百万人次通过 Authing 平台进行认证，并已经服务数十家付费企业客户，覆盖教育、人工智能、出版社、 物联网等多个行业。&lt;/p&gt;
+
+&lt;h3 id=&quot;相关阅读&quot;&gt;相关阅读&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/qVlqwA2ZhZeKsl0RdVsojQ&quot;&gt;Authing 的故事：我为什么开发 Authing？&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/WGL7n9D1L0UG71276Wn6Iw&quot;&gt;如何在远程办公中保持高效的&lt;/a&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/WGL7n9D1L0UG71276Wn6Iw&quot;&gt;研发效率？&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/KkUhNuXnrsWa5Q-ucmIlqA&quot;&gt;一份普通人能理解的关于 Authing 的介绍&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/TlYmDRg1q_glJ7Icsj0arw&quot;&gt;Authing 是什么以及为什么需要 Authing？&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/TlYmDRg1q_glJ7Icsj0arw&quot;&gt;为什么身份认证值得上云？&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/6SsGcgoesVGaLT19auK7yg&quot;&gt;Authing &lt;/a&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/6SsGcgoesVGaLT19auK7yg&quot;&gt;@ 2019 总结&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/Xd3SR2WaB15a250RxEZWpg&quot;&gt;Authing 开发资源最全合集&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>cj</name></author><category term="rbac" /><summary type="html">基于角色的访问控制（Role-based access control，简称 RBAC），指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200205182755.png" /></entry><entry><title type="html">使用 Authing 集成 AWS 服务</title><link href="http://localhost:4000/blog/%E4%BD%BF%E7%94%A8Authing%E4%B8%8EAWS%E6%9C%8D%E5%8A%A1%E9%9B%86%E6%88%90/" rel="alternate" type="text/html" title="使用 Authing 集成 AWS 服务" /><published>2019-12-20T00:00:00+08:00</published><updated>2019-12-20T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E4%BD%BF%E7%94%A8Authing%E4%B8%8EAWS%E6%9C%8D%E5%8A%A1%E9%9B%86%E6%88%90</id><content type="html" xml:base="http://localhost:4000/blog/%E4%BD%BF%E7%94%A8Authing%E4%B8%8EAWS%E6%9C%8D%E5%8A%A1%E9%9B%86%E6%88%90/">&lt;p&gt;Authing 是一个开发者友好、拓展性极高的身份认证云服务，每月有超过 100 万次用户被 Authing 认证和授权。本次分享将介绍如何企业常见的认证授权场景，可以满足中国本地用户对于 Cognito User Pool 的需求，并且提供本地化的服务。同时本文将讲解 Authing 如何与 AWS 各类服务集成，如 Cognito Identity Pool, IAM, S3, Lambda, AD 等等。&lt;/p&gt;
 
 &lt;h2 id=&quot;cognito-identity-pool&quot;&gt;Cognito Identity Pool&lt;/h2&gt;
 
@@ -1772,61 +2197,4 @@ https://oauth.authing.cn/oauth/oidc/validate_access_token&lt;/li&gt;
 
 &lt;p&gt;使用 Authing 可以一劳永逸的解决上述 20 个问题，任何想做计算机软件的企业或个人，只需要接入 Authing 的云服务，就可以以极低的成本，快速解决那些需要耗费数百万元人民币才能解决的问题。身份的复杂性和混乱性，造成了每年数十亿的浪费，因为其表面的简单，导致了缺乏系统的标准，每家厂商都会自己搞一套自己的标准，这些混乱的标准既养活了一群人，也加重了这群人的开发负担。&lt;/p&gt;
 
-&lt;p&gt;身份这件事，听上去是老故事，看上去很简单，但其从未得到很好的解决，这就是 Authing 存在的意义。&lt;/p&gt;</content><author><name>ivy</name></author><summary type="html">身份管理自从计算机问世以来就存在，很多人觉得身份管理很简单，其实难度远超你的想象。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20191027184218.png" /></entry><entry><title type="html">为什么所有软件都应该使用单点登录来管理用户？</title><link href="http://localhost:4000/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%80%E6%9C%89%E8%BD%AF%E4%BB%B6%E9%83%BD%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E6%9D%A5%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7/" rel="alternate" type="text/html" title="为什么所有软件都应该使用单点登录来管理用户？" /><published>2019-10-25T00:00:00+08:00</published><updated>2019-10-25T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%80%E6%9C%89%E8%BD%AF%E4%BB%B6%E9%83%BD%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E6%9D%A5%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%3F</id><content type="html" xml:base="http://localhost:4000/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%80%E6%9C%89%E8%BD%AF%E4%BB%B6%E9%83%BD%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E6%9D%A5%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7/">&lt;p&gt;单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。&lt;/p&gt;
-
-&lt;h2 id=&quot;一什么是单点登录&quot;&gt;一、什么是单点登录？&lt;/h2&gt;
-
-&lt;p&gt;&amp;lt;div align=center&amp;gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20190908080023.png&quot; width=&quot;300&quot; /&gt; &amp;lt;/div&amp;gt;
-单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。&lt;/p&gt;
-
-&lt;h2 id=&quot;二使用-sso-带来的业务优势&quot;&gt;二、使用 SSO 带来的「业务优势」&lt;/h2&gt;
-
-&lt;h3 id=&quot;1提高用户的效率&quot;&gt;1）提高用户的效率&lt;/h3&gt;
-
-&lt;p&gt;用户不再被多次登录困扰，也不需要记住多个 ID 和密码。另外，用户忘记密码并求助于支持人员的情况也会减少。&lt;/p&gt;
-
-&lt;h3 id=&quot;2提高开发人员的效率&quot;&gt;2）提高开发人员的效率&lt;/h3&gt;
-
-&lt;p&gt;SSO 为开发人员提供了一个通用的身份验证框架。实际上，如果 SSO 机制是独立的，那么开发人员就完全不需要为身份验证操心。他们可以假设，只要对应用程序的请求附带一个用户名，身份验证就已经完成了。&lt;/p&gt;
-
-&lt;h3 id=&quot;3简化管理&quot;&gt;3）简化管理&lt;/h3&gt;
-
-&lt;p&gt;如果应用程序加入了单点登录协议，管理用户帐号的负担就会减轻。简化的程度取决于应用程序，因为 SSO 只处理身份验证。所以，应用程序可能仍然需要设置用户的属性（比如访问特权）。&lt;/p&gt;
-
-&lt;p&gt;这些都属于业务上的优势，除了业务上的优势外，还有软件架构层面的优势。&lt;/p&gt;
-&lt;h2 id=&quot;三使用-sso-带来的软件架构层面的优势&quot;&gt;三、使用 SSO 带来的「软件架构层面的优势」&lt;/h2&gt;
-
-&lt;h3 id=&quot;1向下兼容&quot;&gt;1）向下兼容&lt;/h3&gt;
-
-&lt;p&gt;单点登录是一种比普通的账号密码登录更加规范化的解决方案，如果有一天你的业务扩大，想要聚合所有平台的用户，&lt;strong&gt;那么提前用上了单点登录的你会使整个过程变得非常容易&lt;/strong&gt;。有太多前期的用户系统做的很不规范，系统壮大后需要投入大量人力物力来进行迁移的案例出现。造成软件前期不使用单点登录的主要原因是单点登录的复杂性，&lt;strong&gt;如果单点登录的复杂性和实施成本能被降低，那么我相信很多人都愿意直接使用&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;p&gt;再类比一下，使用单点登录对你的系统向下兼容就好像 C++ 可以兼容 C 语言一样，你在用 C++ 时，使用面向对象编程的同时，不会耽误你面向过程编程。相反，如果你使用了 C 语言，在理论上你当然也可以面向对象编程，只不过过程过于复杂，异常痛苦，甚至不符合 C 语言的设计思想。为什么要将不合适的东西强行扭成合适的呢？这就是单点登录相较于普通登录方式最本质的区别。&lt;/p&gt;
-
-&lt;p&gt;教科书为了让你快速上手，所以选择 C 语言开始；PHP 为了让你快速上手，选择让你学习最简单的单向「用户名 - 密码」登录开始。但是我们都知道，软件最好从一开始就使用面向对象编程，那么任何的互联网应用，从一开始就使用「单点登录」也是同样的道理。&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;div align=center&amp;gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20191025183746.png&quot; width=&quot;400&quot; /&gt; &amp;lt;/div&amp;gt;&lt;/p&gt;
-&lt;h3 id=&quot;2简化迁移迁出流程&quot;&gt;2）简化迁移迁出流程&lt;/h3&gt;
-
-&lt;p&gt;假设你的软件从一开始就没有考虑过使用单点登录，那么当你的业务拓展成功并且有多个平台后，多平台用户的 Merge 就会变成很大的一个难点，比如如何确定注册到 A 平台的邮箱和 B 平台的邮箱是同一个、用户的密码如何重置、如何确定 Merge 完成后的用户信息没有任何损失等等。&lt;/p&gt;
-
-&lt;p&gt;如果你从一开始就使用了单点登录，那么这些问题都将不复存在。将用户从平台中迁移出来将像导出 Excel 到 CSV 一样简单。&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;div align=center&amp;gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20191025185902.png&quot; /&gt; &amp;lt;/div&amp;gt;&lt;/p&gt;
-&lt;h3 id=&quot;3强化管理和安全流程&quot;&gt;3）强化管理和安全流程&lt;/h3&gt;
-
-&lt;p&gt;进行身份认证的目的是为了授权用户可访问哪些资源，单点登录都有十分规范化的权限授权系统，RBAC 是业内比较认可的授权管理方案。单点登录系统一般都自带开发者友好和组织友好的 RBAC 方案，可以让开发者快速实现中心化授权体系。&lt;/p&gt;
-
-&lt;p&gt;除此之外，用户的历史活动为判定可信度提供了丰富的分析素材。系统可以通过挖掘用户的历史操作构建其行为基线，然后通过比较当前操作和其行为基线来计算用户的信任评分。&lt;/p&gt;
-
-&lt;p&gt;通过比较当前用户的地理位置坐标可以发现是否有异常，比如一个用户的设备在一个较小的时间窗口内突然出现在某个用户不可能达到的坐标；再比如用户有多个设备，但其报告了不一样的地理位置。但是必须注意，地理位置是存在偏差的，所以地理位置的权重不应该过高，而是作为一种参考。&lt;/p&gt;
-
-&lt;p&gt;成熟的单点登录系统都会提供这些功能，除此之外还有可定制的加密算法、用户密码泄漏检测等多维化功能，保障整个系统的管理安全和流程安全。&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;div align=center&amp;gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20191025185937.png&quot; /&gt; &amp;lt;/div&amp;gt;&lt;/p&gt;
-&lt;h2 id=&quot;四如何低成本的实现单点登录-&quot;&gt;四、如何低成本的实现单点登录 ？&lt;/h2&gt;
-
-&lt;p&gt;前面我们讲了为什么所有软件都应该使用单点登录来管理用户，&lt;strong&gt;那么如何最低成本的实现单点登录呢？&lt;/strong&gt;这里就要介绍下 Authing 了。&lt;/p&gt;
-
-&lt;p&gt;Authing 是一款身份认证云，提供了开发者优先和极易拓展的开发平台，简化了身份管理的流程，使用 Authing 可以用极短的时间和极低的成本实现单点登录&lt;strong&gt;（用户量数十万的应用从迁移进 Authing 到上线到生产环境只需要两天）&lt;/strong&gt;，如果你对此感兴趣，可以查看这篇文章：&lt;a href=&quot;https://learn.authing.cn/authing/quickstart/implement-sso-with-authing&quot;&gt;用 Authing 10 分钟实现单点登录&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;最后，希望这篇文章能对你的下一次软件开发有帮助～&lt;/p&gt;</content><author><name>ivy</name></author><category term="featured" /><summary type="html">单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/sso.jpg" /></entry></feed>
+&lt;p&gt;身份这件事，听上去是老故事，看上去很简单，但其从未得到很好的解决，这就是 Authing 存在的意义。&lt;/p&gt;</content><author><name>ivy</name></author><summary type="html">身份管理自从计算机问世以来就存在，很多人觉得身份管理很简单，其实难度远超你的想象。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20191027184218.png" /></entry></feed>
