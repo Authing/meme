@@ -11306,6 +11306,10 @@ html {
   .d-md-inline-flex {
     display: inline-flex !important;
   }
+
+  .navbar-light .navbar-nav .nav-link:nth-child(7) {
+    margin-bottom: 7px;
+  }
 }
 
 @media (min-width: 992px) {
