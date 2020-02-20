@@ -6,12 +6,9 @@ categories: [ Developers, tutorial ]
 image: https://cdn.authing.cn/blog/20200220203521.png
 tags: [Pipeline, 扩能能力]
 ---
-
-# Introduce Pipeline: Authing 的可扩展性达到了新高度
+Authing Pipeline 是一组运行在云端的用户自定义 JavaScript 代码，属于 Authing 扩展能力的重要部分，可以让开发者无限制扩展、自定义 Authing 的能力。
 
 ![](https://cdn.authing.cn/blog/20200220202545.png)
-
-Authing Pipeline 是一组运行在云端的用户自定义 JavaScript 代码，属于 Authing 扩展能力的重要部分，可以让开发者无限制扩展、自定义 Authing 的能力。
 
 ## 演示
 
