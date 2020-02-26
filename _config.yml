@@ -42,6 +42,14 @@ authors:
     email: fakemail@gmail.com
     twitter: https://twitter.com/wowthemesnet
 
+  jackjin:
+    name: 晋剑
+    site: https://www.jackjin.io
+    avatar: /assets/images/jackjin.png
+    bio: "不骑单车好多年 ;-)"
+    email: jack@authing.cn
+    twitter: https://twitter.com/JinJian5
+
 # Defaults
 defaults:
   # all posts
