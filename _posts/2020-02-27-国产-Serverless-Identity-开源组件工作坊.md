@@ -2,18 +2,18 @@
 layout: post
 title:  "#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊"
 author: jackjin
-categories: [ Developers ]
+categories: [ Developers, cultures ]
 image: https://cdn.authing.cn/blog/tencent.jpeg
 tags: [ ShapeIdentity, Serverless, OIDC ]
 ---
-### 
 我们发起 **# Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。**我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日子，本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。
 
 
 疫情肆虐，不仅对老百姓生命健康造成重大威胁，对各行各业的发展也造成重大影响。同时，开学、复工在即，疫情防控进入了关键阶段，「居家隔离、远程办公」是当下遏制疫情扩散的最佳防控措施。 
 
 ![](https://cdn.authing.cn/blog/flu.gif)
-1918年的西班牙流感席卷全球的模拟
+
+> 1918年的西班牙流感席卷全球的模拟
 
 2019 新型冠状病毒（2019-nCoV）使得中国一夜之间成了「全球最大的远程办公数字社会」，但是如此大规模的，敦刻尔克式的“数字化转型”，对「企业协同」、「企业 VPN 性能及安全性」、网络信息安全迎来重要考验， 也难免会出现大量次生安全问题，尤其在春节假期延长，大量企事业单位启动「远程办公」，原本在防火墙内，使用公司设备办公的员工，使用家用 PC 开始办公，并通过公共 WiFi 访问企业内部的数据和应用时，**企业网络安全部门面临着空前的安全威胁，其中，「身份安全」是至关重要的一环。**
 

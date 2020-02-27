@@ -4,20 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sal | Authing 官方博客</title>
+    <title>#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊 | Authing 官方博客</title>
 
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Sal | Authing 官方博客</title>
+<title>#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊 | Authing 官方博客</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Sal" />
+<meta property="og:title" content="#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊" />
+<meta name="author" content="jackjin" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。" />
-<meta property="og:description" content="Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。" />
-<link rel="canonical" href="http://localhost:4000/blog/author-sal.html" />
-<meta property="og:url" content="http://localhost:4000/blog/author-sal.html" />
+<meta name="description" content="我们发起 # Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日子，本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。" />
+<meta property="og:description" content="我们发起 # Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日子，本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。" />
+<link rel="canonical" href="http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/" />
+<meta property="og:url" content="http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/" />
 <meta property="og:site_name" content="Authing 官方博客" />
+<meta property="og:image" content="https://cdn.authing.cn/blog/tencent.jpeg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-02-27T00:00:00+08:00" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/blog/author-sal.html","headline":"Sal","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"}},"description":"Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。","@type":"WebPage","@context":"http://schema.org"}</script>
+{"url":"http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/","headline":"#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊","dateModified":"2020-02-27T00:00:00+08:00","datePublished":"2020-02-27T00:00:00+08:00","image":"https://cdn.authing.cn/blog/tencent.jpeg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"},"name":"jackjin"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/"},"description":"我们发起 # Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日子，本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。","author":{"@type":"Person","name":"jackjin"},"@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -108,12 +112,12 @@ var documents = [{
     "id": 2,
     "url": "http://localhost:4000/blog/author-jane.html",
     "title": "Jane",
-    "body": "                        Jane Follow:                                                    Posts by Jane:               "
+    "body": "                        {{page. title}} Follow:         {{ site. authors. jane. site }}         {{ site. authors. jane. bio }}                                   Posts by {{page. title}}:       {% assign posts = site. posts | where: author , jane  %}      {% for post in posts %}      {% include main-loop-card. html %}      {% endfor %}  "
     }, {
     "id": 3,
     "url": "http://localhost:4000/blog/author-sal.html",
     "title": "Sal",
-    "body": "                        Sal Follow:                                                    Posts by Sal:               "
+    "body": "                        {{page. title}} Follow:         {{ site. authors. sal. site }}         {{ site. authors. sal. bio }}                                   Posts by {{page. title}}:       {% assign posts = site. posts | where: author , sal  %}      {% for post in posts %}      {% include main-loop-card. html %}      {% endfor %}  "
     }, {
     "id": 4,
     "url": "http://localhost:4000/blog/authors-list.html",
@@ -321,24 +325,255 @@ function lunr_search(term) {
 
     <!-- Content -->
     <main role="main" class="site-content">
-        <div class="container">
-<div class="row justify-content-center">
-    <div class="col-md-8">        
-        <div class="row align-items-center mb-5">
-            <div class="col-md-9">
-                <h2 class="font-weight-bold">Sal <span class="small btn btn-outline-success btn-sm btn-round"><a href="">Follow</a></span></h2>
-                <p><a href=""></a></p>
-                <p class="excerpt"></p>
-            </div>
-            <div class="col-md-3 text-right">
-                <img alt="" src="/blog/" class="rounded-circle" height="100" width="100">
-            </div>
-        </div>
-        <h4 class="font-weight-bold spanborder"><span>Posts by Sal</span></h4>
-            
-            
-    </div>
+        
+
+<div class="container">
+<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+		<div class="h-100 tofront">
+			<div class="row  justify-content-between ">
+				<div class=" col-md-6  pr-0 pr-md-4 pt-4 pb-4 align-self-center">
+					<p class="text-uppercase font-weight-bold">
+                        <span class="catlist">
+						
+                          <a class="sscroll text-danger" href="/blog/categories.html#developers">developers</a><span class="sep">, </span>
+                        
+                          <a class="sscroll text-danger" href="/blog/categories.html#cultures">cultures</a><span class="sep">, </span>
+                        
+                        </span>
+					</p>
+					<h1 class="display-4 mb-4 article-headline">#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊</h1>
+					<div class="d-flex align-items-center">
+                        
+                        <img class="rounded-circle" src="/blog//assets/images/jackjin.png" alt="晋剑" width="70"/>
+                        
+						<small class="ml-3"> 晋剑 <span><a target="_blank" href="https://twitter.com/JinJian5" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Feb 27, 2020 · <span class="reading-time">
+  
+  
+    1 min read
+  
+</span>
+    </span>
+						</small>
+					</div>
+				</div>
+                
+				<div class="col-md-6 pr-0 align-self-center">
+					<img class="rounded" src="https://cdn.authing.cn/blog/tencent.jpeg" alt="#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊">
+				</div>
+                
+			</div>
+		</div>
+	</div>
 </div>
+
+
+
+
+
+<div class="container-lg pt-4 pb-4">
+	<div class="row justify-content-center">
+        
+        
+        <!-- Share -->
+		<div class="col-lg-2 pr-4 mb-4 col-md-12">
+			<div class="sticky-top sticky-top-offset text-center">
+				<div class="text-muted">
+					分享
+				</div>
+				<div class="share d-inline-block">
+					<!-- AddToAny BEGIN -->
+					<div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="https://authing.cn/blog" data-a2a-title="Authing 官方博客">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_wechat"></a>
+						<a class="a2a_button_reddit"></a>
+						<a class="a2a_button_sina_weibo"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_qzone"></a>
+						<a class="a2a_button_twitter"></a>
+						<a class="a2a_button_douban"></a>
+						<a class="a2a_button_email"></a>
+						</div>
+						<script>
+						var a2a_config = a2a_config || {};
+						a2a_config.locale = "zh-CN";
+						</script>
+					<script async src="https://static.addtoany.com/menu/page.js"></script>
+					<!-- AddToAny END -->
+				</div>
+			</div>
+		</div>
+        
+        
+		<div class="col-md-12 col-lg-6">
+            
+            <!-- Article -->
+			<article class="article-post">                
+			<p>我们发起 <strong># Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。</strong>我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日子，本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。</p>
+
+<p>疫情肆虐，不仅对老百姓生命健康造成重大威胁，对各行各业的发展也造成重大影响。同时，开学、复工在即，疫情防控进入了关键阶段，「居家隔离、远程办公」是当下遏制疫情扩散的最佳防控措施。</p>
+
+<p><img src="https://cdn.authing.cn/blog/flu.gif" alt="" /></p>
+
+<blockquote>
+  <p>1918年的西班牙流感席卷全球的模拟</p>
+</blockquote>
+
+<p>2019 新型冠状病毒（2019-nCoV）使得中国一夜之间成了「全球最大的远程办公数字社会」，但是如此大规模的，敦刻尔克式的“数字化转型”，对「企业协同」、「企业 VPN 性能及安全性」、网络信息安全迎来重要考验， 也难免会出现大量次生安全问题，尤其在春节假期延长，大量企事业单位启动「远程办公」，原本在防火墙内，使用公司设备办公的员工，使用家用 PC 开始办公，并通过公共 WiFi 访问企业内部的数据和应用时，<strong>企业网络安全部门面临着空前的安全威胁，其中，「身份安全」是至关重要的一环。</strong></p>
+
+<p>于是，我们发起 <strong># Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。</strong>我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。</p>
+
+<p><strong>第 001 期，定在本周六，2月29日，四年独一无二的日子，也是 2020年的第60天。</strong>
+本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。本周六（2020-02-29 ）13:00——17:00，<strong>通过「腾讯会议」 300人在线分享及 Q&amp;A 视频互动、B站直播弹幕互动，</strong> 参与互动将送出「腾讯云」赞助纪念品。</p>
+
+<p>近些年 Serverless 风起云涌，它正在深刻的改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。Serverless Framework 当属时下最火热的开源框架。</p>
+
+<p><img src="https://cdn.authing.cn/blog/20200225160838.png" alt="" /></p>
+
+<p><strong>主持人：晋剑  Authing 联合创始人兼COO</strong></p>
+
+<h3 id="一如何开发自己的第一个-serverless-component">一、如何开发自己的第一个 Serverless Component？</h3>
+
+<p><img src="https://cdn.authing.cn/blog/20200225160933.png" alt="" /></p>
+
+<p><strong>陈涛：Serverless Framework 社区专家</strong>
+参与 Serverless 社区及开源的相关研发工作。拥有丰富前端、JavaScript 技术经验，以及网站及小程序等项目开发经验，腾讯云 Serverless 系列课程特约讲师。
+<strong>内容简介：</strong></p>
+
+<ul>
+  <li>Serverless Component 运行机制</li>
+  <li>Serverless Component 开发步骤（功能需求，组建配置）</li>
+  <li>Serverless Component 组件开发（default 函数，remove 函数）</li>
+  <li>Serverless Component 运行，调试与发布</li>
+</ul>
+
+<h3 id="二authing-是如何开发-serverless-oidc-组件">二、Authing 是如何开发 Serverless-OIDC 组件？</h3>
+
+<p><img src="https://cdn.authing.cn/blog/20200225161143.png" alt="" /></p>
+
+<p><strong>高鹏洋：Authing 全栈工程师</strong>
+曾就职于中科红旗，负责容器云研发。曾参与中国移动 HA 系统研发，CNCF 贡献者，郑州 TFUG 组织者。热爱创造，喜欢探索未知，乐于与人交流，是一名 Acmer 。</p>
+
+<p><strong>内容简介：</strong>
+OIDC 是 OAuth 2.0 的超集，同时是 Authing 推荐的身份认证最佳实践。在没有 Serverless 的情况下，开发者需要架设一个服务器用来在后端处理 OIDC code 换 Token 和 Token 换用户信息的流程，有了 Serverless 之后，开发者不需要编写任何路由就可以获取用户信息。本次主题将分享如何通过使用腾讯提供的 SCF 和 API 网关 Serverless Component 来快速创造一个 由多个原生 SCF 组成的  Serverless Component：https://github.com/Authing/serverless-oidc </p>
+
+<h3 id="三基于serverless-framework和oidc-组件设计一个图床应用">三、基于Serverless Framework和OIDC 组件设计一个图床应用</h3>
+
+<p><img src="https://cdn.authing.cn/blog/20200225162249.png" alt="" /></p>
+
+<p><strong>谢扬：Authing 创始人，SoLiD 中文社区（learnsolid.cn）发起人</strong>
+曾任职字节跳动 LarkCloud 云服务部门核心 Hacker，负责⽇活过亿 Serverless 平台产品设计和技术研发，该平台支撑来头条系全产品矩阵：今日头条、抖音、西瓜视频、飞书等。 ⻓期关注生产⼒科技，以提⾼社会生产⼒为个⼈使命。</p>
+
+<p><strong>内容简介：</strong>
+基于 Serverless Framework 和 Authing 完成一个可以共享和配置访问权限的图床管理应用。</p>
+
+<h3 id="四线上自由-q--a-环节">四、线上自由 Q &amp; A 环节</h3>
+
+<h3 id="火速扫码报名">火速扫码报名</h3>
+
+<p><img src="https://cdn.authing.cn/blog/20200225162025.png" style="zoom: 30%;" /></p>
+
+<p>火速扫码，回复 “ID”入群
+抢占「腾讯会议」 席位，仅300席
+<code class="highlighter-rouge">提示：尽量提前下载安装「腾讯会议」客户端，群内获取会议链接</code></p>
+
+<p>其他朋友们也可通过B站直播链接参与互动</p>
+
+<p><img src="https://cdn.authing.cn/blog/20200225161910.png" style="zoom: 50%;" /></p>
+
+<p>Authing Live 直播间（https://live.bilibili.com/4850077 ）</p>
+
+<p><img src="https://cdn.authing.cn/blog/tencent.jpeg" alt="" /></p>
+
+<h3 id="相关阅读">相关阅读</h3>
+
+<ol>
+  <li><a href="https://mp.weixin.qq.com/s/qVlqwA2ZhZeKsl0RdVsojQ">Authing 的故事：我为什么开发 Authing？</a></li>
+  <li><a href="https://mp.weixin.qq.com/s/WGL7n9D1L0UG71276Wn6Iw">如何在远程办公中保持高效的</a><a href="https://mp.weixin.qq.com/s/WGL7n9D1L0UG71276Wn6Iw">研发效率？</a></li>
+  <li><a href="https://mp.weixin.qq.com/s/KkUhNuXnrsWa5Q-ucmIlqA">一份普通人能理解的关于 Authing 的介绍</a></li>
+  <li><a href="https://mp.weixin.qq.com/s/TlYmDRg1q_glJ7Icsj0arw">Authing 是什么以及为什么需要 Authing？</a></li>
+  <li><a href="https://mp.weixin.qq.com/s/TlYmDRg1q_glJ7Icsj0arw">为什么身份认证值得上云？</a></li>
+  <li><a href="https://mp.weixin.qq.com/s/6SsGcgoesVGaLT19auK7yg">Authing </a><a href="https://mp.weixin.qq.com/s/6SsGcgoesVGaLT19auK7yg">@ 2019 总结</a></li>
+  <li><a href="https://mp.weixin.qq.com/s/Xd3SR2WaB15a250RxEZWpg">Authing 开发资源最全合集</a></li>
+</ol>
+
+<p><strong>重磅：Authing 将于2020 Q1 开源，欢迎</strong>  <a href="https://github.com/Authing/authing">Star 关注</a></p>
+                
+			</article>
+			
+			<!-- Tags -->
+			<div class="mb-4">
+				<span class="taglist">
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#shapeidentity">shapeidentity</a>
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#serverless">serverless</a>
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#oidc">oidc</a>
+				
+				</span>
+			</div>
+ 
+            <!-- Mailchimp Subscribe Form -->
+            
+            
+            
+             <!-- Author Box -->
+                				
+				<div class="row mt-5">
+					<div class="col-md-2 align-self-center">
+                         
+                        <img class="rounded-circle" src="/blog//assets/images/jackjin.png" alt="晋剑" width="90"/>
+                         
+					</div>
+					<div class="col-md-10">		
+                        <h5 class="font-weight-bold">Written by 晋剑 <span><a target="_blank" href="https://twitter.com/JinJian5" class="btn btn-outline-success btn-sm btn-round ml-2">Follow</a></span></h5>
+						不骑单车好多年 ;-)					
+					</div>
+				</div>				
+                
+            
+            <!-- Comments -->
+            
+                <!--  Don't edit anything here. Set your disqus id in _config.yml -->
+
+<div id="comments" class="mt-5">
+    <div id="disqus_thread">
+    </div>
+    <script type="text/javascript">
+        var disqus_shortname = 'Authing 博客'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+</div>
+            
+            
+		</div>
+        
+        
+	</div>
+</div>
+
+
+<!-- Aletbar Prev/Next -->
+<div class="alertbar">
+    <div class="container">
+        <div class="row prevnextlinks small font-weight-bold">
+          
+            <div class="col-md-6 rightborder pl-0">
+                <a class="text-dark" href="/blog/Introduce-Authing-Pipeline/"> <img height="30px" class="mr-1" src="/blog/https://cdn.authing.cn/blog/20200220203521.png">  Introduce Pipeline: Authing 的可扩展性达到了新高度</a>
+            </div>
+          
+          
+        </div>
+	</div>
 </div>
     </main>
 
