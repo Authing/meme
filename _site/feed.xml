@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2020-03-02T11:37:48+08:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Authing 官方博客</title><subtitle>Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。</subtitle><entry><title type="html">Authing 移动端登录方式, 10 行代码实现 App 扫码登录</title><link href="http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/" rel="alternate" type="text/html" title="Authing 移动端登录方式, 10 行代码实现 App 扫码登录" /><published>2020-03-01T00:00:00+08:00</published><updated>2020-03-01T00:00:00+08:00</updated><id>http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F</id><content type="html" xml:base="http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/">&lt;p&gt;Authing 新增了对四种移动端登录方式的支持，可以让开发者在 Web 端、移动端、小程序端同时接入 Authing:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2020-03-02T11:50:04+08:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Authing 官方博客</title><subtitle>Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。</subtitle><entry><title type="html">Authing 移动端登录方式, 10 行代码实现 App 扫码登录</title><link href="http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/" rel="alternate" type="text/html" title="Authing 移动端登录方式, 10 行代码实现 App 扫码登录" /><published>2020-03-01T00:00:00+08:00</published><updated>2020-03-01T00:00:00+08:00</updated><id>http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F</id><content type="html" xml:base="http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/">&lt;p&gt;Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。&lt;/p&gt;
+
+&lt;p&gt;Authing 新增了对四种移动端登录方式的支持，可以让开发者在 Web 端、移动端、小程序端同时接入 Authing:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;移动应用微信登录&lt;/li&gt;
   &lt;li&gt;移动应用支付宝登录&lt;/li&gt;
@@ -319,6 +321,35 @@
   &lt;li&gt;&lt;a href=&quot;https://docs.authing.cn/authing/social-login/mobile/alipay&quot;&gt;接入移动应用支付宝登录&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h1 id=&quot;获取用户信息之后&quot;&gt;获取用户信息之后&lt;/h1&gt;
+
+&lt;p&gt;获取到用户信息之后，你可以得到登录凭证 token，你可以在后续的 API 请求中携带上此 token, 然后在后端接口中根据此 token 区分不同用户。&lt;/p&gt;
+
+&lt;p&gt;设置 Authorization 请求头为 “Bearer “ + token, 例如：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization: &quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVuaW9uaWQiOiJvaVBiRHVHNFM3bXNyS0hQS0RjOE1FQ1NlOGpNIiwiaWQiOiI1ZGMxMGJjYjZmOTRjMTc4YzZmZmZmYjkiLCJjbGllbnRJZCI6IjVkYTdlZGFiNTAzOTZjMWFkOTYyMzc4YSJ9LCJpYXQiOjE1NzI5NTY0MjUsImV4cCI6MTU3NDI1MjQyNX0.OTgl72WZS8So3R5DbWCJ7I_Bd0LaZa4S0TAVMg9qaYQ&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;如果你使用的是 Swift 的 Alamofire, 可以这样写：&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;api&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;YOUR_SERVICE_URL&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;HTTPHeaders&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;Authorization&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;USER_TOKEN&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;Accept&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;qrcodeId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;qrcodeId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;AF&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;responseString&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
+  &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;你可以在后端调用 Authing 的 API 验证通过 &lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt; 判断该用户是否具备相关权限。&lt;/p&gt;
+
+&lt;p&gt;详情请见&lt;a href=&quot;https://docs.authing.cn/authing/advanced/verify-jwt-token&quot;&gt;验证 token&lt;/a&gt;。&lt;/p&gt;
+
 &lt;h1 id=&quot;总结&quot;&gt;总结&lt;/h1&gt;
 
 &lt;p&gt;你可以在这个 GitHub 项目找到完整的示例代码：&lt;a href=&quot;https://github.com/Authing/AuthingIOSDemo&quot;&gt;https://github.com/Authing/AuthingIOSDemo&lt;/a&gt;。&lt;/p&gt;
@@ -327,7 +358,7 @@
 
 &lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200302112935.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;同时我们接下来会继续不断完善，让有身份认证的地方就有 Authing !&lt;/p&gt;</content><author><name>cj</name></author><category term="移动端" /><category term="社会化登录" /><summary type="html">Authing 新增了对四种移动端登录方式的支持，可以让开发者在 Web 端、移动端、小程序端同时接入 Authing: 移动应用微信登录 移动应用支付宝登录 App 拉起小程序登录 App 扫码登录</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200302113736.png" /></entry><entry><title type="html">#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊</title><link href="http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/" rel="alternate" type="text/html" title="#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊" /><published>2020-02-27T00:00:00+08:00</published><updated>2020-02-27T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A</id><content type="html" xml:base="http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/">&lt;p&gt;我们发起 &lt;strong&gt;# Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。&lt;/strong&gt;我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日子，本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。&lt;/p&gt;
+&lt;p&gt;同时我们接下来会继续不断完善，让有身份认证的地方就有 Authing !&lt;/p&gt;</content><author><name>cj</name></author><category term="移动端" /><category term="社会化登录" /><summary type="html">Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200302113736.png" /></entry><entry><title type="html">#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊</title><link href="http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/" rel="alternate" type="text/html" title="#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊" /><published>2020-02-27T00:00:00+08:00</published><updated>2020-02-27T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A</id><content type="html" xml:base="http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/">&lt;p&gt;我们发起 &lt;strong&gt;# Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。&lt;/strong&gt;我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日子，本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。&lt;/p&gt;
 
 &lt;p&gt;疫情肆虐，不仅对老百姓生命健康造成重大威胁，对各行各业的发展也造成重大影响。同时，开学、复工在即，疫情防控进入了关键阶段，「居家隔离、远程办公」是当下遏制疫情扩散的最佳防控措施。&lt;/p&gt;
 
