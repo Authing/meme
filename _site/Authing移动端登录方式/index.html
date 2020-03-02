@@ -4,24 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>RBAC 实现基于角色的访问控制 | Authing 官方博客</title>
+    <title>Authing 移动端登录方式, 10 行代码实现 App 扫码登录 | Authing 官方博客</title>
 
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>RBAC 实现基于角色的访问控制 | Authing 官方博客</title>
+<title>Authing 移动端登录方式, 10 行代码实现 App 扫码登录 | Authing 官方博客</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="RBAC 实现基于角色的访问控制" />
+<meta property="og:title" content="Authing 移动端登录方式, 10 行代码实现 App 扫码登录" />
 <meta name="author" content="cj" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="基于角色的访问控制（Role-based access control，简称 RBAC），指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。" />
-<meta property="og:description" content="基于角色的访问控制（Role-based access control，简称 RBAC），指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。" />
-<link rel="canonical" href="http://localhost:4000/blog/RBAC%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8E%E8%A7%92%E8%89%B2%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/" />
-<meta property="og:url" content="http://localhost:4000/blog/RBAC%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8E%E8%A7%92%E8%89%B2%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/" />
+<meta name="description" content="Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。" />
+<meta property="og:description" content="Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。" />
+<link rel="canonical" href="http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/" />
+<meta property="og:url" content="http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/" />
 <meta property="og:site_name" content="Authing 官方博客" />
-<meta property="og:image" content="https://cdn.authing.cn/blog/20200205182755.png" />
+<meta property="og:image" content="https://cdn.authing.cn/blog/20200302113736.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-01-17T00:00:00+08:00" />
+<meta property="article:published_time" content="2020-03-01T00:00:00+08:00" />
 <script type="application/ld+json">
-{"headline":"RBAC 实现基于角色的访问控制","dateModified":"2020-01-17T00:00:00+08:00","url":"http://localhost:4000/blog/RBAC%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8E%E8%A7%92%E8%89%B2%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/","datePublished":"2020-01-17T00:00:00+08:00","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"},"name":"cj"},"image":"https://cdn.authing.cn/blog/20200205182755.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/RBAC%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8E%E8%A7%92%E8%89%B2%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/"},"author":{"@type":"Person","name":"cj"},"description":"基于角色的访问控制（Role-based access control，简称 RBAC），指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"headline":"Authing 移动端登录方式, 10 行代码实现 App 扫码登录","dateModified":"2020-03-01T00:00:00+08:00","url":"http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/","datePublished":"2020-03-01T00:00:00+08:00","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"},"name":"cj"},"image":"https://cdn.authing.cn/blog/20200302113736.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/"},"author":{"@type":"Person","name":"cj"},"description":"Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -351,16 +351,16 @@ function lunr_search(term) {
                         
                         </span>
 					</p>
-					<h1 class="display-4 mb-4 article-headline">RBAC 实现基于角色的访问控制</h1>
+					<h1 class="display-4 mb-4 article-headline">Authing 移动端登录方式, 10 行代码实现 App 扫码登录</h1>
 					<div class="d-flex align-items-center">
                         
                         <img class="rounded-circle" src="/blog//assets/images/cj.png" alt="廖长江" width="70"/>
                         
 						<small class="ml-3"> 廖长江 <span><a target="_blank" href="https://www.zhihu.com/people/lcj1024" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
-                            <span class="text-muted d-block mt-1">Jan 17, 2020 · <span class="reading-time">
+                            <span class="text-muted d-block mt-1">Mar 01, 2020 · <span class="reading-time">
   
   
-    3 mins read
+    6 mins read
   
 </span>
     </span>
@@ -369,7 +369,7 @@ function lunr_search(term) {
 				</div>
                 
 				<div class="col-md-6 pr-0 align-self-center">
-					<img class="rounded" src="https://cdn.authing.cn/blog/20200205182755.png" alt="RBAC 实现基于角色的访问控制">
+					<img class="rounded" src="https://cdn.authing.cn/blog/20200302113736.png" alt="Authing 移动端登录方式, 10 行代码实现 App 扫码登录">
 				</div>
                 
 			</div>
@@ -419,432 +419,367 @@ function lunr_search(term) {
             
             <!-- Article -->
 			<article class="article-post">                
-			<p>基于角色的访问控制（Role-based access control，简称 RBAC），指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。</p>
+			<p>Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。</p>
 
-<h2 id="一认证-vs-授权"><strong>一、认证 vs 授权？</strong></h2>
-
-<p>首先让我们用一句话区分认证（Authentication）和授权（Authorization）：</p>
-
+<p>Authing 新增了对四种移动端登录方式的支持，可以让开发者在 Web 端、移动端、小程序端同时接入 Authing:</p>
 <ul>
-  <li>认证是识别请求方是谁的过程；</li>
-  <li>授权是知道了请求方是谁之后，判断其是否具备某些权限的过程；</li>
+  <li>移动应用微信登录</li>
+  <li>移动应用支付宝登录</li>
+  <li>App 拉起小程序登录</li>
+  <li>App 扫码登录</li>
 </ul>
 
-<p><img src="https://cdn.authing.cn/blog/20200205182555.png" alt="" />
-Authing 支持非常丰富的认证、授权手段：</p>
+<p><a href="https://github.com/Authing/AuthingIOSDemo"><img src="https://cdn.authing.cn/blog/20200302110009.png" height="600px" style="align:center" /></a></p>
 
+<blockquote>
+  <p>点击上图跳转到 GitHub Demo 页面。</p>
+</blockquote>
+
+<p>其中，「App 拉起小程序登录」指的是在 App 中，借助微信开放能力，唤起微信小程序「小登录」，获取用户微信授权进行登录。此方法可以获取到用户手机号。</p>
+
+<p>下面分别介绍一下如何快速接入这四种登录方式。</p>
+
+<h1 id="app-拉起小程序登录">App 拉起小程序登录</h1>
+
+<p>接入 App 拉起小程序登录，你需要做如下准备工作：</p>
 <ul>
-  <li>认证手段有：传统密码、验证码登录、丰富的第三方登录（微信、小程序、微博、GitHub、支付宝、QQ 等，未来还会有更多），以及企业级的 LDAP、SAML、OIDC 等。</li>
-  <li>授权手段有：完整的 OAuth、OIDC 流程。</li>
+  <li><a href="https://docs.authing.cn/authing/quickstart/create-authing-account">注册 Authing 开发者账号</a></li>
+  <li><a href="https://open.weixin.qq.com/cgi-bin/frame?t=home/app_tmpl&amp;lang=zh_CN">申请微信移动应用</a></li>
+  <li>私有化部署用户，需要在 Authing 控制台填入你的小程序信息。</li>
 </ul>
 
-<p>对于授权流程，访问控制（Access Control）策略是非常重要的一环，目前 Authing 一共支持（或即将支持）三种访问控制手段：</p>
+<p><img src="https://cdn.authing.cn/blog/20200302104816.png" alt="" /></p>
+
+<p><img src="https://cdn.authing.cn/blog/20200302104826.png" alt="" /></p>
 
 <ul>
-  <li>
-    <p>老版本的用户角色（deprecated）</p>
+  <li>非私有化部署用户，需要将你的移动应用关联小登录。</li>
+</ul>
+
+<p>可在微信开放平台 “管理中心-移动应用-应用详情-关联小程序信息”，为通过审核的移动应用发起关联小程序操作。小登录的 AppID 为 <code class="highlighter-rouge">wxa0435021fd7a3af2</code> .</p>
+
+<p><img src="https://cdn.authing.cn/blog/20200302104734.png" alt="" /></p>
+
+<p>在你做好这些准备工作之后，先使用微信 SDK 拉起小程序(具体的接入流程请见<a href="https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Launching_a_Mini_Program/Launching_a_Mini_Program.html">微信官方文档</a>):</p>
+
+<ul>
+  <li>小程序 userName 为 gh_a781a791e29e</li>
+  <li>path 为 <code class="highlighter-rouge">/routers/explore</code></li>
+  <li>path query 参数为：
+    <ul>
+      <li>userPoolId: 你的用户池 ID</li>
+      <li>getPhone: 是否需要获取用户手机号，1 表示需要，不填或者其他表示不需要</li>
+      <li>fromApp: 1，此参数必填。</li>
+      <li>useSelfWxapp: 此参数必填。私有化用户填 1，非私有化用户填 0.</li>
+    </ul>
   </li>
-  <li>
-    <p><strong>RBAC（基于角色的访问控制，2020/02/03 已经上线）</strong></p>
-  </li>
-  <li>
-    <p><strong>ABAC（基于属性的访问控制，未来即将支持）</strong></p>
-  </li>
 </ul>
 
-<h2 id="二什么是-rbac-"><strong>二、什么是 RBAC ?</strong></h2>
+<p>下面是 Swift 代码示例：</p>
 
-<p><img src="https://cdn.authing.cn/blog/20200205182755.png" alt="" /></p>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">userPoolId</span> <span class="o">=</span> <span class="s">"5e4cdd055df3df65dc58b97d"</span>
+<span class="k">let</span> <span class="nv">req</span> <span class="o">=</span> <span class="kt">WXLaunchMiniProgramReq</span><span class="p">()</span>
+<span class="n">req</span><span class="o">.</span><span class="n">userName</span> <span class="o">=</span> <span class="s">"gh_a781a791e29e"</span>
+<span class="n">req</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s">"/routes/explore?userPoolId=</span><span class="se">\(</span><span class="n">userPoolId</span><span class="se">)</span><span class="s">&amp;getPhone=1&amp;fromApp=1&amp;useSelfWxapp=0"</span>
+<span class="n">req</span><span class="o">.</span><span class="n">miniProgramType</span> <span class="o">=</span> <span class="kt">WXMiniProgramType</span><span class="o">.</span><span class="n">release</span>
+<span class="kt">WXApi</span><span class="o">.</span><span class="nf">send</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+</code></pre></div></div>
 
-<p><strong>基于角色的访问控制（Role-based access control，简称 RBAC），指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。</strong></p>
+<p>用户同意授权之后，会携带 <code class="highlighter-rouge">ticket</code> 跳回你的 App，之后你可以使用此 ticket 换取用户信息：</p>
 
-<p>当使用 RBAC 时，通过分析系统用户的实际情况，基于共同的职责和需求，将他们分配给不同的角色。然后可以授予每个用户一个或多个角色，每个角色具有一个或多个权限，这种 <strong>用户-角色</strong>、<strong>角色-权限</strong> 间的关系，让我们可以不用再单独管理单个用户，用户从具备的角色里面继承所需的权限，从而使得用户赋权这件事变得更加简单。</p>
-
-<p>举一个公司内所有在职员工具备登录公司邮箱的权限的场景，如果应用 RBAC，就可以赋予所有在职员工 employee 角色，employee 角色具备 email:login 权限，如此所有员工就具备了登录公司邮箱的权限。如果有员工离职，只需要将其移出 employee 角色，而不需单独收回权限。本质上，一个角色（Role）就是一组权限（Permission）的集合。使用角色添加、删除、调整权限，相比单独赋予单个用户权限更加简单。当你的用户基数不断增长时，角色会变得尤为有用。</p>
-
-<p>在规划访问控制策略时，<strong>最佳实践是给予用户完成工作必须的最小权限。</strong></p>
-
-<h2 id="三使用-rbac-的优势"><strong>三、使用 RBAC 的优势</strong></h2>
+<p><code class="highlighter-rouge">POST https://oauth.authing.cn/oauth/app2wxapp/auth/:userPoolId</code></p>
 
 <ul>
-  <li>系统性、可重复性的权限指派</li>
-  <li>更方便的用户权限审计，快速定位问题</li>
-  <li>快速地添加、修改角色，甚至可以调用 API 实现</li>
-  <li>减少授予用户权限时发生错误的可能性</li>
-  <li>引入第三方用户/新用户/未登录用户时，赋予他们预先配置好的角色，比如 guest 分组</li>
+  <li>Path 参数 userPoolId: 你的 Authing 用户池 ID。</li>
+  <li>Post Body 参数:
+    <ul>
+      <li>ticket: 得到的 ticket</li>
+      <li>secret: 用户池密钥。默认情况下，出于安全考虑，ticket 换取用户信息需要提供用户池密钥，这意味着不能直接在 App 内直接换取用户信息。开发者可以在用户池基础配置页面修改此选项：</li>
+    </ul>
+  </li>
 </ul>
 
-<h2 id="四下面是-authing--目前所支持或即将上线的相关-feature">四、下面是 Authing  目前所支持或即将上线的相关 Feature：</h2>
+<p><img src="https://cdn.authing.cn/blog/20200302105735.png" alt="" /></p>
+
+<p>下面是演示示例：</p>
+
+<p><img src="https://cdn.authing.cn/blog/app2wxapp.gif" height="600px" style="align:center" /></p>
+
+<p>此方式可以获取用户手机号。你可以扫描下方的小程序二维码体验一下「小登录」：</p>
+
+<p><img src="https://cdn.authing.cn/blog/20200302103133.png" alt="" /></p>
+
+<blockquote>
+  <p>如果你想私有化部署自己的小程序，可以联系我们。手机号：18616699123。</p>
+</blockquote>
+
+<p>详细接入流程请见：<a href="https://docs.authing.cn/authing/social-login/miniprogram/app2wxapp">接入APP 拉起小程序登录</a></p>
+
+<h1 id="app-扫码登录">App 扫码登录</h1>
+
+<p>和其他三种登录方式不同，你不需要做任何准备工作。同时，我们提供 Web 端的 SDK，可以让你在 Web 端使用 10 行代码实现一个完整的扫码登录表单：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">Authing</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'authing-js-sdk'</span><span class="p">);</span>
+
+<span class="c1">// 初始化 Authing SDK for JavaScript</span>
+<span class="kd">const</span> <span class="nx">authing</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Authing</span><span class="p">({</span>
+    <span class="na">userPoolId</span><span class="p">:</span> <span class="s1">'YOUR_USERPOOL_ID'</span><span class="p">,</span>
+<span class="p">});</span>
+
+<span class="c1">// 调用 APP 扫码登录的方法，此方法将生成一个用于扫码登录的图片和相关提示信息</span>
+<span class="nx">authing</span><span class="p">.</span><span class="nx">qrlogin</span><span class="p">.</span><span class="nx">startScanning</span><span class="p">({</span>
+  <span class="nx">onSuccess</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="p">{</span><span class="nx">ticket</span><span class="p">,</span> <span class="nx">userInfo</span><span class="p">}</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+    <span class="c1">// 存储 token 到 localStorage 中</span>
+    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">'token'</span><span class="p">,</span> <span class="nx">userInfo</span><span class="p">.</span><span class="nx">token</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p><img src="https://cdn.authing.cn/blog/扫码登录.gif" alt="" /></p>
+
+<p>That’s it! 就这么简单!</p>
+
+<p>下面是 startScanning 支持的完整参数，你可以掌控扫码登录的所有流程，实现高度自定义：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">authing</span><span class="p">.</span><span class="nx">qrlogin</span><span class="p">.</span><span class="nx">startScanning</span><span class="p">({</span>
+    <span class="na">mount</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="c1">// 可选，二维码挂载点，如不写则默认漂浮在文档中间</span>
+    <span class="na">interval</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="c1">// 可选，轮询间隔时间，默认为 800 ms </span>
+
+    <span class="na">onPollingStart</span><span class="p">:</span> <span class="p">(</span><span class="nx">intervalNum</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+    <span class="na">onResult</span><span class="p">:</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+    <span class="na">onScanned</span><span class="p">:</span> <span class="p">(</span><span class="nx">userInfo</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+    <span class="na">onSuccess</span><span class="p">:</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="p">{</span> <span class="nx">ticket</span><span class="p">,</span> <span class="nx">userInfo</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="na">onCancel</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+    <span class="na">onExpired</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+    <span class="na">onError</span><span class="p">:</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+
+    <span class="na">onQRCodeShow</span><span class="p">:</span> <span class="p">(</span><span class="nx">qrcode</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+    <span class="na">onQRCodeLoad</span><span class="p">:</span> <span class="p">(</span><span class="nx">qrcode</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+    <span class="na">onQRCodeLoadFaild</span><span class="p">:</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+    
+    <span class="na">tips</span><span class="p">:</span> <span class="s1">'使用 &lt;strong&gt; APP &lt;/strong&gt; 扫码登录'</span><span class="p">,</span>
+    <span class="na">scannedTips</span><span class="p">:</span> <span class="s1">'用户已扫码，等待确认'</span><span class="p">,</span>
+    <span class="na">canceledTips</span><span class="p">:</span> <span class="s1">'用户取消授权'</span><span class="p">,</span>
+    <span class="na">expiredTips</span><span class="p">:</span> <span class="s1">'二维码已过期'</span><span class="p">,</span>
+    <span class="na">successTips</span><span class="p">:</span> <span class="s1">'扫码成功'</span><span class="p">,</span>
+    <span class="na">retryTips</span><span class="p">:</span> <span class="s1">'重试'</span><span class="p">,</span>
+    <span class="na">failedTips</span><span class="p">:</span> <span class="s1">'网络出错，请重试'</span>
+<span class="p">})</span>
+</code></pre></div></div>
 
 <table>
   <thead>
     <tr>
-      <th><strong>Feature</strong></th>
-      <th>Authing 支持情况</th>
-      <th>备注</th>
+      <th>参数</th>
+      <th>可选/必选</th>
+      <th>说明</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>角色</td>
-      <td> </td>
-      <td> </td>
+      <td>mount</td>
+      <td>可选</td>
+      <td>挂载点 Dom ID，如不写则默认漂浮在文档中间。</td>
     </tr>
     <tr>
-      <td>创建/修改/删除 角色</td>
-      <td>In future release</td>
-      <td> </td>
+      <td>interval</td>
+      <td>可选</td>
+      <td>轮询时间间隔，单位为 ms，默认为 800 ms。</td>
     </tr>
     <tr>
-      <td>分页查询</td>
-      <td>YES</td>
-      <td> </td>
+      <td>onPollingStart</td>
+      <td>可选</td>
+      <td>轮询开始时会被回调，只会回调一次。回调参数 intervalNum 为 setInterval 返回的数值，可使用 clearInterval 停止轮询。如：clearInterval(intervalNum)</td>
     </tr>
     <tr>
-      <td>通过名称、描述搜索角色</td>
-      <td>YES</td>
-      <td> </td>
+      <td>onResult</td>
+      <td>可选</td>
+      <td>每次查询获取到数据都会回调</td>
     </tr>
     <tr>
-      <td>角色能被授予给分组</td>
-      <td>YES</td>
-      <td> </td>
+      <td>onScanned</td>
+      <td>可选</td>
+      <td>用户扫码时会被回调，只会回调一次。回调参数 userInfo 只包含了用户昵称和头像，开发者可以将其展示在扫码框中。</td>
     </tr>
     <tr>
-      <td>角色嵌套、分层</td>
-      <td>In future release</td>
-      <td> </td>
+      <td>onSuccess</td>
+      <td>可选</td>
+      <td>用户同意授权之后将会被回调，只会回调一次，之后轮询结束。参数 data 是一个字典，包含两个字段：ticket 和 userInfo。出于安全性考虑，默认情况下，userInfo 只会包含昵称（nickname）和头像（photo）两个字段，开发者也可以在后台配置使其返回完整用户信息，详情见自定义配置。 ticket 可以用来换取完整的用户信息，相关接口见下文。</td>
     </tr>
     <tr>
-      <td>角色通过 namespace、多租户管理</td>
-      <td>In future release</td>
-      <td> </td>
+      <td>onCancel</td>
+      <td>可选</td>
+      <td>用户取消授权只会会被回调，只回调一次，之后轮询结束。</td>
     </tr>
     <tr>
-      <td>查询角色具备的所有权限</td>
-      <td>YES</td>
-      <td> </td>
+      <td>onExpired</td>
+      <td>可选</td>
+      <td>二维码失效时被回调，只回调一次，之后轮询结束。</td>
     </tr>
     <tr>
-      <td>查询角色中包含的所有用户</td>
-      <td>YES</td>
-      <td> </td>
+      <td>onError</td>
+      <td>可选</td>
+      <td>每次查询失败时都会回调。回调参数 data 示例如 {“code”: 2241,”message”: “二维码不存在”,”data”: null}。完整错误代码请见完整错误代码页。</td>
     </tr>
     <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>onQRCodeLoad</td>
+      <td>可选</td>
+      <td>二维码首次成功加载时回调。回调参数 qrcode 是一个字典，包含两个字段：qrcodeId、qrcodeUrl。</td>
     </tr>
     <tr>
-      <td>用户</td>
-      <td> </td>
-      <td> </td>
+      <td>onQRCodeShow</td>
+      <td>可选</td>
+      <td>二维码首次出现在页面上时回调。回调参数 qrcode 同上。</td>
     </tr>
     <tr>
-      <td>创建/修改/删除 用户</td>
-      <td>YES</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>分页查询</td>
-      <td>YES</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>通过昵称、邮箱搜索用户</td>
-      <td>YES</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>查看最近注册、登录的用户</td>
-      <td>YES</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>通过第三方应用查找用户</td>
-      <td>In future release</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>通过 lucence 语法搜索用户</td>
-      <td>In future release</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>用户可以拥有一个或多个角色</td>
-      <td>YES</td>
-      <td>最多 50 个</td>
-    </tr>
-    <tr>
-      <td>用户能在一个或多个分组里</td>
-      <td>YES</td>
-      <td>最多 50 个</td>
-    </tr>
-    <tr>
-      <td>查看一个用户具备的所有角色</td>
-      <td>YES</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>查看一个用户所在的所有分组</td>
-      <td>YES</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>查看一个用户所具备的所有权限</td>
-      <td>YES</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>通过 JSON 导入/导出用户</td>
-      <td>YES</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>自定义密码加密函数</td>
-      <td>YES</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>权限</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>创建/修改/删除 权限</td>
-      <td>YES</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>分页查询</td>
-      <td>YES</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>通过名称、描述搜索权限</td>
-      <td>In future release</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>能直接赋予用户权限</td>
-      <td>To be determined</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>能授权给一个或多个角色</td>
-      <td>YES</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>查询所有具有某个权限的用户</td>
-      <td>In future release</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>查询所有具有某个权限的角色</td>
-      <td>In future release</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>查询所有具有某个权限的分组</td>
-      <td>In future release</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>分组</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>分页查询</td>
-      <td>YES</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>创建/修改/删除 分组</td>
-      <td>YES</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>通过名称、描述搜索分组</td>
-      <td>In future release</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><strong>直接从第三方用户目录导入（如 AD, LDAP, SAML）</strong></td>
-      <td>In future release</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>分组嵌套、分层</td>
-      <td>In future release</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>查看分组的子分组</td>
-      <td>In future release</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>分组通过 namespace、多租户管理</td>
-      <td>In future release</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>查看一个分组具备的所有用户</td>
-      <td>YES</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>查看一个分组具备的所有角色</td>
-      <td>YES</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>查看一个分组具备的所有权限</td>
-      <td>YES</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>配置</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>自定义授权流程策略（authorization policies）</td>
-      <td>In future release</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>自定义是否将权限加入 Token</td>
-      <td>In future release</td>
-      <td>默认为否</td>
-    </tr>
-    <tr>
-      <td>自定义是否将角色加入 Token</td>
-      <td>In future release</td>
-      <td>默认为否</td>
-    </tr>
-    <tr>
-      <td>自定义是否将分组加入 Token</td>
-      <td>In future release</td>
-      <td>默认为否</td>
+      <td>onQRCodeLoadFaild</td>
+      <td>可选</td>
+      <td>二维码加载失败时会被回调。</td>
     </tr>
   </tbody>
 </table>
 
-<ul>
-  <li>
-    <p><strong>YES ：</strong>当前支持。</p>
-  </li>
-  <li>
-    <p><strong>In future release ：</strong>已加入未来规划，不久后将会支持。</p>
-  </li>
-  <li>
-    <p><strong>To be determined ：</strong>还在设计是否需要添加此功能。</p>
-  </li>
-</ul>
+<p>在移动端，开发者可以调用 iOS/Android 相关接口解析二维码，二维码包含原始数据如下：</p>
 
-<h2 id="五rbac-最佳实践分组管理用户">五、RBAC 最佳实践：分组管理用户</h2>
-
-<p>除了直接赋予用户某个角色，作为 RBAC 的最佳实践，我们还可以通过分组管理用户，将一个分组和一组角色绑定，在此分组内的所有用户就会继承这些角色，并自动具备了这些角色包含的权限。这些概念之间的关系为：<strong>Permission &lt;-&gt; Roles &lt;-&gt; Groups &lt;-&gt; Users</strong>，如下图所示：</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+    <span class="s2">"scene"</span><span class="p">:</span> <span class="s2">"APP_AUTH"</span><span class="p">,</span>
+    <span class="s2">"qrcodeId"</span><span class="p">:</span> <span class="s2">"5e05f0c57fde537d950f7da5"</span><span class="p">,</span>
+    <span class="s2">"userPoolId"</span><span class="p">:</span> <span class="s2">"5e04ae0d5f3cee22fb37612b"</span><span class="p">,</span>
+    <span class="s2">"createdAt"</span><span class="p">:</span> <span class="s2">"2019-12-27T11:53:41.260Z"</span><span class="p">,</span>
+    <span class="s2">"expireAt"</span><span class="p">:</span> <span class="s2">"2019-12-27T11:55:41.260Z"</span><span class="p">,</span>
+    <span class="s2">"userDefinedData"</span><span class="p">:</span> <span class="p">{</span> <span class="s2">"hello"</span><span class="p">:</span> <span class="s2">"world"</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <ul>
-  <li>
-    <p>分组：Employee, Contractor</p>
-  </li>
-  <li>
-    <p>角色：Vacation Requester, Invoice Submitter, Express Submitter</p>
-  </li>
-  <li>
-    <p>权限：Read vacation requests, Create vacation requests 等</p>
-  </li>
+  <li>scene: 二维码场景值，APP_AUTH 表示 APP 扫码登录。</li>
+  <li>qrcodeId: 二维码 ID。</li>
+  <li>qrcodeId: 用户池 ID。</li>
+  <li>userDefinedData: 用户自定义数据。</li>
 </ul>
 
-<p><img src="https://cdn.authing.cn/blog/20200205180933.png" alt="" /></p>
+<p>接着可以调用 Authing API，进行标记已扫码、同意授权、取消授权操作，如同意授权的 API 如下：</p>
 
-<p>用分组管理用户、分组包含一组权限，这也是我们推荐使用的方式。</p>
-
-<p><strong>分组和角色的区别</strong></p>
-
-<p>分组(Group)和角色(Role)有什么区别？</p>
+<p><code class="highlighter-rouge">POST https://oauth.authing.cn/oauth/scan-qrcode/confirm</code></p>
 
 <ul>
-  <li>
-    <p>角色是一组权限的集合。</p>
-  </li>
-  <li>
-    <p>分组侧重于管理用户，一个分组通常拥有多个角色，分组内的用户会继承分组内所有角色的所有权限。</p>
-  </li>
+  <li>请求头 Authorization: 已登录用户的 token</li>
+  <li>Body 参数 qrcodeId: 二维码 ID。</li>
 </ul>
 
-<p><strong>常见的 Group 和 Role 示例：</strong></p>
+<p>以下是一个对应的 Swift 代码示例：</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">Alamofire</span>
+
+<span class="kd">func</span> <span class="nf">confirmQRLogin</span><span class="p">(</span><span class="nv">qrcodeId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">api</span> <span class="o">=</span> <span class="s">"https://oauth.authing.cn/oauth/scan-qrcode/confirm"</span>
+    <span class="k">let</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt">HTTPHeaders</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"&lt;USER_TOKEN&gt;"</span><span class="p">,</span>
+        <span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/json"</span>
+    <span class="p">]</span>
+    <span class="kd">struct</span> <span class="kt">Body</span><span class="p">:</span> <span class="kt">Encodable</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">qrcodeId</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="p">}</span>
+    <span class="k">let</span> <span class="nv">body</span> <span class="o">=</span> <span class="kt">Body</span><span class="p">(</span><span class="nv">qrcodeId</span><span class="p">:</span> <span class="n">qrcodeId</span><span class="p">)</span>
+    <span class="kt">AF</span><span class="o">.</span><span class="nf">request</span><span class="p">(</span>
+        <span class="n">api</span><span class="p">,</span>
+        <span class="nv">method</span><span class="p">:</span> <span class="o">.</span><span class="n">post</span><span class="p">,</span>
+        <span class="nv">parameters</span><span class="p">:</span> <span class="n">body</span><span class="p">,</span>
+        <span class="nv">headers</span><span class="p">:</span> <span class="n">headers</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">responseString</span> <span class="p">{</span> <span class="n">response</span> <span class="k">in</span>
+        
+        <span class="c1">// 将 response.value 转化成字符串，示例如下：</span>
+        <span class="c1">// ["code": 200, "message": "二维码扫描确认成功", data: "" ]</span>
+        <span class="k">let</span> <span class="nv">resp</span> <span class="o">=</span> <span class="nf">convertToDictionary</span><span class="p">(</span><span class="nv">text</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">value</span><span class="o">!</span><span class="p">)</span><span class="o">!</span>
+        <span class="k">let</span> <span class="nv">code</span> <span class="o">=</span> <span class="n">resp</span><span class="p">[</span><span class="s">"code"</span><span class="p">]</span> <span class="k">as!</span> <span class="kt">Int</span>
+        <span class="k">if</span> <span class="n">code</span> <span class="o">!=</span> <span class="mi">200</span> <span class="p">{</span>
+            <span class="nf">debugPrint</span><span class="p">(</span><span class="s">"确认授权失败: "</span><span class="p">,</span> <span class="n">resp</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>详细接入方式请见：<a href="https://docs.authing.cn/authing/scan-qrcode/app-qrcode">接入 App 扫码登录</a></p>
+
+<h1 id="微信登录与支付宝登录">微信登录与支付宝登录</h1>
+
+<p>接入移动应用微信登录和支付宝登录，你需要做如下准备工作：</p>
+<ul>
+  <li><a href="https://docs.authing.cn/authing/quickstart/create-authing-account">注册 Authing 开发者账号</a></li>
+  <li>申请微信、支付宝移动应用</li>
+  <li>在 Authing 控制台填入微信、支付宝移动应用信息</li>
+  <li>接入微信、支付宝移动端 SDK</li>
+</ul>
+
+<p>在你做好这些准备工作之后，先使用微信/支付宝 SDK 拉起微信/支付宝，用户同意授权之后，你会得到一个 code。此 code 可通过 Authing 的接口换取用户信息。</p>
+
+<p>以微信登录 API 为例：</p>
+
+<p><code class="highlighter-rouge">GET https://oauth.authing.cn/oauth/wechatmobile/auth/:userPoolId?code=&lt;YOUR_CODE&gt;</code></p>
 
 <ul>
-  <li>
-    <p><strong>Group</strong></p>
-
-    <ul>
-      <li>admin: 系统管理员，通常包含系统维护者。</li>
-      <li>employee: 正式雇员。</li>
-      <li>employer: 面试官。</li>
-      <li>hr</li>
-      <li>intern: 实习生</li>
-      <li>ops_engineer: 运维工程师</li>
-    </ul>
-  </li>
-  <li>
-    <p><strong>Role</strong></p>
-
-    <ul>
-      <li>Invoice Submitter: 具备发票报销的相关权限。</li>
-      <li>Vacation Requester: 具备申请假期的相关权限。</li>
-      <li>Corporation Email User: 具备使用公司邮箱的的相关权限。</li>
-      <li>Production Server Operator: 具备线上服务器的操作权限。</li>
-      <li>HR App User: 具备使用 HR 系统的相关权限。</li>
-    </ul>
-  </li>
+  <li>path 参数 userPoolId: 你的用户池 ID。</li>
+  <li>query 参数 code: 拉起微信得到的 code。</li>
 </ul>
 
-<p>举例来说：可以这样建立 Role 和 Group 之间的关系：</p>
+<p>下面是 Swift 示例代码：</p>
 
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">Alamofire</span>
+
+<span class="k">let</span> <span class="nv">url</span> <span class="o">=</span> <span class="s">"https://oauth.authing.cn/oauth/wechatmobile/auth/</span><span class="se">\(</span><span class="kt">UserPoolId</span><span class="se">)</span><span class="s">?code=</span><span class="se">\(</span><span class="n">code</span><span class="o">!</span><span class="se">)</span><span class="s">"</span>
+<span class="kt">AF</span><span class="o">.</span><span class="nf">request</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">responseString</span> <span class="p">{</span> <span class="n">response</span> <span class="k">in</span>
+    <span class="nf">debugPrint</span><span class="p">(</span><span class="s">"Response: </span><span class="se">\(</span><span class="n">response</span><span class="o">.</span><span class="n">value</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>详细的接入流程请见：</p>
 <ul>
-  <li>intern 具备 Corporation Email User 这个角色，但是不具备 Vacation Requester 和 Invoice Submitter 这两个角色。</li>
-  <li>employee 拥有发票报销和申请假期角色，但是不具备线上服务器的操作权限。</li>
-  <li>ops_engineer 拥有发票报销、申请假期、线上服务器的角色。</li>
+  <li><a href="https://docs.authing.cn/authing/social-login/mobile/wechat">接入移动应用微信登录</a></li>
+  <li><a href="https://docs.authing.cn/authing/social-login/mobile/alipay">接入移动应用支付宝登录</a></li>
 </ul>
 
-<p>我们推荐<strong>使用分组（Group）管理用户，用 Role（角色） 管理权限</strong>，不要直接赋予单个用户某个权限。如果是某个用户临时需要具备某个角色，可以临时授予，结束之后再收回。</p>
+<h1 id="获取用户信息之后">获取用户信息之后</h1>
 
-<h3 id="关于-authing">关于 Authing</h3>
+<p>获取到用户信息之后，你可以得到登录凭证 token，你可以在后续的 API 请求中携带上此 token, 然后在后端接口中根据此 token 区分不同用户。</p>
 
-<p><img src="https://cdn.authing.cn/blog/20200205182918.png" alt="" /></p>
+<p>设置 Authorization 请求头为 “Bearer “ + token, 例如：</p>
 
-<p>Authing 是中国领先的 IDaaS 服务提供商，对标美国独角兽 Auth0。创始团队来自字节跳动、百度、IBM、阿里云、滴滴出行等互联网企业。Authing 提供开发者友好、易拓展的身份认证和授权平台，赋能企业在云端管理身份，主要功能包括：单点登录、用户分析、扫码登录、多因素认证、行为审计、风险控制、跨平台设备管理、IoT 身份认证等；兼容国际各类标准协议：OAuth2.0、OIDC、SAML、AD/LDAP、WS-Fed、JWT 等。 支持云交付和私有化部署方式，帮助企业和开发者千倍级提升生产效率。</p>
+<p><code class="highlighter-rouge">Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVuaW9uaWQiOiJvaVBiRHVHNFM3bXNyS0hQS0RjOE1FQ1NlOGpNIiwiaWQiOiI1ZGMxMGJjYjZmOTRjMTc4YzZmZmZmYjkiLCJjbGllbnRJZCI6IjVkYTdlZGFiNTAzOTZjMWFkOTYyMzc4YSJ9LCJpYXQiOjE1NzI5NTY0MjUsImV4cCI6MTU3NDI1MjQyNX0.OTgl72WZS8So3R5DbWCJ7I_Bd0LaZa4S0TAVMg9qaYQ"</code></p>
 
-<p>Authing 自上线以来已经服务海内外超过 3000 名企业开发者、拥有约 50 万的开发者社区和托管数百万终端用户，每月百万人次通过 Authing 平台进行认证，并已经服务数十家付费企业客户，覆盖教育、人工智能、出版社、 物联网等多个行业。</p>
+<p>如果你使用的是 Swift 的 Alamofire, 可以这样写：</p>
 
-<h3 id="相关阅读">相关阅读</h3>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">api</span> <span class="o">=</span> <span class="s">"YOUR_SERVICE_URL"</span>
+<span class="k">let</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt">HTTPHeaders</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"&lt;USER_TOKEN&gt;"</span><span class="p">,</span>
+    <span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/json"</span>
+<span class="p">]</span>
+<span class="k">let</span> <span class="nv">body</span> <span class="o">=</span> <span class="kt">Body</span><span class="p">(</span><span class="nv">qrcodeId</span><span class="p">:</span> <span class="n">qrcodeId</span><span class="p">)</span>
+<span class="kt">AF</span><span class="o">.</span><span class="nf">request</span><span class="p">(</span>
+    <span class="n">api</span><span class="p">,</span>
+    <span class="nv">method</span><span class="p">:</span> <span class="o">.</span><span class="n">post</span><span class="p">,</span>
+    <span class="nv">headers</span><span class="p">:</span> <span class="n">headers</span>
+<span class="p">)</span><span class="o">.</span><span class="n">responseString</span> <span class="p">{</span> <span class="n">response</span> <span class="k">in</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-<ol>
-  <li><a href="https://mp.weixin.qq.com/s/qVlqwA2ZhZeKsl0RdVsojQ">Authing 的故事：我为什么开发 Authing？</a></li>
-  <li><a href="https://mp.weixin.qq.com/s/WGL7n9D1L0UG71276Wn6Iw">如何在远程办公中保持高效的</a><a href="https://mp.weixin.qq.com/s/WGL7n9D1L0UG71276Wn6Iw">研发效率？</a></li>
-  <li><a href="https://mp.weixin.qq.com/s/KkUhNuXnrsWa5Q-ucmIlqA">一份普通人能理解的关于 Authing 的介绍</a></li>
-  <li><a href="https://mp.weixin.qq.com/s/TlYmDRg1q_glJ7Icsj0arw">Authing 是什么以及为什么需要 Authing？</a></li>
-  <li><a href="https://mp.weixin.qq.com/s/TlYmDRg1q_glJ7Icsj0arw">为什么身份认证值得上云？</a></li>
-  <li><a href="https://mp.weixin.qq.com/s/6SsGcgoesVGaLT19auK7yg">Authing </a><a href="https://mp.weixin.qq.com/s/6SsGcgoesVGaLT19auK7yg">@ 2019 总结</a></li>
-  <li><a href="https://mp.weixin.qq.com/s/Xd3SR2WaB15a250RxEZWpg">Authing 开发资源最全合集</a></li>
-</ol>
+<p>你可以在后端调用 Authing 的 API 验证通过 <code class="highlighter-rouge">Authorization</code> 判断该用户是否具备相关权限。</p>
+
+<p>详情请见<a href="https://docs.authing.cn/authing/advanced/verify-jwt-token">验证 token</a>。</p>
+
+<h1 id="总结">总结</h1>
+
+<p>你可以在这个 GitHub 项目找到完整的示例代码：<a href="https://github.com/Authing/AuthingIOSDemo">https://github.com/Authing/AuthingIOSDemo</a>。</p>
+
+<p>以下是 Authing 目前支持的社会化登录方式，国内主流的第三方身份提供商目前都已经支持了:</p>
+
+<p><img src="https://cdn.authing.cn/blog/20200302112935.png" alt="" /></p>
+
+<p>同时我们接下来会继续不断完善，让有身份认证的地方就有 Authing !</p>
                 
 			</article>
 			
@@ -852,7 +787,9 @@ Authing 支持非常丰富的认证、授权手段：</p>
 			<div class="mb-4">
 				<span class="taglist">
 				
-				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#rbac">rbac</a>
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#移动端">移动端</a>
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#社会化登录">社会化登录</a>
 				
 				</span>
 			</div>
@@ -911,13 +848,9 @@ Authing 支持非常丰富的认证、授权手段：</p>
         <div class="row prevnextlinks small font-weight-bold">
           
             <div class="col-md-6 rightborder pl-0">
-                <a class="text-dark" href="/blog/%E4%BD%BF%E7%94%A8Authing%E4%B8%8EAWS%E6%9C%8D%E5%8A%A1%E9%9B%86%E6%88%90/"> <img height="30px" class="mr-1" src="/blog/https://cdn.authing.cn/blog/aws-authing.jpg">  使用 Authing 集成 AWS 服务</a>
+                <a class="text-dark" href="/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/"> <img height="30px" class="mr-1" src="/blog/https://cdn.authing.cn/blog/tencent.jpeg">  #ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊</a>
             </div>
           
-          
-            <div class="col-md-6 text-right pr-0">
-                <a class="text-dark" href="/blog/solid-flemish/"> 论文推荐：通过让公民控制自己的数据简化政府流程  <img height="30px" class="ml-1" src="/blog/https://inrupt.com/sites/default/files/2018-10/Thomas_explainer.png"> </a>
-            </div>
           
         </div>
 	</div>
