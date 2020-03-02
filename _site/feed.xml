@@ -1,4 +1,333 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2020-02-27T22:54:08+08:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Authing 官方博客</title><subtitle>Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。</subtitle><entry><title type="html">#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊</title><link href="http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/" rel="alternate" type="text/html" title="#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊" /><published>2020-02-27T00:00:00+08:00</published><updated>2020-02-27T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A</id><content type="html" xml:base="http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/">&lt;p&gt;我们发起 &lt;strong&gt;# Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。&lt;/strong&gt;我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日子，本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2020-03-02T11:37:48+08:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Authing 官方博客</title><subtitle>Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。</subtitle><entry><title type="html">Authing 移动端登录方式, 10 行代码实现 App 扫码登录</title><link href="http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/" rel="alternate" type="text/html" title="Authing 移动端登录方式, 10 行代码实现 App 扫码登录" /><published>2020-03-01T00:00:00+08:00</published><updated>2020-03-01T00:00:00+08:00</updated><id>http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F</id><content type="html" xml:base="http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/">&lt;p&gt;Authing 新增了对四种移动端登录方式的支持，可以让开发者在 Web 端、移动端、小程序端同时接入 Authing:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;移动应用微信登录&lt;/li&gt;
+  &lt;li&gt;移动应用支付宝登录&lt;/li&gt;
+  &lt;li&gt;App 拉起小程序登录&lt;/li&gt;
+  &lt;li&gt;App 扫码登录&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/Authing/AuthingIOSDemo&quot;&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200302110009.png&quot; height=&quot;600px&quot; style=&quot;align:center&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;点击上图跳转到 GitHub Demo 页面。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;其中，「App 拉起小程序登录」指的是在 App 中，借助微信开放能力，唤起微信小程序「小登录」，获取用户微信授权进行登录。此方法可以获取到用户手机号。&lt;/p&gt;
+
+&lt;p&gt;下面分别介绍一下如何快速接入这四种登录方式。&lt;/p&gt;
+
+&lt;h1 id=&quot;app-拉起小程序登录&quot;&gt;App 拉起小程序登录&lt;/h1&gt;
+
+&lt;p&gt;接入 App 拉起小程序登录，你需要做如下准备工作：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.authing.cn/authing/quickstart/create-authing-account&quot;&gt;注册 Authing 开发者账号&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://open.weixin.qq.com/cgi-bin/frame?t=home/app_tmpl&amp;amp;lang=zh_CN&quot;&gt;申请微信移动应用&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;私有化部署用户，需要在 Authing 控制台填入你的小程序信息。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200302104816.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200302104826.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;非私有化部署用户，需要将你的移动应用关联小登录。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;可在微信开放平台 “管理中心-移动应用-应用详情-关联小程序信息”，为通过审核的移动应用发起关联小程序操作。小登录的 AppID 为 &lt;code class=&quot;highlighter-rouge&quot;&gt;wxa0435021fd7a3af2&lt;/code&gt; .&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200302104734.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在你做好这些准备工作之后，先使用微信 SDK 拉起小程序(具体的接入流程请见&lt;a href=&quot;https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Launching_a_Mini_Program/Launching_a_Mini_Program.html&quot;&gt;微信官方文档&lt;/a&gt;):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;小程序 userName 为 gh_a781a791e29e&lt;/li&gt;
+  &lt;li&gt;path 为 &lt;code class=&quot;highlighter-rouge&quot;&gt;/routers/explore&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;path query 参数为：
+    &lt;ul&gt;
+      &lt;li&gt;userPoolId: 你的用户池 ID&lt;/li&gt;
+      &lt;li&gt;getPhone: 是否需要获取用户手机号，1 表示需要，不填或者其他表示不需要&lt;/li&gt;
+      &lt;li&gt;fromApp: 1，此参数必填。&lt;/li&gt;
+      &lt;li&gt;useSelfWxapp: 此参数必填。私有化用户填 1，非私有化用户填 0.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;下面是 Swift 代码示例：&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;userPoolId&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;5e4cdd055df3df65dc58b97d&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;req&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;WXLaunchMiniProgramReq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;userName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;gh_a781a791e29e&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/routes/explore?userPoolId=&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;userPoolId&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;amp;getPhone=1&amp;amp;fromApp=1&amp;amp;useSelfWxapp=0&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;miniProgramType&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;WXMiniProgramType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;release&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;WXApi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;用户同意授权之后，会携带 &lt;code class=&quot;highlighter-rouge&quot;&gt;ticket&lt;/code&gt; 跳回你的 App，之后你可以使用此 ticket 换取用户信息：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;POST https://oauth.authing.cn/oauth/app2wxapp/auth/:userPoolId&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Path 参数 userPoolId: 你的 Authing 用户池 ID。&lt;/li&gt;
+  &lt;li&gt;Post Body 参数:
+    &lt;ul&gt;
+      &lt;li&gt;ticket: 得到的 ticket&lt;/li&gt;
+      &lt;li&gt;secret: 用户池密钥。默认情况下，出于安全考虑，ticket 换取用户信息需要提供用户池密钥，这意味着不能直接在 App 内直接换取用户信息。开发者可以在用户池基础配置页面修改此选项：&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200302105735.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;下面是演示示例：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/app2wxapp.gif&quot; height=&quot;600px&quot; style=&quot;align:center&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;此方式可以获取用户手机号。你可以扫描下方的小程序二维码体验一下「小登录」：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200302103133.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;如果你想私有化部署自己的小程序，可以联系我们。手机号：18616699123。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;详细接入流程请见：&lt;a href=&quot;https://docs.authing.cn/authing/social-login/miniprogram/app2wxapp&quot;&gt;接入APP 拉起小程序登录&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;app-扫码登录&quot;&gt;App 扫码登录&lt;/h1&gt;
+
+&lt;p&gt;和其他三种登录方式不同，你不需要做任何准备工作。同时，我们提供 Web 端的 SDK，可以让你在 Web 端使用 10 行代码实现一个完整的扫码登录表单：&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Authing&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'authing-js-sdk'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 初始化 Authing SDK for JavaScript&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;authing&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Authing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;userPoolId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'YOUR_USERPOOL_ID'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 调用 APP 扫码登录的方法，此方法将生成一个用于扫码登录的图片和相关提示信息&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;authing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;qrlogin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;startScanning&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;onSuccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ticket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;userInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 存储 token 到 localStorage 中&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;localStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'token'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;userInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/扫码登录.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s it! 就这么简单!&lt;/p&gt;
+
+&lt;p&gt;下面是 startScanning 支持的完整参数，你可以掌控扫码登录的所有流程，实现高度自定义：&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;authing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;qrlogin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;startScanning&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;mount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 可选，二维码挂载点，如不写则默认漂浮在文档中间&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 可选，轮询间隔时间，默认为 800 ms &lt;/span&gt;
+
+    &lt;span class=&quot;na&quot;&gt;onPollingStart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;intervalNum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;onResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;onScanned&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;onSuccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ticket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;userInfo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;onCancel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;onExpired&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;onError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;
+
+    &lt;span class=&quot;na&quot;&gt;onQRCodeShow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;qrcode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;onQRCodeLoad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;qrcode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;onQRCodeLoadFaild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;
+    
+    &lt;span class=&quot;na&quot;&gt;tips&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'使用 &amp;lt;strong&amp;gt; APP &amp;lt;/strong&amp;gt; 扫码登录'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;scannedTips&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'用户已扫码，等待确认'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;canceledTips&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'用户取消授权'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;expiredTips&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'二维码已过期'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;successTips&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'扫码成功'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;retryTips&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'重试'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;failedTips&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'网络出错，请重试'&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;参数&lt;/th&gt;
+      &lt;th&gt;可选/必选&lt;/th&gt;
+      &lt;th&gt;说明&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;mount&lt;/td&gt;
+      &lt;td&gt;可选&lt;/td&gt;
+      &lt;td&gt;挂载点 Dom ID，如不写则默认漂浮在文档中间。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;interval&lt;/td&gt;
+      &lt;td&gt;可选&lt;/td&gt;
+      &lt;td&gt;轮询时间间隔，单位为 ms，默认为 800 ms。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onPollingStart&lt;/td&gt;
+      &lt;td&gt;可选&lt;/td&gt;
+      &lt;td&gt;轮询开始时会被回调，只会回调一次。回调参数 intervalNum 为 setInterval 返回的数值，可使用 clearInterval 停止轮询。如：clearInterval(intervalNum)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onResult&lt;/td&gt;
+      &lt;td&gt;可选&lt;/td&gt;
+      &lt;td&gt;每次查询获取到数据都会回调&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onScanned&lt;/td&gt;
+      &lt;td&gt;可选&lt;/td&gt;
+      &lt;td&gt;用户扫码时会被回调，只会回调一次。回调参数 userInfo 只包含了用户昵称和头像，开发者可以将其展示在扫码框中。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onSuccess&lt;/td&gt;
+      &lt;td&gt;可选&lt;/td&gt;
+      &lt;td&gt;用户同意授权之后将会被回调，只会回调一次，之后轮询结束。参数 data 是一个字典，包含两个字段：ticket 和 userInfo。出于安全性考虑，默认情况下，userInfo 只会包含昵称（nickname）和头像（photo）两个字段，开发者也可以在后台配置使其返回完整用户信息，详情见自定义配置。 ticket 可以用来换取完整的用户信息，相关接口见下文。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onCancel&lt;/td&gt;
+      &lt;td&gt;可选&lt;/td&gt;
+      &lt;td&gt;用户取消授权只会会被回调，只回调一次，之后轮询结束。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onExpired&lt;/td&gt;
+      &lt;td&gt;可选&lt;/td&gt;
+      &lt;td&gt;二维码失效时被回调，只回调一次，之后轮询结束。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onError&lt;/td&gt;
+      &lt;td&gt;可选&lt;/td&gt;
+      &lt;td&gt;每次查询失败时都会回调。回调参数 data 示例如 {“code”: 2241,”message”: “二维码不存在”,”data”: null}。完整错误代码请见完整错误代码页。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onQRCodeLoad&lt;/td&gt;
+      &lt;td&gt;可选&lt;/td&gt;
+      &lt;td&gt;二维码首次成功加载时回调。回调参数 qrcode 是一个字典，包含两个字段：qrcodeId、qrcodeUrl。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onQRCodeShow&lt;/td&gt;
+      &lt;td&gt;可选&lt;/td&gt;
+      &lt;td&gt;二维码首次出现在页面上时回调。回调参数 qrcode 同上。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onQRCodeLoadFaild&lt;/td&gt;
+      &lt;td&gt;可选&lt;/td&gt;
+      &lt;td&gt;二维码加载失败时会被回调。&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;在移动端，开发者可以调用 iOS/Android 相关接口解析二维码，二维码包含原始数据如下：&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;scene&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;APP_AUTH&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;qrcodeId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;5e05f0c57fde537d950f7da5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;userPoolId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;5e04ae0d5f3cee22fb37612b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;createdAt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;2019-12-27T11:53:41.260Z&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;expireAt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;2019-12-27T11:55:41.260Z&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;userDefinedData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;world&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;scene: 二维码场景值，APP_AUTH 表示 APP 扫码登录。&lt;/li&gt;
+  &lt;li&gt;qrcodeId: 二维码 ID。&lt;/li&gt;
+  &lt;li&gt;qrcodeId: 用户池 ID。&lt;/li&gt;
+  &lt;li&gt;userDefinedData: 用户自定义数据。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;接着可以调用 Authing API，进行标记已扫码、同意授权、取消授权操作，如同意授权的 API 如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;POST https://oauth.authing.cn/oauth/scan-qrcode/confirm&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;请求头 Authorization: 已登录用户的 token&lt;/li&gt;
+  &lt;li&gt;Body 参数 qrcodeId: 二维码 ID。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以下是一个对应的 Swift 代码示例：&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Alamofire&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;confirmQRLogin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;qrcodeId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;api&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;https://oauth.authing.cn/oauth/scan-qrcode/confirm&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;HTTPHeaders&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;Authorization&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;USER_TOKEN&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;Accept&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;application/json&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Encodable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;qrcodeId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;qrcodeId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;qrcodeId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;AF&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;responseString&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
+        
+        &lt;span class=&quot;c1&quot;&gt;// 将 response.value 转化成字符串，示例如下：&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// [&quot;code&quot;: 200, &quot;message&quot;: &quot;二维码扫描确认成功&quot;, data: &quot;&quot; ]&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;resp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;convertToDictionary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as!&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;debugPrint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;确认授权失败: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;详细接入方式请见：&lt;a href=&quot;https://docs.authing.cn/authing/scan-qrcode/app-qrcode&quot;&gt;接入 App 扫码登录&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;微信登录与支付宝登录&quot;&gt;微信登录与支付宝登录&lt;/h1&gt;
+
+&lt;p&gt;接入移动应用微信登录和支付宝登录，你需要做如下准备工作：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.authing.cn/authing/quickstart/create-authing-account&quot;&gt;注册 Authing 开发者账号&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;申请微信、支付宝移动应用&lt;/li&gt;
+  &lt;li&gt;在 Authing 控制台填入微信、支付宝移动应用信息&lt;/li&gt;
+  &lt;li&gt;接入微信、支付宝移动端 SDK&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在你做好这些准备工作之后，先使用微信/支付宝 SDK 拉起微信/支付宝，用户同意授权之后，你会得到一个 code。此 code 可通过 Authing 的接口换取用户信息。&lt;/p&gt;
+
+&lt;p&gt;以微信登录 API 为例：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GET https://oauth.authing.cn/oauth/wechatmobile/auth/:userPoolId?code=&amp;lt;YOUR_CODE&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;path 参数 userPoolId: 你的用户池 ID。&lt;/li&gt;
+  &lt;li&gt;query 参数 code: 拉起微信得到的 code。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;下面是 Swift 示例代码：&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Alamofire&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;https://oauth.authing.cn/oauth/wechatmobile/auth/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;UserPoolId&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;?code=&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;AF&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;responseString&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;debugPrint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Response: &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;详细的接入流程请见：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.authing.cn/authing/social-login/mobile/wechat&quot;&gt;接入移动应用微信登录&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.authing.cn/authing/social-login/mobile/alipay&quot;&gt;接入移动应用支付宝登录&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;总结&quot;&gt;总结&lt;/h1&gt;
+
+&lt;p&gt;你可以在这个 GitHub 项目找到完整的示例代码：&lt;a href=&quot;https://github.com/Authing/AuthingIOSDemo&quot;&gt;https://github.com/Authing/AuthingIOSDemo&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;以下是 Authing 目前支持的社会化登录方式，国内主流的第三方身份提供商目前都已经支持了:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200302112935.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;同时我们接下来会继续不断完善，让有身份认证的地方就有 Authing !&lt;/p&gt;</content><author><name>cj</name></author><category term="移动端" /><category term="社会化登录" /><summary type="html">Authing 新增了对四种移动端登录方式的支持，可以让开发者在 Web 端、移动端、小程序端同时接入 Authing: 移动应用微信登录 移动应用支付宝登录 App 拉起小程序登录 App 扫码登录</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200302113736.png" /></entry><entry><title type="html">#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊</title><link href="http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/" rel="alternate" type="text/html" title="#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊" /><published>2020-02-27T00:00:00+08:00</published><updated>2020-02-27T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A</id><content type="html" xml:base="http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/">&lt;p&gt;我们发起 &lt;strong&gt;# Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。&lt;/strong&gt;我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日子，本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。&lt;/p&gt;
 
 &lt;p&gt;疫情肆虐，不仅对老百姓生命健康造成重大威胁，对各行各业的发展也造成重大影响。同时，开学、复工在即，疫情防控进入了关键阶段，「居家隔离、远程办公」是当下遏制疫情扩散的最佳防控措施。&lt;/p&gt;
 
@@ -1651,429 +1980,4 @@ data. In 2015 IEEE Security and Privacy Workshops (pp. 180-184). IEEE (2015). do
 
 &lt;p&gt;Authing 是中国领先的 IDaaS 服务提供商，对标美国独角兽 Auth0。创始团队来自字节跳动、百度、IBM、阿里云、滴滴出行等互联网企业。Authing 提供开发者友好、易拓展的身份认证和授权平台，赋能企业在云端管理身份，主要功能包括：单点登录、用户分析、扫码登录、多因素认证、行为审计、风险控制、跨平台设备管理、IoT 身份认证等；兼容国际各类标准协议：OAuth2.0、OIDC、SAML、AD/LDAP、WS-Fed、JWT 等。 支持云交付和私有化部署方式，帮助企业和开发者千倍级提升生产效率。&lt;/p&gt;
 
-&lt;p&gt;Authing 自上线以来已经服务海内外超过 3000 名企业开发者、拥有约 50 万的开发者社区和托管数百万终端用户，每月百万人次通过 Authing 平台进行认证，并已经服务数十家付费企业客户，覆盖教育、人工智能、出版社、 物联网等多个行业。&lt;/p&gt;</content><author><name>ivy</name></author><category term="featured" /><summary type="html">SoLiD 是一个令人兴奋的新项目，由万维网发明者 Tim Berners-Lee 爵士在麻省理工学院启动。 该项目旨在从根本上改变 Web 应用程序的中心化趋势， 它将真正地让数据所有权属于用户，并改善隐私问题。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://inrupt.com/sites/default/files/2018-10/Thomas_explainer.png" /></entry><entry><title type="html">RBAC 实现基于角色的访问控制</title><link href="http://localhost:4000/blog/RBAC%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8E%E8%A7%92%E8%89%B2%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/" rel="alternate" type="text/html" title="RBAC 实现基于角色的访问控制" /><published>2020-01-17T00:00:00+08:00</published><updated>2020-01-17T00:00:00+08:00</updated><id>http://localhost:4000/blog/RBAC%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8E%E8%A7%92%E8%89%B2%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6</id><content type="html" xml:base="http://localhost:4000/blog/RBAC%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8E%E8%A7%92%E8%89%B2%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/">&lt;p&gt;基于角色的访问控制（Role-based access control，简称 RBAC），指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。&lt;/p&gt;
-
-&lt;h2 id=&quot;一认证-vs-授权&quot;&gt;&lt;strong&gt;一、认证 vs 授权？&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;首先让我们用一句话区分认证（Authentication）和授权（Authorization）：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;认证是识别请求方是谁的过程；&lt;/li&gt;
-  &lt;li&gt;授权是知道了请求方是谁之后，判断其是否具备某些权限的过程；&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200205182555.png&quot; alt=&quot;&quot; /&gt;
-Authing 支持非常丰富的认证、授权手段：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;认证手段有：传统密码、验证码登录、丰富的第三方登录（微信、小程序、微博、GitHub、支付宝、QQ 等，未来还会有更多），以及企业级的 LDAP、SAML、OIDC 等。&lt;/li&gt;
-  &lt;li&gt;授权手段有：完整的 OAuth、OIDC 流程。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;对于授权流程，访问控制（Access Control）策略是非常重要的一环，目前 Authing 一共支持（或即将支持）三种访问控制手段：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;老版本的用户角色（deprecated）&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;RBAC（基于角色的访问控制，2020/02/03 已经上线）&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;ABAC（基于属性的访问控制，未来即将支持）&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;二什么是-rbac-&quot;&gt;&lt;strong&gt;二、什么是 RBAC ?&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200205182755.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;基于角色的访问控制（Role-based access control，简称 RBAC），指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;当使用 RBAC 时，通过分析系统用户的实际情况，基于共同的职责和需求，将他们分配给不同的角色。然后可以授予每个用户一个或多个角色，每个角色具有一个或多个权限，这种 &lt;strong&gt;用户-角色&lt;/strong&gt;、&lt;strong&gt;角色-权限&lt;/strong&gt; 间的关系，让我们可以不用再单独管理单个用户，用户从具备的角色里面继承所需的权限，从而使得用户赋权这件事变得更加简单。&lt;/p&gt;
-
-&lt;p&gt;举一个公司内所有在职员工具备登录公司邮箱的权限的场景，如果应用 RBAC，就可以赋予所有在职员工 employee 角色，employee 角色具备 email:login 权限，如此所有员工就具备了登录公司邮箱的权限。如果有员工离职，只需要将其移出 employee 角色，而不需单独收回权限。本质上，一个角色（Role）就是一组权限（Permission）的集合。使用角色添加、删除、调整权限，相比单独赋予单个用户权限更加简单。当你的用户基数不断增长时，角色会变得尤为有用。&lt;/p&gt;
-
-&lt;p&gt;在规划访问控制策略时，&lt;strong&gt;最佳实践是给予用户完成工作必须的最小权限。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;三使用-rbac-的优势&quot;&gt;&lt;strong&gt;三、使用 RBAC 的优势&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;系统性、可重复性的权限指派&lt;/li&gt;
-  &lt;li&gt;更方便的用户权限审计，快速定位问题&lt;/li&gt;
-  &lt;li&gt;快速地添加、修改角色，甚至可以调用 API 实现&lt;/li&gt;
-  &lt;li&gt;减少授予用户权限时发生错误的可能性&lt;/li&gt;
-  &lt;li&gt;引入第三方用户/新用户/未登录用户时，赋予他们预先配置好的角色，比如 guest 分组&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;四下面是-authing--目前所支持或即将上线的相关-feature&quot;&gt;四、下面是 Authing  目前所支持或即将上线的相关 Feature：&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;&lt;strong&gt;Feature&lt;/strong&gt;&lt;/th&gt;
-      &lt;th&gt;Authing 支持情况&lt;/th&gt;
-      &lt;th&gt;备注&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;角色&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;创建/修改/删除 角色&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;分页查询&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;通过名称、描述搜索角色&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;角色能被授予给分组&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;角色嵌套、分层&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;角色通过 namespace、多租户管理&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;查询角色具备的所有权限&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;查询角色中包含的所有用户&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;用户&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;创建/修改/删除 用户&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;分页查询&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;通过昵称、邮箱搜索用户&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;查看最近注册、登录的用户&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;通过第三方应用查找用户&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;通过 lucence 语法搜索用户&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;用户可以拥有一个或多个角色&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt;最多 50 个&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;用户能在一个或多个分组里&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt;最多 50 个&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;查看一个用户具备的所有角色&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;查看一个用户所在的所有分组&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;查看一个用户所具备的所有权限&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;通过 JSON 导入/导出用户&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;自定义密码加密函数&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;权限&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;创建/修改/删除 权限&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;分页查询&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;通过名称、描述搜索权限&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;能直接赋予用户权限&lt;/td&gt;
-      &lt;td&gt;To be determined&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;能授权给一个或多个角色&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;查询所有具有某个权限的用户&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;查询所有具有某个权限的角色&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;查询所有具有某个权限的分组&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;分组&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;分页查询&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;创建/修改/删除 分组&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;通过名称、描述搜索分组&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;直接从第三方用户目录导入（如 AD, LDAP, SAML）&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;分组嵌套、分层&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;查看分组的子分组&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;分组通过 namespace、多租户管理&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;查看一个分组具备的所有用户&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;查看一个分组具备的所有角色&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;查看一个分组具备的所有权限&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;配置&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;自定义授权流程策略（authorization policies）&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;自定义是否将权限加入 Token&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt;默认为否&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;自定义是否将角色加入 Token&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt;默认为否&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;自定义是否将分组加入 Token&lt;/td&gt;
-      &lt;td&gt;In future release&lt;/td&gt;
-      &lt;td&gt;默认为否&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;YES ：&lt;/strong&gt;当前支持。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;In future release ：&lt;/strong&gt;已加入未来规划，不久后将会支持。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;To be determined ：&lt;/strong&gt;还在设计是否需要添加此功能。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;五rbac-最佳实践分组管理用户&quot;&gt;五、RBAC 最佳实践：分组管理用户&lt;/h2&gt;
-
-&lt;p&gt;除了直接赋予用户某个角色，作为 RBAC 的最佳实践，我们还可以通过分组管理用户，将一个分组和一组角色绑定，在此分组内的所有用户就会继承这些角色，并自动具备了这些角色包含的权限。这些概念之间的关系为：&lt;strong&gt;Permission &amp;lt;-&amp;gt; Roles &amp;lt;-&amp;gt; Groups &amp;lt;-&amp;gt; Users&lt;/strong&gt;，如下图所示：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;分组：Employee, Contractor&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;角色：Vacation Requester, Invoice Submitter, Express Submitter&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;权限：Read vacation requests, Create vacation requests 等&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200205180933.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;用分组管理用户、分组包含一组权限，这也是我们推荐使用的方式。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;分组和角色的区别&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;分组(Group)和角色(Role)有什么区别？&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;角色是一组权限的集合。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;分组侧重于管理用户，一个分组通常拥有多个角色，分组内的用户会继承分组内所有角色的所有权限。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;常见的 Group 和 Role 示例：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Group&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;admin: 系统管理员，通常包含系统维护者。&lt;/li&gt;
-      &lt;li&gt;employee: 正式雇员。&lt;/li&gt;
-      &lt;li&gt;employer: 面试官。&lt;/li&gt;
-      &lt;li&gt;hr&lt;/li&gt;
-      &lt;li&gt;intern: 实习生&lt;/li&gt;
-      &lt;li&gt;ops_engineer: 运维工程师&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Role&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Invoice Submitter: 具备发票报销的相关权限。&lt;/li&gt;
-      &lt;li&gt;Vacation Requester: 具备申请假期的相关权限。&lt;/li&gt;
-      &lt;li&gt;Corporation Email User: 具备使用公司邮箱的的相关权限。&lt;/li&gt;
-      &lt;li&gt;Production Server Operator: 具备线上服务器的操作权限。&lt;/li&gt;
-      &lt;li&gt;HR App User: 具备使用 HR 系统的相关权限。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;举例来说：可以这样建立 Role 和 Group 之间的关系：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;intern 具备 Corporation Email User 这个角色，但是不具备 Vacation Requester 和 Invoice Submitter 这两个角色。&lt;/li&gt;
-  &lt;li&gt;employee 拥有发票报销和申请假期角色，但是不具备线上服务器的操作权限。&lt;/li&gt;
-  &lt;li&gt;ops_engineer 拥有发票报销、申请假期、线上服务器的角色。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;我们推荐&lt;strong&gt;使用分组（Group）管理用户，用 Role（角色） 管理权限&lt;/strong&gt;，不要直接赋予单个用户某个权限。如果是某个用户临时需要具备某个角色，可以临时授予，结束之后再收回。&lt;/p&gt;
-
-&lt;h3 id=&quot;关于-authing&quot;&gt;关于 Authing&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200205182918.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Authing 是中国领先的 IDaaS 服务提供商，对标美国独角兽 Auth0。创始团队来自字节跳动、百度、IBM、阿里云、滴滴出行等互联网企业。Authing 提供开发者友好、易拓展的身份认证和授权平台，赋能企业在云端管理身份，主要功能包括：单点登录、用户分析、扫码登录、多因素认证、行为审计、风险控制、跨平台设备管理、IoT 身份认证等；兼容国际各类标准协议：OAuth2.0、OIDC、SAML、AD/LDAP、WS-Fed、JWT 等。 支持云交付和私有化部署方式，帮助企业和开发者千倍级提升生产效率。&lt;/p&gt;
-
-&lt;p&gt;Authing 自上线以来已经服务海内外超过 3000 名企业开发者、拥有约 50 万的开发者社区和托管数百万终端用户，每月百万人次通过 Authing 平台进行认证，并已经服务数十家付费企业客户，覆盖教育、人工智能、出版社、 物联网等多个行业。&lt;/p&gt;
-
-&lt;h3 id=&quot;相关阅读&quot;&gt;相关阅读&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/qVlqwA2ZhZeKsl0RdVsojQ&quot;&gt;Authing 的故事：我为什么开发 Authing？&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/WGL7n9D1L0UG71276Wn6Iw&quot;&gt;如何在远程办公中保持高效的&lt;/a&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/WGL7n9D1L0UG71276Wn6Iw&quot;&gt;研发效率？&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/KkUhNuXnrsWa5Q-ucmIlqA&quot;&gt;一份普通人能理解的关于 Authing 的介绍&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/TlYmDRg1q_glJ7Icsj0arw&quot;&gt;Authing 是什么以及为什么需要 Authing？&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/TlYmDRg1q_glJ7Icsj0arw&quot;&gt;为什么身份认证值得上云？&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/6SsGcgoesVGaLT19auK7yg&quot;&gt;Authing &lt;/a&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/6SsGcgoesVGaLT19auK7yg&quot;&gt;@ 2019 总结&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/Xd3SR2WaB15a250RxEZWpg&quot;&gt;Authing 开发资源最全合集&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>cj</name></author><category term="rbac" /><summary type="html">基于角色的访问控制（Role-based access control，简称 RBAC），指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200205182755.png" /></entry></feed>
+&lt;p&gt;Authing 自上线以来已经服务海内外超过 3000 名企业开发者、拥有约 50 万的开发者社区和托管数百万终端用户，每月百万人次通过 Authing 平台进行认证，并已经服务数十家付费企业客户，覆盖教育、人工智能、出版社、 物联网等多个行业。&lt;/p&gt;</content><author><name>ivy</name></author><category term="featured" /><summary type="html">SoLiD 是一个令人兴奋的新项目，由万维网发明者 Tim Berners-Lee 爵士在麻省理工学院启动。 该项目旨在从根本上改变 Web 应用程序的中心化趋势， 它将真正地让数据所有权属于用户，并改善隐私问题。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://inrupt.com/sites/default/files/2018-10/Thomas_explainer.png" /></entry></feed>

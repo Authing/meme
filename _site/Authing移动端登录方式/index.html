@@ -4,20 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Authors | Authing 官方博客</title>
+    <title>Authing 移动端登录方式, 10 行代码实现 App 扫码登录 | Authing 官方博客</title>
 
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Authors | Authing 官方博客</title>
+<title>Authing 移动端登录方式, 10 行代码实现 App 扫码登录 | Authing 官方博客</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Authors" />
+<meta property="og:title" content="Authing 移动端登录方式, 10 行代码实现 App 扫码登录" />
+<meta name="author" content="cj" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。" />
-<meta property="og:description" content="Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。" />
-<link rel="canonical" href="http://localhost:4000/blog/authors-list.html" />
-<meta property="og:url" content="http://localhost:4000/blog/authors-list.html" />
+<meta name="description" content="Authing 新增了对四种移动端登录方式的支持，可以让开发者在 Web 端、移动端、小程序端同时接入 Authing: 移动应用微信登录 移动应用支付宝登录 App 拉起小程序登录 App 扫码登录" />
+<meta property="og:description" content="Authing 新增了对四种移动端登录方式的支持，可以让开发者在 Web 端、移动端、小程序端同时接入 Authing: 移动应用微信登录 移动应用支付宝登录 App 拉起小程序登录 App 扫码登录" />
+<link rel="canonical" href="http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/" />
+<meta property="og:url" content="http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/" />
 <meta property="og:site_name" content="Authing 官方博客" />
+<meta property="og:image" content="https://cdn.authing.cn/blog/20200302113736.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-01T00:00:00+08:00" />
 <script type="application/ld+json">
-{"headline":"Authors","url":"http://localhost:4000/blog/authors-list.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"}},"description":"Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。","@type":"WebPage","@context":"http://schema.org"}</script>
+{"headline":"Authing 移动端登录方式, 10 行代码实现 App 扫码登录","dateModified":"2020-03-01T00:00:00+08:00","url":"http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/","datePublished":"2020-03-01T00:00:00+08:00","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"},"name":"cj"},"image":"https://cdn.authing.cn/blog/20200302113736.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/"},"author":{"@type":"Person","name":"cj"},"description":"Authing 新增了对四种移动端登录方式的支持，可以让开发者在 Web 端、移动端、小程序端同时接入 Authing: 移动应用微信登录 移动应用支付宝登录 App 拉起小程序登录 App 扫码登录","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -108,17 +112,17 @@ var documents = [{
     "id": 2,
     "url": "http://localhost:4000/blog/author-jane.html",
     "title": "Jane",
-    "body": "                        Jane Follow:                                                    Posts by Jane:               "
+    "body": "                        {{page. title}} Follow:         {{ site. authors. jane. site }}         {{ site. authors. jane. bio }}                                   Posts by {{page. title}}:       {% assign posts = site. posts | where: author , jane  %}      {% for post in posts %}      {% include main-loop-card. html %}      {% endfor %}  "
     }, {
     "id": 3,
     "url": "http://localhost:4000/blog/author-sal.html",
     "title": "Sal",
-    "body": "                        Sal Follow:                                                    Posts by Sal:               "
+    "body": "                        {{page. title}} Follow:         {{ site. authors. sal. site }}         {{ site. authors. sal. bio }}                                   Posts by {{page. title}}:       {% assign posts = site. posts | where: author , sal  %}      {% for post in posts %}      {% include main-loop-card. html %}      {% endfor %}  "
     }, {
     "id": 4,
     "url": "http://localhost:4000/blog/authors-list.html",
     "title": "Authors",
-    "body": "Authors:                                             谢扬 :       (View Posts)      Working for computer technologies that can give new possibilities to science, engineering and art, while benefiting hundreds of millions of people.                           &nbsp;       &nbsp;                                                                             廖长江 :       (View Posts)      Web fullstack developer.                           &nbsp;       &nbsp;                                                                             杜新帅 :       (View Posts)      Blogger, love to explore new ideas and write on my morning coffee!                          &nbsp;       &nbsp;                                                                             叶祖伟 :       (View Posts)      Fullstack developer who plays music.                           &nbsp;       &nbsp;                                                                             晋剑 :       (View Posts)      不骑单车好多年 ;-)                          &nbsp;       &nbsp;                                      "
+    "body": "{{page. title}}:     {% for author in site. authors %}                                         {{ author[1]. name }} :       (View Posts)      {{ author[1]. bio }}                          &nbsp;       &nbsp;                                    {% endfor %}  "
     }, {
     "id": 5,
     "url": "http://localhost:4000/blog/categories.html",
@@ -331,116 +335,494 @@ function lunr_search(term) {
 
     <!-- Content -->
     <main role="main" class="site-content">
-        <div class="container">
-<h4 class="font-weight-bold spanborder"><span>Authors</span></h4>
-    <div class="row gap-y listrecent listrecent listauthor">
+        
+
+<div class="container">
+<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+		<div class="h-100 tofront">
+			<div class="row  justify-content-between ">
+				<div class=" col-md-6  pr-0 pr-md-4 pt-4 pb-4 align-self-center">
+					<p class="text-uppercase font-weight-bold">
+                        <span class="catlist">
+						
+                          <a class="sscroll text-danger" href="/blog/categories.html#developers">developers</a><span class="sep">, </span>
+                        
+                          <a class="sscroll text-danger" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
+                        
+                        </span>
+					</p>
+					<h1 class="display-4 mb-4 article-headline">Authing 移动端登录方式, 10 行代码实现 App 扫码登录</h1>
+					<div class="d-flex align-items-center">
+                        
+                        <img class="rounded-circle" src="/blog//assets/images/cj.png" alt="廖长江" width="70"/>
+                        
+						<small class="ml-3"> 廖长江 <span><a target="_blank" href="https://www.zhihu.com/people/lcj1024" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Mar 01, 2020 · <span class="reading-time">
+  
+  
+    5 mins read
+  
+</span>
+    </span>
+						</small>
+					</div>
+				</div>
+                
+				<div class="col-md-6 pr-0 align-self-center">
+					<img class="rounded" src="https://cdn.authing.cn/blog/20200302113736.png" alt="Authing 移动端登录方式, 10 行代码实现 App 扫码登录">
+				</div>
+                
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<div class="container-lg pt-4 pb-4">
+	<div class="row justify-content-center">
+        
+        
+        <!-- Share -->
+		<div class="col-lg-2 pr-4 mb-4 col-md-12">
+			<div class="sticky-top sticky-top-offset text-center">
+				<div class="text-muted">
+					分享
+				</div>
+				<div class="share d-inline-block">
+					<!-- AddToAny BEGIN -->
+					<div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="https://authing.cn/blog" data-a2a-title="Authing 官方博客">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_wechat"></a>
+						<a class="a2a_button_reddit"></a>
+						<a class="a2a_button_sina_weibo"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_qzone"></a>
+						<a class="a2a_button_twitter"></a>
+						<a class="a2a_button_douban"></a>
+						<a class="a2a_button_email"></a>
+						</div>
+						<script>
+						var a2a_config = a2a_config || {};
+						a2a_config.locale = "zh-CN";
+						</script>
+					<script async src="https://static.addtoany.com/menu/page.js"></script>
+					<!-- AddToAny END -->
+				</div>
+			</div>
+		</div>
+        
+        
+		<div class="col-md-12 col-lg-6">
+            
+            <!-- Article -->
+			<article class="article-post">                
+			<p>Authing 新增了对四种移动端登录方式的支持，可以让开发者在 Web 端、移动端、小程序端同时接入 Authing:</p>
+<ul>
+  <li>移动应用微信登录</li>
+  <li>移动应用支付宝登录</li>
+  <li>App 拉起小程序登录</li>
+  <li>App 扫码登录</li>
+</ul>
+
+<p><a href="https://github.com/Authing/AuthingIOSDemo"><img src="https://cdn.authing.cn/blog/20200302110009.png" height="600px" style="align:center" /></a></p>
+
+<blockquote>
+  <p>点击上图跳转到 GitHub Demo 页面。</p>
+</blockquote>
+
+<p>其中，「App 拉起小程序登录」指的是在 App 中，借助微信开放能力，唤起微信小程序「小登录」，获取用户微信授权进行登录。此方法可以获取到用户手机号。</p>
+
+<p>下面分别介绍一下如何快速接入这四种登录方式。</p>
+
+<h1 id="app-拉起小程序登录">App 拉起小程序登录</h1>
+
+<p>接入 App 拉起小程序登录，你需要做如下准备工作：</p>
+<ul>
+  <li><a href="https://docs.authing.cn/authing/quickstart/create-authing-account">注册 Authing 开发者账号</a></li>
+  <li><a href="https://open.weixin.qq.com/cgi-bin/frame?t=home/app_tmpl&amp;lang=zh_CN">申请微信移动应用</a></li>
+  <li>私有化部署用户，需要在 Authing 控制台填入你的小程序信息。</li>
+</ul>
+
+<p><img src="https://cdn.authing.cn/blog/20200302104816.png" alt="" /></p>
+
+<p><img src="https://cdn.authing.cn/blog/20200302104826.png" alt="" /></p>
+
+<ul>
+  <li>非私有化部署用户，需要将你的移动应用关联小登录。</li>
+</ul>
+
+<p>可在微信开放平台 “管理中心-移动应用-应用详情-关联小程序信息”，为通过审核的移动应用发起关联小程序操作。小登录的 AppID 为 <code class="highlighter-rouge">wxa0435021fd7a3af2</code> .</p>
+
+<p><img src="https://cdn.authing.cn/blog/20200302104734.png" alt="" /></p>
+
+<p>在你做好这些准备工作之后，先使用微信 SDK 拉起小程序(具体的接入流程请见<a href="https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Launching_a_Mini_Program/Launching_a_Mini_Program.html">微信官方文档</a>):</p>
+
+<ul>
+  <li>小程序 userName 为 gh_a781a791e29e</li>
+  <li>path 为 <code class="highlighter-rouge">/routers/explore</code></li>
+  <li>path query 参数为：
+    <ul>
+      <li>userPoolId: 你的用户池 ID</li>
+      <li>getPhone: 是否需要获取用户手机号，1 表示需要，不填或者其他表示不需要</li>
+      <li>fromApp: 1，此参数必填。</li>
+      <li>useSelfWxapp: 此参数必填。私有化用户填 1，非私有化用户填 0.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>下面是 Swift 代码示例：</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">userPoolId</span> <span class="o">=</span> <span class="s">"5e4cdd055df3df65dc58b97d"</span>
+<span class="k">let</span> <span class="nv">req</span> <span class="o">=</span> <span class="kt">WXLaunchMiniProgramReq</span><span class="p">()</span>
+<span class="n">req</span><span class="o">.</span><span class="n">userName</span> <span class="o">=</span> <span class="s">"gh_a781a791e29e"</span>
+<span class="n">req</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s">"/routes/explore?userPoolId=</span><span class="se">\(</span><span class="n">userPoolId</span><span class="se">)</span><span class="s">&amp;getPhone=1&amp;fromApp=1&amp;useSelfWxapp=0"</span>
+<span class="n">req</span><span class="o">.</span><span class="n">miniProgramType</span> <span class="o">=</span> <span class="kt">WXMiniProgramType</span><span class="o">.</span><span class="n">release</span>
+<span class="kt">WXApi</span><span class="o">.</span><span class="nf">send</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>用户同意授权之后，会携带 <code class="highlighter-rouge">ticket</code> 跳回你的 App，之后你可以使用此 ticket 换取用户信息：</p>
+
+<p><code class="highlighter-rouge">POST https://oauth.authing.cn/oauth/app2wxapp/auth/:userPoolId</code></p>
+
+<ul>
+  <li>Path 参数 userPoolId: 你的 Authing 用户池 ID。</li>
+  <li>Post Body 参数:
+    <ul>
+      <li>ticket: 得到的 ticket</li>
+      <li>secret: 用户池密钥。默认情况下，出于安全考虑，ticket 换取用户信息需要提供用户池密钥，这意味着不能直接在 App 内直接换取用户信息。开发者可以在用户池基础配置页面修改此选项：</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://cdn.authing.cn/blog/20200302105735.png" alt="" /></p>
+
+<p>下面是演示示例：</p>
+
+<p><img src="https://cdn.authing.cn/blog/app2wxapp.gif" height="600px" style="align:center" /></p>
+
+<p>此方式可以获取用户手机号。你可以扫描下方的小程序二维码体验一下「小登录」：</p>
+
+<p><img src="https://cdn.authing.cn/blog/20200302103133.png" alt="" /></p>
+
+<blockquote>
+  <p>如果你想私有化部署自己的小程序，可以联系我们。手机号：18616699123。</p>
+</blockquote>
+
+<p>详细接入流程请见：<a href="https://docs.authing.cn/authing/social-login/miniprogram/app2wxapp">接入APP 拉起小程序登录</a></p>
+
+<h1 id="app-扫码登录">App 扫码登录</h1>
+
+<p>和其他三种登录方式不同，你不需要做任何准备工作。同时，我们提供 Web 端的 SDK，可以让你在 Web 端使用 10 行代码实现一个完整的扫码登录表单：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">Authing</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'authing-js-sdk'</span><span class="p">);</span>
+
+<span class="c1">// 初始化 Authing SDK for JavaScript</span>
+<span class="kd">const</span> <span class="nx">authing</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Authing</span><span class="p">({</span>
+    <span class="na">userPoolId</span><span class="p">:</span> <span class="s1">'YOUR_USERPOOL_ID'</span><span class="p">,</span>
+<span class="p">});</span>
+
+<span class="c1">// 调用 APP 扫码登录的方法，此方法将生成一个用于扫码登录的图片和相关提示信息</span>
+<span class="nx">authing</span><span class="p">.</span><span class="nx">qrlogin</span><span class="p">.</span><span class="nx">startScanning</span><span class="p">({</span>
+  <span class="nx">onSuccess</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="p">{</span><span class="nx">ticket</span><span class="p">,</span> <span class="nx">userInfo</span><span class="p">}</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+    <span class="c1">// 存储 token 到 localStorage 中</span>
+    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">'token'</span><span class="p">,</span> <span class="nx">userInfo</span><span class="p">.</span><span class="nx">token</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p><img src="https://cdn.authing.cn/blog/扫码登录.gif" alt="" /></p>
+
+<p>That’s it! 就这么简单!</p>
+
+<p>下面是 startScanning 支持的完整参数，你可以掌控扫码登录的所有流程，实现高度自定义：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">authing</span><span class="p">.</span><span class="nx">qrlogin</span><span class="p">.</span><span class="nx">startScanning</span><span class="p">({</span>
+    <span class="na">mount</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="c1">// 可选，二维码挂载点，如不写则默认漂浮在文档中间</span>
+    <span class="na">interval</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="c1">// 可选，轮询间隔时间，默认为 800 ms </span>
+
+    <span class="na">onPollingStart</span><span class="p">:</span> <span class="p">(</span><span class="nx">intervalNum</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+    <span class="na">onResult</span><span class="p">:</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+    <span class="na">onScanned</span><span class="p">:</span> <span class="p">(</span><span class="nx">userInfo</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+    <span class="na">onSuccess</span><span class="p">:</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="p">{</span> <span class="nx">ticket</span><span class="p">,</span> <span class="nx">userInfo</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="na">onCancel</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+    <span class="na">onExpired</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+    <span class="na">onError</span><span class="p">:</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+
+    <span class="na">onQRCodeShow</span><span class="p">:</span> <span class="p">(</span><span class="nx">qrcode</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+    <span class="na">onQRCodeLoad</span><span class="p">:</span> <span class="p">(</span><span class="nx">qrcode</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+    <span class="na">onQRCodeLoadFaild</span><span class="p">:</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{},</span>
     
-        <div class="col-lg-6 mb-4">
-            <div class="p-4 border rounded">
-            <div class="row">
-            <div class="col-md-3 mb-4 mb-md-0"><img alt="谢扬" src="/blog//assets/images/ivy.jpg" class="rounded-circle" height="80" width="80"></div>
-            <div class="col-md-9">
-            <a href="/blog/author-谢扬">
-            <h4 class="text-dark mb-0"> 谢扬 </h4>
-            <small class="d-inline-block mt-1 mb-3 font-weight-normal">(View Posts)</small>
-            <div class="excerpt">Working for computer technologies that can give new possibilities to science, engineering and art, while benefiting hundreds of millions of people.</div>
-            </a>
-            <div class="icon-block mt-3 d-flex justify-content-between">  
-            <div>
-            <a target="_blank" href="http://ivydom.com"><i class="fab fa-twitter text-muted" aria-hidden="true"></i></a>  &nbsp;
-            <a target="_blank" href="http://ivydom.com"><i class="fa fa-globe text-muted" aria-hidden="true"></i></a> &nbsp;
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-        </div>
-    
-        <div class="col-lg-6 mb-4">
-            <div class="p-4 border rounded">
-            <div class="row">
-            <div class="col-md-3 mb-4 mb-md-0"><img alt="廖长江" src="/blog//assets/images/cj.png" class="rounded-circle" height="80" width="80"></div>
-            <div class="col-md-9">
-            <a href="/blog/author-廖长江">
-            <h4 class="text-dark mb-0"> 廖长江 </h4>
-            <small class="d-inline-block mt-1 mb-3 font-weight-normal">(View Posts)</small>
-            <div class="excerpt">Web fullstack developer.</div>
-            </a>
-            <div class="icon-block mt-3 d-flex justify-content-between">  
-            <div>
-            <a target="_blank" href="https://www.zhihu.com/people/lcj1024"><i class="fab fa-twitter text-muted" aria-hidden="true"></i></a>  &nbsp;
-            <a target="_blank" href="https://www.zhihu.com/people/lcj1024"><i class="fa fa-globe text-muted" aria-hidden="true"></i></a> &nbsp;
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-        </div>
-    
-        <div class="col-lg-6 mb-4">
-            <div class="p-4 border rounded">
-            <div class="row">
-            <div class="col-md-3 mb-4 mb-md-0"><img alt="杜新帅" src="/blog//assets/images/duxinshuai.png" class="rounded-circle" height="80" width="80"></div>
-            <div class="col-md-9">
-            <a href="/blog/author-杜新帅">
-            <h4 class="text-dark mb-0"> 杜新帅 </h4>
-            <small class="d-inline-block mt-1 mb-3 font-weight-normal">(View Posts)</small>
-            <div class="excerpt">Blogger, love to explore new ideas and write on my morning coffee!</div>
-            </a>
-            <div class="icon-block mt-3 d-flex justify-content-between">  
-            <div>
-            <a target="_blank" href="https://twitter.com/wowthemesnet"><i class="fab fa-twitter text-muted" aria-hidden="true"></i></a>  &nbsp;
-            <a target="_blank" href="https://www.wowthemes.net"><i class="fa fa-globe text-muted" aria-hidden="true"></i></a> &nbsp;
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-        </div>
-    
-        <div class="col-lg-6 mb-4">
-            <div class="p-4 border rounded">
-            <div class="row">
-            <div class="col-md-3 mb-4 mb-md-0"><img alt="叶祖伟" src="/blog/" class="rounded-circle" height="80" width="80"></div>
-            <div class="col-md-9">
-            <a href="/blog/author-叶祖伟">
-            <h4 class="text-dark mb-0"> 叶祖伟 </h4>
-            <small class="d-inline-block mt-1 mb-3 font-weight-normal">(View Posts)</small>
-            <div class="excerpt">Fullstack developer who plays music.</div>
-            </a>
-            <div class="icon-block mt-3 d-flex justify-content-between">  
-            <div>
-            <a target="_blank" href=""><i class="fab fa-twitter text-muted" aria-hidden="true"></i></a>  &nbsp;
-            <a target="_blank" href="https://yelexin.cn"><i class="fa fa-globe text-muted" aria-hidden="true"></i></a> &nbsp;
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-        </div>
-    
-        <div class="col-lg-6 mb-4">
-            <div class="p-4 border rounded">
-            <div class="row">
-            <div class="col-md-3 mb-4 mb-md-0"><img alt="晋剑" src="/blog//assets/images/jackjin.png" class="rounded-circle" height="80" width="80"></div>
-            <div class="col-md-9">
-            <a href="/blog/author-晋剑">
-            <h4 class="text-dark mb-0"> 晋剑 </h4>
-            <small class="d-inline-block mt-1 mb-3 font-weight-normal">(View Posts)</small>
-            <div class="excerpt">不骑单车好多年 ;-)</div>
-            </a>
-            <div class="icon-block mt-3 d-flex justify-content-between">  
-            <div>
-            <a target="_blank" href="https://twitter.com/JinJian5"><i class="fab fa-twitter text-muted" aria-hidden="true"></i></a>  &nbsp;
-            <a target="_blank" href="https://www.jackjin.io"><i class="fa fa-globe text-muted" aria-hidden="true"></i></a> &nbsp;
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-        </div>
-    
+    <span class="na">tips</span><span class="p">:</span> <span class="s1">'使用 &lt;strong&gt; APP &lt;/strong&gt; 扫码登录'</span><span class="p">,</span>
+    <span class="na">scannedTips</span><span class="p">:</span> <span class="s1">'用户已扫码，等待确认'</span><span class="p">,</span>
+    <span class="na">canceledTips</span><span class="p">:</span> <span class="s1">'用户取消授权'</span><span class="p">,</span>
+    <span class="na">expiredTips</span><span class="p">:</span> <span class="s1">'二维码已过期'</span><span class="p">,</span>
+    <span class="na">successTips</span><span class="p">:</span> <span class="s1">'扫码成功'</span><span class="p">,</span>
+    <span class="na">retryTips</span><span class="p">:</span> <span class="s1">'重试'</span><span class="p">,</span>
+    <span class="na">failedTips</span><span class="p">:</span> <span class="s1">'网络出错，请重试'</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>可选/必选</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mount</td>
+      <td>可选</td>
+      <td>挂载点 Dom ID，如不写则默认漂浮在文档中间。</td>
+    </tr>
+    <tr>
+      <td>interval</td>
+      <td>可选</td>
+      <td>轮询时间间隔，单位为 ms，默认为 800 ms。</td>
+    </tr>
+    <tr>
+      <td>onPollingStart</td>
+      <td>可选</td>
+      <td>轮询开始时会被回调，只会回调一次。回调参数 intervalNum 为 setInterval 返回的数值，可使用 clearInterval 停止轮询。如：clearInterval(intervalNum)</td>
+    </tr>
+    <tr>
+      <td>onResult</td>
+      <td>可选</td>
+      <td>每次查询获取到数据都会回调</td>
+    </tr>
+    <tr>
+      <td>onScanned</td>
+      <td>可选</td>
+      <td>用户扫码时会被回调，只会回调一次。回调参数 userInfo 只包含了用户昵称和头像，开发者可以将其展示在扫码框中。</td>
+    </tr>
+    <tr>
+      <td>onSuccess</td>
+      <td>可选</td>
+      <td>用户同意授权之后将会被回调，只会回调一次，之后轮询结束。参数 data 是一个字典，包含两个字段：ticket 和 userInfo。出于安全性考虑，默认情况下，userInfo 只会包含昵称（nickname）和头像（photo）两个字段，开发者也可以在后台配置使其返回完整用户信息，详情见自定义配置。 ticket 可以用来换取完整的用户信息，相关接口见下文。</td>
+    </tr>
+    <tr>
+      <td>onCancel</td>
+      <td>可选</td>
+      <td>用户取消授权只会会被回调，只回调一次，之后轮询结束。</td>
+    </tr>
+    <tr>
+      <td>onExpired</td>
+      <td>可选</td>
+      <td>二维码失效时被回调，只回调一次，之后轮询结束。</td>
+    </tr>
+    <tr>
+      <td>onError</td>
+      <td>可选</td>
+      <td>每次查询失败时都会回调。回调参数 data 示例如 {“code”: 2241,”message”: “二维码不存在”,”data”: null}。完整错误代码请见完整错误代码页。</td>
+    </tr>
+    <tr>
+      <td>onQRCodeLoad</td>
+      <td>可选</td>
+      <td>二维码首次成功加载时回调。回调参数 qrcode 是一个字典，包含两个字段：qrcodeId、qrcodeUrl。</td>
+    </tr>
+    <tr>
+      <td>onQRCodeShow</td>
+      <td>可选</td>
+      <td>二维码首次出现在页面上时回调。回调参数 qrcode 同上。</td>
+    </tr>
+    <tr>
+      <td>onQRCodeLoadFaild</td>
+      <td>可选</td>
+      <td>二维码加载失败时会被回调。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>在移动端，开发者可以调用 iOS/Android 相关接口解析二维码，二维码包含原始数据如下：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+    <span class="s2">"scene"</span><span class="p">:</span> <span class="s2">"APP_AUTH"</span><span class="p">,</span>
+    <span class="s2">"qrcodeId"</span><span class="p">:</span> <span class="s2">"5e05f0c57fde537d950f7da5"</span><span class="p">,</span>
+    <span class="s2">"userPoolId"</span><span class="p">:</span> <span class="s2">"5e04ae0d5f3cee22fb37612b"</span><span class="p">,</span>
+    <span class="s2">"createdAt"</span><span class="p">:</span> <span class="s2">"2019-12-27T11:53:41.260Z"</span><span class="p">,</span>
+    <span class="s2">"expireAt"</span><span class="p">:</span> <span class="s2">"2019-12-27T11:55:41.260Z"</span><span class="p">,</span>
+    <span class="s2">"userDefinedData"</span><span class="p">:</span> <span class="p">{</span> <span class="s2">"hello"</span><span class="p">:</span> <span class="s2">"world"</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>scene: 二维码场景值，APP_AUTH 表示 APP 扫码登录。</li>
+  <li>qrcodeId: 二维码 ID。</li>
+  <li>qrcodeId: 用户池 ID。</li>
+  <li>userDefinedData: 用户自定义数据。</li>
+</ul>
+
+<p>接着可以调用 Authing API，进行标记已扫码、同意授权、取消授权操作，如同意授权的 API 如下：</p>
+
+<p><code class="highlighter-rouge">POST https://oauth.authing.cn/oauth/scan-qrcode/confirm</code></p>
+
+<ul>
+  <li>请求头 Authorization: 已登录用户的 token</li>
+  <li>Body 参数 qrcodeId: 二维码 ID。</li>
+</ul>
+
+<p>以下是一个对应的 Swift 代码示例：</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">Alamofire</span>
+
+<span class="kd">func</span> <span class="nf">confirmQRLogin</span><span class="p">(</span><span class="nv">qrcodeId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">api</span> <span class="o">=</span> <span class="s">"https://oauth.authing.cn/oauth/scan-qrcode/confirm"</span>
+    <span class="k">let</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt">HTTPHeaders</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"&lt;USER_TOKEN&gt;"</span><span class="p">,</span>
+        <span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/json"</span>
+    <span class="p">]</span>
+    <span class="kd">struct</span> <span class="kt">Body</span><span class="p">:</span> <span class="kt">Encodable</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">qrcodeId</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="p">}</span>
+    <span class="k">let</span> <span class="nv">body</span> <span class="o">=</span> <span class="kt">Body</span><span class="p">(</span><span class="nv">qrcodeId</span><span class="p">:</span> <span class="n">qrcodeId</span><span class="p">)</span>
+    <span class="kt">AF</span><span class="o">.</span><span class="nf">request</span><span class="p">(</span>
+        <span class="n">api</span><span class="p">,</span>
+        <span class="nv">method</span><span class="p">:</span> <span class="o">.</span><span class="n">post</span><span class="p">,</span>
+        <span class="nv">parameters</span><span class="p">:</span> <span class="n">body</span><span class="p">,</span>
+        <span class="nv">headers</span><span class="p">:</span> <span class="n">headers</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">responseString</span> <span class="p">{</span> <span class="n">response</span> <span class="k">in</span>
+        
+        <span class="c1">// 将 response.value 转化成字符串，示例如下：</span>
+        <span class="c1">// ["code": 200, "message": "二维码扫描确认成功", data: "" ]</span>
+        <span class="k">let</span> <span class="nv">resp</span> <span class="o">=</span> <span class="nf">convertToDictionary</span><span class="p">(</span><span class="nv">text</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">value</span><span class="o">!</span><span class="p">)</span><span class="o">!</span>
+        <span class="k">let</span> <span class="nv">code</span> <span class="o">=</span> <span class="n">resp</span><span class="p">[</span><span class="s">"code"</span><span class="p">]</span> <span class="k">as!</span> <span class="kt">Int</span>
+        <span class="k">if</span> <span class="n">code</span> <span class="o">!=</span> <span class="mi">200</span> <span class="p">{</span>
+            <span class="nf">debugPrint</span><span class="p">(</span><span class="s">"确认授权失败: "</span><span class="p">,</span> <span class="n">resp</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>详细接入方式请见：<a href="https://docs.authing.cn/authing/scan-qrcode/app-qrcode">接入 App 扫码登录</a></p>
+
+<h1 id="微信登录与支付宝登录">微信登录与支付宝登录</h1>
+
+<p>接入移动应用微信登录和支付宝登录，你需要做如下准备工作：</p>
+<ul>
+  <li><a href="https://docs.authing.cn/authing/quickstart/create-authing-account">注册 Authing 开发者账号</a></li>
+  <li>申请微信、支付宝移动应用</li>
+  <li>在 Authing 控制台填入微信、支付宝移动应用信息</li>
+  <li>接入微信、支付宝移动端 SDK</li>
+</ul>
+
+<p>在你做好这些准备工作之后，先使用微信/支付宝 SDK 拉起微信/支付宝，用户同意授权之后，你会得到一个 code。此 code 可通过 Authing 的接口换取用户信息。</p>
+
+<p>以微信登录 API 为例：</p>
+
+<p><code class="highlighter-rouge">GET https://oauth.authing.cn/oauth/wechatmobile/auth/:userPoolId?code=&lt;YOUR_CODE&gt;</code></p>
+
+<ul>
+  <li>path 参数 userPoolId: 你的用户池 ID。</li>
+  <li>query 参数 code: 拉起微信得到的 code。</li>
+</ul>
+
+<p>下面是 Swift 示例代码：</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">Alamofire</span>
+
+<span class="k">let</span> <span class="nv">url</span> <span class="o">=</span> <span class="s">"https://oauth.authing.cn/oauth/wechatmobile/auth/</span><span class="se">\(</span><span class="kt">UserPoolId</span><span class="se">)</span><span class="s">?code=</span><span class="se">\(</span><span class="n">code</span><span class="o">!</span><span class="se">)</span><span class="s">"</span>
+<span class="kt">AF</span><span class="o">.</span><span class="nf">request</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">responseString</span> <span class="p">{</span> <span class="n">response</span> <span class="k">in</span>
+    <span class="nf">debugPrint</span><span class="p">(</span><span class="s">"Response: </span><span class="se">\(</span><span class="n">response</span><span class="o">.</span><span class="n">value</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>详细的接入流程请见：</p>
+<ul>
+  <li><a href="https://docs.authing.cn/authing/social-login/mobile/wechat">接入移动应用微信登录</a></li>
+  <li><a href="https://docs.authing.cn/authing/social-login/mobile/alipay">接入移动应用支付宝登录</a></li>
+</ul>
+
+<h1 id="总结">总结</h1>
+
+<p>你可以在这个 GitHub 项目找到完整的示例代码：<a href="https://github.com/Authing/AuthingIOSDemo">https://github.com/Authing/AuthingIOSDemo</a>。</p>
+
+<p>以下是 Authing 目前支持的社会化登录方式，国内主流的第三方身份提供商目前都已经支持了:</p>
+
+<p><img src="https://cdn.authing.cn/blog/20200302112935.png" alt="" /></p>
+
+<p>同时我们接下来会继续不断完善，让有身份认证的地方就有 Authing !</p>
+                
+			</article>
+			
+			<!-- Tags -->
+			<div class="mb-4">
+				<span class="taglist">
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#移动端">移动端</a>
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#社会化登录">社会化登录</a>
+				
+				</span>
+			</div>
+ 
+            <!-- Mailchimp Subscribe Form -->
+            
+            
+            
+             <!-- Author Box -->
+                				
+				<div class="row mt-5">
+					<div class="col-md-2 align-self-center">
+                         
+                        <img class="rounded-circle" src="/blog//assets/images/cj.png" alt="廖长江" width="90"/>
+                         
+					</div>
+					<div class="col-md-10">		
+                        <h5 class="font-weight-bold">Written by 廖长江 <span><a target="_blank" href="https://www.zhihu.com/people/lcj1024" class="btn btn-outline-success btn-sm btn-round ml-2">Follow</a></span></h5>
+						Web fullstack developer.					
+					</div>
+				</div>				
+                
+            
+            <!-- Comments -->
+            
+                <!--  Don't edit anything here. Set your disqus id in _config.yml -->
+
+<div id="comments" class="mt-5">
+    <div id="disqus_thread">
     </div>
+    <script type="text/javascript">
+        var disqus_shortname = 'Authing 博客'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+</div>
+            
+            
+		</div>
+        
+        
+	</div>
+</div>
+
+
+<!-- Aletbar Prev/Next -->
+<div class="alertbar">
+    <div class="container">
+        <div class="row prevnextlinks small font-weight-bold">
+          
+            <div class="col-md-6 rightborder pl-0">
+                <a class="text-dark" href="/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/"> <img height="30px" class="mr-1" src="/blog/https://cdn.authing.cn/blog/tencent.jpeg">  #ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊</a>
+            </div>
+          
+          
+        </div>
+	</div>
 </div>
     </main>
 

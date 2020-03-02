@@ -81,6 +81,10 @@
 <lastmod>2020-02-27T00:00:00+08:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/</loc>
+<lastmod>2020-03-01T00:00:00+08:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/blog/404/</loc>
 </url>
 <url>
@@ -112,5 +116,8 @@
 </url>
 <url>
 <loc>http://localhost:4000/blog/page2/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/blog/page3/</loc>
 </url>
 </urlset>
