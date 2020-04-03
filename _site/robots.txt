@@ -1,1 +1,1 @@
-Sitemap: https://authing.cn/blog/sitemap.xml
+Sitemap: http://localhost:4000/blog/sitemap.xml

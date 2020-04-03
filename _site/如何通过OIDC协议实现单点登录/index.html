@@ -4,20 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>类别 | Authing 官方博客</title>
+    <title>五分钟理解什么是 OIDC | Authing 官方博客</title>
 
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>类别 | Authing 官方博客</title>
+<title>五分钟理解什么是 OIDC | Authing 官方博客</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="类别" />
+<meta property="og:title" content="五分钟理解什么是 OIDC" />
+<meta name="author" content="叶祖伟" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。" />
-<meta property="og:description" content="Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。" />
-<link rel="canonical" href="http://localhost:4000/blog/categories.html" />
-<meta property="og:url" content="http://localhost:4000/blog/categories.html" />
+<meta name="description" content="如何通过OIDC协议实现单点登录" />
+<meta property="og:description" content="如何通过OIDC协议实现单点登录" />
+<link rel="canonical" href="http://localhost:4000/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" />
+<meta property="og:url" content="http://localhost:4000/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" />
 <meta property="og:site_name" content="Authing 官方博客" />
+<meta property="og:image" content="https://cdn.authing.cn/blog/20200403150326.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-27T00:00:00+08:00" />
 <script type="application/ld+json">
-{"headline":"类别","url":"http://localhost:4000/blog/categories.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"}},"description":"Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。","@type":"WebPage","@context":"http://schema.org"}</script>
+{"headline":"五分钟理解什么是 OIDC","dateModified":"2020-03-27T00:00:00+08:00","url":"http://localhost:4000/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/","datePublished":"2020-03-27T00:00:00+08:00","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/images/logo.png"},"name":"叶祖伟"},"image":"https://cdn.authing.cn/blog/20200403150326.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/"},"author":{"@type":"Person","name":"叶祖伟"},"description":"如何通过OIDC协议实现单点登录","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -108,22 +112,22 @@ var documents = [{
     "id": 2,
     "url": "http://localhost:4000/blog/author-jane.html",
     "title": "Jane",
-    "body": "                        Jane Follow:                                                    Posts by Jane:               "
+    "body": "                        {{page. title}} Follow:         {{ site. authors. jane. site }}         {{ site. authors. jane. bio }}                                   Posts by {{page. title}}:       {% assign posts = site. posts | where: author , jane  %}      {% for post in posts %}      {% include main-loop-card. html %}      {% endfor %}  "
     }, {
     "id": 3,
     "url": "http://localhost:4000/blog/author-sal.html",
     "title": "Sal",
-    "body": "                        Sal Follow:                                                    Posts by Sal:               "
+    "body": "                        {{page. title}} Follow:         {{ site. authors. sal. site }}         {{ site. authors. sal. bio }}                                   Posts by {{page. title}}:       {% assign posts = site. posts | where: author , sal  %}      {% for post in posts %}      {% include main-loop-card. html %}      {% endfor %}  "
     }, {
     "id": 4,
     "url": "http://localhost:4000/blog/authors-list.html",
     "title": "Authors",
-    "body": "Authors:                                             谢扬 :       (View Posts)      Working for computer technologies that can give new possibilities to science, engineering and art, while benefiting hundreds of millions of people.                           &nbsp;       &nbsp;                                                                             廖长江 :       (View Posts)      Web fullstack developer.                           &nbsp;       &nbsp;                                                                             杜新帅 :       (View Posts)      Blogger, love to explore new ideas and write on my morning coffee!                          &nbsp;       &nbsp;                                                                             叶祖伟 :       (View Posts)      Fullstack developer who plays music.                           &nbsp;       &nbsp;                                                                             晋剑 :       (View Posts)      不骑单车好多年 ;-)                          &nbsp;       &nbsp;                                      "
+    "body": "{{page. title}}:     {% for author in site. authors %}                                         {{ author[1]. name }} :       (View Posts)      {{ author[1]. bio }}                          &nbsp;       &nbsp;                                    {% endfor %}  "
     }, {
     "id": 5,
     "url": "http://localhost:4000/blog/categories.html",
     "title": "类别",
-    "body": "          类别               developers:                                  		为什么所有软件都应该使用单点登录来管理用户？	: 		  单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。	 			In 				developers, 				tutorial, 								Oct 25, 2019						                                 		为什么身份认证值得上云	: 		  身份认证云本质上是一种“无服务器”应用，今天，我们就来讨论下这种模式的优点和缺点。如果没有权衡利弊，你或许不会使用身份认证云或其他“无服务器应用”。	 			In 				developers, 				tutorial, 								Sep 15, 2018						                              tutorial:                                  		AWS KMS 科普: What Why and How?	: 		  AWS KMS 科普: What Why and How?	 			In 				Developers, 				tutorial, 								Apr 03, 2020						                                 		张小龙看了想点赞 —— 用企业微信登录阿里云 ¿	: 		  很多企业都在使用企业微信进行组织机构管理，同时又使用了阿里云的服务，我们不希望单独为每个员工创建一个阿里云子账号，要是能够直接使用企业微信登录就好了。这时候如何统一用户目录和实现单点登录就成了一个我们需要思考的问题。	 			In 				Developers, 				tutorial, 								Apr 02, 2020						                                 		Authing 移动端登录方式, 10 行代码实现 App 扫码登录	: 		  Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。	 			In 				Developers, 				tutorial, 								Mar 01, 2020						                                 		Introduce Pipeline: Authing 的可扩展性达到了新高度	: 		  Authing Pipeline 是一组运行在云端的用户自定义 JavaScript 代码，属于 Authing 扩展能力的重要部分，可以让开发者无限制扩展、自定义 Authing 的能力。	 			In 				Developers, 				tutorial, 								Feb 20, 2020						                                 		Geek Talk 036 实录：Serverless 的前景和机会	: 		  Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。	 			In 				Developers, 				tutorial, 				cultures, 								Feb 17, 2020						                                 		案例 | 在 Odoo 中集成 Authing 完成单点登录	: 		  Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。	 			In 				Developers, 				tutorial, 				cases, 								Feb 11, 2020						                                 		Geek Talk 036：Serverless 的前景和机会	: 		  本次与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。	 			In 				news, 				Developers, 				tutorial, 				cultures, 								Feb 10, 2020						                                 		RBAC | 组织机构管理最佳实践	: 		  在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。	 			In 				Developers, 				tutorial, 								Feb 05, 2020						                                 		RBAC 实现基于角色的访问控制	: 		  基于角色的访问控制（Role-based access control，简称 RBAC），指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。	 			In 				Developers, 				tutorial, 								Jan 17, 2020						                                 		使用 Authing 集成 AWS 服务	: 		  Authing 是一个开发者友好、拓展性极高的身份认证云服务，每月有超过 100 万次用户被 Authing 认证和授权。本次分享将介绍如何企业常见的认证授权场景，可以满足中国本地用户对于 Cognito User Pool 的需求，并且提供本地化的服务。同时本文将讲解 Authing 如何与 AWS 各类服务集成，如 Cognito Identity Pool,. . . 	 			In 				Developers, 				tutorial, 								Dec 20, 2019						                                 		身份上云 or 自建？这里有 20 个问题值得你思考	: 		  身份管理自从计算机问世以来就存在，很多人觉得身份管理很简单，其实难度远超你的想象。	 			In 				tutorial, 								Oct 27, 2019						                                 		为什么所有软件都应该使用单点登录来管理用户？	: 		  单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。	 			In 				developers, 				tutorial, 								Oct 25, 2019						                                 		将内容看作新的基础设施：Content as a Service	: 		  内容是每家企业的必争之地，根据 CMI 的数据报告，88% 的 B2B 企业每天至少产生一篇内容。内容正在成为新的基础设施，Content as a Service 可以被简单理解为一种 CMS（Content Management Systen，内容管理系统），但是和传统的 CMS （如 Wordpress、Drupal 等）完全不同。传统 CMS 聚焦于内容管. . . 	 			In 				Developers, 				tutorial, 								Oct 15, 2019						                                 		函数计算在身份认证云中的应用场景	: 		  Authing 用来做用户验证，函数计算用来处理具体的逻辑，非常完美的搭配。	 			In 				Developers, 				tutorial, 								Aug 16, 2019						                                 		Authing 支持 Webhook	: 		  Webhooks 允许你对用户注册、登录等行为进行监听，从而对其做一些自定义处理。	 			In 				Developers, 				tutorial, 								Jun 04, 2019						                                 		如何在远程办公中保持高效的研发效率	: 		  开发者群体是个与其他工种不同的群体，他们热爱创造，工作是为了满足自己的创造欲，是完全自驱的；而优秀的开发者，完全不受地理位置限制。	 			In 				cultures, 				tutorial, 								Feb 02, 2019						                                 		为什么身份认证值得上云	: 		  身份认证云本质上是一种“无服务器”应用，今天，我们就来讨论下这种模式的优点和缺点。如果没有权衡利弊，你或许不会使用身份认证云或其他“无服务器应用”。	 			In 				developers, 				tutorial, 								Sep 15, 2018						                              cultures:                                  		#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊	: 		  我们发起 # Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日. . . 	 			In 				Developers, 				cultures, 								Feb 27, 2020						                                 		Geek Talk 036 实录：Serverless 的前景和机会	: 		  Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。	 			In 				Developers, 				tutorial, 				cultures, 								Feb 17, 2020						                                 		Geek Talk 036：Serverless 的前景和机会	: 		  本次与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。	 			In 				news, 				Developers, 				tutorial, 				cultures, 								Feb 10, 2020						                                 		如何在远程办公中保持高效的研发效率	: 		  开发者群体是个与其他工种不同的群体，他们热爱创造，工作是为了满足自己的创造欲，是完全自驱的；而优秀的开发者，完全不受地理位置限制。	 			In 				cultures, 				tutorial, 								Feb 02, 2019						                              Developers:                                  		AWS KMS 科普: What Why and How?	: 		  AWS KMS 科普: What Why and How?	 			In 				Developers, 				tutorial, 								Apr 03, 2020						                                 		张小龙看了想点赞 —— 用企业微信登录阿里云 ¿	: 		  很多企业都在使用企业微信进行组织机构管理，同时又使用了阿里云的服务，我们不希望单独为每个员工创建一个阿里云子账号，要是能够直接使用企业微信登录就好了。这时候如何统一用户目录和实现单点登录就成了一个我们需要思考的问题。	 			In 				Developers, 				tutorial, 								Apr 02, 2020						                                 		五分钟理解什么是 OIDC	: 		  如何通过OIDC协议实现单点登录	 			In 				Developers, 								Mar 27, 2020						                                 		Authing 移动端登录方式, 10 行代码实现 App 扫码登录	: 		  Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。	 			In 				Developers, 				tutorial, 								Mar 01, 2020						                                 		#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊	: 		  我们发起 # Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日. . . 	 			In 				Developers, 				cultures, 								Feb 27, 2020						                                 		Introduce Pipeline: Authing 的可扩展性达到了新高度	: 		  Authing Pipeline 是一组运行在云端的用户自定义 JavaScript 代码，属于 Authing 扩展能力的重要部分，可以让开发者无限制扩展、自定义 Authing 的能力。	 			In 				Developers, 				tutorial, 								Feb 20, 2020						                                 		五分钟理解什么是 OIDC	: 		  OIDC 的全称是 OpenID Connect，是一套基于 OAuth 2. 0 的认证 + 授权协议，用于用户身份认证，将用户数据安全地暴露给第三方。	 			In 				Developers, 								Feb 18, 2020						                                 		Geek Talk 036 实录：Serverless 的前景和机会	: 		  Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。	 			In 				Developers, 				tutorial, 				cultures, 								Feb 17, 2020						                                 		案例 | 在 Odoo 中集成 Authing 完成单点登录	: 		  Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。	 			In 				Developers, 				tutorial, 				cases, 								Feb 11, 2020						                                 		Geek Talk 036：Serverless 的前景和机会	: 		  本次与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。	 			In 				news, 				Developers, 				tutorial, 				cultures, 								Feb 10, 2020						                                 		RBAC | 组织机构管理最佳实践	: 		  在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。	 			In 				Developers, 				tutorial, 								Feb 05, 2020						                                 		一份所有人都能理解的关于 Authing 的介绍	: 		  我们加入了这场游戏，带着不同的视角。	 			In 				News, 				Developers, 								Feb 03, 2020						                                 		RBAC 实现基于角色的访问控制	: 		  基于角色的访问控制（Role-based access control，简称 RBAC），指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。	 			In 				Developers, 				tutorial, 								Jan 17, 2020						                                 		使用 Authing 集成 AWS 服务	: 		  Authing 是一个开发者友好、拓展性极高的身份认证云服务，每月有超过 100 万次用户被 Authing 认证和授权。本次分享将介绍如何企业常见的认证授权场景，可以满足中国本地用户对于 Cognito User Pool 的需求，并且提供本地化的服务。同时本文将讲解 Authing 如何与 AWS 各类服务集成，如 Cognito Identity Pool,. . . 	 			In 				Developers, 				tutorial, 								Dec 20, 2019						                                 		将内容看作新的基础设施：Content as a Service	: 		  内容是每家企业的必争之地，根据 CMI 的数据报告，88% 的 B2B 企业每天至少产生一篇内容。内容正在成为新的基础设施，Content as a Service 可以被简单理解为一种 CMS（Content Management Systen，内容管理系统），但是和传统的 CMS （如 Wordpress、Drupal 等）完全不同。传统 CMS 聚焦于内容管. . . 	 			In 				Developers, 				tutorial, 								Oct 15, 2019						                                 		函数计算在身份认证云中的应用场景	: 		  Authing 用来做用户验证，函数计算用来处理具体的逻辑，非常完美的搭配。	 			In 				Developers, 				tutorial, 								Aug 16, 2019						                                 		走进身份管理	: 		  IAM/IDaaS（身份访问管理/身份认证即服务），通常代表一个服务或平台，该平台可通过用户角色或权限控制，识别个体身份，进而控制其对系统资源的访问，守护个体和组织的数据。	 			In 				Developers, 								Jun 09, 2019						                                 		Authing 支持 Webhook	: 		  Webhooks 允许你对用户注册、登录等行为进行监听，从而对其做一些自定义处理。	 			In 				Developers, 				tutorial, 								Jun 04, 2019						                              Cultures:                                  		Web 全栈大会：万维网之父的数据主权革命	: 		  Web 给予了每个人建立自己博客和网站的自由，每个人都可以在自己的网站或其他人的网站内分享他们的知识、见解和故事。Web 就相当于一个人的精神世界，Web 是从生活中来的，但是却高于生活。	 			In 				Cultures, 				SoLiD, 								Nov 20, 2019						                              SoLiD:                                  		论文推荐：通过让公民控制自己的数据简化政府流程	: 		  SoLiD 是一个令人兴奋的新项目，由万维网发明者 Tim Berners-Lee 爵士在麻省理工学院启动。 该项目旨在从根本上改变 Web 应用程序的中心化趋势， 它将真正地让数据所有权属于用户，并改善隐私问题。	 			In 				SoLiD, 								Jan 29, 2020						                                 		Web 全栈大会：万维网之父的数据主权革命	: 		  Web 给予了每个人建立自己博客和网站的自由，每个人都可以在自己的网站或其他人的网站内分享他们的知识、见解和故事。Web 就相当于一个人的精神世界，Web 是从生活中来的，但是却高于生活。	 			In 				Cultures, 				SoLiD, 								Nov 20, 2019						                              News:                                  		一份所有人都能理解的关于 Authing 的介绍	: 		  我们加入了这场游戏，带着不同的视角。	 			In 				News, 				Developers, 								Feb 03, 2020						                              news:                                  		Geek Talk 036：Serverless 的前景和机会	: 		  本次与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。	 			In 				news, 				Developers, 				tutorial, 				cultures, 								Feb 10, 2020						                              cases:                                  		案例 | 在 Odoo 中集成 Authing 完成单点登录	: 		  Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。	 			In 				Developers, 				tutorial, 				cases, 								Feb 11, 2020						                                             推荐阅读:    				                                          论文推荐：通过让公民控制自己的数据简化政府流程                          In                     SoLiD,                                                                                           使用 Authing 集成 AWS 服务                          In                     Developers,                     tutorial,                                                                                           Web 全栈大会：万维网之父的数据主权革命                          In                     Cultures,                     SoLiD,                                                                                           为什么所有软件都应该使用单点登录来管理用户？                          In                     developers,                     tutorial,                                                                                           将内容看作新的基础设施：Content as a Service                          In                     Developers,                     tutorial,                                                                                           为什么身份认证值得上云                          In                     developers,                     tutorial,                                                                   "
+    "body": "          类别          {% for category in site. categories %}     {{ category[0] }}:           {% assign pages_list = category[1] %}    {% for post in pages_list %}    {% if post. title != null %}     {% if group == null or group == post. group %}           {% include main-loop-card. html %}     {% endif %}    {% endif %}    {% endfor %}    {% assign pages_list = nil %}    {% assign group = nil %}    {% endfor %}                  {% include sidebar-featured. html %}          "
     }, {
     "id": 6,
     "url": "http://localhost:4000/blog/contact.html",
@@ -346,1860 +350,579 @@ function lunr_search(term) {
 
     <!-- Content -->
     <main role="main" class="site-content">
-        <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-        <h1 class="font-weight-bold title h6 text-uppercase mb-4">类别</h1>
+        
+
+<div class="container">
+<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+		<div class="h-100 tofront">
+			<div class="row  justify-content-between ">
+				<div class=" col-md-6  pr-0 pr-md-4 pt-4 pb-4 align-self-center">
+					<p class="text-uppercase font-weight-bold">
+                        <span class="catlist">
+						
+                          <a class="sscroll text-danger" href="/blog/categories.html#developers">developers</a><span class="sep">, </span>
+                        
+                        </span>
+					</p>
+					<h1 class="display-4 mb-4 article-headline">五分钟理解什么是 OIDC</h1>
+					<div class="d-flex align-items-center">
+                        
+                        <img class="rounded-circle" src="/blog//assets/images/yelexin.svg" alt="叶祖伟" width="70"/>
+                        
+						<small class="ml-3"> 叶祖伟 <span><a target="_blank" href="" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Mar 27, 2020 · <span class="reading-time">
+  
+  
+    8 mins read
+  
+</span>
+    </span>
+						</small>
+					</div>
+				</div>
+                
+				<div class="col-md-6 pr-0 align-self-center">
+					<img class="rounded" src="https://cdn.authing.cn/blog/20200403150326.png" alt="五分钟理解什么是 OIDC">
+				</div>
+                
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<div class="container-lg pt-4 pb-4">
+	<div class="row justify-content-center">
+        
+        
+        <!-- Share -->
+		<div class="col-lg-2 pr-4 mb-4 col-md-12">
+			<div class="sticky-top sticky-top-offset text-center">
+				<div class="text-muted">
+					分享
+				</div>
+				<div class="share d-inline-block">
+					<!-- AddToAny BEGIN -->
+					<div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="https://authing.cn/blog" data-a2a-title="Authing 官方博客">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_wechat"></a>
+						<a class="a2a_button_reddit"></a>
+						<a class="a2a_button_sina_weibo"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_qzone"></a>
+						<a class="a2a_button_twitter"></a>
+						<a class="a2a_button_douban"></a>
+						<a class="a2a_button_email"></a>
+						</div>
+						<script>
+						var a2a_config = a2a_config || {};
+						a2a_config.locale = "zh-CN";
+						</script>
+					<script async src="https://static.addtoany.com/menu/page.js"></script>
+					<!-- AddToAny END -->
+				</div>
+			</div>
+		</div>
+        
+        
+		<div class="col-md-12 col-lg-6">
             
-         
-        <h4 class="font-weight-bold spanborder text-capitalize" id="developers"><span>developers</span></h4>
+            <!-- Article -->
+			<article class="article-post">                
+			<h1 id="如何通过oidc协议实现单点登录">如何通过OIDC协议实现单点登录</h1>
+
+<h1 id="什么是单点登录">什么是单点登录</h1>
+
+<p>我们通过一个例子来说明，假设有一所大学，内部有两个系统，一个是邮箱系统，一个是课表查询系统。现在想实现这样的效果：在邮箱系统中登录一遍，然后此时进入课表系统的网站，无需再次登录，课表网站系统直接跳转到个人课表页面，反之亦然。比较专业的定义如下：</p>
+
+<p><strong>单点登录</strong>（Single Sign On），简称为 <strong>SSO</strong>，是目前比较流行的企业业务整合的解决方案之一。 SSO 的定义是在多个应用系统中，<strong>用户只需要登录一次</strong>就可以<strong>访问所有</strong>相互信任的应用系统。</p>
+
+<h1 id="为什么要实现单点登录">为什么要实现单点登录</h1>
+
+<p>单点登录的意义在于能够在不同的系统中统一账号、统一登录。用户不必在每个系统中都进行注册、登录，只需要使用一个统一的账号，登录一次，就可以访问所有系统。</p>
+
+<h1 id="通过-oidc-协议实现单点登录">通过 OIDC 协议实现单点登录</h1>
+
+<h2 id="创建自己的用户目录">创建自己的用户目录</h2>
+
+<p><strong>用户目录</strong>这个词很贴切，你的系统的总用户表就像一本书一样，书的封皮上写着“所有用户”四个字。打开第一页，就是目录，里面列满了用户的名字，翻到对应的页码就能看到这个人的邮箱，手机号，生日信息等等。无论你开发多少个应用，要确保你有一份这些应用所有用户信息的 truth source。所有的注册、认证、注销都要到你的用户目录中进行增加、查询、删除操作。你要做的就是<strong>创建一个中央数据表，专门用于存储用户信息</strong>，不论这个用户是来自 A 应用、B 应用还是 C 应用。</p>
+
+<h2 id="什么是-oidc-协议">什么是 OIDC 协议</h2>
+
+<p>OIDC 的全称是 OpenID Connect，是一个基于 OAuth 2.0 的轻量级认证 + 授权协议，是 OAuth 2.0 的超集。它规定了其他应用，例如你开发的应用 A（XX 邮件系统），应用 B（XX 聊天系统），应用 C（XX 文档系统），如何到你的<strong>中央数据表</strong>中取出用户数据，约定了交互方式、安全规范等，确保了你的用户能够在访问所有应用时，只需登录一遍，而不是反反复复地输入密码，而且遵循这些规范，你的用户认证环节会很安全。</p>
+
+<h2 id="架设自己的-oidc-provider">架设自己的 OIDC Provider</h2>
+
+<p>什么是 OIDC Provider 呢？我来举一个例子：你经常见到一些网站的登录页面上有「使用 Github 登录」、「使用 Google 登录」这样的按钮。要想集成这样的功能，你<strong>要先去 Github 那里注册一个 OAuth App，填写一些资料，然后 Github 分配给你一对 id 和 key。</strong> 此时 Github 扮演的角色就是 OIDC Provider，你要做的就是把 Github 的这种角色的行为，搬到你自己的服务器来。</p>
+
+<p>在 Github 上面搜索 OIDC Provider 会有很多结果：</p>
+
+<p>JS：<a href="https://github.com/panva/node-oidc-provider">https://github.com/panva/node-oidc-provider</a></p>
+
+<p>Golang：<a href="https://github.com/dexidp/dex">https://github.com/dexidp/dex</a></p>
+
+<p>Python：<a href="https://github.com/juanifioren/django-oidc-provider">https://github.com/juanifioren/django-oidc-provider</a></p>
+
+<p>…</p>
+
+<p>不再一一列举，你需要选择适合你的编程语言的 OIDC Provider 包，然后让它在你的服务器上运行起来。本文使用 JS 语言的 node-oidc-provider。</p>
+
+<h3 id="示例代码-github">示例代码 Github</h3>
+<p>可以在 Github 找到本文示例代码：</p>
+
+<p><a href="https://github.com/Authing/implement-oidc-sso-demo.git">https://github.com/Authing/implement-oidc-sso-demo.git</a></p>
+
+<h3 id="创建文件夹">创建文件夹</h3>
+
+<p>我们首先创建一个文件夹，用于存放代码：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>demo
+<span class="nv">$ </span><span class="nb">cd </span>demo
+</code></pre></div></div>
+
+<h3 id="克隆仓库">克隆仓库</h3>
+
+<p>然后我们将 <a href="https://github.com/panva/node-oidc-provider.git">https://github.com/panva/node-oidc-provider.git</a> 仓库 clone 到本地</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone https://github.com/panva/node-oidc-provider.git
+</code></pre></div></div>
+
+<h3 id="安装依赖">安装依赖</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>node-oidc-provider
+<span class="nv">$ </span>npm <span class="nb">install</span>
+</code></pre></div></div>
+
+<h3 id="在-oidc-provider-申请一个-client">在 OIDC Provider 申请一个 Client</h3>
+
+<p>上一步讲到，Github 会分配给你一对 id 和 key，这一步其实就是你在 Github 申请了一个 Client。那么如何向我们自己的服务器上的 OIDC Provider 申请一对这样的 id 和 key 呢？</p>
+
+<p>以 <a href="https://github.com/panva/node-oidc-provider/tree/master/example">node-oidc-provider</a> 举例，最快的获得一个 Client 的方法就是将 OIDC Client 所需的元数据直接写入 node-oidc-provider 的配置文件里面。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled.png" /></p>
+
+<p>Wait wait wait，跨度有些大，这两者之间有什么关系？首先我们看，在 Github 上填写应用信息，然后提交，会发送一个 HTTP 请求到 Github 服务器。Github 服务器会生成一对 id 和 key，还会把它们与你的应用信息存储到 Github 自己的数据库里。所以，我们将 OIDC Client 所需的元数据直接写入到配置文件，可以理解成，我们在自己的数据库里手动插入了一条数据，为自己指定了一对 id 和 key 还有其他的一些 OIDC Client 信息。</p>
+
+<h3 id="修改配置文件">修改配置文件</h3>
+
+<p>进入 node-oidc-provider 项目下的 example 文件夹：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ./example
+</code></pre></div></div>
+
+<p>编辑 <code class="highlighter-rouge">./support/configuration.js</code> ，更改第 16 行的 clients 配置，我们为自己指定了一个 client_id 和一个 client_secret，其中的 grant_types 为授权模式，authorization_code 即授权码模式，redirect_uris 数组是允许的业务回调地址，需要填写 Web App 应用的地址，OIDC Provider 会将临时授权码发送到这个地址，以便后续换取 token。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">clients</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">client_id</span><span class="p">:</span> <span class="s1">'1'</span><span class="p">,</span>
+      <span class="na">client_secret</span><span class="p">:</span> <span class="s1">'1'</span><span class="p">,</span>
+      <span class="na">grant_types</span><span class="p">:</span> <span class="p">[</span><span class="s1">'refresh_token'</span><span class="p">,</span> <span class="s1">'authorization_code'</span><span class="p">],</span>
+      <span class="na">redirect_uris</span><span class="p">:</span> <span class="p">[</span><span class="s1">'http://localhost:8080/app1.html'</span><span class="p">,</span> <span class="s1">'http://localhost:8080/app2.html'</span><span class="p">],</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+<span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="启动-node-oidc-provider">启动 node-oidc-provider</h3>
+
+<p>在 node-oidc-provider/example 文件夹下，运行以下命令来启动我们的 OP：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>node express.js
+</code></pre></div></div>
+
+<p>到现在，我们的准备工作已经完成了，在讲如何在 Web App 中进行单点登录之前，我们先了解一下 OIDC 授权码模式。刚刚提到的许多术语：<strong>授权码模式</strong>、<strong>业务回调地址</strong>、<strong>临时授权码</strong>，可能这些概念你会感到陌生，下文会详细介绍。</p>
+
+<h2 id="oidc-授权码模式">OIDC 授权码模式</h2>
+
+<p>以下是 OIDC 授权码模式的交互模式，你的应用和 OP 之间要通过这样的交互方式来获取用户信息。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%201.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%201.png" /></p>
+
+<p>我们的 OIDC Provider 对外暴露一些接口</p>
+
+<h3 id="授权接口">授权接口</h3>
+
+<p>每次调用这个接口，就像是对 OIDC Provider 喊话：我要登录，如第一步所示。</p>
+
+<p>然后 OIDC Provider 会<strong>检查当前用户在 OIDC Provider 的登录状态</strong>，如果是未登录状态，OIDC Provider 会弹出一个登录框，与终端用户确认身份，登录成功后会将一个<strong>临时授权码</strong>（一个随机字符串）发到你的应用（<strong>业务回调地址</strong>）；如果是已登录状态，OIDC Provider 会将浏览器直接重定向到你的应用（<strong>业务回调地址</strong>），并携带<strong>临时授权码</strong>（一个随机字符串）。如第二、三步所示。</p>
+
+<h3 id="token-接口">token 接口</h3>
+
+<p>每次调用这个接口，就像是对 OIDC Provider 说：这是我的授权码，给我换一个 access_token。如第四、五步所示。</p>
+
+<h3 id="用户信息接口">用户信息接口</h3>
+
+<p>每次调用这个接口，就像是对 OIDC Provider 说：这是我的 access_token，给我换一下用户信息。到此用户信息获取完毕。</p>
+
+<p>为什么这么麻烦？直接返回用户信息不行吗？</p>
+
+<p>因为安全，关于 OIDC 协议的安全性，又可以展开很大的篇幅，现在简单解释一下：code 的有效期一般只有十分钟，而且一次使用过后作废。OIDC 协议授权码模式中，只有 code 的传输经过了用户的浏览器，一旦泄露，攻击者很难抢在应用服务器拿这个 code 换 token 之前，先去 OP 使用这个 code 换掉 token。而如果 access_token 的传输经过浏览器，一般 access_token 的有效期都是一个小时左右，攻击者可以利用 access_token 获取用户的信息，而应用服务器和 OP 也很难察觉到，更不必说去手动撤退了。如果直接传输用户信息，那安全性就更低了。一句话：避免让攻击者偷走用户信息。</p>
+
+<h2 id="编写第一个应用">编写第一个应用</h2>
+
+<p>我们创建一个 app1.html 文件来编写第一个应用 demo，在 demo/app 目录下创建：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">touch </span>app1.html
+</code></pre></div></div>
+
+<p>并写入以下内容：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>第一个应用<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://localhost:3000/auth?client_id=1&amp;redirect_uri=http://localhost:8080/app1.html&amp;scope=openid profile&amp;response_type=code&amp;state=455356436"</span><span class="nt">&gt;</span>登录<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h2 id="编写第二个应用">编写第二个应用</h2>
+
+<p>我们创建一个 app2.html 文件来编写第二个应用 demo，注意 redirect_uri 的变化，在 demo/app 目录下创建：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">touch </span>app2.html
+</code></pre></div></div>
+
+<p>并写入以下内容：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>第二个应用<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://localhost:3000/auth?client_id=1&amp;redirect_uri=http://localhost:8080/app2.html&amp;scope=openid profile&amp;response_type=code&amp;state=455356436"</span><span class="nt">&gt;</span>登录<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h2 id="向-oidc-provider-发起登录请求">向 OIDC Provider 发起登录请求</h2>
+
+<p>现在我们启动一个 web 服务器，推荐使用 http-server</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">-g</span> http-server <span class="c"># 安装 http-server</span>
+<span class="nv">$ </span><span class="nb">cd </span>demo/app
+<span class="nv">$ </span>http-server <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>我们访问第一个应用：<a href="http://localhost:8080/app1.html">http://localhost:8080/app1.html</a></p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%202.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%202.png" /></p>
+
+<p>然后点击「登录」，也就是访问 OIDC Provider 的<strong>授权接口</strong>。然后我们来到了 OIDC Provider 交互环节，OIDC Provider 发现用户没有登录，要求用户先登录。node-oidc-provider demo 会放通任意用户名 + 密码，但是你在真正实施单点登录时，你必须使用你的<strong>用户目录</strong>即<strong>中央数据表中的用户数据</strong>来鉴权用户，相关的代码可能会涉及到<a href="https://github.com/panva/node-oidc-provider/tree/master/docs#adapter">数据库适配器</a>，自定义<a href="https://github.com/panva/node-oidc-provider/tree/master/docs#accounts">用户查询逻辑</a>，这些在 node-oidc-provider 包的相关配置中需要自行插入。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%203.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%203.png" /></p>
+
+<p>现在点击「登录」，转到确权页面，这个页面会显示你的应用需要获取那些用户权限，本例中请求用户授权获取他的基础资料。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%204.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%204.png" /></p>
+
+<p>点击「继续」，完成在 OP 的登录，之后 OP 会将浏览器重定向到预先设置的业务回调地址，所以我们又回到了 app1.html。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%205.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%205.png" /></p>
+
+<p>在 url query 中有一个 code 参数，这个参数就是临时授权码。code 最终对应一条用户信息，接下来看我们如何获取用户信息。</p>
+
+<h2 id="web-app-从-oidc-provider-获取用户信息">Web App 从 OIDC Provider 获取用户信息</h2>
+
+<p>事实上，code 可以直接发送到后端，然后在后端使用 code 换取 access_token。这里我使用 postman 演示如何通过 code 换取 access_token。</p>
+
+<p>你可以使用 curl 命令来发送 HTTP 请求：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://localhost:3000/token'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'client_id=1'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'client_secret=1'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'redirect_uri=http://localhost:8080/app2.html'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'code=QL10pBYMjVSw5B3Ir3_KdmgVPCLFOMfQHOcclKd2tj1'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'grant_type=authorization_code'</span>
+</code></pre></div></div>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%206.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%206.png" /></p>
+
+<p>获取到 access_token 之后，我们可以使用 access_token 访问 OP 上面的资源，主要用于获取用户信息，即<strong>你的应用</strong>从你的<strong>用户目录</strong>中读取一条用户信息。</p>
+
+<p>你可以使用 curl 来发送 HTTP 请求：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://localhost:3000/me'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'access_token=I6WB2g0Rq9G307pPVTDhN5vKuyC9eWjrGjxsO2j6jm-'</span>
+</code></pre></div></div>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%207.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%207.png" /></p>
+
+<p>到此，App 1 的登录已经完成，接下来，让我们看进入 App 2 是怎样的情形。</p>
+
+<h2 id="登录第二个-web-app">登录第二个 Web App</h2>
+
+<p>我们打开第二个应用，<a href="http://localhost:8080/app2.html">http://localhost:8080/app2.html</a></p>
+
+<p>然后点击「登录」。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%208.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%208.png" /></p>
+
+<p>用户已经在 App 1 登录时与 OP 建立了会话，User ←→ OP 已经是登录状态，所以 OP 检查到之后，没有再让用户输入登录凭证，而是直接将用户重定向回业务地址，并返回了授权码 code。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%209.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%209.png" /></p>
+
+<p>同样，App 2 使用 code 换 access_token</p>
+
+<p>curl 命令代码：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://localhost:3000/token'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'client_id=1'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'client_secret=1'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'redirect_uri=http://localhost:8080/app2.html'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'code=QL10pBYMjVSw5B3Ir3_KdmgVPCLFOMfQHOcclKd2tj1'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'grant_type=authorization_code'</span>
+</code></pre></div></div>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2010.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2010.png" /></p>
+
+<p>再使用 access_token 换用户信息，可以看到，是同一个用户。</p>
+
+<p>curl 命令代码：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://localhost:3000/me'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'access_token=I6WB2g0Rq9G307pPVTDhN5vKuyC9eWjrGjxsO2j6jm-'</span>
+</code></pre></div></div>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2011.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2011.png" /></p>
+
+<p>到此，我们实现了 App 1 与 App 2 之间的账号打通与单点登录。</p>
+
+<h2 id="登录态管理">登录态管理</h2>
+
+<p>到目前为止，看起来还不错，我们已经实现了两个应用之间账号的统一，而且在 App 1 中登录时输入一次密码，在 App 2 中登录，无需再次让用户输入密码进行登录，可以直接返回授权码到业务地址然后完成后续的用户信息获取。</p>
+
+<p>现在我们来考虑一下退出问题</p>
+
+<h3 id="只退出-app-1-而不退出-app-2">只退出 App 1 而不退出 App 2</h3>
+
+<p>这个问题实质上是<strong>登录态的管理问题</strong>。我们应该管理<strong>三个会话</strong>：User ←→ App 1、User ←→ App 2、User ←→ OP。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2012.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2012.png" /></p>
+
+<p>当 OP 给 App 1 返回 code 时，App 1 的后端在完成用户信息获取后，应该与浏览器建立会话，也就是说 App 1 与用户需要自己保持一套自己的登录状态，方式上可以通过 App 1 自签的 JWT Token 或 App 1 的 cookie-session。对于 App 2，也是同样的做法。</p>
+
+<p>当用户在 App 1 退出时，App 1 只需清理掉自己的登录状态就完成了退出，而用户访问 App 2 时，仍然和 App 2 存在会话，因此用户在 App 2 是登录状态。</p>
+
+<h3 id="同时退出-app-1-和-app-2">同时退出 App 1 和 App 2</h3>
+
+<p>刚才说到<strong>单点登录</strong>，与之相对的就是<strong>单点登出</strong>，即用户只需退出一次，就能在所有的应用中退出，变成未登录状态。</p>
+
+<p>最先想到的是这种方式，我们在 OIDC Provider 进行登出。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2013.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2013.png" /></p>
+
+<p>之后我们的状态是这样的：</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2014.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2014.png" /></p>
+
+<p>好吧，其实没有任何效果，因为用户和 App 1 之间的会话依然保持，用户和 App 2 之间的会话同样依然保持，所以用户在 App 1 和 App 2 的状态仍然是登录态。</p>
+
+<p>所以，有没有什么办法在用户从 OIDC Provider 登出之后，App 1 和 App 2 的会话也被切断呢？我们可以通过 OIDC Session Mangement 来解决这个问题。</p>
+
+<p>简单来说，App 1 的前端需要轮询 OP，不断询问 OP：用户在你那还登录着吗？如果答案是否定的，App 1 主动将用户踢下线，并将会话释放掉，让用户重新登录，App 2 也是同样的操作。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2015.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2015.png" /></p>
+
+<p>当用户在 OP 登出后，App 1、App 2 轮询 OP 时会收到用户已经从 OP 登出的响应，接下来，应该释放掉自己的会话状态，并将用户踢出系统，重新登录。</p>
+
+<p>刚刚我们提到 OIDC Session Management，这部分的核心就是两个 iframe，一个是我们自己应用中写的（以下叫做 RP iframe），用于不断发送 PostMessage 给 OP iframe，OP iframe 负责查询用户登录状态，并返回给 RP iframe。</p>
+
+<p>让我们把这部分的代码加上：</p>
+
+<p>首先打开 node-oidc-provider 的 sessionManangement 功能，编辑 <code class="highlighter-rouge">./support/configuration.js</code> 文件，在 42 行附近，进行以下修改：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="nx">features</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nl">sessionManagement</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">enabled</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">keepHeaders</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">},</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<p>然后和 app1.html、app2.html 平级新建一个 rp.html 文件，并加入以下内容：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+  <span class="kd">var</span> <span class="nx">stat</span> <span class="o">=</span> <span class="s1">'unchanged'</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">URL</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">location</span><span class="p">);</span>
+  <span class="c1">// 这里的 '1' 是我们的 client_id，之前在 node-oidc-provider 中填写的</span>
+  <span class="kd">var</span> <span class="nx">mes</span> <span class="o">=</span> <span class="s1">'1'</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="nx">url</span><span class="p">.</span><span class="nx">searchParams</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'session_state'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'mes: '</span><span class="p">)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mes</span><span class="p">)</span>
+  <span class="kd">function</span> <span class="nx">check_session</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">targetOrigin</span> <span class="o">=</span> <span class="s1">'http://localhost:3000'</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">win</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'op'</span><span class="p">).</span><span class="nx">contentWindow</span><span class="p">;</span>
+    <span class="nx">win</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="nx">mes</span><span class="p">,</span> <span class="nx">targetOrigin</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">setTimer</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">check_session</span><span class="p">();</span>
+    <span class="nx">timerID</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(</span><span class="s1">'check_session()'</span><span class="p">,</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="nx">receiveMessage</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+  <span class="nx">setTimer</span><span class="p">()</span>
+  <span class="kd">function</span> <span class="nx">receiveMessage</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">targetOrigin</span> <span class="o">=</span> <span class="s1">'http://localhost:3000'</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">origin</span> <span class="o">!==</span> <span class="nx">targetOrigin</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">stat</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">stat</span> <span class="o">==</span> <span class="s1">'changed'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'should log out now!!'</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>在 app1.html 和 app2.html 中加入两个 iframe 标签：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">"rp.html"</span> <span class="na">hidden</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+<span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">"http://localhost:3000/session/check"</span> <span class="na">id=</span><span class="s">"op"</span> <span class="na">hidden</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+</code></pre></div></div>
+
+<p>使用 Ctrl + C 关闭我们的 node-oidc-provider 和 http-server，然后再次启动。访问 app1.html，打开浏览器控制台，会得到以下信息，这意味着，用户当前处于未登录状态，应该进行 App 自身会话的销毁等操作</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2016.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2016.png" /></p>
+
+<p>然后我们点击「登录」，在 OP 完成登录之后，回调到 app1.html，此时用户变成了登录状态，注意地址栏多了一个参数：session_state，这个参数就是我们上文用于在代码中向 OP iframe 轮询时需要携带的参数。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2017.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2017.png" /></p>
+
+<p>现在我们试一试单点登出，对于 node-oidc-provider 包提供的 OIDC Provider，只需要前端访问 <a href="http://localhost:3000/session/end">localhost:3000/session/end</a></p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2018.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2018.png" /></p>
+
+<p>收到来自 OP 的登出成功信息</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2019.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2019.png" /></p>
+
+<p>我们转到 app1.html 看一下，此时控制台输出，用户已经登出，现在要执行会话销毁等操作了。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2020.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2020.png" /></p>
+
+<h3 id="不想维护-app-1-与用户的登录状态app-2-与用户的登录状态">不想维护 App 1 与用户的登录状态、App 2 与用户的登录状态</h3>
+
+<p>如果不各自维护 App 1、App 2 与用户的登录状态，那么无法实现只退出 App 1 而不退出 App 2 这样的需求。所有的登录状态将会完全依赖用户与 OP 之间的登录状态，在效果上是：用户在 OP 一次登录，之后访问所有的应用，都不必再输入密码，实现单点登录；用户在 OP 登出，则在所有应用登出，实现单点登出。</p>
+
+<h1 id="使用-authing-解决单点登录">使用 Authing 解决单点登录</h1>
+
+<p>以上就是一个完整的单点登录系统的轮廓，我们需要维护一份全体用户目录，进行用户注册、登录；我们需要自己搭建一个 OIDC Provider，并申请一个 OIDC Client；我们需要使用 code 换 token，token 换用户信息；我们需要在自己的应用中不断轮询 OP 的登录状态。</p>
+
+<p>读到这里，你可能会觉得实现一套完整的单点登录系统十分繁琐，不仅要对 OIDC 协议非常熟悉，还要自己架设 OIDC Provider，并且需要自行处理应用、用户、OP 之间登录状态。有没有开箱即用的登录服务呢？Authing 能够提供云上的 OP，云上的用户目录和直观的控制台，能够轻松管理所有用户、完成对 OP 的配置。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2021.png" alt="dashboard" /></p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2022.png" alt="op" /></p>
+
+<p>Authing 对开发者十分友好，提供丰富的 SDK，进行快速集成。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2023.png" alt="sdk" /></p>
+
+<p>如果你不想关心登录的细节，将 Authing 集成到你的系统必定能够大幅提升开发效率，能够将更多的精力集中到核心业务上。</p>
+
+<p>欢迎体验：<a href="https://authing.cn">https://authing.cn</a></p>
+
+<p>实现单点登录：<a href="https://docs.authing.cn/authing/quickstart/implement-sso-with-authing">https://docs.authing.cn/authing/quickstart/implement-sso-with-authing</a></p>
+                
+			</article>
+			
+			<!-- Tags -->
+			<div class="mb-4">
+				<span class="taglist">
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#oidc">oidc</a>
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#sso">sso</a>
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#单点登录">单点登录</a>
+				
+				</span>
+			</div>
+ 
+            <!-- Mailchimp Subscribe Form -->
             
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%80%E6%9C%89%E8%BD%AF%E4%BB%B6%E9%83%BD%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E6%9D%A5%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7/">为什么所有软件都应该使用单点登录来管理用户？</a>
-	</h2>
-	<p class="excerpt">
-	   单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Oct 25, 2019
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%80%E6%9C%89%E8%BD%AF%E4%BB%B6%E9%83%BD%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E6%9D%A5%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7/">
-	<img class="w-100" src="https://cdn.authing.cn/sso.jpg" alt="为什么所有软件都应该使用单点登录来管理用户？">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E5%80%BC%E5%BE%97%E4%B8%8A%E4%BA%91/">为什么身份认证值得上云</a>
-	</h2>
-	<p class="excerpt">
-	   身份认证云本质上是一种“无服务器”应用，今天，我们就来讨论下这种模式的优点和缺点。如果没有权衡利弊，你或许不会使用身份认证云或其他“无服务器应用”。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Sep 15, 2018
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E5%80%BC%E5%BE%97%E4%B8%8A%E4%BA%91/">
-	<img class="w-100" src="https://inrupt.com/sites/default/files/2019-03/inrupt_blog_green%20track.jpg" alt="为什么身份认证值得上云">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-        
-
-         
-        <h4 class="font-weight-bold spanborder text-capitalize" id="tutorial"><span>tutorial</span></h4>
             
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/AWS-KMS-%E7%A7%91%E6%99%AE-What-Why-and-How/">AWS KMS 科普: What Why and How?</a>
-	</h2>
-	<p class="excerpt">
-	   AWS KMS 科普: What Why and How?
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Apr 03, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/AWS-KMS-%E7%A7%91%E6%99%AE-What-Why-and-How/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200403150535.png" alt="AWS KMS 科普: What Why and How?">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E-%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91/">张小龙看了想点赞 —— 用企业微信登录阿里云 ¿</a>
-	</h2>
-	<p class="excerpt">
-	   很多企业都在使用企业微信进行组织机构管理，同时又使用了阿里云的服务，我们不希望单独为每个员工创建一个阿里云子账号，要是能够直接使用企业微信登录就好了。这时候如何统一用户目录和实现单点登录就成了一个我们需要思考的问题。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Apr 02, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E-%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200403144431.png" alt="张小龙看了想点赞 —— 用企业微信登录阿里云 ¿">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/">Authing 移动端登录方式, 10 行代码实现 App 扫码登录</a>
-	</h2>
-	<p class="excerpt">
-	   Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Mar 01, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200302113736.png" alt="Authing 移动端登录方式, 10 行代码实现 App 扫码登录">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/Introduce-Authing-Pipeline/">Introduce Pipeline: Authing 的可扩展性达到了新高度</a>
-	</h2>
-	<p class="excerpt">
-	   Authing Pipeline 是一组运行在云端的用户自定义 JavaScript 代码，属于 Authing 扩展能力的重要部分，可以让开发者无限制扩展、自定义 Authing 的能力。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 20, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/Introduce-Authing-Pipeline/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200220203521.png" alt="Introduce Pipeline: Authing 的可扩展性达到了新高度">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">Geek Talk 036 实录：Serverless 的前景和机会</a>
-	</h2>
-	<p class="excerpt">
-	   Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#cultures">cultures</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 17, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200217155500.png" alt="Geek Talk 036 实录：Serverless 的前景和机会">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">案例 | 在 Odoo 中集成 Authing 完成单点登录</a>
-	</h2>
-	<p class="excerpt">
-	   Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#cases">cases</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 11, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200217171108.png" alt="案例 | 在 Odoo 中集成 Authing 完成单点登录">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">Geek Talk 036：Serverless 的前景和机会</a>
-	</h2>
-	<p class="excerpt">
-	   本次与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#news">news</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#cultures">cultures</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 10, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200211201759.png" alt="Geek Talk 036：Serverless 的前景和机会">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/rbac/">RBAC | 组织机构管理最佳实践</a>
-	</h2>
-	<p class="excerpt">
-	   在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 05, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/rbac/">
-	<img class="w-100" src="https://inrupt.com/sites/default/files/2018-10/Layer%200%20%281%29_0.png" alt="RBAC | 组织机构管理最佳实践">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/RBAC%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8E%E8%A7%92%E8%89%B2%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/">RBAC 实现基于角色的访问控制</a>
-	</h2>
-	<p class="excerpt">
-	   基于角色的访问控制（Role-based access control，简称 RBAC），指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Jan 17, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/RBAC%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8E%E8%A7%92%E8%89%B2%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200205182755.png" alt="RBAC 实现基于角色的访问控制">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E4%BD%BF%E7%94%A8Authing%E4%B8%8EAWS%E6%9C%8D%E5%8A%A1%E9%9B%86%E6%88%90/">使用 Authing 集成 AWS 服务</a>
-	</h2>
-	<p class="excerpt">
-	   Authing 是一个开发者友好、拓展性极高的身份认证云服务，每月有超过 100 万次用户被 Authing 认证和授权。本次分享将介绍如何企业常见的认证授权场景，可以满足中国本地用户对于 Cognito User Pool 的需求，并且提供本地化的服务。同时本文将讲解 Authing 如何与 AWS 各类服务集成，如 Cognito Identity Pool,...
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Dec 20, 2019
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E4%BD%BF%E7%94%A8Authing%E4%B8%8EAWS%E6%9C%8D%E5%8A%A1%E9%9B%86%E6%88%90/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/aws-authing.jpg" alt="使用 Authing 集成 AWS 服务">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E8%BA%AB%E4%BB%BD%E4%B8%8A%E4%BA%91-or-%E8%87%AA%E5%BB%BA-%E8%BF%99%E9%87%8C%E6%9C%89-20-%E4%B8%AA%E9%97%AE%E9%A2%98%E5%80%BC%E5%BE%97%E4%BD%A0%E6%80%9D%E8%80%83/">身份上云 or 自建？这里有 20 个问题值得你思考</a>
-	</h2>
-	<p class="excerpt">
-	   身份管理自从计算机问世以来就存在，很多人觉得身份管理很简单，其实难度远超你的想象。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Oct 27, 2019
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E8%BA%AB%E4%BB%BD%E4%B8%8A%E4%BA%91-or-%E8%87%AA%E5%BB%BA-%E8%BF%99%E9%87%8C%E6%9C%89-20-%E4%B8%AA%E9%97%AE%E9%A2%98%E5%80%BC%E5%BE%97%E4%BD%A0%E6%80%9D%E8%80%83/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20191027184218.png" alt="身份上云 or 自建？这里有 20 个问题值得你思考">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%80%E6%9C%89%E8%BD%AF%E4%BB%B6%E9%83%BD%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E6%9D%A5%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7/">为什么所有软件都应该使用单点登录来管理用户？</a>
-	</h2>
-	<p class="excerpt">
-	   单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Oct 25, 2019
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%80%E6%9C%89%E8%BD%AF%E4%BB%B6%E9%83%BD%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E6%9D%A5%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7/">
-	<img class="w-100" src="https://cdn.authing.cn/sso.jpg" alt="为什么所有软件都应该使用单点登录来管理用户？">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E5%B0%86%E5%86%85%E5%AE%B9%E7%9C%8B%E4%BD%9C%E6%96%B0%E7%9A%84%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BDCaaS/">将内容看作新的基础设施：Content as a Service</a>
-	</h2>
-	<p class="excerpt">
-	   内容是每家企业的必争之地，根据 CMI 的数据报告，88% 的 B2B 企业每天至少产生一篇内容。内容正在成为新的基础设施，Content as a Service 可以被简单理解为一种 CMS（Content Management Systen，内容管理系统），但是和传统的 CMS （如 Wordpress、Drupal 等）完全不同。传统 CMS 聚焦于内容管...
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Oct 15, 2019
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E5%B0%86%E5%86%85%E5%AE%B9%E7%9C%8B%E4%BD%9C%E6%96%B0%E7%9A%84%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BDCaaS/">
-	<img class="w-100" src="https://cdn.authing.cn/caas.jpg" alt="将内容看作新的基础设施：Content as a Service">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E5%9C%A8%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%BA%91%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/">函数计算在身份认证云中的应用场景</a>
-	</h2>
-	<p class="excerpt">
-	   Authing 用来做用户验证，函数计算用来处理具体的逻辑，非常完美的搭配。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Aug 16, 2019
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E5%9C%A8%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%BA%91%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/">
-	<img class="w-100" src="http://img.staryu.cn/20190814-01.jpg" alt="函数计算在身份认证云中的应用场景">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/Authing%E6%94%AF%E6%8C%81Webhook/">Authing 支持 Webhook</a>
-	</h2>
-	<p class="excerpt">
-	   Webhooks 允许你对用户注册、登录等行为进行监听，从而对其做一些自定义处理。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Jun 04, 2019
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/Authing%E6%94%AF%E6%8C%81Webhook/">
-	<img class="w-100" src="/blog/assets/images/4.jpg" alt="Authing 支持 Webhook">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E5%A6%82%E4%BD%95%E5%9C%A8%E8%BF%9C%E7%A8%8B%E5%8A%9E%E5%85%AC%E4%B8%AD%E4%BF%9D%E6%8C%81%E9%AB%98%E6%95%88%E7%9A%84%E7%A0%94%E5%8F%91%E6%95%88%E7%8E%87/">如何在远程办公中保持高效的研发效率</a>
-	</h2>
-	<p class="excerpt">
-	   开发者群体是个与其他工种不同的群体，他们热爱创造，工作是为了满足自己的创造欲，是完全自驱的；而优秀的开发者，完全不受地理位置限制。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#cultures">cultures</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 02, 2019
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E5%A6%82%E4%BD%95%E5%9C%A8%E8%BF%9C%E7%A8%8B%E5%8A%9E%E5%85%AC%E4%B8%AD%E4%BF%9D%E6%8C%81%E9%AB%98%E6%95%88%E7%9A%84%E7%A0%94%E5%8F%91%E6%95%88%E7%8E%87/">
-	<img class="w-100" src="https://inrupt.com/sites/default/files/2018-12/inrupt_thankful_blog-08.jpg" alt="如何在远程办公中保持高效的研发效率">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E5%80%BC%E5%BE%97%E4%B8%8A%E4%BA%91/">为什么身份认证值得上云</a>
-	</h2>
-	<p class="excerpt">
-	   身份认证云本质上是一种“无服务器”应用，今天，我们就来讨论下这种模式的优点和缺点。如果没有权衡利弊，你或许不会使用身份认证云或其他“无服务器应用”。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Sep 15, 2018
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E5%80%BC%E5%BE%97%E4%B8%8A%E4%BA%91/">
-	<img class="w-100" src="https://inrupt.com/sites/default/files/2019-03/inrupt_blog_green%20track.jpg" alt="为什么身份认证值得上云">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-        
-
-         
-        <h4 class="font-weight-bold spanborder text-capitalize" id="cultures"><span>cultures</span></h4>
             
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/">#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊</a>
-	</h2>
-	<p class="excerpt">
-	   我们发起 # Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日...
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#cultures">cultures</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 27, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/tencent.jpeg" alt="#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">Geek Talk 036 实录：Serverless 的前景和机会</a>
-	</h2>
-	<p class="excerpt">
-	   Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#cultures">cultures</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 17, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200217155500.png" alt="Geek Talk 036 实录：Serverless 的前景和机会">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">Geek Talk 036：Serverless 的前景和机会</a>
-	</h2>
-	<p class="excerpt">
-	   本次与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#news">news</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#cultures">cultures</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 10, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200211201759.png" alt="Geek Talk 036：Serverless 的前景和机会">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E5%A6%82%E4%BD%95%E5%9C%A8%E8%BF%9C%E7%A8%8B%E5%8A%9E%E5%85%AC%E4%B8%AD%E4%BF%9D%E6%8C%81%E9%AB%98%E6%95%88%E7%9A%84%E7%A0%94%E5%8F%91%E6%95%88%E7%8E%87/">如何在远程办公中保持高效的研发效率</a>
-	</h2>
-	<p class="excerpt">
-	   开发者群体是个与其他工种不同的群体，他们热爱创造，工作是为了满足自己的创造欲，是完全自驱的；而优秀的开发者，完全不受地理位置限制。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#cultures">cultures</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 02, 2019
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E5%A6%82%E4%BD%95%E5%9C%A8%E8%BF%9C%E7%A8%8B%E5%8A%9E%E5%85%AC%E4%B8%AD%E4%BF%9D%E6%8C%81%E9%AB%98%E6%95%88%E7%9A%84%E7%A0%94%E5%8F%91%E6%95%88%E7%8E%87/">
-	<img class="w-100" src="https://inrupt.com/sites/default/files/2018-12/inrupt_thankful_blog-08.jpg" alt="如何在远程办公中保持高效的研发效率">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-        
-
-         
-        <h4 class="font-weight-bold spanborder text-capitalize" id="developers"><span>Developers</span></h4>
+             <!-- Author Box -->
+                				
+				<div class="row mt-5">
+					<div class="col-md-2 align-self-center">
+                         
+                        <img class="rounded-circle" src="/blog//assets/images/yelexin.svg" alt="叶祖伟" width="90"/>
+                         
+					</div>
+					<div class="col-md-10">		
+                        <h5 class="font-weight-bold">Written by 叶祖伟 </h5>
+						Fullstack developer who plays music.					
+					</div>
+				</div>				
+                
             
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/AWS-KMS-%E7%A7%91%E6%99%AE-What-Why-and-How/">AWS KMS 科普: What Why and How?</a>
-	</h2>
-	<p class="excerpt">
-	   AWS KMS 科普: What Why and How?
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Apr 03, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/AWS-KMS-%E7%A7%91%E6%99%AE-What-Why-and-How/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200403150535.png" alt="AWS KMS 科普: What Why and How?">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E-%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91/">张小龙看了想点赞 —— 用企业微信登录阿里云 ¿</a>
-	</h2>
-	<p class="excerpt">
-	   很多企业都在使用企业微信进行组织机构管理，同时又使用了阿里云的服务，我们不希望单独为每个员工创建一个阿里云子账号，要是能够直接使用企业微信登录就好了。这时候如何统一用户目录和实现单点登录就成了一个我们需要思考的问题。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Apr 02, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E-%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200403144431.png" alt="张小龙看了想点赞 —— 用企业微信登录阿里云 ¿">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">五分钟理解什么是 OIDC</a>
-	</h2>
-	<p class="excerpt">
-	   如何通过OIDC协议实现单点登录
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Mar 27, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200403150326.png" alt="五分钟理解什么是 OIDC">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/">Authing 移动端登录方式, 10 行代码实现 App 扫码登录</a>
-	</h2>
-	<p class="excerpt">
-	   Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Mar 01, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200302113736.png" alt="Authing 移动端登录方式, 10 行代码实现 App 扫码登录">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/">#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊</a>
-	</h2>
-	<p class="excerpt">
-	   我们发起 # Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日...
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#cultures">cultures</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 27, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/tencent.jpeg" alt="#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/Introduce-Authing-Pipeline/">Introduce Pipeline: Authing 的可扩展性达到了新高度</a>
-	</h2>
-	<p class="excerpt">
-	   Authing Pipeline 是一组运行在云端的用户自定义 JavaScript 代码，属于 Authing 扩展能力的重要部分，可以让开发者无限制扩展、自定义 Authing 的能力。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 20, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/Introduce-Authing-Pipeline/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200220203521.png" alt="Introduce Pipeline: Authing 的可扩展性达到了新高度">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/5-%E5%88%86%E9%92%9F%E7%90%86%E8%A7%A3%E4%BB%80%E4%B9%88%E6%98%AF-OIDC/">五分钟理解什么是 OIDC</a>
-	</h2>
-	<p class="excerpt">
-	   OIDC 的全称是 OpenID Connect，是一套基于 OAuth 2.0 的认证 + 授权协议，用于用户身份认证，将用户数据安全地暴露给第三方。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 18, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/5-%E5%88%86%E9%92%9F%E7%90%86%E8%A7%A3%E4%BB%80%E4%B9%88%E6%98%AF-OIDC/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200218203422.png" alt="五分钟理解什么是 OIDC">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">Geek Talk 036 实录：Serverless 的前景和机会</a>
-	</h2>
-	<p class="excerpt">
-	   Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#cultures">cultures</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 17, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200217155500.png" alt="Geek Talk 036 实录：Serverless 的前景和机会">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">案例 | 在 Odoo 中集成 Authing 完成单点登录</a>
-	</h2>
-	<p class="excerpt">
-	   Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#cases">cases</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 11, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200217171108.png" alt="案例 | 在 Odoo 中集成 Authing 完成单点登录">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">Geek Talk 036：Serverless 的前景和机会</a>
-	</h2>
-	<p class="excerpt">
-	   本次与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#news">news</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#cultures">cultures</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 10, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200211201759.png" alt="Geek Talk 036：Serverless 的前景和机会">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/rbac/">RBAC | 组织机构管理最佳实践</a>
-	</h2>
-	<p class="excerpt">
-	   在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 05, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/rbac/">
-	<img class="w-100" src="https://inrupt.com/sites/default/files/2018-10/Layer%200%20%281%29_0.png" alt="RBAC | 组织机构管理最佳实践">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/a-intro-about-authing-to-everyone/">一份所有人都能理解的关于 Authing 的介绍</a>
-	</h2>
-	<p class="excerpt">
-	   我们加入了这场游戏，带着不同的视角。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#news">News</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 03, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/a-intro-about-authing-to-everyone/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/wtfauthing.jpg" alt="一份所有人都能理解的关于 Authing 的介绍">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/RBAC%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8E%E8%A7%92%E8%89%B2%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/">RBAC 实现基于角色的访问控制</a>
-	</h2>
-	<p class="excerpt">
-	   基于角色的访问控制（Role-based access control，简称 RBAC），指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Jan 17, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/RBAC%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8E%E8%A7%92%E8%89%B2%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200205182755.png" alt="RBAC 实现基于角色的访问控制">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E4%BD%BF%E7%94%A8Authing%E4%B8%8EAWS%E6%9C%8D%E5%8A%A1%E9%9B%86%E6%88%90/">使用 Authing 集成 AWS 服务</a>
-	</h2>
-	<p class="excerpt">
-	   Authing 是一个开发者友好、拓展性极高的身份认证云服务，每月有超过 100 万次用户被 Authing 认证和授权。本次分享将介绍如何企业常见的认证授权场景，可以满足中国本地用户对于 Cognito User Pool 的需求，并且提供本地化的服务。同时本文将讲解 Authing 如何与 AWS 各类服务集成，如 Cognito Identity Pool,...
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Dec 20, 2019
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E4%BD%BF%E7%94%A8Authing%E4%B8%8EAWS%E6%9C%8D%E5%8A%A1%E9%9B%86%E6%88%90/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/aws-authing.jpg" alt="使用 Authing 集成 AWS 服务">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E5%B0%86%E5%86%85%E5%AE%B9%E7%9C%8B%E4%BD%9C%E6%96%B0%E7%9A%84%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BDCaaS/">将内容看作新的基础设施：Content as a Service</a>
-	</h2>
-	<p class="excerpt">
-	   内容是每家企业的必争之地，根据 CMI 的数据报告，88% 的 B2B 企业每天至少产生一篇内容。内容正在成为新的基础设施，Content as a Service 可以被简单理解为一种 CMS（Content Management Systen，内容管理系统），但是和传统的 CMS （如 Wordpress、Drupal 等）完全不同。传统 CMS 聚焦于内容管...
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Oct 15, 2019
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E5%B0%86%E5%86%85%E5%AE%B9%E7%9C%8B%E4%BD%9C%E6%96%B0%E7%9A%84%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BDCaaS/">
-	<img class="w-100" src="https://cdn.authing.cn/caas.jpg" alt="将内容看作新的基础设施：Content as a Service">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E5%9C%A8%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%BA%91%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/">函数计算在身份认证云中的应用场景</a>
-	</h2>
-	<p class="excerpt">
-	   Authing 用来做用户验证，函数计算用来处理具体的逻辑，非常完美的搭配。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Aug 16, 2019
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E5%9C%A8%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%BA%91%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/">
-	<img class="w-100" src="http://img.staryu.cn/20190814-01.jpg" alt="函数计算在身份认证云中的应用场景">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E8%B5%B0%E8%BF%9B%E8%BA%AB%E4%BB%BD%E7%AE%A1%E7%90%86/">走进身份管理</a>
-	</h2>
-	<p class="excerpt">
-	   IAM/IDaaS（身份访问管理/身份认证即服务），通常代表一个服务或平台，该平台可通过用户角色或权限控制，识别个体身份，进而控制其对系统资源的访问，守护个体和组织的数据。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Jun 09, 2019
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E8%B5%B0%E8%BF%9B%E8%BA%AB%E4%BB%BD%E7%AE%A1%E7%90%86/">
-	<img class="w-100" src="http://img.staryu.cn/20190609-01.jpg" alt="走进身份管理">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/Authing%E6%94%AF%E6%8C%81Webhook/">Authing 支持 Webhook</a>
-	</h2>
-	<p class="excerpt">
-	   Webhooks 允许你对用户注册、登录等行为进行监听，从而对其做一些自定义处理。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Jun 04, 2019
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/Authing%E6%94%AF%E6%8C%81Webhook/">
-	<img class="w-100" src="/blog/assets/images/4.jpg" alt="Authing 支持 Webhook">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-        
-
-         
-        <h4 class="font-weight-bold spanborder text-capitalize" id="cultures"><span>Cultures</span></h4>
+            <!-- Comments -->
             
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E4%B8%87%E7%BB%B4%E7%BD%91%E4%B9%8B%E7%88%B6%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%BB%E6%9D%83%E9%9D%A9%E5%91%BD/">Web 全栈大会：万维网之父的数据主权革命</a>
-	</h2>
-	<p class="excerpt">
-	   Web 给予了每个人建立自己博客和网站的自由，每个人都可以在自己的网站或其他人的网站内分享他们的知识、见解和故事。Web 就相当于一个人的精神世界，Web 是从生活中来的，但是却高于生活。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#cultures">Cultures</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#solid">SoLiD</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Nov 20, 2019
-	</small>
+                <!--  Don't edit anything here. Set your disqus id in _config.yml -->
+
+<div id="comments" class="mt-5">
+    <div id="disqus_thread">
+    </div>
+    <script type="text/javascript">
+        var disqus_shortname = 'Authing 博客'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
 </div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E4%B8%87%E7%BB%B4%E7%BD%91%E4%B9%8B%E7%88%B6%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%BB%E6%9D%83%E9%9D%A9%E5%91%BD/">
-	<img class="w-100" src="https://inrupt.com/sites/default/files/2018-12/blog_mozilla.jpg" alt="Web 全栈大会：万维网之父的数据主权革命">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-        
-
-         
-        <h4 class="font-weight-bold spanborder text-capitalize" id="solid"><span>SoLiD</span></h4>
             
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/solid-flemish/">论文推荐：通过让公民控制自己的数据简化政府流程</a>
-	</h2>
-	<p class="excerpt">
-	   SoLiD 是一个令人兴奋的新项目，由万维网发明者 Tim Berners-Lee 爵士在麻省理工学院启动。 该项目旨在从根本上改变 Web 应用程序的中心化趋势， 它将真正地让数据所有权属于用户，并改善隐私问题。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#solid">SoLiD</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Jan 29, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/solid-flemish/">
-	<img class="w-100" src="https://inrupt.com/sites/default/files/2018-10/Thomas_explainer.png" alt="论文推荐：通过让公民控制自己的数据简化政府流程">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E4%B8%87%E7%BB%B4%E7%BD%91%E4%B9%8B%E7%88%B6%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%BB%E6%9D%83%E9%9D%A9%E5%91%BD/">Web 全栈大会：万维网之父的数据主权革命</a>
-	</h2>
-	<p class="excerpt">
-	   Web 给予了每个人建立自己博客和网站的自由，每个人都可以在自己的网站或其他人的网站内分享他们的知识、见解和故事。Web 就相当于一个人的精神世界，Web 是从生活中来的，但是却高于生活。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#cultures">Cultures</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#solid">SoLiD</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Nov 20, 2019
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E4%B8%87%E7%BB%B4%E7%BD%91%E4%B9%8B%E7%88%B6%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%BB%E6%9D%83%E9%9D%A9%E5%91%BD/">
-	<img class="w-100" src="https://inrupt.com/sites/default/files/2018-12/blog_mozilla.jpg" alt="Web 全栈大会：万维网之父的数据主权革命">
-	</a>
-	</div>
-
-</div>
-          
-        
-        
-        
-        
-
-         
-        <h4 class="font-weight-bold spanborder text-capitalize" id="news"><span>News</span></h4>
             
+		</div>
         
         
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/a-intro-about-authing-to-everyone/">一份所有人都能理解的关于 Authing 的介绍</a>
-	</h2>
-	<p class="excerpt">
-	   我们加入了这场游戏，带着不同的视角。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#news">News</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 03, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/a-intro-about-authing-to-everyone/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/wtfauthing.jpg" alt="一份所有人都能理解的关于 Authing 的介绍">
-	</a>
 	</div>
-
-</div>
-          
-        
-        
-        
-        
-
-         
-        <h4 class="font-weight-bold spanborder text-capitalize" id="news"><span>news</span></h4>
-            
-        
-        
-        
-          
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">Geek Talk 036：Serverless 的前景和机会</a>
-	</h2>
-	<p class="excerpt">
-	   本次与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#news">news</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#cultures">cultures</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 10, 2020
-	</small>
 </div>
 
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200211201759.png" alt="Geek Talk 036：Serverless 的前景和机会">
-	</a>
-	</div>
 
-</div>
+<!-- Aletbar Prev/Next -->
+<div class="alertbar">
+    <div class="container">
+        <div class="row prevnextlinks small font-weight-bold">
           
-        
-        
-        
-        
-
-         
-        <h4 class="font-weight-bold spanborder text-capitalize" id="cases"><span>cases</span></h4>
-            
-        
-        
-        
+            <div class="col-md-6 rightborder pl-0">
+                <a class="text-dark" href="/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/"> <img height="30px" class="mr-1" src="/blog/https://cdn.authing.cn/blog/20200302113736.png">  Authing 移动端登录方式, 10 行代码实现 App 扫码登录</a>
+            </div>
           
-         
-            <div class="mb-5 d-flex justify-content-between main-loop-card">
-<div class="pr-3">
-	<h2 class="mb-1 h4 font-weight-bold">
-	<a class="text-dark" href="/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">案例 | 在 Odoo 中集成 Authing 完成单点登录</a>
-	</h2>
-	<p class="excerpt">
-	   Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。
-	</p>
-	<small class="d-block text-muted">
-		In <span class="catlist">
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-		
-		<a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#cases">cases</a><span class="sep">, </span>
-		
-		</span>
-	</small>
-	<small class="text-muted">
-		Feb 11, 2020
-	</small>
-</div>
-
-	<div class="col-md-3 pr-0 text-right">
-	<a href="/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">
-	<img class="w-100" src="https://cdn.authing.cn/blog/20200217171108.png" alt="案例 | 在 Odoo 中集成 Authing 完成单点登录">
-	</a>
-	</div>
-
-</div>
           
-        
-        
-        
-        
-
-        
-
+            <div class="col-md-6 text-right pr-0">
+                <a class="text-dark" href="/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E-%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91/"> 张小龙看了想点赞 —— 用企业微信登录阿里云 ¿  <img height="30px" class="ml-1" src="/blog/https://cdn.authing.cn/blog/20200403144431.png"> </a>
+            </div>
+          
         </div>
-        
-            <div class="col-md-4">
-        <div class="sticky-top sticky-top-offset">
-    <h4 class="font-weight-bold spanborder"><span>推荐阅读</span></h4>  
-    <ol class="list-featured">				
-                        
-            <li class="mb-4">
-            <span>
-                <h6 class="font-weight-bold">
-                    <a href="/blog/solid-flemish/" class="text-dark">论文推荐：通过让公民控制自己的数据简化政府流程</a>
-                </h6>
-                <span class="d-block text-muted">
-                    In <span class="catlist">
-                    
-                    <a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#solid">SoLiD</a><span class="sep">, </span>
-                    
-                    </span>
-                </span>
-            </span>
-            </li>                
-                        
-            <li class="mb-4">
-            <span>
-                <h6 class="font-weight-bold">
-                    <a href="/blog/%E4%BD%BF%E7%94%A8Authing%E4%B8%8EAWS%E6%9C%8D%E5%8A%A1%E9%9B%86%E6%88%90/" class="text-dark">使用 Authing 集成 AWS 服务</a>
-                </h6>
-                <span class="d-block text-muted">
-                    In <span class="catlist">
-                    
-                    <a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-                    
-                    <a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-                    
-                    </span>
-                </span>
-            </span>
-            </li>                
-                        
-            <li class="mb-4">
-            <span>
-                <h6 class="font-weight-bold">
-                    <a href="/blog/%E4%B8%87%E7%BB%B4%E7%BD%91%E4%B9%8B%E7%88%B6%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%BB%E6%9D%83%E9%9D%A9%E5%91%BD/" class="text-dark">Web 全栈大会：万维网之父的数据主权革命</a>
-                </h6>
-                <span class="d-block text-muted">
-                    In <span class="catlist">
-                    
-                    <a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#cultures">Cultures</a><span class="sep">, </span>
-                    
-                    <a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#solid">SoLiD</a><span class="sep">, </span>
-                    
-                    </span>
-                </span>
-            </span>
-            </li>                
-                        
-            <li class="mb-4">
-            <span>
-                <h6 class="font-weight-bold">
-                    <a href="/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%80%E6%9C%89%E8%BD%AF%E4%BB%B6%E9%83%BD%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E6%9D%A5%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7/" class="text-dark">为什么所有软件都应该使用单点登录来管理用户？</a>
-                </h6>
-                <span class="d-block text-muted">
-                    In <span class="catlist">
-                    
-                    <a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">developers</a><span class="sep">, </span>
-                    
-                    <a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-                    
-                    </span>
-                </span>
-            </span>
-            </li>                
-                        
-            <li class="mb-4">
-            <span>
-                <h6 class="font-weight-bold">
-                    <a href="/blog/%E5%B0%86%E5%86%85%E5%AE%B9%E7%9C%8B%E4%BD%9C%E6%96%B0%E7%9A%84%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BDCaaS/" class="text-dark">将内容看作新的基础设施：Content as a Service</a>
-                </h6>
-                <span class="d-block text-muted">
-                    In <span class="catlist">
-                    
-                    <a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">Developers</a><span class="sep">, </span>
-                    
-                    <a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-                    
-                    </span>
-                </span>
-            </span>
-            </li>                
-                        
-            <li class="mb-4">
-            <span>
-                <h6 class="font-weight-bold">
-                    <a href="/blog/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E5%80%BC%E5%BE%97%E4%B8%8A%E4%BA%91/" class="text-dark">为什么身份认证值得上云</a>
-                </h6>
-                <span class="d-block text-muted">
-                    In <span class="catlist">
-                    
-                    <a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#developers">developers</a><span class="sep">, </span>
-                    
-                    <a class="text-capitalize text-muted smoothscroll" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-                    
-                    </span>
-                </span>
-            </span>
-            </li>                
-           
-    </ol>
-</div>     
-    </div>
-        
-    </div>
+	</div>
 </div>
     </main>
 
