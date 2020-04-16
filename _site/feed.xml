@@ -1,4 +1,156 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://authing.cn/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://authing.cn/blog/" rel="alternate" type="text/html" /><updated>2020-04-05T17:05:51+08:00</updated><id>https://authing.cn/blog/feed.xml</id><title type="html">Authing 官方博客</title><subtitle>Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。</subtitle><entry><title type="html">AWS KMS 科普: What Why and How?</title><link href="https://authing.cn/blog/AWS-KMS-%E7%A7%91%E6%99%AE-What-Why-and-How/" rel="alternate" type="text/html" title="AWS KMS 科普: What Why and How?" /><published>2020-04-03T00:00:00+08:00</published><updated>2020-04-03T00:00:00+08:00</updated><id>https://authing.cn/blog/AWS%20KMS%20%E7%A7%91%E6%99%AE:%20What%20Why%20and%20How</id><content type="html" xml:base="https://authing.cn/blog/AWS-KMS-%E7%A7%91%E6%99%AE-What-Why-and-How/">&lt;h1 id=&quot;aws-kms-科普-what-why-and-how&quot;&gt;AWS KMS 科普: What Why and How?&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2020-04-16T22:49:59+08:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Authing 官方博客</title><subtitle>Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。</subtitle><entry><title type="html">LDAP 协议入门</title><link href="http://localhost:4000/blog/LDAP-%E5%8D%8F%E8%AE%AE%E5%85%A5%E9%97%A8/" rel="alternate" type="text/html" title="LDAP 协议入门" /><published>2020-04-16T00:00:00+08:00</published><updated>2020-04-16T00:00:00+08:00</updated><id>http://localhost:4000/blog/LDAP%20%E5%8D%8F%E8%AE%AE%E5%85%A5%E9%97%A8</id><content type="html" xml:base="http://localhost:4000/blog/LDAP-%E5%8D%8F%E8%AE%AE%E5%85%A5%E9%97%A8/">&lt;h1 id=&quot;什么是-ldap&quot;&gt;​什么是 LDAP？&lt;/h1&gt;
+
+&lt;p&gt;LDAP 的全称是 Lightweight Directory Access Protocol，&lt;strong&gt;轻量目录访问协议&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;划重点，LDAP &lt;strong&gt;是一个协议&lt;/strong&gt;，约定了 Client 与 Server 之间的信息交互格式、使用的端口号、认证方式等内容。而 &lt;strong&gt;LDAP 协议的实现&lt;/strong&gt;，有着众多版本，例如微软的 Active Directory 是 LDAP 在 Windows 上的实现，AD 实现了 LDAP 所需的树形数据库、具体如何解析请求数据并到数据库查询然后返回结果等功能。再例如 OpenLDAP 是可以运行在 Linux 上的 LDAP 协议的开源实现。而我们平常说的 LDAP Server，一般指的是安装并配置了 Active Directory、OpenLDAP 这些程序的服务器。&lt;/p&gt;
+
+&lt;h1 id=&quot;ldap-协议能解决什么问题&quot;&gt;​LDAP 协议能解决什么问题？&lt;/h1&gt;
+
+&lt;p&gt;要说 LDAP 协议能解决什么问题，那不得不提 AD。AD 是 Windows 服务器上最强大的功能，AD 是基于 LDAP 协议的一套解决方案（LDAP 服务器 + 应用），解决了细粒度的权限控制。核心：&lt;strong&gt;谁 以什么权限 访问什么&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h2 id=&quot;用户服务&quot;&gt;​用户服务&lt;/h2&gt;
+
+&lt;p&gt;管理用户的域账号、用户信息、企业通信录（与电子邮箱系统集成）、用户组管理、用户身份认证、用户授权管理、按需实施组管理策略等。在 Windows 下，有组策略管理器，如果启用域用户认证，那么这些组策略可以统一管理，方便地限制用户的权限。&lt;/p&gt;
+
+&lt;h2 id=&quot;计算机管理&quot;&gt;计算机管理&lt;/h2&gt;
+
+&lt;p&gt;管理服务器及客户端计算机账户、所有服务器及客户端计算机加入域管理并按需实施组策略，甚至可以控制计算机禁止修改壁纸。（什么？给电脑重装系统就能解除限制？那么所有域上的资源都会无法访问了。）&lt;/p&gt;
+
+&lt;h2 id=&quot;资源管理&quot;&gt;资源管理&lt;/h2&gt;
+
+&lt;p&gt;管理打印机、文件共享服务、网络资源等实施组策略。&lt;/p&gt;
+
+&lt;h2 id=&quot;应用系统的支持&quot;&gt;应用系统的支持&lt;/h2&gt;
+
+&lt;p&gt;对于电子邮件（Exchange）、在线及时通讯（Lync）、企业信息管理（SharePoint）、微软 CRM，ERP 等业务系统提供数据认证（身份认证、数据集成、组织规则等）。这里不单是微软产品的集成，其它的业务系统根据公用接口的方式一样可以嵌入进来。&lt;/p&gt;
+
+&lt;h1 id=&quot;为什么要用-ldap-协议&quot;&gt;为什么要用 LDAP 协议？&lt;/h1&gt;
+
+&lt;p&gt;历史原因，LDAP 协议诞生于 1988 年，比万维网的诞生还要早。1989 年英国科学家蒂姆·伯纳斯-李发明了万维网。因此沿用至今。&lt;/p&gt;
+
+&lt;p&gt;树形用户目录，树形存储结构，对组织管理建模符合直觉。&lt;/p&gt;
+
+&lt;p&gt;开放的标准化协议，受到广泛支持。&lt;/p&gt;
+
+&lt;h1 id=&quot;ldap-拆而析之&quot;&gt;​LDAP 拆而析之&lt;/h1&gt;
+
+&lt;h2 id=&quot;什么叫轻量&quot;&gt;什么叫轻量？&lt;/h2&gt;
+
+&lt;p&gt;LDAP 协议之前有一个 X.500 DAP 协议规范，该协议十分复杂，是一个重量级的协议，后来对 X.500&lt;/p&gt;
+
+&lt;p&gt;进行了简化，诞生了 LDAP 协议，与 X.500 相比变得较为轻量。由 X.500 DAP -&amp;gt; LDAP，其实 LDAP 协议依然复杂。&lt;/p&gt;
+
+&lt;h2 id=&quot;什么叫目录&quot;&gt;什么叫目录？&lt;/h2&gt;
+
+&lt;p&gt;目录指的是用户目录，用户目录长这样：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/docs/20200416180844.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;复杂一点的是这样：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/docs/20200416180923.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;还有这样的：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/docs/20200416180951.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;目录服务就是按照&lt;strong&gt;树状&lt;/strong&gt;存储信息的模式。目录服务的数据类型主要是&lt;strong&gt;字符型&lt;/strong&gt;, 而不是关系数据库提供的整数、浮点数、日期、货币等类型。为了检索的需要添加了 BIN（二进制数据）、CIS（忽略大小写）、CES（大小写敏感）、TEL（电话型）等语法（Syntax）。同样也不提供象关系数据库中普遍包含的大量的函数。目录有很强的查询（读）功能，适合于进行大量数据的检索；但目录一般只执行简单的更新（写）操作，不支持批量更新所需要的事务处理功能；它主要面向数据的查询服务（查询和修改操作比一般是大于 10:1），不提供事务的回滚（rollback）机制；目录具有广泛复制信息的能力，适合于多个目录服务器同步/更新。&lt;/p&gt;
+
+&lt;h1 id=&quot;ldap-数据库的信息组织形式&quot;&gt;​LDAP 数据库的信息组织形式&lt;/h1&gt;
+
+&lt;p&gt;目录服务的数据库以&lt;strong&gt;树形方式&lt;/strong&gt;存储数据，也是一种 NoSQL。需要注意的是这是推荐的底层数据存储方式，因为目录服务查询比写入要多得多，所以使用树形数据库存储要有优势。但其实也可以使用 MySQL 或 MongoDB 这样的数据库&lt;strong&gt;当做 LDAP 数据源&lt;/strong&gt;。LDAP 只是一个&lt;strong&gt;协议&lt;/strong&gt;，约定的是 C/S 之间的通信方式。理论上服务器只要能够处理所有 LDAP 协议规定的操作，并返回正确的结果就可以。&lt;/p&gt;
+
+&lt;h1 id=&quot;专有名词解释&quot;&gt;专有名词解释&lt;/h1&gt;
+
+&lt;p&gt;在上面的用户目录中，有许多英文缩写。其实并不神秘，只是一些单词的缩写，接下来我们解释一些专有名词。在与 LDAP 打交道的过程中，这些名词一定会频繁遇到。&lt;/p&gt;
+
+&lt;h2 id=&quot;ditdirectory-information-tree目录信息树&quot;&gt;​DIT（Directory Information Tree）目录信息树&lt;/h2&gt;
+
+&lt;p&gt;LDAP directory servers present data arranged in tree-like hierarchies in which each entry may have zero or more subordinate entries. This structure is called the Directory Information Tree, or DIT.&lt;/p&gt;
+
+&lt;p&gt;LDAP 目录服务器将信息以树形的方式组织，每一项都可以包含 0 个或多个子项。这样的结构叫做目录信息树。&lt;/p&gt;
+
+&lt;p&gt;目录信息树可以类比我们的&lt;strong&gt;磁盘文件系统目录树&lt;/strong&gt;，上面的定义是官方定义，理解起来，DIT 就是指像文件系统一样的目录结构树。&lt;/p&gt;
+
+&lt;h2 id=&quot;entry-项&quot;&gt;​Entry 项&lt;/h2&gt;
+
+&lt;p&gt;在用户目录中，你看到的每一行，都可以叫做一项，不论是叶子节点还是中间的节点。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/docs/20200416181003.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;项包含一个 DN，一些属性，一些对象类。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/docs/20200416181015.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;root-dseroot-dsa-specific-entry根节点项&quot;&gt;​Root DSE（Root DSA-specific entry）根节点项&lt;/h2&gt;
+
+&lt;p&gt;每个 LDAP 服务器必须对外暴露一个特殊的&lt;strong&gt;项&lt;/strong&gt;，叫做 root DSE，这个项的 DN 是空字符串。这个项是根节点，描述了 LDAP 服务器自身的信息和能力。例如你可以在下图看到 LDAP 服务器支持的功能，LDAP 协议版本等信息。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/docs/20200416181027.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;dndistinguished-name分辨名&quot;&gt;​dn（Distinguished Name）分辨名&lt;/h2&gt;
+
+&lt;p&gt;dn 如下图白色方框中的内容，&lt;strong&gt;分辨名&lt;/strong&gt;用于唯一标识一个&lt;strong&gt;项&lt;/strong&gt;，以及他在目录信息树中的位置。可以和文件系统中文件路径类比。类似于关系型数据库中的主键。dn 字符串从左向右，各组成部分依次向树根靠近。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/docs/20200416181035.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;rdnrelative-distinguished-name相对分辨名&quot;&gt;​rdn（Relative Distinguished Name）相对分辨名&lt;/h2&gt;
+
+&lt;p&gt;Rdn 就是&lt;strong&gt;键值对&lt;/strong&gt;，如下图黄色方框中的内容。dn 由若干个 rdn 组成，以逗号分隔。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/docs/20200416181045.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;dcdistinguished-name域名组成&quot;&gt;​dc（Distinguished Name）（域名组成）&lt;/h2&gt;
+
+&lt;p&gt;将 example.comexample.com 这样的域名，拆成 dc=example,dc=com 这样的形式。&lt;/p&gt;
+
+&lt;h2 id=&quot;oorganization组织机构公司&quot;&gt;​o（Organization）组织机构、公司&lt;/h2&gt;
+
+&lt;p&gt;在 dn 中可能会包含 o=公司 这样的组成部分，这里的 o 指代组织机构。&lt;/p&gt;
+
+&lt;h2 id=&quot;ouorganization-unit组织单元部门&quot;&gt;​ou（Organization Unit）组织单元、部门&lt;/h2&gt;
+
+&lt;p&gt;在 dn 中可能会包含 ou=某某部门 这样的组成部分，这里的 ou 指代组织单元。&lt;/p&gt;
+
+&lt;h2 id=&quot;object-classes&quot;&gt;​Object Classes&lt;/h2&gt;
+
+&lt;p&gt;每个&lt;strong&gt;项&lt;/strong&gt;里面包含若干个 Object Classes，&lt;strong&gt;Object Class&lt;/strong&gt; 指定了本项中必须、可能包含的&lt;strong&gt;属性&lt;/strong&gt;，相当于 MySQL 中的建表语句。包含某个 Object Class 的项，必须满足 Object Class 中约定的规范。如下图，&lt;strong&gt;person objectClass&lt;/strong&gt; 中规定了 cn 和 sn 属性必须存在，在这一&lt;strong&gt;项&lt;/strong&gt;的属性中，你可以看到 cn 和 sn 被加粗显示了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/docs/20200416181054.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;下图是 person Object class 的定义，规定了拥有此 Object class 的&lt;strong&gt;项&lt;/strong&gt;需要拥有的属性：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/docs/20200416181106.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;总结&quot;&gt;总结&lt;/h1&gt;
+
+&lt;p&gt;LDAP 协议是一个历史悠久的协议，诞生时间早于万维网。在当时商业数据库并不发达，而且当时商业数据库的驱动在多语言支持上也不友好——有可能这个数据库在你使用的编程语言上根本没有相关的开发包。LDAP 一直沿用至今，有很多的历史原因，因此许多应用都会支持通过 LDAP 登录。&lt;/p&gt;
+
+&lt;p&gt;LDAP 协议的用户目录是树形结构，天然与组织机构契合，而且在查询上速度非常快，比任何其他数据库都要快。&lt;/p&gt;
+
+&lt;p&gt;如果你想快速与 LDAP 服务器对接，不妨试一试试一试 Authing 的 LDAP 对接功能。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/docs/20200416181117.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;只要填好 LDAP 服务器的信息，然后点击保存。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/docs/20200416181125.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;还能够方便地测试 LDAP 服务器的连通性和用户登录凭据的合法性。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/docs/20200416181145.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然后就可以使用 LDAP 进行登录了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/docs/20200416181154.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;示例应用：https://ldap-test.authing.cn&lt;/p&gt;
+
+&lt;p&gt;教程文档：https://docs.authing.cn/authing/authentication/ldap/ldap&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;扫码查看直播回放&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/docs/20200416181309.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>叶祖伟</name></author><category term="LDAP" /><summary type="html">​什么是 LDAP？</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/docs/20200416194421.png" /></entry><entry><title type="html">AWS KMS 科普: What Why and How?</title><link href="http://localhost:4000/blog/AWS-KMS-%E7%A7%91%E6%99%AE-What-Why-and-How/" rel="alternate" type="text/html" title="AWS KMS 科普: What Why and How?" /><published>2020-04-03T00:00:00+08:00</published><updated>2020-04-03T00:00:00+08:00</updated><id>http://localhost:4000/blog/AWS%20KMS%20%E7%A7%91%E6%99%AE:%20What%20Why%20and%20How</id><content type="html" xml:base="http://localhost:4000/blog/AWS-KMS-%E7%A7%91%E6%99%AE-What-Why-and-How/">&lt;h1 id=&quot;aws-kms-科普-what-why-and-how&quot;&gt;AWS KMS 科普: What Why and How?&lt;/h1&gt;
 
 &lt;h2 id=&quot;what-密钥管理--加密并不难难的是密钥管理&quot;&gt;What: 密钥管理 —— 加密并不难，难的是密钥管理&lt;/h2&gt;
 
@@ -77,7 +229,7 @@
   &lt;li&gt;&lt;a href=&quot;https://amazonaws-china.com/kms/&quot;&gt;https://amazonaws-china.com/kms/&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=hxWvbNvj2lg&quot;&gt;AWS re:Invent 2019: Using AWS KMS for data protection, access control, and audit&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=SOnJyqwGn1I&quot;&gt;AWS Security Basics - AWS KMS&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>cj</name></author><category term="KMS" /><category term="AWS" /><category term="网络安全" /><summary type="html">AWS KMS 科普: What Why and How?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200403150535.png" /></entry><entry><title type="html">张小龙看了想点赞 —— 用企业微信登录阿里云 ¿</title><link href="https://authing.cn/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E-%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91/" rel="alternate" type="text/html" title="张小龙看了想点赞 —— 用企业微信登录阿里云 ¿" /><published>2020-04-02T00:00:00+08:00</published><updated>2020-04-02T00:00:00+08:00</updated><id>https://authing.cn/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E%20%E2%80%94%E2%80%94%20%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91</id><content type="html" xml:base="https://authing.cn/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E-%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91/">&lt;p&gt;&lt;img src=&quot;/blog/assets/images/wechatwork/1.gif&quot; alt=&quot;assets/images/pipeline/4.gif&quot; /&gt;&lt;/p&gt;
+&lt;/ol&gt;</content><author><name>cj</name></author><category term="KMS" /><category term="AWS" /><category term="网络安全" /><summary type="html">AWS KMS 科普: What Why and How?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200403150535.png" /></entry><entry><title type="html">张小龙看了想点赞 —— 用企业微信登录阿里云 ¿</title><link href="http://localhost:4000/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E-%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91/" rel="alternate" type="text/html" title="张小龙看了想点赞 —— 用企业微信登录阿里云 ¿" /><published>2020-04-02T00:00:00+08:00</published><updated>2020-04-02T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E%20%E2%80%94%E2%80%94%20%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91</id><content type="html" xml:base="http://localhost:4000/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E-%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91/">&lt;p&gt;&lt;img src=&quot;/blog/assets/images/wechatwork/1.gif&quot; alt=&quot;assets/images/pipeline/4.gif&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;很多企业都在使用企业微信进行组织机构管理，同时又使用了阿里云的服务，我们不希望单独为每个员工创建一个阿里云子账号，要是能够直接使用企业微信登录就好了。这时候如何统一用户目录和实现单点登录就成了一个我们需要思考的问题。&lt;/p&gt;
 
@@ -223,7 +375,7 @@
 
 &lt;p&gt;如果你不想关心具体的技术细节，完全可以直接使用 Authing 开箱即用的服务，将更多的精力集中到核心业务上。&lt;/p&gt;
 
-&lt;p&gt;欢迎体验：&lt;a href=&quot;https://authing.cn&quot;&gt;https://authing.cn&lt;/a&gt;&lt;/p&gt;</content><author><name>cj</name></author><category term="SSO" /><category term="SAML" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200403144431.png" /></entry><entry><title type="html">五分钟理解什么是 OIDC</title><link href="https://authing.cn/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" rel="alternate" type="text/html" title="五分钟理解什么是 OIDC" /><published>2020-03-27T00:00:00+08:00</published><updated>2020-03-27T00:00:00+08:00</updated><id>https://authing.cn/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95</id><content type="html" xml:base="https://authing.cn/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">&lt;h1 id=&quot;如何通过oidc协议实现单点登录&quot;&gt;如何通过OIDC协议实现单点登录&lt;/h1&gt;
+&lt;p&gt;欢迎体验：&lt;a href=&quot;https://authing.cn&quot;&gt;https://authing.cn&lt;/a&gt;&lt;/p&gt;</content><author><name>cj</name></author><category term="SSO" /><category term="SAML" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200403144431.png" /></entry><entry><title type="html">五分钟理解什么是 OIDC</title><link href="http://localhost:4000/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" rel="alternate" type="text/html" title="五分钟理解什么是 OIDC" /><published>2020-03-27T00:00:00+08:00</published><updated>2020-03-27T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95</id><content type="html" xml:base="http://localhost:4000/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">&lt;h1 id=&quot;如何通过oidc协议实现单点登录&quot;&gt;如何通过OIDC协议实现单点登录&lt;/h1&gt;
 
 &lt;h1 id=&quot;什么是单点登录&quot;&gt;什么是单点登录&lt;/h1&gt;
 
@@ -633,7 +785,7 @@
 
 &lt;p&gt;欢迎体验：&lt;a href=&quot;https://authing.cn&quot;&gt;https://authing.cn&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;实现单点登录：&lt;a href=&quot;https://docs.authing.cn/authing/quickstart/implement-sso-with-authing&quot;&gt;https://docs.authing.cn/authing/quickstart/implement-sso-with-authing&lt;/a&gt;&lt;/p&gt;</content><author><name>叶祖伟</name></author><category term="OIDC" /><category term="SSO" /><category term="单点登录" /><summary type="html">如何通过OIDC协议实现单点登录</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200403150326.png" /></entry><entry><title type="html">Authing 移动端登录方式, 10 行代码实现 App 扫码登录</title><link href="https://authing.cn/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/" rel="alternate" type="text/html" title="Authing 移动端登录方式, 10 行代码实现 App 扫码登录" /><published>2020-03-01T00:00:00+08:00</published><updated>2020-03-01T00:00:00+08:00</updated><id>https://authing.cn/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F</id><content type="html" xml:base="https://authing.cn/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/">&lt;p&gt;Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。&lt;/p&gt;
+&lt;p&gt;实现单点登录：&lt;a href=&quot;https://docs.authing.cn/authing/quickstart/implement-sso-with-authing&quot;&gt;https://docs.authing.cn/authing/quickstart/implement-sso-with-authing&lt;/a&gt;&lt;/p&gt;</content><author><name>叶祖伟</name></author><category term="OIDC" /><category term="SSO" /><category term="单点登录" /><summary type="html">如何通过OIDC协议实现单点登录</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200403150326.png" /></entry><entry><title type="html">Authing 移动端登录方式, 10 行代码实现 App 扫码登录</title><link href="http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/" rel="alternate" type="text/html" title="Authing 移动端登录方式, 10 行代码实现 App 扫码登录" /><published>2020-03-01T00:00:00+08:00</published><updated>2020-03-01T00:00:00+08:00</updated><id>http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F</id><content type="html" xml:base="http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/">&lt;p&gt;Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。&lt;/p&gt;
 
 &lt;p&gt;Authing 新增了对四种移动端登录方式的支持，可以让开发者在 Web 端、移动端、小程序端同时接入 Authing:&lt;/p&gt;
 &lt;ul&gt;
@@ -993,7 +1145,7 @@
 
 &lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200302112935.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;同时我们接下来会继续不断完善，让有身份认证的地方就有 Authing !&lt;/p&gt;</content><author><name>cj</name></author><category term="移动端" /><category term="社会化登录" /><summary type="html">Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200302113736.png" /></entry><entry><title type="html">#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊</title><link href="https://authing.cn/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/" rel="alternate" type="text/html" title="#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊" /><published>2020-02-27T00:00:00+08:00</published><updated>2020-02-27T00:00:00+08:00</updated><id>https://authing.cn/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A</id><content type="html" xml:base="https://authing.cn/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/">&lt;p&gt;我们发起 &lt;strong&gt;# Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。&lt;/strong&gt;我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日子，本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。&lt;/p&gt;
+&lt;p&gt;同时我们接下来会继续不断完善，让有身份认证的地方就有 Authing !&lt;/p&gt;</content><author><name>cj</name></author><category term="移动端" /><category term="社会化登录" /><summary type="html">Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200302113736.png" /></entry><entry><title type="html">#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊</title><link href="http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/" rel="alternate" type="text/html" title="#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊" /><published>2020-02-27T00:00:00+08:00</published><updated>2020-02-27T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A</id><content type="html" xml:base="http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/">&lt;p&gt;我们发起 &lt;strong&gt;# Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。&lt;/strong&gt;我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日子，本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。&lt;/p&gt;
 
 &lt;p&gt;疫情肆虐，不仅对老百姓生命健康造成重大威胁，对各行各业的发展也造成重大影响。同时，开学、复工在即，疫情防控进入了关键阶段，「居家隔离、远程办公」是当下遏制疫情扩散的最佳防控措施。&lt;/p&gt;
 
@@ -1081,7 +1233,7 @@ OIDC 是 OAuth 2.0 的超集，同时是 Authing 推荐的身份认证最佳实�
   &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/Xd3SR2WaB15a250RxEZWpg&quot;&gt;Authing 开发资源最全合集&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;strong&gt;重磅：Authing 将于2020 Q1 开源，欢迎&lt;/strong&gt;  &lt;a href=&quot;https://github.com/Authing/authing&quot;&gt;Star 关注&lt;/a&gt;&lt;/p&gt;</content><author><name>jackjin</name></author><category term="ShapeIdentity" /><category term="Serverless" /><category term="OIDC" /><summary type="html">我们发起 # Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日子，本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/tencent.jpeg" /></entry><entry><title type="html">Introduce Pipeline: Authing 的可扩展性达到了新高度</title><link href="https://authing.cn/blog/Introduce-Authing-Pipeline/" rel="alternate" type="text/html" title="Introduce Pipeline: Authing 的可扩展性达到了新高度" /><published>2020-02-20T00:00:00+08:00</published><updated>2020-02-20T00:00:00+08:00</updated><id>https://authing.cn/blog/Introduce-Authing-Pipeline</id><content type="html" xml:base="https://authing.cn/blog/Introduce-Authing-Pipeline/">&lt;p&gt;Authing Pipeline 是一组运行在云端的用户自定义 JavaScript 代码，属于 Authing 扩展能力的重要部分，可以让开发者无限制扩展、自定义 Authing 的能力。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;重磅：Authing 将于2020 Q1 开源，欢迎&lt;/strong&gt;  &lt;a href=&quot;https://github.com/Authing/authing&quot;&gt;Star 关注&lt;/a&gt;&lt;/p&gt;</content><author><name>jackjin</name></author><category term="ShapeIdentity" /><category term="Serverless" /><category term="OIDC" /><summary type="html">我们发起 # Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日子，本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/tencent.jpeg" /></entry><entry><title type="html">Introduce Pipeline: Authing 的可扩展性达到了新高度</title><link href="http://localhost:4000/blog/Introduce-Authing-Pipeline/" rel="alternate" type="text/html" title="Introduce Pipeline: Authing 的可扩展性达到了新高度" /><published>2020-02-20T00:00:00+08:00</published><updated>2020-02-20T00:00:00+08:00</updated><id>http://localhost:4000/blog/Introduce-Authing-Pipeline</id><content type="html" xml:base="http://localhost:4000/blog/Introduce-Authing-Pipeline/">&lt;p&gt;Authing Pipeline 是一组运行在云端的用户自定义 JavaScript 代码，属于 Authing 扩展能力的重要部分，可以让开发者无限制扩展、自定义 Authing 的能力。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200220202545.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -1240,7 +1392,7 @@ OIDC 是 OAuth 2.0 的超集，同时是 Authing 推荐的身份认证最佳实�
   &lt;li&gt;&lt;a href=&quot;https://docs.authing.cn/authing/extensibility/pipeline/how-to-debug&quot;&gt;了解如何使用 Authing 的在线调试器调试代码 ?&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.authing.cn/authing/extensibility/pipeline/node-sdk&quot;&gt;了解如何使用 Authing Node SDK 管理自定义 Pipeline 函数?&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.authing.cn/authing/extensibility/pipeline/node-sdk&quot;&gt;非 JS 开发者，如何使用 GraphQL API 管理自定义 Pipeline 函数?&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>cj</name></author><category term="Pipeline" /><category term="扩能能力" /><summary type="html">Authing Pipeline 是一组运行在云端的用户自定义 JavaScript 代码，属于 Authing 扩展能力的重要部分，可以让开发者无限制扩展、自定义 Authing 的能力。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200220203521.png" /></entry><entry><title type="html">五分钟理解什么是 OIDC</title><link href="https://authing.cn/blog/5-%E5%88%86%E9%92%9F%E7%90%86%E8%A7%A3%E4%BB%80%E4%B9%88%E6%98%AF-OIDC/" rel="alternate" type="text/html" title="五分钟理解什么是 OIDC" /><published>2020-02-18T00:00:00+08:00</published><updated>2020-02-18T00:00:00+08:00</updated><id>https://authing.cn/blog/5%20%E5%88%86%E9%92%9F%E7%90%86%E8%A7%A3%E4%BB%80%E4%B9%88%E6%98%AF%20OIDC</id><content type="html" xml:base="https://authing.cn/blog/5-%E5%88%86%E9%92%9F%E7%90%86%E8%A7%A3%E4%BB%80%E4%B9%88%E6%98%AF-OIDC/">&lt;p&gt;OIDC 的全称是 OpenID Connect，是一套基于 OAuth 2.0 的认证 + 授权协议，用于用户身份认证，将用户数据安全地暴露给第三方。&lt;/p&gt;
+&lt;/ol&gt;</content><author><name>cj</name></author><category term="Pipeline" /><category term="扩能能力" /><summary type="html">Authing Pipeline 是一组运行在云端的用户自定义 JavaScript 代码，属于 Authing 扩展能力的重要部分，可以让开发者无限制扩展、自定义 Authing 的能力。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200220203521.png" /></entry><entry><title type="html">五分钟理解什么是 OIDC</title><link href="http://localhost:4000/blog/5-%E5%88%86%E9%92%9F%E7%90%86%E8%A7%A3%E4%BB%80%E4%B9%88%E6%98%AF-OIDC/" rel="alternate" type="text/html" title="五分钟理解什么是 OIDC" /><published>2020-02-18T00:00:00+08:00</published><updated>2020-02-18T00:00:00+08:00</updated><id>http://localhost:4000/blog/5%20%E5%88%86%E9%92%9F%E7%90%86%E8%A7%A3%E4%BB%80%E4%B9%88%E6%98%AF%20OIDC</id><content type="html" xml:base="http://localhost:4000/blog/5-%E5%88%86%E9%92%9F%E7%90%86%E8%A7%A3%E4%BB%80%E4%B9%88%E6%98%AF-OIDC/">&lt;p&gt;OIDC 的全称是 OpenID Connect，是一套基于 OAuth 2.0 的认证 + 授权协议，用于用户身份认证，将用户数据安全地暴露给第三方。&lt;/p&gt;
 
 &lt;h1 id=&quot;oidc-与-oauth-20-有何不同&quot;&gt;OIDC 与 OAuth 2.0 有何不同？&lt;/h1&gt;
 
@@ -1448,7 +1600,7 @@ OIDC 协议中的四个主体
 
 &lt;p&gt;id_token 是用户的&lt;strong&gt;身份凭证&lt;/strong&gt;，access_token 是用户的&lt;strong&gt;授权凭证&lt;/strong&gt;。&lt;/p&gt;
 
-&lt;p&gt;OIDC 有三种授权模式，分别是&lt;strong&gt;授权码模式、隐式模式、混合模式&lt;/strong&gt;。授权码模式中只能获取到 code；隐式模式中只能获取到 access_token id_token；混合模式中都能够获取到。&lt;/p&gt;</content><author><name>叶祖伟</name></author><category term="OIDC" /><summary type="html">OIDC 的全称是 OpenID Connect，是一套基于 OAuth 2.0 的认证 + 授权协议，用于用户身份认证，将用户数据安全地暴露给第三方。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200218203422.png" /></entry><entry><title type="html">Geek Talk 036 实录：Serverless 的前景和机会</title><link href="https://authing.cn/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/" rel="alternate" type="text/html" title="Geek Talk 036 实录：Serverless 的前景和机会" /><published>2020-02-17T00:00:00+08:00</published><updated>2020-02-17T00:00:00+08:00</updated><id>https://authing.cn/blog/GeekTalk036%E5%AE%9E%E5%BD%95:Serverless%20%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A</id><content type="html" xml:base="https://authing.cn/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">&lt;p&gt;Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。&lt;/p&gt;
+&lt;p&gt;OIDC 有三种授权模式，分别是&lt;strong&gt;授权码模式、隐式模式、混合模式&lt;/strong&gt;。授权码模式中只能获取到 code；隐式模式中只能获取到 access_token id_token；混合模式中都能够获取到。&lt;/p&gt;</content><author><name>叶祖伟</name></author><category term="OIDC" /><summary type="html">OIDC 的全称是 OpenID Connect，是一套基于 OAuth 2.0 的认证 + 授权协议，用于用户身份认证，将用户数据安全地暴露给第三方。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200218203422.png" /></entry><entry><title type="html">Geek Talk 036 实录：Serverless 的前景和机会</title><link href="http://localhost:4000/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/" rel="alternate" type="text/html" title="Geek Talk 036 实录：Serverless 的前景和机会" /><published>2020-02-17T00:00:00+08:00</published><updated>2020-02-17T00:00:00+08:00</updated><id>http://localhost:4000/blog/GeekTalk036%E5%AE%9E%E5%BD%95:Serverless%20%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A</id><content type="html" xml:base="http://localhost:4000/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">&lt;p&gt;Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。&lt;/p&gt;
 
 &lt;p&gt;大家好，我谢扬。很高兴能够有这个机会更加交流关于 Serverless 的技术，我们目前创业做的事情跟 Serverless 也是非常强相关的，目前聚焦研发一款 IDaaS 身份即服务产品 Authing。我之前在字节跳动负责一款日活过亿的 Serverless 产品 LarkCloud。我个人对 Serverless 保持着长期的关注，对 Serverless 行业的发展也有很多想法，今天也跟大家分享一下。&lt;/p&gt;
 
@@ -1786,7 +1938,7 @@ OIDC 协议中的四个主体
 
 &lt;p&gt;&lt;strong&gt;谢扬：&lt;/strong&gt;对。这可能只能用一些微服务的这种的措施来做服务治理，你写的每一个函数都需要注册到一个中央的函数服务中心里，然后用各种勾子来 track 他的访问轨迹，最后由一个可视化的界面来展示调用记录。第二个问题我还是推荐 Serverless.com，大家用起来会比较友好。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217162159.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>ivy</name></author><category term="serverless" /><summary type="html">Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200217155500.png" /></entry><entry><title type="html">案例 | 在 Odoo 中集成 Authing 完成单点登录</title><link href="https://authing.cn/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" rel="alternate" type="text/html" title="案例 | 在 Odoo 中集成 Authing 完成单点登录" /><published>2020-02-11T00:00:00+08:00</published><updated>2020-02-11T00:00:00+08:00</updated><id>https://authing.cn/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95</id><content type="html" xml:base="https://authing.cn/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">&lt;p&gt;Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217162159.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>ivy</name></author><category term="serverless" /><summary type="html">Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200217155500.png" /></entry><entry><title type="html">案例 | 在 Odoo 中集成 Authing 完成单点登录</title><link href="http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" rel="alternate" type="text/html" title="案例 | 在 Odoo 中集成 Authing 完成单点登录" /><published>2020-02-11T00:00:00+08:00</published><updated>2020-02-11T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95</id><content type="html" xml:base="http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">&lt;p&gt;Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。&lt;/p&gt;
 
 &lt;p&gt;Authing 在云上提供适用于 Web、iOS 和 Android 的通用身份认证和授权平台，可以帮助开发者和企业使用全新的方式、最简单的手段解决复杂的用户身份问题。&lt;/p&gt;
 
@@ -1887,40 +2039,4 @@ OIDC 协议中的四个主体
 
 &lt;p&gt;访问 &lt;您的 Odoo=&quot;&quot; 网址=&quot;&quot;&gt;/web/login 并点击「**使用 Authing 登录**」即可体验登录。&lt;/您的&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/odooxauthing/odooxauthing.webp&quot; alt=&quot;assets/images/odooxauthing/odooxauthing.webp&quot; /&gt;&lt;/p&gt;</content><author><name>ivy</name></author><category term="odoo" /><summary type="html">Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200217171108.png" /></entry><entry><title type="html">Geek Talk 036：Serverless 的前景和机会</title><link href="https://authing.cn/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/" rel="alternate" type="text/html" title="Geek Talk 036：Serverless 的前景和机会" /><published>2020-02-10T00:00:00+08:00</published><updated>2020-02-10T00:00:00+08:00</updated><id>https://authing.cn/blog/GeekTalk036Serverless%20%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A</id><content type="html" xml:base="https://authing.cn/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">&lt;p&gt;本次与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。&lt;/p&gt;
-
-&lt;h2 id=&quot;主题serverless-的前景和机会&quot;&gt;主题：Serverless 的前景和机会&lt;/h2&gt;
-
-&lt;p&gt;简介：Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。&lt;/p&gt;
-
-&lt;p&gt;时间：2月13日 19:00 - 21:00&lt;/p&gt;
-
-&lt;p&gt;地点：&lt;strong&gt;线上视频会议&lt;/strong&gt;，报名确认后，邮件和微信通知视频入口。&lt;/p&gt;
-
-&lt;p&gt;邮件发送详细地址，请确保邮箱地址和 &lt;strong&gt;微信ID&lt;/strong&gt; 正确&lt;/p&gt;
-
-&lt;p&gt;人数：30人&lt;/p&gt;
-
-&lt;p&gt;嘉宾：谢扬&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200211201759.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;蒸汽记忆创始人，SoLiD 中文社区（learnsolid.cn）发起人，连续创业者。&lt;/p&gt;
-
-&lt;p&gt;曾任职字节跳动 LarkCloud 云服务部门核心 Hacker，负责⽇活过亿 Serverless 平台产品设计和技术研发，该平台支撑来头条系全产品矩阵：今日头条、抖音、西瓜视频、飞书等。&lt;/p&gt;
-
-&lt;p&gt;2016 年创⽴⻰猫科技，研发容器云和 Low/No Code 平台（Gospely.com），获得Plug and Play、PreAngel 等资本投资。曾任好东西传送⻔ CTO，负责知识推荐和亿级维度舆情分析、统计⼯作，服务数⼗万专业⼈群。&lt;/p&gt;
-
-&lt;p&gt;⻓期关注生产⼒科技，以提⾼社会生产⼒为个⼈使命。&lt;/p&gt;
-
-&lt;p&gt;扫描以下二维码报名：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200211202308.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;关于-geek2startup&quot;&gt;关于 Geek2Startup&lt;/h2&gt;
-
-&lt;p&gt;Geek2Startup 推出的专注于创业团队之间的小范围深度交流分享活动，定期邀请创业中 Geek 同 Startup 之间就产品、设计、开发和运营等维度进行交流，期待每次交流都能解决初创团队遇到的问题，并能互相碰撞出更多的火花，求质不求量，走心不走肾。&lt;/p&gt;
-
-&lt;p&gt;目前已经进行超过 30 期，每一位嘉宾都很精彩。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200211202415.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>ivy</name></author><category term="serverless" /><summary type="html">本次与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200211201759.png" /></entry></feed>
+&lt;p&gt;&lt;img src=&quot;/blog/assets/images/odooxauthing/odooxauthing.webp&quot; alt=&quot;assets/images/odooxauthing/odooxauthing.webp&quot; /&gt;&lt;/p&gt;</content><author><name>ivy</name></author><category term="odoo" /><summary type="html">Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200217171108.png" /></entry></feed>
