@@ -1,4 +1,639 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2020-03-06T14:21:27+08:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Authing 官方博客</title><subtitle>Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。</subtitle><entry><title type="html">Authing 移动端登录方式, 10 行代码实现 App 扫码登录</title><link href="http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/" rel="alternate" type="text/html" title="Authing 移动端登录方式, 10 行代码实现 App 扫码登录" /><published>2020-03-01T00:00:00+08:00</published><updated>2020-03-01T00:00:00+08:00</updated><id>http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F</id><content type="html" xml:base="http://localhost:4000/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/">&lt;p&gt;Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://authing.cn/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://authing.cn/blog/" rel="alternate" type="text/html" /><updated>2020-04-05T17:05:51+08:00</updated><id>https://authing.cn/blog/feed.xml</id><title type="html">Authing 官方博客</title><subtitle>Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。</subtitle><entry><title type="html">AWS KMS 科普: What Why and How?</title><link href="https://authing.cn/blog/AWS-KMS-%E7%A7%91%E6%99%AE-What-Why-and-How/" rel="alternate" type="text/html" title="AWS KMS 科普: What Why and How?" /><published>2020-04-03T00:00:00+08:00</published><updated>2020-04-03T00:00:00+08:00</updated><id>https://authing.cn/blog/AWS%20KMS%20%E7%A7%91%E6%99%AE:%20What%20Why%20and%20How</id><content type="html" xml:base="https://authing.cn/blog/AWS-KMS-%E7%A7%91%E6%99%AE-What-Why-and-How/">&lt;h1 id=&quot;aws-kms-科普-what-why-and-how&quot;&gt;AWS KMS 科普: What Why and How?&lt;/h1&gt;
+
+&lt;h2 id=&quot;what-密钥管理--加密并不难难的是密钥管理&quot;&gt;What: 密钥管理 —— 加密并不难，难的是密钥管理&lt;/h2&gt;
+
+&lt;p&gt;AWS  KMS 全称为 Key Management Service，中文直译过来为密钥管理服务 —— 这一点很重要，它提供的核心服务是&lt;strong&gt;密钥管理&lt;/strong&gt;，帮助企业、开发者方便安全地管理密钥。很多刚接触 KMS 的同学经常搞不清 KMS 到底做是做什么的，很大原因也是没仔细注意到 Key Management 这两个词。&lt;/p&gt;
+
+&lt;p&gt;所以我们的第一个问题「What」就已经回答了，KMS 就是一个管理密钥的服务，它并不是某种 super super magic 的高超加密方法。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;我希望本文的读者通过阅读能意识到一个观念：加密是简单的，难的是管理密钥本身。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;why-kms-能确保你密钥的安全性&quot;&gt;Why: KMS 能确保你密钥的安全性&lt;/h2&gt;
+
+&lt;p&gt;接着来看第二个问题：Why ？为什么我需要把我的密钥给你管理，我自己保存不行了吗？事实上你完全可以自己管理，就像你完全可以自建机房一样，only if 你清楚各种最佳实践并愿意花时间自己去维护。&lt;strong&gt;服务之所以叫服务，是服务提供商为你做了各种各样麻烦的事情&lt;/strong&gt;（They deal with those heavy lifting），从而让你把更多的时间精力花在更有价值的事情上。&lt;/p&gt;
+
+&lt;p&gt;那么 AWS KMS 为用户做了哪些麻烦的工作呢？&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;完全托管：你不需要额外的服务器，不需要额外的维护人员。&lt;/li&gt;
+  &lt;li&gt;简化加密过程：你不需要去在意繁琐的加密细节过程，只需要调用相关接口就行了。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;安全审计功能&lt;/strong&gt;：关能够确保安全是不够的，你还需要知道谁具备这个密钥的使用权限，谁在什么时候用了这个密钥，谁又在什么时候删了这个密钥。这一点对大型企业以及提供平台服务的公司非常重要。而这些能够精确到非常细颗粒度的审计功能，已经被 AWS 通过 AWS Cloud Trail Service 完全内置在整个 AWS 生态内了。（It’s not enough to be secure, you have to demonstrate to somebody, whether that’s internal audit, your boss, or maybe your customers .  ）&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;确保你的密钥是安全的&lt;/strong&gt;：你不需要费劲脑汁想办法把你的密钥保存在某个机密的、不对外网暴露的地方。事实上  AWS KMS 的密钥（确切来说是 Matser Key）是完全保存在内存中的，没有任何人（包括  AWS 自己）能够获取到密钥的原始内容，下文会介绍为什么。&lt;/li&gt;
+  &lt;li&gt;密钥 rotate 流程：AWS 会定时或手动刷新密钥内容，这也是密钥管理的一个最佳实践。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;how-its-complicated-but-they-do-it-for-you&quot;&gt;How: It’s complicated but they do it for you&lt;/h2&gt;
+
+&lt;p&gt;知道了为什么使用 AWS KMS，接下来也是本文重点内容，了解一下 How: KMS 内部实现原理。&lt;/p&gt;
+
+&lt;p&gt;首先了解一下对称加密与非对称加密：简要来说，对称加密指的是加密、解密用的是同一个密钥；非对称加密指的是加密、解密使用一对密钥：公钥和私钥，你可以使用公钥加密私钥解密，也可以反过来。如 HTTPS 用的就是非对称加密。&lt;/p&gt;
+
+&lt;p&gt;接下来看看 KMS 内部是如何保存你的密钥的：假设我们有一个用于加密数据的密钥，叫做 Data Key，将 Data 加密过后得到 Encrypted Data，这个过程很简单。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200403143826.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;但是问题来了，该怎么处理 Data Key 呢，要是攻击者获取到了 Data Key，那不相当于数据也就被破解了？正确的选择是把 Data Key 也用某种密钥（这里把它叫做 Matser Key）加密一下（术语叫做 Wrapping），得到 Encrypted Data Key 。接着我们把 Encrypted Data 和 Encrypted Data Key 保存在一起，如下图所示：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200403143843.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;可是问题又来了：Master Key 怎么加密？相信你已经察觉出来了，&lt;del&gt;这很像一个俄罗斯套娃（划掉）&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200403145809.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;你没有看错，AWS KMS  还真就是这么做的，他们这样一层一层加密密钥（专业名词叫做 KMS Key Hierarchy），到最终的那个 Key 的时候，它的确是一个明文，但是：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;它完完全全保存在内存里面，永远不会在物理介质里面保存下来。&lt;/li&gt;
+  &lt;li&gt;它永远不会在公网传输。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;以至于连 AWS 员工都没有办法获取到原始内容。&lt;/p&gt;
+
+&lt;p&gt;那么其他的 Data Key 呢？我真正加密的数据的数据用的是 Data Key，要是 Data  Key 泄漏了怎么办？这个问题很重要。那么 KMS 是如何解决的呢？&lt;/p&gt;
+
+&lt;p&gt;KMS 的 Data Key 是在内存中动态生成的，用于加密数据过后，它就在内存中被删掉了，只有加密过后的 Encrypted Data Key 保留了下来。&lt;/p&gt;
+
+&lt;p&gt;借用 AWS re:Invent 2019 上 AWS Solution Architect Peter M.O’Donnell  的话：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;KMS is a very serious service, built by very serious people for very serious customers .&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;总结一下：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Data 是用 Data Key 加密的，得到 Encrypted Data。&lt;/li&gt;
+  &lt;li&gt;Encrypted Data 和 Encrypted Data Key 保存在了一起。&lt;/li&gt;
+  &lt;li&gt;你就算得到了 Encrypted Data 和 Encrypted Data Key 也没用，你还得得到上一层加密此 Encrypted Data Key 的 Matser Key，一层一层往上，你得知道最终那个在 Top Level 的 Master Key。&lt;/li&gt;
+  &lt;li&gt;KMS 在根本上通过设计，确保了没有任何人能够获取到 Top Level Master Key。&lt;/li&gt;
+  &lt;li&gt;所以你的数据是安全的。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;这篇文章介绍了 AWS KMS 是什么、为什么要用 KMS 以及 KMS 是如何保护你的密钥从而保护你的数据的，下一篇我们从实际应用的角度，来看看该怎么将 KMS  具体应用到你的系统中。&lt;/p&gt;
+
+&lt;p&gt;相关阅读：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://amazonaws-china.com/kms/&quot;&gt;https://amazonaws-china.com/kms/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=hxWvbNvj2lg&quot;&gt;AWS re:Invent 2019: Using AWS KMS for data protection, access control, and audit&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=SOnJyqwGn1I&quot;&gt;AWS Security Basics - AWS KMS&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>cj</name></author><category term="KMS" /><category term="AWS" /><category term="网络安全" /><summary type="html">AWS KMS 科普: What Why and How?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200403150535.png" /></entry><entry><title type="html">张小龙看了想点赞 —— 用企业微信登录阿里云 ¿</title><link href="https://authing.cn/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E-%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91/" rel="alternate" type="text/html" title="张小龙看了想点赞 —— 用企业微信登录阿里云 ¿" /><published>2020-04-02T00:00:00+08:00</published><updated>2020-04-02T00:00:00+08:00</updated><id>https://authing.cn/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E%20%E2%80%94%E2%80%94%20%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91</id><content type="html" xml:base="https://authing.cn/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E-%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91/">&lt;p&gt;&lt;img src=&quot;/blog/assets/images/wechatwork/1.gif&quot; alt=&quot;assets/images/pipeline/4.gif&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;很多企业都在使用企业微信进行组织机构管理，同时又使用了阿里云的服务，我们不希望单独为每个员工创建一个阿里云子账号，要是能够直接使用企业微信登录就好了。这时候如何统一用户目录和实现单点登录就成了一个我们需要思考的问题。&lt;/p&gt;
+
+&lt;p&gt;阿里云在自己的单点登录管理（SSO）中介绍到，可以使用 SAML 协议提供单点登录管理，流程图如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200403144540.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;阿里云与企业进行用户 SSO 时，阿里云是服务提供商（SP），而企业自有的身份管理系统则是身份提供商（IdP）。通过用户SSO，企业员工在登录后，将以 RAM 用户身份访问阿里云。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;暂时先不用管 SAML 是什么，下文会详细讲到，这里简单理解为一种用户身份问答协议就行了。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;当管理员在完成用户 SSO 的相关配置后，企业员工 Alice 可以通过上图所示的方法登录到阿里云。&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Alice 使用浏览器登录阿里云，阿里云将 SAML 认证请求返回给浏览器。&lt;/li&gt;
+  &lt;li&gt;浏览器向 IdP 转发 SAML 认证请求。&lt;/li&gt;
+  &lt;li&gt;IdP 提示 Alice 登录，并在Alice登录成功后生成 SAML 响应返回给浏览器。&lt;/li&gt;
+  &lt;li&gt;浏览器将 SAML 响应转发给 SSO 服务。&lt;/li&gt;
+  &lt;li&gt;SSO 服务通过SAML互信配置，验证 SAML 响应的数字签名来判断 SAML 断言的真伪，并通过 SAML断言的 NameID 元素值，匹配到对应阿里云账号中的 RAM 用户身份。&lt;/li&gt;
+  &lt;li&gt;SSO服务向浏览器返回控制台的URL。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;总结一下重要的点：IdP （身份提供商），也即企业用户，有一套自己的用户目录，至于这个用户目录具体是怎样的，你是用数据库存还是 Excel 存，你是用账号密码登录还是支持第三方社会化登录，阿里云并不操心。重要的是你的用户目录需要和阿里云 RAM 用户身份建立一对一关系。具体到 SAML 协议，你需要把你的用户目录的用户唯一字段作为 NameID 传给阿里云，这样阿里云就能够知道该以哪个 RAM 用户身份登录阿里云了。&lt;/p&gt;
+
+&lt;p&gt;于是我们的问题就 Break Down 为下面几步：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;为你的用户目录支持 SAML 协议&lt;/li&gt;
+  &lt;li&gt;为你的用户目录支持企业微信登录&lt;/li&gt;
+  &lt;li&gt;将你的用户目录和阿里云用户角色之间建立一对一关系。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;如果你对其中某一部分很了解，可以跳过对应章节。&lt;/p&gt;
+
+&lt;h2 id=&quot;支持-saml-协议&quot;&gt;支持 SAML 协议&lt;/h2&gt;
+
+&lt;p&gt;首先科普一下 SAML 是什么：SAML 全称是 Security Assertion Markup Language （中文直译为「安全断言标记语言」），从字面意义我们还看不出什么头绪。&lt;/p&gt;
+
+&lt;p&gt;我们从协议交互角度切入：SAML 认证流程一般都会牵涉到两方：服务提供方（SP）和身份提供方（IdP），典型的 SP 有阿里云、腾讯云以及很多很多的 SaaS 服务；IdP 其实就是我们企业自己，因为用户目录在我们这里。访问 SP 服务的时候，SP 会向 IdP 发送一个 SAML Request（具体是什么我们暂时不关心），请求 IdP 判断用户身份。IdP 收到 SAML Request 后，可以通过某种手段对用户身份进行认证，如果已登录，可以直接返回用户身份信息给 SP；如果未登录，可以弹出一个登录框，用户登录之后再将用户身份返回给 SP。SP 收到用户信息之后，再在自己的数据库里面找出对应的用户，然后以这个用户的身份访问 SP 服务。&lt;/p&gt;
+
+&lt;p&gt;SAML 协议的具体实现过于复杂，不建议自己从零实现，可以借助已有开源库实现，比如：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;NodeJS 的 &lt;a href=&quot;https://github.com/tngan/samlify&quot;&gt;samlify&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Python 的 &lt;a href=&quot;https://github.com/onelogin/python-saml&quot;&gt;python-saml&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Java 的 &lt;a href=&quot;https://github.com/onelogin/java-saml&quot;&gt;java-saml&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一般来说，如果你作为 IdP ，需要将自己内部用户目录数据库的字段和 SAML 字段对齐，并实现 metadata 、 SingleSignOnService 和  SingleLogoutService 接口，分别实现获取  IdP 元信息、单点登录和单点登出。具体代码实现这里就不详细讲了，感兴趣的可以用开源库实现一下，或者你也可以考虑使用&lt;a href=&quot;https://docs.authing.cn/authing/authentication/use-saml&quot;&gt;我们的 SAML 服务&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h2 id=&quot;支持企业微信登录&quot;&gt;支持企业微信登录&lt;/h2&gt;
+
+&lt;p&gt;企业微信支持两种身份认证方式：&lt;a href=&quot;https://work.weixin.qq.com/api/doc/90000/90135/91020&quot;&gt;网页授权登录&lt;/a&gt;（指在企业微信 APP  内打开的网页，不适用于普通的浏览器网页）和&lt;a href=&quot;https://work.weixin.qq.com/api/doc/90000/90135/90988&quot;&gt;扫码登录&lt;/a&gt;，这里我们主要讲如何接入扫码登录。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;BTW: 如果你对扫码登录原理感兴趣，可以看看我们之前写的如何从零&lt;a href=&quot;https://juejin.im/post/5e083565e51d45581308a3e5&quot;&gt;实现扫码登录系列文章&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;企业微信扫码登录流程如下：用户进入第三方网站，且这个网站支持使用企业微信登录，用户使用企业微信扫码登录之后，企业微信会将登录授权码返回给你，接着你就可以使用这个授权码换取用户信息了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200403144934.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;首先你需要拼接一个微信扫码登录链接，如下图所示：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://open.work.weixin.qq.com/wwopen/sso/3rd_qrConnect?appid=ww100000a5f2191&amp;amp;redirect_uri=http%3A%2F%2Fwww.oa.com&amp;amp;state=web_login@gyoss9&amp;amp;usertype=member
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;appid 为服务商的CorpID&lt;/li&gt;
+  &lt;li&gt;redirect_uri 为用户授权之后企业微信服务器转发授权码的地址。&lt;/li&gt;
+  &lt;li&gt;usertype 为支持登录的类型。admin代表管理员登录（使用微信扫码）,member代表成员登录（使用企业微信扫码），默认为admin。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;用户同意授权之后，会转发登录授权码给上面填写的 redirect_uri，你可以用它来换取用户信息：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST https://qyapi.weixin.qq.com/cgi-bin/service/get_login_info?access_token=PROVIDER_ACCESS_TOKEN
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;POST 请求 body 为：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+  &quot;auth_code&quot;:&quot;xxxxx&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;其中 auth_code 就是登录授权码，PROVIDER_ACCESS_TOKEN 是服务商凭证，你可以在这里看到如何&lt;a href=&quot;https://work.weixin.qq.com/api/doc/90001/90142/90593#%e6%9c%8d%e5%8a%a1%e5%95%86%e7%9a%84token&quot;&gt;获取服务商凭证&lt;/a&gt;。换取用户信息之后，你可以将其保持至自己的数据库。&lt;/p&gt;
+
+&lt;p&gt;具体的细节就不多说了，还牵涉到配置 IP 白名单，添加可信任域名等，如果你感兴趣，可以看企业微信的&lt;a href=&quot;https://work.weixin.qq.com/api/doc/90001/90143/91123&quot;&gt;开发文档&lt;/a&gt;。当然，如果你不想自己实现，我们也提供这个&lt;a href=&quot;https://docs.authing.cn/authing/social-login/web/wechatwork-qrconnect&quot;&gt;服务&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h2 id=&quot;用户目录和阿里云用户角色对齐&quot;&gt;用户目录和阿里云用户角色对齐&lt;/h2&gt;
+
+&lt;p&gt;如果你实现好了 SAML 协议，你有个有一个接口可以用于下载  IdP Metadata，需要将其上传给阿里云。&lt;/p&gt;
+
+&lt;h3 id=&quot;在阿里云添加用户&quot;&gt;在阿里云添加用户&lt;/h3&gt;
+
+&lt;p&gt;使用你的阿里云账号登录阿里云的&lt;a href=&quot;https://www.aliyun.com/&quot;&gt;控制台&lt;/a&gt;。在你的用户头像上悬停鼠标，出现下拉菜单，点击「访问控制」。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200403145330.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;进入左侧菜单 -&amp;gt; 人员管理 -&amp;gt; 用户，点击「新建用户」。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200403145342.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;输入用户名称、显示名称，勾选控制台密码登录并点击「确认」。本教程中输入的登录名称是 authing，显示名称也是 authing。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200403145351.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击左侧菜单 -&amp;gt; 人员管理 -&amp;gt; 用户，在右侧页面的列表中可以看到刚刚添加的用户，记录下用户登录名称（xxx@xxx.onaliyun.com），随后会用到。点击对应用户条目右侧的「添加权限」。&lt;/p&gt;
+
+&lt;p&gt;在权限列表中选择需要赋予该账户的权限，本教程选择「AdministratorAccess」最高权限。点击「确定」。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200403145412.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;进入左侧菜单 -&amp;gt; SSO 管理，右侧页面点击「用户 SSO」选项卡，在下方 SSO 登录设置处点击「编辑」。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200403145421.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;SSO 功能状态选择「开启」。点击「上传文件」，上传你的 SAML IdP Metadata。点击「确认」。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200403145433.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;在你的用户目录进行对齐&quot;&gt;在你的用户目录进行对齐&lt;/h3&gt;
+
+&lt;p&gt;上一步在阿里云配置好了账号，用户名为 xxx@xxx.onaliyun.com ，接下来需要将其映射到你的用户目录。方法很简单，你只需要将对应企业微信登录用户的 NameID 设置成 xxx@xxx.onaliyun.com 即可。&lt;/p&gt;
+
+&lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;
+
+&lt;p&gt;这篇文章，我们介绍了如何利用 SAML 协议将企业微信和阿里云建立起联系。总结一下，我们一共实现了三件事情：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;接入 SAML 协议&lt;/li&gt;
+  &lt;li&gt;接入企业微信登录&lt;/li&gt;
+  &lt;li&gt;将阿里云 RAM 用户和自己的用户目录打通&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;事实上，企业微信登录只是&lt;strong&gt;某种&lt;/strong&gt;登录手段，你也完全可以支持 GitHub 登录、微博登录、手机号验证码登录、生物指纹登录 ….. 任何你能想到的登录方式都可以。&lt;/p&gt;
+
+&lt;p&gt;而上述这些东西，Authing 都支持，我们有非常丰富的社会化登录手段，除了企业微信，我们还支持 GitHub、微信、微博、钉钉、QQ、支付宝、小程序等。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200403145514.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我们还封装了简单易用的 SAML 协议，让你可以只需要填写自己简单的配置文件，就拥有一个完整的 SAML 协议实现以及一个美观易用的登录表单：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200403145524.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果你不想关心具体的技术细节，完全可以直接使用 Authing 开箱即用的服务，将更多的精力集中到核心业务上。&lt;/p&gt;
+
+&lt;p&gt;欢迎体验：&lt;a href=&quot;https://authing.cn&quot;&gt;https://authing.cn&lt;/a&gt;&lt;/p&gt;</content><author><name>cj</name></author><category term="SSO" /><category term="SAML" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200403144431.png" /></entry><entry><title type="html">五分钟理解什么是 OIDC</title><link href="https://authing.cn/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" rel="alternate" type="text/html" title="五分钟理解什么是 OIDC" /><published>2020-03-27T00:00:00+08:00</published><updated>2020-03-27T00:00:00+08:00</updated><id>https://authing.cn/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95</id><content type="html" xml:base="https://authing.cn/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">&lt;h1 id=&quot;如何通过oidc协议实现单点登录&quot;&gt;如何通过OIDC协议实现单点登录&lt;/h1&gt;
+
+&lt;h1 id=&quot;什么是单点登录&quot;&gt;什么是单点登录&lt;/h1&gt;
+
+&lt;p&gt;我们通过一个例子来说明，假设有一所大学，内部有两个系统，一个是邮箱系统，一个是课表查询系统。现在想实现这样的效果：在邮箱系统中登录一遍，然后此时进入课表系统的网站，无需再次登录，课表网站系统直接跳转到个人课表页面，反之亦然。比较专业的定义如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;单点登录&lt;/strong&gt;（Single Sign On），简称为 &lt;strong&gt;SSO&lt;/strong&gt;，是目前比较流行的企业业务整合的解决方案之一。 SSO 的定义是在多个应用系统中，&lt;strong&gt;用户只需要登录一次&lt;/strong&gt;就可以&lt;strong&gt;访问所有&lt;/strong&gt;相互信任的应用系统。&lt;/p&gt;
+
+&lt;h1 id=&quot;为什么要实现单点登录&quot;&gt;为什么要实现单点登录&lt;/h1&gt;
+
+&lt;p&gt;单点登录的意义在于能够在不同的系统中统一账号、统一登录。用户不必在每个系统中都进行注册、登录，只需要使用一个统一的账号，登录一次，就可以访问所有系统。&lt;/p&gt;
+
+&lt;h1 id=&quot;通过-oidc-协议实现单点登录&quot;&gt;通过 OIDC 协议实现单点登录&lt;/h1&gt;
+
+&lt;h2 id=&quot;创建自己的用户目录&quot;&gt;创建自己的用户目录&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;用户目录&lt;/strong&gt;这个词很贴切，你的系统的总用户表就像一本书一样，书的封皮上写着“所有用户”四个字。打开第一页，就是目录，里面列满了用户的名字，翻到对应的页码就能看到这个人的邮箱，手机号，生日信息等等。无论你开发多少个应用，要确保你有一份这些应用所有用户信息的 truth source。所有的注册、认证、注销都要到你的用户目录中进行增加、查询、删除操作。你要做的就是&lt;strong&gt;创建一个中央数据表，专门用于存储用户信息&lt;/strong&gt;，不论这个用户是来自 A 应用、B 应用还是 C 应用。&lt;/p&gt;
+
+&lt;h2 id=&quot;什么是-oidc-协议&quot;&gt;什么是 OIDC 协议&lt;/h2&gt;
+
+&lt;p&gt;OIDC 的全称是 OpenID Connect，是一个基于 OAuth 2.0 的轻量级认证 + 授权协议，是 OAuth 2.0 的超集。它规定了其他应用，例如你开发的应用 A（XX 邮件系统），应用 B（XX 聊天系统），应用 C（XX 文档系统），如何到你的&lt;strong&gt;中央数据表&lt;/strong&gt;中取出用户数据，约定了交互方式、安全规范等，确保了你的用户能够在访问所有应用时，只需登录一遍，而不是反反复复地输入密码，而且遵循这些规范，你的用户认证环节会很安全。&lt;/p&gt;
+
+&lt;h2 id=&quot;架设自己的-oidc-provider&quot;&gt;架设自己的 OIDC Provider&lt;/h2&gt;
+
+&lt;p&gt;什么是 OIDC Provider 呢？我来举一个例子：你经常见到一些网站的登录页面上有「使用 Github 登录」、「使用 Google 登录」这样的按钮。要想集成这样的功能，你&lt;strong&gt;要先去 Github 那里注册一个 OAuth App，填写一些资料，然后 Github 分配给你一对 id 和 key。&lt;/strong&gt; 此时 Github 扮演的角色就是 OIDC Provider，你要做的就是把 Github 的这种角色的行为，搬到你自己的服务器来。&lt;/p&gt;
+
+&lt;p&gt;在 Github 上面搜索 OIDC Provider 会有很多结果：&lt;/p&gt;
+
+&lt;p&gt;JS：&lt;a href=&quot;https://github.com/panva/node-oidc-provider&quot;&gt;https://github.com/panva/node-oidc-provider&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Golang：&lt;a href=&quot;https://github.com/dexidp/dex&quot;&gt;https://github.com/dexidp/dex&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Python：&lt;a href=&quot;https://github.com/juanifioren/django-oidc-provider&quot;&gt;https://github.com/juanifioren/django-oidc-provider&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;…&lt;/p&gt;
+
+&lt;p&gt;不再一一列举，你需要选择适合你的编程语言的 OIDC Provider 包，然后让它在你的服务器上运行起来。本文使用 JS 语言的 node-oidc-provider。&lt;/p&gt;
+
+&lt;h3 id=&quot;示例代码-github&quot;&gt;示例代码 Github&lt;/h3&gt;
+&lt;p&gt;可以在 Github 找到本文示例代码：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/Authing/implement-oidc-sso-demo.git&quot;&gt;https://github.com/Authing/implement-oidc-sso-demo.git&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;创建文件夹&quot;&gt;创建文件夹&lt;/h3&gt;
+
+&lt;p&gt;我们首先创建一个文件夹，用于存放代码：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;demo
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;demo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;克隆仓库&quot;&gt;克隆仓库&lt;/h3&gt;
+
+&lt;p&gt;然后我们将 &lt;a href=&quot;https://github.com/panva/node-oidc-provider.git&quot;&gt;https://github.com/panva/node-oidc-provider.git&lt;/a&gt; 仓库 clone 到本地&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone https://github.com/panva/node-oidc-provider.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;安装依赖&quot;&gt;安装依赖&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;node-oidc-provider
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;在-oidc-provider-申请一个-client&quot;&gt;在 OIDC Provider 申请一个 Client&lt;/h3&gt;
+
+&lt;p&gt;上一步讲到，Github 会分配给你一对 id 和 key，这一步其实就是你在 Github 申请了一个 Client。那么如何向我们自己的服务器上的 OIDC Provider 申请一对这样的 id 和 key 呢？&lt;/p&gt;
+
+&lt;p&gt;以 &lt;a href=&quot;https://github.com/panva/node-oidc-provider/tree/master/example&quot;&gt;node-oidc-provider&lt;/a&gt; 举例，最快的获得一个 Client 的方法就是将 OIDC Client 所需的元数据直接写入 node-oidc-provider 的配置文件里面。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Wait wait wait，跨度有些大，这两者之间有什么关系？首先我们看，在 Github 上填写应用信息，然后提交，会发送一个 HTTP 请求到 Github 服务器。Github 服务器会生成一对 id 和 key，还会把它们与你的应用信息存储到 Github 自己的数据库里。所以，我们将 OIDC Client 所需的元数据直接写入到配置文件，可以理解成，我们在自己的数据库里手动插入了一条数据，为自己指定了一对 id 和 key 还有其他的一些 OIDC Client 信息。&lt;/p&gt;
+
+&lt;h3 id=&quot;修改配置文件&quot;&gt;修改配置文件&lt;/h3&gt;
+
+&lt;p&gt;进入 node-oidc-provider 项目下的 example 文件夹：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ./example
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;编辑 &lt;code class=&quot;highlighter-rouge&quot;&gt;./support/configuration.js&lt;/code&gt; ，更改第 16 行的 clients 配置，我们为自己指定了一个 client_id 和一个 client_secret，其中的 grant_types 为授权模式，authorization_code 即授权码模式，redirect_uris 数组是允许的业务回调地址，需要填写 Web App 应用的地址，OIDC Provider 会将临时授权码发送到这个地址，以便后续换取 token。&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;clients&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;client_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;client_secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;grant_types&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'refresh_token'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'authorization_code'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;redirect_uris&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'http://localhost:8080/app1.html'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://localhost:8080/app2.html'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;启动-node-oidc-provider&quot;&gt;启动 node-oidc-provider&lt;/h3&gt;
+
+&lt;p&gt;在 node-oidc-provider/example 文件夹下，运行以下命令来启动我们的 OP：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node express.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;到现在，我们的准备工作已经完成了，在讲如何在 Web App 中进行单点登录之前，我们先了解一下 OIDC 授权码模式。刚刚提到的许多术语：&lt;strong&gt;授权码模式&lt;/strong&gt;、&lt;strong&gt;业务回调地址&lt;/strong&gt;、&lt;strong&gt;临时授权码&lt;/strong&gt;，可能这些概念你会感到陌生，下文会详细介绍。&lt;/p&gt;
+
+&lt;h2 id=&quot;oidc-授权码模式&quot;&gt;OIDC 授权码模式&lt;/h2&gt;
+
+&lt;p&gt;以下是 OIDC 授权码模式的交互模式，你的应用和 OP 之间要通过这样的交互方式来获取用户信息。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%201.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%201.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我们的 OIDC Provider 对外暴露一些接口&lt;/p&gt;
+
+&lt;h3 id=&quot;授权接口&quot;&gt;授权接口&lt;/h3&gt;
+
+&lt;p&gt;每次调用这个接口，就像是对 OIDC Provider 喊话：我要登录，如第一步所示。&lt;/p&gt;
+
+&lt;p&gt;然后 OIDC Provider 会&lt;strong&gt;检查当前用户在 OIDC Provider 的登录状态&lt;/strong&gt;，如果是未登录状态，OIDC Provider 会弹出一个登录框，与终端用户确认身份，登录成功后会将一个&lt;strong&gt;临时授权码&lt;/strong&gt;（一个随机字符串）发到你的应用（&lt;strong&gt;业务回调地址&lt;/strong&gt;）；如果是已登录状态，OIDC Provider 会将浏览器直接重定向到你的应用（&lt;strong&gt;业务回调地址&lt;/strong&gt;），并携带&lt;strong&gt;临时授权码&lt;/strong&gt;（一个随机字符串）。如第二、三步所示。&lt;/p&gt;
+
+&lt;h3 id=&quot;token-接口&quot;&gt;token 接口&lt;/h3&gt;
+
+&lt;p&gt;每次调用这个接口，就像是对 OIDC Provider 说：这是我的授权码，给我换一个 access_token。如第四、五步所示。&lt;/p&gt;
+
+&lt;h3 id=&quot;用户信息接口&quot;&gt;用户信息接口&lt;/h3&gt;
+
+&lt;p&gt;每次调用这个接口，就像是对 OIDC Provider 说：这是我的 access_token，给我换一下用户信息。到此用户信息获取完毕。&lt;/p&gt;
+
+&lt;p&gt;为什么这么麻烦？直接返回用户信息不行吗？&lt;/p&gt;
+
+&lt;p&gt;因为安全，关于 OIDC 协议的安全性，又可以展开很大的篇幅，现在简单解释一下：code 的有效期一般只有十分钟，而且一次使用过后作废。OIDC 协议授权码模式中，只有 code 的传输经过了用户的浏览器，一旦泄露，攻击者很难抢在应用服务器拿这个 code 换 token 之前，先去 OP 使用这个 code 换掉 token。而如果 access_token 的传输经过浏览器，一般 access_token 的有效期都是一个小时左右，攻击者可以利用 access_token 获取用户的信息，而应用服务器和 OP 也很难察觉到，更不必说去手动撤退了。如果直接传输用户信息，那安全性就更低了。一句话：避免让攻击者偷走用户信息。&lt;/p&gt;
+
+&lt;h2 id=&quot;编写第一个应用&quot;&gt;编写第一个应用&lt;/h2&gt;
+
+&lt;p&gt;我们创建一个 app1.html 文件来编写第一个应用 demo，在 demo/app 目录下创建：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;app1.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;并写入以下内容：&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width=device-width, initial-scale=1.0&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;第一个应用&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://localhost:3000/auth?client_id=1&amp;amp;redirect_uri=http://localhost:8080/app1.html&amp;amp;scope=openid profile&amp;amp;response_type=code&amp;amp;state=455356436&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;登录&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;编写第二个应用&quot;&gt;编写第二个应用&lt;/h2&gt;
+
+&lt;p&gt;我们创建一个 app2.html 文件来编写第二个应用 demo，注意 redirect_uri 的变化，在 demo/app 目录下创建：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;app2.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;并写入以下内容：&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width=device-width, initial-scale=1.0&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;第二个应用&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://localhost:3000/auth?client_id=1&amp;amp;redirect_uri=http://localhost:8080/app2.html&amp;amp;scope=openid profile&amp;amp;response_type=code&amp;amp;state=455356436&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;登录&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;向-oidc-provider-发起登录请求&quot;&gt;向 OIDC Provider 发起登录请求&lt;/h2&gt;
+
+&lt;p&gt;现在我们启动一个 web 服务器，推荐使用 http-server&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; http-server &lt;span class=&quot;c&quot;&gt;# 安装 http-server&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;demo/app
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;http-server &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;我们访问第一个应用：&lt;a href=&quot;http://localhost:8080/app1.html&quot;&gt;http://localhost:8080/app1.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%202.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%202.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然后点击「登录」，也就是访问 OIDC Provider 的&lt;strong&gt;授权接口&lt;/strong&gt;。然后我们来到了 OIDC Provider 交互环节，OIDC Provider 发现用户没有登录，要求用户先登录。node-oidc-provider demo 会放通任意用户名 + 密码，但是你在真正实施单点登录时，你必须使用你的&lt;strong&gt;用户目录&lt;/strong&gt;即&lt;strong&gt;中央数据表中的用户数据&lt;/strong&gt;来鉴权用户，相关的代码可能会涉及到&lt;a href=&quot;https://github.com/panva/node-oidc-provider/tree/master/docs#adapter&quot;&gt;数据库适配器&lt;/a&gt;，自定义&lt;a href=&quot;https://github.com/panva/node-oidc-provider/tree/master/docs#accounts&quot;&gt;用户查询逻辑&lt;/a&gt;，这些在 node-oidc-provider 包的相关配置中需要自行插入。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%203.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%203.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;现在点击「登录」，转到确权页面，这个页面会显示你的应用需要获取那些用户权限，本例中请求用户授权获取他的基础资料。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%204.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%204.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击「继续」，完成在 OP 的登录，之后 OP 会将浏览器重定向到预先设置的业务回调地址，所以我们又回到了 app1.html。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%205.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%205.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在 url query 中有一个 code 参数，这个参数就是临时授权码。code 最终对应一条用户信息，接下来看我们如何获取用户信息。&lt;/p&gt;
+
+&lt;h2 id=&quot;web-app-从-oidc-provider-获取用户信息&quot;&gt;Web App 从 OIDC Provider 获取用户信息&lt;/h2&gt;
+
+&lt;p&gt;事实上，code 可以直接发送到后端，然后在后端使用 code 换取 access_token。这里我使用 postman 演示如何通过 code 换取 access_token。&lt;/p&gt;
+
+&lt;p&gt;你可以使用 curl 命令来发送 HTTP 请求：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;--location&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; POST &lt;span class=&quot;s1&quot;&gt;'http://localhost:3000/token'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Content-Type: application/x-www-form-urlencoded'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-urlencode&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'client_id=1'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-urlencode&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'client_secret=1'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-urlencode&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'redirect_uri=http://localhost:8080/app2.html'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-urlencode&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'code=QL10pBYMjVSw5B3Ir3_KdmgVPCLFOMfQHOcclKd2tj1'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-urlencode&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'grant_type=authorization_code'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%206.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%206.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;获取到 access_token 之后，我们可以使用 access_token 访问 OP 上面的资源，主要用于获取用户信息，即&lt;strong&gt;你的应用&lt;/strong&gt;从你的&lt;strong&gt;用户目录&lt;/strong&gt;中读取一条用户信息。&lt;/p&gt;
+
+&lt;p&gt;你可以使用 curl 来发送 HTTP 请求：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;--location&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; POST &lt;span class=&quot;s1&quot;&gt;'http://localhost:3000/me'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Content-Type: application/x-www-form-urlencoded'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-urlencode&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'access_token=I6WB2g0Rq9G307pPVTDhN5vKuyC9eWjrGjxsO2j6jm-'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%207.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%207.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;到此，App 1 的登录已经完成，接下来，让我们看进入 App 2 是怎样的情形。&lt;/p&gt;
+
+&lt;h2 id=&quot;登录第二个-web-app&quot;&gt;登录第二个 Web App&lt;/h2&gt;
+
+&lt;p&gt;我们打开第二个应用，&lt;a href=&quot;http://localhost:8080/app2.html&quot;&gt;http://localhost:8080/app2.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;然后点击「登录」。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%208.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%208.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;用户已经在 App 1 登录时与 OP 建立了会话，User ←→ OP 已经是登录状态，所以 OP 检查到之后，没有再让用户输入登录凭证，而是直接将用户重定向回业务地址，并返回了授权码 code。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%209.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%209.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;同样，App 2 使用 code 换 access_token&lt;/p&gt;
+
+&lt;p&gt;curl 命令代码：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;--location&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; POST &lt;span class=&quot;s1&quot;&gt;'http://localhost:3000/token'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Content-Type: application/x-www-form-urlencoded'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-urlencode&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'client_id=1'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-urlencode&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'client_secret=1'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-urlencode&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'redirect_uri=http://localhost:8080/app2.html'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-urlencode&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'code=QL10pBYMjVSw5B3Ir3_KdmgVPCLFOMfQHOcclKd2tj1'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-urlencode&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'grant_type=authorization_code'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2010.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2010.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;再使用 access_token 换用户信息，可以看到，是同一个用户。&lt;/p&gt;
+
+&lt;p&gt;curl 命令代码：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;--location&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; POST &lt;span class=&quot;s1&quot;&gt;'http://localhost:3000/me'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Content-Type: application/x-www-form-urlencoded'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-urlencode&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'access_token=I6WB2g0Rq9G307pPVTDhN5vKuyC9eWjrGjxsO2j6jm-'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2011.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2011.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;到此，我们实现了 App 1 与 App 2 之间的账号打通与单点登录。&lt;/p&gt;
+
+&lt;h2 id=&quot;登录态管理&quot;&gt;登录态管理&lt;/h2&gt;
+
+&lt;p&gt;到目前为止，看起来还不错，我们已经实现了两个应用之间账号的统一，而且在 App 1 中登录时输入一次密码，在 App 2 中登录，无需再次让用户输入密码进行登录，可以直接返回授权码到业务地址然后完成后续的用户信息获取。&lt;/p&gt;
+
+&lt;p&gt;现在我们来考虑一下退出问题&lt;/p&gt;
+
+&lt;h3 id=&quot;只退出-app-1-而不退出-app-2&quot;&gt;只退出 App 1 而不退出 App 2&lt;/h3&gt;
+
+&lt;p&gt;这个问题实质上是&lt;strong&gt;登录态的管理问题&lt;/strong&gt;。我们应该管理&lt;strong&gt;三个会话&lt;/strong&gt;：User ←→ App 1、User ←→ App 2、User ←→ OP。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2012.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2012.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;当 OP 给 App 1 返回 code 时，App 1 的后端在完成用户信息获取后，应该与浏览器建立会话，也就是说 App 1 与用户需要自己保持一套自己的登录状态，方式上可以通过 App 1 自签的 JWT Token 或 App 1 的 cookie-session。对于 App 2，也是同样的做法。&lt;/p&gt;
+
+&lt;p&gt;当用户在 App 1 退出时，App 1 只需清理掉自己的登录状态就完成了退出，而用户访问 App 2 时，仍然和 App 2 存在会话，因此用户在 App 2 是登录状态。&lt;/p&gt;
+
+&lt;h3 id=&quot;同时退出-app-1-和-app-2&quot;&gt;同时退出 App 1 和 App 2&lt;/h3&gt;
+
+&lt;p&gt;刚才说到&lt;strong&gt;单点登录&lt;/strong&gt;，与之相对的就是&lt;strong&gt;单点登出&lt;/strong&gt;，即用户只需退出一次，就能在所有的应用中退出，变成未登录状态。&lt;/p&gt;
+
+&lt;p&gt;最先想到的是这种方式，我们在 OIDC Provider 进行登出。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2013.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2013.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;之后我们的状态是这样的：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2014.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2014.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;好吧，其实没有任何效果，因为用户和 App 1 之间的会话依然保持，用户和 App 2 之间的会话同样依然保持，所以用户在 App 1 和 App 2 的状态仍然是登录态。&lt;/p&gt;
+
+&lt;p&gt;所以，有没有什么办法在用户从 OIDC Provider 登出之后，App 1 和 App 2 的会话也被切断呢？我们可以通过 OIDC Session Mangement 来解决这个问题。&lt;/p&gt;
+
+&lt;p&gt;简单来说，App 1 的前端需要轮询 OP，不断询问 OP：用户在你那还登录着吗？如果答案是否定的，App 1 主动将用户踢下线，并将会话释放掉，让用户重新登录，App 2 也是同样的操作。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2015.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2015.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;当用户在 OP 登出后，App 1、App 2 轮询 OP 时会收到用户已经从 OP 登出的响应，接下来，应该释放掉自己的会话状态，并将用户踢出系统，重新登录。&lt;/p&gt;
+
+&lt;p&gt;刚刚我们提到 OIDC Session Management，这部分的核心就是两个 iframe，一个是我们自己应用中写的（以下叫做 RP iframe），用于不断发送 PostMessage 给 OP iframe，OP iframe 负责查询用户登录状态，并返回给 RP iframe。&lt;/p&gt;
+
+&lt;p&gt;让我们把这部分的代码加上：&lt;/p&gt;
+
+&lt;p&gt;首先打开 node-oidc-provider 的 sessionManangement 功能，编辑 &lt;code class=&quot;highlighter-rouge&quot;&gt;./support/configuration.js&lt;/code&gt; 文件，在 42 行附近，进行以下修改：&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;features&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;sessionManagement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;keepHeaders&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;然后和 app1.html、app2.html 平级新建一个 rp.html 文件，并加入以下内容：&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'unchanged'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 这里的 '1' 是我们的 client_id，之前在 node-oidc-provider 中填写的&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'1'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;' '&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;searchParams&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'session_state'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'mes: '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;check_session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;targetOrigin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://localhost:3000'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;win&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'op'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;contentWindow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;win&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;postMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;targetOrigin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setTimer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;check_session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;timerID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setInterval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'check_session()'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'message'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;receiveMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;setTimer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;receiveMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;targetOrigin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://localhost:3000'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;origin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;targetOrigin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;stat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'changed'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'should log out now!!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/script&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在 app1.html 和 app2.html 中加入两个 iframe 标签：&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;rp.html&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://localhost:3000/session/check&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;op&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;使用 Ctrl + C 关闭我们的 node-oidc-provider 和 http-server，然后再次启动。访问 app1.html，打开浏览器控制台，会得到以下信息，这意味着，用户当前处于未登录状态，应该进行 App 自身会话的销毁等操作&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2016.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2016.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然后我们点击「登录」，在 OP 完成登录之后，回调到 app1.html，此时用户变成了登录状态，注意地址栏多了一个参数：session_state，这个参数就是我们上文用于在代码中向 OP iframe 轮询时需要携带的参数。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2017.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2017.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;现在我们试一试单点登出，对于 node-oidc-provider 包提供的 OIDC Provider，只需要前端访问 &lt;a href=&quot;http://localhost:3000/session/end&quot;&gt;localhost:3000/session/end&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2018.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2018.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;收到来自 OP 的登出成功信息&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2019.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2019.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我们转到 app1.html 看一下，此时控制台输出，用户已经登出，现在要执行会话销毁等操作了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2020.png&quot; alt=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2020.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;不想维护-app-1-与用户的登录状态app-2-与用户的登录状态&quot;&gt;不想维护 App 1 与用户的登录状态、App 2 与用户的登录状态&lt;/h3&gt;
+
+&lt;p&gt;如果不各自维护 App 1、App 2 与用户的登录状态，那么无法实现只退出 App 1 而不退出 App 2 这样的需求。所有的登录状态将会完全依赖用户与 OP 之间的登录状态，在效果上是：用户在 OP 一次登录，之后访问所有的应用，都不必再输入密码，实现单点登录；用户在 OP 登出，则在所有应用登出，实现单点登出。&lt;/p&gt;
+
+&lt;h1 id=&quot;使用-authing-解决单点登录&quot;&gt;使用 Authing 解决单点登录&lt;/h1&gt;
+
+&lt;p&gt;以上就是一个完整的单点登录系统的轮廓，我们需要维护一份全体用户目录，进行用户注册、登录；我们需要自己搭建一个 OIDC Provider，并申请一个 OIDC Client；我们需要使用 code 换 token，token 换用户信息；我们需要在自己的应用中不断轮询 OP 的登录状态。&lt;/p&gt;
+
+&lt;p&gt;读到这里，你可能会觉得实现一套完整的单点登录系统十分繁琐，不仅要对 OIDC 协议非常熟悉，还要自己架设 OIDC Provider，并且需要自行处理应用、用户、OP 之间登录状态。有没有开箱即用的登录服务呢？Authing 能够提供云上的 OP，云上的用户目录和直观的控制台，能够轻松管理所有用户、完成对 OP 的配置。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2021.png&quot; alt=&quot;dashboard&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2022.png&quot; alt=&quot;op&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Authing 对开发者十分友好，提供丰富的 SDK，进行快速集成。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://usercontents.authing.cn/how-to-implement-sso/Untitled%2023.png&quot; alt=&quot;sdk&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果你不想关心登录的细节，将 Authing 集成到你的系统必定能够大幅提升开发效率，能够将更多的精力集中到核心业务上。&lt;/p&gt;
+
+&lt;p&gt;欢迎体验：&lt;a href=&quot;https://authing.cn&quot;&gt;https://authing.cn&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;实现单点登录：&lt;a href=&quot;https://docs.authing.cn/authing/quickstart/implement-sso-with-authing&quot;&gt;https://docs.authing.cn/authing/quickstart/implement-sso-with-authing&lt;/a&gt;&lt;/p&gt;</content><author><name>叶祖伟</name></author><category term="OIDC" /><category term="SSO" /><category term="单点登录" /><summary type="html">如何通过OIDC协议实现单点登录</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200403150326.png" /></entry><entry><title type="html">Authing 移动端登录方式, 10 行代码实现 App 扫码登录</title><link href="https://authing.cn/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/" rel="alternate" type="text/html" title="Authing 移动端登录方式, 10 行代码实现 App 扫码登录" /><published>2020-03-01T00:00:00+08:00</published><updated>2020-03-01T00:00:00+08:00</updated><id>https://authing.cn/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F</id><content type="html" xml:base="https://authing.cn/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/">&lt;p&gt;Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。&lt;/p&gt;
 
 &lt;p&gt;Authing 新增了对四种移动端登录方式的支持，可以让开发者在 Web 端、移动端、小程序端同时接入 Authing:&lt;/p&gt;
 &lt;ul&gt;
@@ -358,7 +993,7 @@
 
 &lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200302112935.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;同时我们接下来会继续不断完善，让有身份认证的地方就有 Authing !&lt;/p&gt;</content><author><name>cj</name></author><category term="移动端" /><category term="社会化登录" /><summary type="html">Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200302113736.png" /></entry><entry><title type="html">#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊</title><link href="http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/" rel="alternate" type="text/html" title="#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊" /><published>2020-02-27T00:00:00+08:00</published><updated>2020-02-27T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A</id><content type="html" xml:base="http://localhost:4000/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/">&lt;p&gt;我们发起 &lt;strong&gt;# Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。&lt;/strong&gt;我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日子，本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。&lt;/p&gt;
+&lt;p&gt;同时我们接下来会继续不断完善，让有身份认证的地方就有 Authing !&lt;/p&gt;</content><author><name>cj</name></author><category term="移动端" /><category term="社会化登录" /><summary type="html">Authing 新增四种移动端登录方式：移动应用微信登录、移动应用支付宝登录、App 拉起小程序登录、App 扫码登录。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200302113736.png" /></entry><entry><title type="html">#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊</title><link href="https://authing.cn/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/" rel="alternate" type="text/html" title="#ShapeIdentity 001 期：国产 Serverless Identity 开源组件工作坊" /><published>2020-02-27T00:00:00+08:00</published><updated>2020-02-27T00:00:00+08:00</updated><id>https://authing.cn/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A</id><content type="html" xml:base="https://authing.cn/blog/%E5%9B%BD%E4%BA%A7-Serverless-Identity-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6%E5%B7%A5%E4%BD%9C%E5%9D%8A/">&lt;p&gt;我们发起 &lt;strong&gt;# Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。&lt;/strong&gt;我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日子，本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。&lt;/p&gt;
 
 &lt;p&gt;疫情肆虐，不仅对老百姓生命健康造成重大威胁，对各行各业的发展也造成重大影响。同时，开学、复工在即，疫情防控进入了关键阶段，「居家隔离、远程办公」是当下遏制疫情扩散的最佳防控措施。&lt;/p&gt;
 
@@ -446,7 +1081,7 @@ OIDC 是 OAuth 2.0 的超集，同时是 Authing 推荐的身份认证最佳实�
   &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/Xd3SR2WaB15a250RxEZWpg&quot;&gt;Authing 开发资源最全合集&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;strong&gt;重磅：Authing 将于2020 Q1 开源，欢迎&lt;/strong&gt;  &lt;a href=&quot;https://github.com/Authing/authing&quot;&gt;Star 关注&lt;/a&gt;&lt;/p&gt;</content><author><name>jackjin</name></author><category term="ShapeIdentity" /><category term="Serverless" /><category term="OIDC" /><summary type="html">我们发起 # Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日子，本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/tencent.jpeg" /></entry><entry><title type="html">Introduce Pipeline: Authing 的可扩展性达到了新高度</title><link href="http://localhost:4000/blog/Introduce-Authing-Pipeline/" rel="alternate" type="text/html" title="Introduce Pipeline: Authing 的可扩展性达到了新高度" /><published>2020-02-20T00:00:00+08:00</published><updated>2020-02-20T00:00:00+08:00</updated><id>http://localhost:4000/blog/Introduce-Authing-Pipeline</id><content type="html" xml:base="http://localhost:4000/blog/Introduce-Authing-Pipeline/">&lt;p&gt;Authing Pipeline 是一组运行在云端的用户自定义 JavaScript 代码，属于 Authing 扩展能力的重要部分，可以让开发者无限制扩展、自定义 Authing 的能力。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;重磅：Authing 将于2020 Q1 开源，欢迎&lt;/strong&gt;  &lt;a href=&quot;https://github.com/Authing/authing&quot;&gt;Star 关注&lt;/a&gt;&lt;/p&gt;</content><author><name>jackjin</name></author><category term="ShapeIdentity" /><category term="Serverless" /><category term="OIDC" /><summary type="html">我们发起 # Shape Identity 系列线上技术公开课，旨在倡议：在阻击物理世界「新冠」病毒的同时，不要忽视数字空间的安全。我们将定期邀请业界 Identity 专家一起探讨 Identity 技术的发展！主题涵盖：IDaaS/IAM、Serverless、ZeroTrust、Cloud Native 等开源技术。第一期本周六，2月29日，四年独一无二的日子，本次线上直播 Authing 联合腾讯云、Serverless Framework中文社区，与大家共同探讨：Serverless Framework 组件的开发及应用。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/tencent.jpeg" /></entry><entry><title type="html">Introduce Pipeline: Authing 的可扩展性达到了新高度</title><link href="https://authing.cn/blog/Introduce-Authing-Pipeline/" rel="alternate" type="text/html" title="Introduce Pipeline: Authing 的可扩展性达到了新高度" /><published>2020-02-20T00:00:00+08:00</published><updated>2020-02-20T00:00:00+08:00</updated><id>https://authing.cn/blog/Introduce-Authing-Pipeline</id><content type="html" xml:base="https://authing.cn/blog/Introduce-Authing-Pipeline/">&lt;p&gt;Authing Pipeline 是一组运行在云端的用户自定义 JavaScript 代码，属于 Authing 扩展能力的重要部分，可以让开发者无限制扩展、自定义 Authing 的能力。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200220202545.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -605,7 +1240,7 @@ OIDC 是 OAuth 2.0 的超集，同时是 Authing 推荐的身份认证最佳实�
   &lt;li&gt;&lt;a href=&quot;https://docs.authing.cn/authing/extensibility/pipeline/how-to-debug&quot;&gt;了解如何使用 Authing 的在线调试器调试代码 ?&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.authing.cn/authing/extensibility/pipeline/node-sdk&quot;&gt;了解如何使用 Authing Node SDK 管理自定义 Pipeline 函数?&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.authing.cn/authing/extensibility/pipeline/node-sdk&quot;&gt;非 JS 开发者，如何使用 GraphQL API 管理自定义 Pipeline 函数?&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>cj</name></author><category term="Pipeline" /><category term="扩能能力" /><summary type="html">Authing Pipeline 是一组运行在云端的用户自定义 JavaScript 代码，属于 Authing 扩展能力的重要部分，可以让开发者无限制扩展、自定义 Authing 的能力。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200220203521.png" /></entry><entry><title type="html">五分钟理解什么是 OIDC</title><link href="http://localhost:4000/blog/5-%E5%88%86%E9%92%9F%E7%90%86%E8%A7%A3%E4%BB%80%E4%B9%88%E6%98%AF-OIDC/" rel="alternate" type="text/html" title="五分钟理解什么是 OIDC" /><published>2020-02-18T00:00:00+08:00</published><updated>2020-02-18T00:00:00+08:00</updated><id>http://localhost:4000/blog/5%20%E5%88%86%E9%92%9F%E7%90%86%E8%A7%A3%E4%BB%80%E4%B9%88%E6%98%AF%20OIDC</id><content type="html" xml:base="http://localhost:4000/blog/5-%E5%88%86%E9%92%9F%E7%90%86%E8%A7%A3%E4%BB%80%E4%B9%88%E6%98%AF-OIDC/">&lt;p&gt;OIDC 的全称是 OpenID Connect，是一套基于 OAuth 2.0 的认证 + 授权协议，用于用户身份认证，将用户数据安全地暴露给第三方。&lt;/p&gt;
+&lt;/ol&gt;</content><author><name>cj</name></author><category term="Pipeline" /><category term="扩能能力" /><summary type="html">Authing Pipeline 是一组运行在云端的用户自定义 JavaScript 代码，属于 Authing 扩展能力的重要部分，可以让开发者无限制扩展、自定义 Authing 的能力。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200220203521.png" /></entry><entry><title type="html">五分钟理解什么是 OIDC</title><link href="https://authing.cn/blog/5-%E5%88%86%E9%92%9F%E7%90%86%E8%A7%A3%E4%BB%80%E4%B9%88%E6%98%AF-OIDC/" rel="alternate" type="text/html" title="五分钟理解什么是 OIDC" /><published>2020-02-18T00:00:00+08:00</published><updated>2020-02-18T00:00:00+08:00</updated><id>https://authing.cn/blog/5%20%E5%88%86%E9%92%9F%E7%90%86%E8%A7%A3%E4%BB%80%E4%B9%88%E6%98%AF%20OIDC</id><content type="html" xml:base="https://authing.cn/blog/5-%E5%88%86%E9%92%9F%E7%90%86%E8%A7%A3%E4%BB%80%E4%B9%88%E6%98%AF-OIDC/">&lt;p&gt;OIDC 的全称是 OpenID Connect，是一套基于 OAuth 2.0 的认证 + 授权协议，用于用户身份认证，将用户数据安全地暴露给第三方。&lt;/p&gt;
 
 &lt;h1 id=&quot;oidc-与-oauth-20-有何不同&quot;&gt;OIDC 与 OAuth 2.0 有何不同？&lt;/h1&gt;
 
@@ -813,7 +1448,7 @@ OIDC 协议中的四个主体
 
 &lt;p&gt;id_token 是用户的&lt;strong&gt;身份凭证&lt;/strong&gt;，access_token 是用户的&lt;strong&gt;授权凭证&lt;/strong&gt;。&lt;/p&gt;
 
-&lt;p&gt;OIDC 有三种授权模式，分别是&lt;strong&gt;授权码模式、隐式模式、混合模式&lt;/strong&gt;。授权码模式中只能获取到 code；隐式模式中只能获取到 access_token id_token；混合模式中都能够获取到。&lt;/p&gt;</content><author><name>叶祖伟</name></author><category term="OIDC" /><summary type="html">OIDC 的全称是 OpenID Connect，是一套基于 OAuth 2.0 的认证 + 授权协议，用于用户身份认证，将用户数据安全地暴露给第三方。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200218203422.png" /></entry><entry><title type="html">Geek Talk 036 实录：Serverless 的前景和机会</title><link href="http://localhost:4000/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/" rel="alternate" type="text/html" title="Geek Talk 036 实录：Serverless 的前景和机会" /><published>2020-02-17T00:00:00+08:00</published><updated>2020-02-17T00:00:00+08:00</updated><id>http://localhost:4000/blog/GeekTalk036%E5%AE%9E%E5%BD%95:Serverless%20%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A</id><content type="html" xml:base="http://localhost:4000/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">&lt;p&gt;Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。&lt;/p&gt;
+&lt;p&gt;OIDC 有三种授权模式，分别是&lt;strong&gt;授权码模式、隐式模式、混合模式&lt;/strong&gt;。授权码模式中只能获取到 code；隐式模式中只能获取到 access_token id_token；混合模式中都能够获取到。&lt;/p&gt;</content><author><name>叶祖伟</name></author><category term="OIDC" /><summary type="html">OIDC 的全称是 OpenID Connect，是一套基于 OAuth 2.0 的认证 + 授权协议，用于用户身份认证，将用户数据安全地暴露给第三方。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200218203422.png" /></entry><entry><title type="html">Geek Talk 036 实录：Serverless 的前景和机会</title><link href="https://authing.cn/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/" rel="alternate" type="text/html" title="Geek Talk 036 实录：Serverless 的前景和机会" /><published>2020-02-17T00:00:00+08:00</published><updated>2020-02-17T00:00:00+08:00</updated><id>https://authing.cn/blog/GeekTalk036%E5%AE%9E%E5%BD%95:Serverless%20%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A</id><content type="html" xml:base="https://authing.cn/blog/GeekTalk036%E5%AE%9E%E5%BD%95-Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">&lt;p&gt;Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。&lt;/p&gt;
 
 &lt;p&gt;大家好，我谢扬。很高兴能够有这个机会更加交流关于 Serverless 的技术，我们目前创业做的事情跟 Serverless 也是非常强相关的，目前聚焦研发一款 IDaaS 身份即服务产品 Authing。我之前在字节跳动负责一款日活过亿的 Serverless 产品 LarkCloud。我个人对 Serverless 保持着长期的关注，对 Serverless 行业的发展也有很多想法，今天也跟大家分享一下。&lt;/p&gt;
 
@@ -1151,7 +1786,7 @@ OIDC 协议中的四个主体
 
 &lt;p&gt;&lt;strong&gt;谢扬：&lt;/strong&gt;对。这可能只能用一些微服务的这种的措施来做服务治理，你写的每一个函数都需要注册到一个中央的函数服务中心里，然后用各种勾子来 track 他的访问轨迹，最后由一个可视化的界面来展示调用记录。第二个问题我还是推荐 Serverless.com，大家用起来会比较友好。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217162159.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>ivy</name></author><category term="serverless" /><summary type="html">Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200217155500.png" /></entry><entry><title type="html">案例 | 在 Odoo 中集成 Authing 完成单点登录</title><link href="http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" rel="alternate" type="text/html" title="案例 | 在 Odoo 中集成 Authing 完成单点登录" /><published>2020-02-11T00:00:00+08:00</published><updated>2020-02-11T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95</id><content type="html" xml:base="http://localhost:4000/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">&lt;p&gt;Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200217162159.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>ivy</name></author><category term="serverless" /><summary type="html">Serverless 正在改变未来软件开发的模式和流程，对于大多数应用而言，借助 Serverless 服务，开发者可以将绝大多数精力投入在业务逻辑的开发整合上，大大缩短开发周期，降低运维成本。本次主题将与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200217155500.png" /></entry><entry><title type="html">案例 | 在 Odoo 中集成 Authing 完成单点登录</title><link href="https://authing.cn/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" rel="alternate" type="text/html" title="案例 | 在 Odoo 中集成 Authing 完成单点登录" /><published>2020-02-11T00:00:00+08:00</published><updated>2020-02-11T00:00:00+08:00</updated><id>https://authing.cn/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95</id><content type="html" xml:base="https://authing.cn/blog/%E5%9C%A8Odoo%E4%B8%AD%E9%9B%86%E6%88%90Authing%E5%AE%8C%E6%88%90%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">&lt;p&gt;Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。&lt;/p&gt;
 
 &lt;p&gt;Authing 在云上提供适用于 Web、iOS 和 Android 的通用身份认证和授权平台，可以帮助开发者和企业使用全新的方式、最简单的手段解决复杂的用户身份问题。&lt;/p&gt;
 
@@ -1252,7 +1887,7 @@ OIDC 协议中的四个主体
 
 &lt;p&gt;访问 &lt;您的 Odoo=&quot;&quot; 网址=&quot;&quot;&gt;/web/login 并点击「**使用 Authing 登录**」即可体验登录。&lt;/您的&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/odooxauthing/odooxauthing.webp&quot; alt=&quot;assets/images/odooxauthing/odooxauthing.webp&quot; /&gt;&lt;/p&gt;</content><author><name>ivy</name></author><category term="odoo" /><summary type="html">Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200217171108.png" /></entry><entry><title type="html">Geek Talk 036：Serverless 的前景和机会</title><link href="http://localhost:4000/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/" rel="alternate" type="text/html" title="Geek Talk 036：Serverless 的前景和机会" /><published>2020-02-10T00:00:00+08:00</published><updated>2020-02-10T00:00:00+08:00</updated><id>http://localhost:4000/blog/GeekTalk036Serverless%20%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A</id><content type="html" xml:base="http://localhost:4000/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">&lt;p&gt;本次与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/assets/images/odooxauthing/odooxauthing.webp&quot; alt=&quot;assets/images/odooxauthing/odooxauthing.webp&quot; /&gt;&lt;/p&gt;</content><author><name>ivy</name></author><category term="odoo" /><summary type="html">Odoo 是一套基于 Web 的开源商业业务应用程序。Odoo 的主要应用包括 CRM、网站构建器、电子商务、仓库管理、项目管理、计费和会计、销售点、人力资源、市场营销和制造等。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200217171108.png" /></entry><entry><title type="html">Geek Talk 036：Serverless 的前景和机会</title><link href="https://authing.cn/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/" rel="alternate" type="text/html" title="Geek Talk 036：Serverless 的前景和机会" /><published>2020-02-10T00:00:00+08:00</published><updated>2020-02-10T00:00:00+08:00</updated><id>https://authing.cn/blog/GeekTalk036Serverless%20%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A</id><content type="html" xml:base="https://authing.cn/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/">&lt;p&gt;本次与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。&lt;/p&gt;
 
 &lt;h2 id=&quot;主题serverless-的前景和机会&quot;&gt;主题：Serverless 的前景和机会&lt;/h2&gt;
 
@@ -1288,727 +1923,4 @@ OIDC 协议中的四个主体
 
 &lt;p&gt;目前已经进行超过 30 期，每一位嘉宾都很精彩。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200211202415.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>ivy</name></author><category term="serverless" /><summary type="html">本次与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200211201759.png" /></entry><entry><title type="html">RBAC | 组织机构管理最佳实践</title><link href="http://localhost:4000/blog/rbac/" rel="alternate" type="text/html" title="RBAC | 组织机构管理最佳实践" /><published>2020-02-05T00:00:00+08:00</published><updated>2020-02-05T00:00:00+08:00</updated><id>http://localhost:4000/blog/rbac</id><content type="html" xml:base="http://localhost:4000/blog/rbac/">&lt;p&gt;在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。&lt;/p&gt;
-
-&lt;p&gt;借助 Authing，可以快速&lt;a href=&quot;https://mp.weixin.qq.com/s/zRiymhIjTqfUlymjkGfEsA&quot;&gt;实现基于角色的访问控制（RBAC）&lt;/a&gt;。简单来说，RBAC 指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。&lt;/p&gt;
-
-&lt;p&gt;而在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会设想一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;h2 id=&quot;一非凡科技有限公司背景介绍&quot;&gt;一、非凡科技有限公司背景介绍&lt;/h2&gt;
-
-&lt;p&gt;该公司约 300 名员工，其公司架构大致如下：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;一级部门有产品部、研发部、运营部、综合管理部&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;一级部门下面又有二级部门，如产品部中包含产品经理和设计等。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200205182710.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;这是一个典型的树状数据结构，有且仅有一个根节点，以及多个分层的节点。一般而言，根节点就是一家公司、一个组织，其他的每个节点都对应一个部门。&lt;/p&gt;
-
-&lt;p&gt;‌&lt;/p&gt;
-
-&lt;p&gt;这里有一点需要注意：在 Authing 中，这样的节点对应的是一个 Group，比如「非凡科技有限公司」是一个 Group，「产品部」也是一个 Group。我们要做的，是要把这些 Group 放到他在树上所属的位置。&lt;/p&gt;
-
-&lt;p&gt;一个 Group 可以拥有多个角色（Role），一个角色包含一个或多个权限（Permission）；而一个 Group 由若干用户（User）组成，某个 Group 中的用户会继承该 Group 下的所有角色，从而具备相关权限。&lt;/p&gt;
-
-&lt;p&gt;了解如何管理  Group 中的 User、如何管理 Group 中的 Role、如何配置 Role 的 Permission，请见文档：&lt;a href=&quot;https://docs.authing.cn/authing/sdk/sdk-for-node/rbac&quot;&gt;角色权限管理&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;了解如何查询单个用户的 Group, Role, Permission 列表，请见文档：&lt;a href=&quot;https://docs.authing.cn/authing/sdk/sdk-for-node/query-permissions&quot;&gt;查询用户权限&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;如何使用 Authing 完成组织机构管理&lt;/p&gt;
-
-&lt;h3 id=&quot;1梳理组织机构节点&quot;&gt;1、梳理组织机构节点&lt;/h3&gt;
-
-&lt;p&gt;首先，我们需要列举出该组织结构拥有的所有节点：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;非凡科技有限公司&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;产品部&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;研发部&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;运营部&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;综合管理部&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;产品经理&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;设计&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;开发&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;测试&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;运维&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;用户运营&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;渠道运营&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;HR&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;财务&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;行政&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;这些节点在 Authing 中都是一个 Group，所以需要先创建这些 Group：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const 非凡科技有限公司 = await createGroup(&quot;非凡科技有限公司&quot;)
-const 产品部 = await createGroup('产品部')
-const 产品经理 = await createGroup('产品经理')
-const 设计 = await createGroup('设计')
-const 研发部 = await createGroup('研发部')
-const 开发 = await createGroup('开发')
-const 测试 = await createGroup('测试')
-const 运维 = await createGroup('运维')
-const 运营部 = await createGroup('运营部')
-const 用户运营 = await createGroup('用户运营')
-const 渠道运营 = await createGroup('渠道运营')
-const 综合管理部 = await createGroup('综合管理部')
-const HR = await createGroup('HR')
-const 财务 = await createGroup('财务')
-const 行政 = await createGroup('行政')
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;‌&lt;/p&gt;
-
-&lt;h3 id=&quot;2创建组织机构&quot;&gt;2、创建组织机构&lt;/h3&gt;
-
-&lt;p&gt;接着创建组织机构（一组树状的 Group），这需要指定根节点对应的 Group:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let org = await authing.org.createOrg({
- rootGroupId: 非凡科技有限公司._id
-})
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;3加入产品部及其子部门节点&quot;&gt;3、加入产品部及其子部门节点&lt;/h3&gt;
-
-&lt;p&gt;‌&lt;/p&gt;
-
-&lt;p&gt;接着插入产品部的各级节点：&lt;/p&gt;
-
-&lt;p&gt;‌&lt;/p&gt;
-
-&lt;p&gt;这里需要指定以下参数：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;组织机构 ID&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;该节点对应的 Group ID&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;该节点的父节点的 Group ID&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;如加入产品部节点时，groupId 为 Group&lt;产品部&gt; 的 ID，parentGroupId 为 Group&lt;非凡科技有限公司&gt; 的 ID。&lt;/非凡科技有限公司&gt;&lt;/产品部&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;await authing.org.addNode({
- orgId: org._id,
- groupId: 产品部._id,
- parentGroupId: 非凡科技有限公司._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 产品经理._id,
- parentGroupId: 产品部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 设计._id,
- parentGroupId: 产品部._id
-})
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;4以此类推加入所有节点&quot;&gt;4、以此类推，加入所有节点&lt;/h3&gt;
-
-&lt;p&gt;研发部：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 添加研发部
-await authing.org.addNode({
- orgId: org._id,
- groupId: 研发部._id,
- parentGroupId: 非凡科技有限公司._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 开发._id,
- parentGroupId: 研发部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 测试._id,
- parentGroupId: 研发部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 运维._id,
- parentGroupId: 研发部._id
-})
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;运营部：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;await authing.org.addNode({
- orgId: org._id,
- groupId: 运营部._id,
- parentGroupId: 非凡科技有限公司._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 用户运营._id,
- parentGroupId: 运营部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 渠道运营._id,
- parentGroupId: 运营部._id
-})
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;‌&lt;/p&gt;
-
-&lt;p&gt;综合管理部：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 添加综合管理部
-await authing.org.addNode({
- orgId: org._id,
- groupId: 综合管理部._id,
- parentGroupId: 非凡科技有限公司._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: HR._id,
- parentGroupId: 综合管理部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 财务._id,
- parentGroupId: 综合管理部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 行政._id,
- parentGroupId: 综合管理部._id
-})
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;5查看最新组织机构结构&quot;&gt;5、查看最新组织机构结构&lt;/h3&gt;
-
-&lt;p&gt;到现在，我们的非凡科技有限公司组织机构见建模完成了，是时候获取其最新的树状结构了：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const { tree } = await authing.org.findById(org._id)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;​               &lt;img src=&quot;https://internal-api-space-hl.feishu.cn/space/api/file/out/zSOvcI4ejux1n1410JnoDNfAHpsLAUIVoA9J04p9ssf7lQ2DlO/&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;二如何向组织机构中添加用户和配置权限&quot;&gt;二、如何向组织机构中添加用户和配置权限&lt;/h2&gt;
-
-&lt;p&gt;前面说过，Authing 中一个组织结构节点对应一个  Group，对此我们提供了完整的 SDK。&lt;/p&gt;
-
-&lt;h3 id=&quot;1为组织机构节点配置权限&quot;&gt;1、为组织机构节点配置权限&lt;/h3&gt;
-
-&lt;p&gt;相关 SDK 见：&lt;a href=&quot;https://docs.authing.cn/authing/sdk/sdk-for-node/rbac&quot;&gt;角色权限管理&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;非凡科技有限公司的所有员工，都具备开具发票、使用公司邮箱的权限。与此对应，在此我们创建两个角色：Invoice Submitter 和 Corp Email User。&lt;/p&gt;
-
-&lt;p&gt;‌&lt;/p&gt;
-
-&lt;p&gt;其中 Invoice Submitter 具备以下权限：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;invoice:login&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;invoice:create&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;invoice:query&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;invoice:list&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;invoice:delete&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Corp Email User 具备以下权限：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;corp-email:login&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;corp-email:send&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;corp-email:receive&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;corp-email:list&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;corp-email:detail&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;这可以通过以下代码完成：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const InvoiceSubmitter = await createRole('Invoice Submitter')
-let permissions = await createPermissionBatch(['invoice:login', 'invoice:create', 'invoice:query', 'invoice:list', 'invoice:delete'])
-await authing.authz.addPermissionToRoleBatch({
- roleId: InvoiceSubmitter._id,
- permissionIdList: permissions.map(x =&amp;gt; x._id)
-})
-const CorpEmailUser = await createRole('Corp Email Use')
-permissions = await createPermissionBatch(['corp-email:login', 'corp-email:send', 'corp-email:receive', 'corp-email:list', 'corp-email:detail'])
-await authing.authz.addPermissionToRoleBatch({
- roleId: CorpEmailUser._id,
- permissionIdList: permissions.map(x =&amp;gt; x._id)
-})
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;接着让 Group 非凡科技有限公司具备 Invoice Submitter 和 Corp Email User 两个角色：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;await authing.authz.addRoleToGroup({
- roleId: InvoiceSubmitter._id,
- groupId: 非凡科技有限公司._id
-})
-await authing.authz.addRoleToGroup({
- roleId: InvoiceSubmitter._id,
- groupId: 非凡科技有限公司._id
-})
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;现在，非凡科技有限公司这个节点将会具备  Invoice Submitter 和 Corp Email User 两个角色&lt;/p&gt;
-
-&lt;h3 id=&quot;2向组织机构节点添加用户&quot;&gt;2、向组织机构节点添加用户&lt;/h3&gt;
-
-&lt;p&gt;相关 API 见：&lt;a href=&quot;https://docs.authing.cn/authing/sdk/sdk-for-node/rbac&quot;&gt;角色权限管理&lt;/a&gt;。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;某个 Group 内的用户会继承该 Group 内所有角色的权限（如果有重叠，将会取并集）。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;下面我们往用户池中注册新用户，然后将其加入非凡科技有限公司 Group 中：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const user = await createUser()
-await authing.authz.addUserToGroup({
- groupId: 非凡科技有限公司._id,
- userId: user._id
-})
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;3查询用户具备的权限&quot;&gt;3、查询用户具备的权限&lt;/h3&gt;
-
-&lt;p&gt;相关 API  见：&lt;a href=&quot;https://docs.authing.cn/authing/sdk/sdk-for-node/query-permissions&quot;&gt;查询用户权限&lt;/a&gt;。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const { rawList: permissionList } = await authing.userPermissionList(user._id)‌
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;permissionList 如下：可见，此用户已经继承了 Invoice Submitter 和 Corp Email User 两个角色的所有权限：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[
-  'invoice:login',
-  'invoice:create',
-  'invoice:query',
-  'invoice:list',
-  'invoice:delete',
-  'corp-email:login',
-  'corp-email:send',
-  'corp-email:receive',
-  'corp-email:list',
-  'corp-email:detail',
- ]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;开发者拿到用户权限列表之后，可以在业务代码层判断用户是否具备某一特定权限，如：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if &quot;corp-email:login&quot; not in user.permissionList:
-  return &quot;Permission Denied&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;4使用-rbac-的优势&quot;&gt;4、&lt;strong&gt;使用 RBAC 的优势&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;系统性、可重复性的权限指派&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;更方便的用户权限审计，快速定位问题&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;快速地添加、修改角色，甚至可以调用 API 实现&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;减少授予用户权限时发生错误的可能性&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;引入第三方用户/新用户/未登录用户时，赋予他们预先配置好的角色，比如 guest 分组&lt;/p&gt;
-
-    &lt;p&gt;更多关于 RBAC 的介绍请参考&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzU1OTk1NjU4MA==&amp;amp;mid=2247484085&amp;amp;idx=1&amp;amp;sn=c59e44be19951c8f08725e8e25985b3f&amp;amp;scene=21#wechat_redirect&quot;&gt;实现基于角色的访问控制（RBAC）&lt;/a&gt;。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;三总结&quot;&gt;三、总结&lt;/h2&gt;
-
-&lt;p&gt;本文我们以「非凡科技有限公司」为例，介绍了如何将一棵组织机构树转换成一组嵌套、有层次的 Group。通过 Authing 提供的分组角色权限管理 API，可以为 Group 配置角色、指派成员，使得该 Group 中的用户继承所需的权限，从而完成组织机构建模与权限控制。&lt;/p&gt;
-
-&lt;h3 id=&quot;关于-authing&quot;&gt;关于 Authing&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200205182918.png&quot; alt=&quot;&quot; /&gt;Authing 是中国领先的 IDaaS 服务提供商，对标美国独角兽 Auth0。创始团队来自字节跳动、百度、IBM、阿里云、滴滴出行等互联网企业。Authing 提供开发者友好、易拓展的身份认证和授权平台，赋能企业在云端管理身份，主要功能包括：单点登录、用户分析、扫码登录、多因素认证、行为审计、风险控制、跨平台设备管理、IoT 身份认证等；兼容国际各类标准协议：OAuth2.0、OIDC、SAML、AD/LDAP、WS-Fed、JWT 等。 支持云交付和私有化部署方式，帮助企业和开发者千倍级提升生产效率。&lt;/p&gt;
-
-&lt;p&gt;Authing 自上线以来已经服务海内外超过 3000 名企业开发者、拥有约 50 万的开发者社区和托管数百万终端用户，每月百万人次通过 Authing 平台进行认证，并已经服务数十家付费企业客户，覆盖教育、人工智能、出版社、 物联网等多个行业。&lt;/p&gt;</content><author><name>cj</name></author><category term="RBAC" /><summary type="html">在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://inrupt.com/sites/default/files/2018-10/Layer%200%20%281%29_0.png" /></entry><entry><title type="html">一份所有人都能理解的关于 Authing 的介绍</title><link href="http://localhost:4000/blog/a-intro-about-authing-to-everyone/" rel="alternate" type="text/html" title="一份所有人都能理解的关于 Authing 的介绍" /><published>2020-02-03T00:00:00+08:00</published><updated>2020-02-03T00:00:00+08:00</updated><id>http://localhost:4000/blog/a-intro-about-authing-to-everyone</id><content type="html" xml:base="http://localhost:4000/blog/a-intro-about-authing-to-everyone/">&lt;p&gt;我们加入了这场游戏，带着不同的视角。&lt;/p&gt;
-
-&lt;h2 id=&quot;authing-解决什么问题&quot;&gt;Authing 解决什么问题？&lt;/h2&gt;
-
-&lt;h3 id=&quot;解决开发者的问题&quot;&gt;解决开发者的问题&lt;/h3&gt;
-
-&lt;p&gt;在程序开发的过程中，&lt;strong&gt;用户认证和权限处理是非常复杂的一个模块&lt;/strong&gt;。涉及到很多枯燥，重复的工作，比如验证用户身份，验证权限，密码加密与校验，鉴权（这又涉及到安全）。&lt;/p&gt;
-
-&lt;p&gt;举个现实例子：比如你是一个办公自动化软件厂商，你新签了一个客户，对方是一个 5 万人的企业组织，你是否要在你的软件里新建 5 万个账户？ 你准备如何建？ 你是否在你的程序设计中考虑未来的这个场景？如果再复杂一点场景的呢（比如这 5 万人的组织，还需要和他们业务上下游供应商的软件系统打通身份认证进而数据共享，你准备通过哪一个协议，如何实现这个对接）？&lt;/p&gt;
-
-&lt;p&gt;你是否需要有人来解决这些问题？10天？ 20 天？ 30 天？还是 60 天？它的成本是多少？可能存在的风险？&lt;/p&gt;
-
-&lt;h3 id=&quot;解决企业管理者的问题&quot;&gt;解决企业管理者的问题&lt;/h3&gt;
-
-&lt;p&gt;你是一个企业管理者，你的公司可能采购了或使用了 2~3 套不同的软件供货商的产品。你的员工还要使用你供应链上下游供货厂商的软件系统，你的员工是否在这些不同的环境当中，一套密码走天下，或和他人共享账号？你是否可以知晓并管控这些风险？&lt;/p&gt;
-
-&lt;p&gt;在这些不同网络边界环境中，你如何区分，分析，那些异常的登录，异常的访问？如何确保你业务数据的安全？ 是否可以通过这些登录的数据，不同应用间访问调用的授权记录，分析、识别你业务潜在的风险与变化。&lt;/p&gt;
-
-&lt;p&gt;当你的应用需要和你供应链上下游厂家的应用共享数据，你如何实现不同组织间、不同应用间的权限对接，身份追踪？你是否需要跨组织的身份识别，进而是身份授权（经理的权限和员工的权限的授权区别），你准备如何打通，如何处理不同组织间身份的识别与鉴权，进而实现数据共享，同时保证整个业务链更流畅，更安全？&lt;/p&gt;
-
-&lt;p&gt;当你面对 2~3 个不同软件供货商也许还好，那当我们把这个数量放大到 8~10，每一个员工的入职，离职，职位变动是否都牵涉到账号的开通和权限管理，注销和变更。每一个软件系统，每一个不同员工，每一个不同身份变更，需要多少次操作？我想没有人会喜欢这个操作。&lt;/p&gt;
-
-&lt;p&gt;当你面对不止一家供货商的软件系统，面对他们各自不同的后端用户系统，鉴权管理，技术实现。你计划如何应付自如？&lt;/p&gt;
-
-&lt;h3 id=&quot;解决终端用户的问题&quot;&gt;解决终端用户的问题&lt;/h3&gt;
-
-&lt;p&gt;作为终端用户，你是否每天要面对不同的应用、 不同的系统、不同的账号？ 牢记不同的密码，不同的用户名？ 抑或一套账号密码走天下？如果走到哪里都可以让你刷脸支付，刷脸吃饭，刷脸解锁，听着是不是很美好？&lt;/p&gt;
-
-&lt;p&gt;再进一步，你是否想更多保护自己的隐私，自由掌控你在这些不同系统上的数据，全部在你手里。就如你可以在微信里登录各种各样的小程序，你可以授权你的昵称，你的性别，你的头像，为啥不能再多授权一点呢？ 比如你的收货地址，你的简历，你的相册，你昨天写的一份文档，你在大学时代所有的照片。你修改了你的头像，你的昵称，你的收货地址，你的简历，所有这些小程序里面的读到的信息都改变了。你下架了你的简历，所有小程序-招聘类的 APP 都不再有你最新的简历，你开放了你的简历，所有照片类小程序都可以读到你的简历数据（至于每一个 APP 里如何呈现，组合这些数据是程序的事情）。&lt;/p&gt;
-
-&lt;p&gt;你想买一个北京市内环内，总价 800-900 万， 3 房 2 厅，100 平以上，楼层朝南，税费在 20 万以下的不动产，你只需要把这个需求写出来，开放读取权限，所有的房产类小程序可以自动搜索到你的需求，为你匹配，把结果发送给你，然后由你决定打电话，由谁帮你完成交易。而不是你去不同的网站注册账户，上传需求，一遍又一遍重复的劳动。&lt;/p&gt;
-
-&lt;p&gt;Authing 就是为解决上面的问题而生，从身份开始，从企业端开始。我们为企业提供一套效率工具，进而触达每一个人。&lt;/p&gt;
-
-&lt;h3 id=&quot;现实的世界是什么样子&quot;&gt;现实的世界是什么样子&lt;/h3&gt;
-
-&lt;p&gt;现实世界，我们的数字身份存在于一个虚拟的网络世界，为我们守护者不同应用的数据。在这个虚拟世界我们就是一串 0 和 1 。 在 WEB 最开始的阶段，每个人架起自己的网站，通过超文本向外界展示自己，分享自己，WEB 赋予了每一个个体通过互联网触达这个世界每一个角落的可能。后来世界发生了变化，人们发现可以通过 Web 做的更多，有了 CRM 系统，OA 系统，营销系统，论坛系统，各种各样的系统，通过数字世界的 0 和1 帮我们守护这些不同系统的数据，通过一个超链接分享我们的数据。再后来，当第一部 iPhone 被创造的时候，移动互联网来到了这个世界，随后是越来越多的 App ，我们生活在这些不同的 App ,在每一个 App 里面有一个我们的身份。&lt;/p&gt;
-
-&lt;p&gt;一开始足够多的 App 占据了我们的生活，到后来一些超级 App 逐渐占有我们访问量的 80% ，再后来 App 可以支持手机短信登录，可以支持使用其他超级 App 登录，超级 App 成为其他 App 的母体（如微信，支付宝）。总算为我们缓解了一下身份的问题。可是 App 却拒绝彼此之间互动，我们很难将 App-1 里面的数据分享到 App-2（想象一下早期微信拒绝 163 的音乐转发，包括现在也是，你必须通过浏览器中转，才能在微信里用支付宝转账）。我们也不可能使用搜索引擎整合不同 App 之间大量的数据。&lt;/p&gt;
-
-&lt;p&gt;这就是现实世界：每一个组织，每一个企业都在想怎么让我们留存在他们的平台，他们的城堡，他们的护城河之内（网络世界的我们就是 0 和 1）。&lt;/p&gt;
-
-&lt;h3 id=&quot;为什么是现在&quot;&gt;为什么是现在？&lt;/h3&gt;
-
-&lt;p&gt;云计算赋予了企业更多可能， SaaS 应用也逐渐成为应用软件新的主流打开方式。 不同的 SaaS 解决不同的问题，当我们越来越多的使用云，我们也将越来越多的面对不同的 SaaS 。 所以我们看到了 Okta , Auth0 , PingIdentity , Yufuid , AWS cognito 等等这些组织，在努力解决这些问题，身份与统一协作。&lt;/p&gt;
-
-&lt;p&gt;我们也加入了这场游戏，带着不同的视角：如何更好的共享数据。&lt;/p&gt;
-
-&lt;h3 id=&quot;为什么是我们&quot;&gt;为什么是我们？&lt;/h3&gt;
-
-&lt;p&gt;也可以是任何人，只是我们还没有看到和我们拥有一样观察的同类。&lt;/p&gt;
-
-&lt;h3 id=&quot;我们将如何做&quot;&gt;我们将如何做？&lt;/h3&gt;
-
-&lt;p&gt;我们从把 Authing 打造为中国版的 Auth0 开始，为企业提供一套效率工具，接管复杂的权限设计，认证，授权对接，进而触达每一个个体，通过守护他们的数据，让你、我、让每一个人可以授权更多。&lt;/p&gt;
-
-&lt;p&gt;Auth0 已被验证过的商业模式，详情&lt;a href=&quot;https://mp.weixin.qq.com/s/xxgKGwCBMQjS6nKB2tYVgg&quot;&gt;为什么 Auth0 值十亿美金?&lt;/a&gt;，最起码在中国我们没看到这么一家企业类似，除了 Authing。更多了解：&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzU1OTk1NjU4MA==&amp;amp;mid=2247483911&amp;amp;idx=1&amp;amp;sn=fc9b87a2dab0bdab560abaf1f599524c&amp;amp;chksm=fc0e150ccb799c1ad23a2964d407ed139d64598a40dee8f6ef1e2f5e5bdc6046a3431040d580&amp;amp;token=493708779&amp;amp;lang=zh_CN#rd&quot;&gt;Auth0 和 Authing，谁是身份云的高脚杯？&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;没讲太多技术，面对的问题，我想每一个人都感同身受。&lt;/p&gt;
-
-&lt;h4 id=&quot;关于-authing&quot;&gt;关于 Authing&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200205182918.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Authing 是中国领先的 IDaaS 服务提供商，对标美国独角兽 Auth0。创始团队来自字节跳动、百度、IBM、阿里云、滴滴出行等互联网企业。Authing 提供开发者友好、易拓展的身份认证和授权平台，赋能企业在云端管理身份，主要功能包括：单点登录、用户分析、扫码登录、多因素认证、行为审计、风险控制、跨平台设备管理、IoT 身份认证等；兼容国际各类标准协议：OAuth2.0、OIDC、SAML、AD/LDAP、WS-Fed、JWT 等。 支持云交付和私有化部署方式，帮助企业和开发者千倍级提升生产效率。&lt;/p&gt;</content><author><name>duxinshuai</name></author><category term="sticky" /><summary type="html">我们加入了这场游戏，带着不同的视角。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/wtfauthing.jpg" /></entry><entry><title type="html">论文推荐：通过让公民控制自己的数据简化政府流程</title><link href="http://localhost:4000/blog/solid-flemish/" rel="alternate" type="text/html" title="论文推荐：通过让公民控制自己的数据简化政府流程" /><published>2020-01-29T00:00:00+08:00</published><updated>2020-01-29T00:00:00+08:00</updated><id>http://localhost:4000/blog/solid-flemish</id><content type="html" xml:base="http://localhost:4000/blog/solid-flemish/">&lt;p&gt;SoLiD 是一个令人兴奋的新项目，由万维网发明者 Tim Berners-Lee 爵士在麻省理工学院启动。 该项目旨在从根本上改变 Web 应用程序的中心化趋势， 它将真正地让数据所有权属于用户，并改善隐私问题。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://inrupt.com/solid&quot;&gt;SoLiD&lt;/a&gt; 是一个令人兴奋的新项目，由万维网发明者 Tim Berners-Lee 爵士在麻省理工学院启动。 该项目旨在从根本上改变 Web 应用程序的中心化趋势， 它将真正地让数据所有权属于用户，并改善隐私问题。&lt;/p&gt;
-
-&lt;p&gt;本文是 SoLiD 项目在比利时的实践经验，作者有 Web 创始人 Tim 爵士、SoLiD 的核心开发者 Euben Verborgh（编者最爱的一名 SoLiD 开发者）等。详见 [SoLid中文社区]: https://learnsolid.cn/，对「数据主权」主题感兴趣的读者可以加微信：&lt;code class=&quot;highlighter-rouge&quot;&gt;jinjian0414&lt;/code&gt; ，加入微信群讨论。&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;&lt;strong&gt;适合阅读本文的读者包括：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;对新技术和自动化敏感、能感知技术趋势的开发者；&lt;/li&gt;
-  &lt;li&gt;渴望提升国家治理水平的官员；&lt;/li&gt;
-  &lt;li&gt;医疗和保险等民生行业的从业者；&lt;/li&gt;
-  &lt;li&gt;渴望创新的企业家；&lt;/li&gt;
-  &lt;li&gt;在寻找新方向、敢于承担巨大风险的投资者；&lt;/li&gt;
-  &lt;li&gt;对新趋势好奇的早期尝鲜者；&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;本文作者&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Raf Buyle, Ruben Taelman, Katrien Mostaert, Geroen Joris2, Erik Mannens, &lt;strong&gt;Ruben Verborgh&lt;/strong&gt; and &lt;strong&gt;Tim Berners-Lee&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;涉及机构：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;imec IDLab - Ghent University, Ghent, Belgium ( raf.buyle@ugent.be )&lt;/li&gt;
-  &lt;li&gt;Informatie Vlaanderen, Flemish Government, Brussels, Belgium&lt;/li&gt;
-  &lt;li&gt;Department of Computer Science - University of Oxford, Oxford, UK&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;0-概要&quot;&gt;0. 概要&lt;/h2&gt;
-
-&lt;p&gt;政府为了提供更好的公共服务，通常会存储大量的个人信息，比如公民姓名、家庭住址、婚姻状况和职业等。同时由于政府由各种政府机构组成，因此经常存在多个数据副本。这对数据一致性、隐私性和访问控制提出了更高的要求，特别是在 GDPR 和 CCPA 等类似的法律出台后。&lt;strong&gt;为了解决这个问题，我们探索了一种基于名为「SoLiD」的技术生态，这种技术可以让公民在自己的数据存储柜中维护自己的数据。&lt;/strong&gt;我们已经将 SoLiD 用于两个影响力很大的场景，在这两个场景中，公民的数据存储在个人数据库柜中，任何组织可以在得到公民授权的情况下访问公民的数据，同时公民可以选择授权哪些数据给访问者。&lt;strong&gt;我们发现 SoLiD 可以高效重塑公民与公民之间的关系、公民与数据的关系和公民与应用的关系。我们坚信这个实验可以加速公共行政管理效率和公民控制自己数据的进程。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Keywords:&lt;/strong&gt; 个人数据、去中心化、GDPR、Solid、Linked Data。&lt;/p&gt;
-
-&lt;h2 id=&quot;1-介绍&quot;&gt;1. 介绍&lt;/h2&gt;
-
-&lt;p&gt;随着《通用数据保护条例》（GDPR）的出台，欧盟委员会提供了一个旨在&lt;strong&gt;赋予个人数据控制权的法律&lt;/strong&gt;。这个法律不一定会对数据存储商不利，如果合适的使用这项法律，GDPR 可以让以前复杂的数据数据流通变得简单。欧洲公司想要符合 GDPR 规范需要耗费巨大的成本和资源，而国际公司和跨国公司也必须尊重 GDPR 带给欧盟成员的权利。这造成了一些反作用，那些在欧洲且遵循 GDPR 的公司变得越来越不欢迎，反而那些非欧洲公司在遵循 GDPR 上有明显优势。&lt;/p&gt;
-
-&lt;p&gt;并非所有受 GDPR 约束的组织都有可疑或恶意的意图，这里面有很多组织在试图遵守法律时遇到了很大的困难。地方、地区和国家政府肯定会遇到此类问题。政府的机构层级复杂，每层都有历史性增长的数据需求和流程。因此，公民数据存在很多副本，这些副本导致的安全性和法律问题已经存在于很多部门。这些政府现在要求从技术上符合 GDPR 规范，以简化他们的数据管理成本。&lt;/p&gt;
-
-&lt;p&gt;当前，&lt;strong&gt;政府层级的数据处理面临的最大问题是：如何平滑的将数据从 A 迁移到 B&lt;/strong&gt;。这不仅在不同领域之间带来了许多技术挑战，当政府开始“数据培训”时，这也成为一个复杂的法律问题，因为涉及到的服务器过多。如：数据经过 A，B，C 和 D 站，而 B 和 C 在法律上不允许看到 A 和 D 可以看到的所有数据。因此，存在复杂的过程来精确验证 B 和 C 的访问权限是什么，然后在将数据推送到 D 时重新整合它们的结果。一个明显的例子是低排放区（LEZ），LEZ 禁止在市中心或仅在特定条件下允许车辆行驶，因为它们散发出太多有害物质。在法兰德斯，车辆与自然人进入 LEZ 时，联邦信息检查车牌号与所有人是否进入到了指定区域；最终数据经过处理，并判断是否允许车辆在城市内通行。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;「SoLiD」生态系统通过「公民自有数据存储柜（Personl Online Data，Pod）」 来解决上述问题，这样的好处是所有的公共和私人数据都存储在一个地方。&lt;/strong&gt;每个机构都不需要在 A 和 D 之间移动数据，而是请求公民授权自己能查看哪些数据。这样，数据就不必到处移动，并且可以自动评估每个数据请求是否是 GDPR 合规的。在线上和线下控制我们的个人数据是一个趋势性主题，有大量研究在此领域。这里面的关键概念是人们可以选择将个人数据存储在何处，这些数据是去中心化存储的。与 SoLiD 技术相似的还有区块链技术，它通常也被认为是个人数据管理的解决方案。SoLiD 相较区块链的优势是天生是协议化的，不需要各方沟通就可以互相交换数据，而区块链不认识彼此各方达成的协议。区块链对于在没有中央银行或中央管理机构的情况下进行支付的情况下非常有效，比特币是一个成功的案例。区块链可以跨多个节点复制数据，如果你在不需要受信任的第三方时，可以计划使用区块链。如果你是核心参与者，或者各方之间相互信任， 那么你不需要区块链。而且，区块链的不变性意味着无法删除数据，这可能是一个挑战 GDPR 第 17 条赋予的人们删除其个人数据的权利。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;在本文中，我们探讨了对个人数据进行控制的观点，并讨论了我们使用 SoLiD 实现的两个特定用例。&lt;/strong&gt;SoLiD 提供了基于开放标准和基于 Web 的生态系统。根据 Harrison，Pardo＆Cook 的说法，生态系统是一个隐喻，通常用来表达参与者、组织、物质基础设施和象征性资源之间相互依存的社会系统，而这种生态必须在技术驱动的信息密集型社会系统中创建它们。数字生态系统的一个典型例子是开放数据生态系统。&lt;strong&gt;开放数据是指政府义务的在他们的网站上免费提供其非隐私敏感和非机密数据网络。&lt;/strong&gt;开放数据重用依赖于数据提供者提供的数据和元数据，而提供者则依赖于重用者的反馈来增加数据质量。尽管开放数据生态系统中的所有参与者都相互依赖有效地发展自己的业务，公共行政部门和决策者最有可能引导这些开放的政府生态系统。Zuiderwijk，Janssen 和 Davis指出开放数据生态系统的挑战是相关的&lt;strong&gt;“政策，许可，技术，融资，组织，文化和法律框架，以及 ICT 基础设施”&lt;/strong&gt; 。开放数据将“单向街道”重新连接为“双向通信”的生态系统，可能与使公民控制其个人数据的挑战同样困难。通过将 SoLiD 的方法应用于两种具有高影响力的场景，Flemish 政府的目标是建立能让公民控制自己数据的能力。&lt;/p&gt;
-
-&lt;p&gt;本文的结构如下：在下一节中，我们将介绍我们要解决的挑战。之后，我们在章节 3 中介绍有关 SoLiD 的基础知识；在第 4 节中，我们讨论了使用 SoLiD 解决挑战的方法， 然后在第 5 节中讨论我们的实现。最后，我们得出结论并在第 6 节中介绍我们的经验教训。&lt;/p&gt;
-
-&lt;h2 id=&quot;2-挑战&quot;&gt;&lt;strong&gt;2. 挑战&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;比利时北部联邦国家和地方政府旨在增强公民的能力，使其可以在公共服务、银行、健康保险和电信提供商等不同环境下在线重用其个人信息。政府通常是个人数据（例如住所、医疗信息等）的托管方，这些信息存储公共行政部门的各种信息系统这种。Flanders 的政府管理部门之间允许共享和重用数据，这样减轻了公民的管理行政负担，是欧洲实施“仅一次原则”的体现 。但是实际上，公共行政部门正在努力控制公民的数据。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;第一个挑战是政府管理部门努力保留个人数据，&lt;/strong&gt;例如：最新的电子邮件地址、电话号码或银行帐号。由于一些公民很少与政府联系，个人信息在各种信息系统中通常已经过时。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;第二个挑战涉及允许公民在不同的环境中重用其数据&lt;/strong&gt;，例如在申请新工作时授权自己的文凭。GDPR 法规 2016/679 声明：&lt;/p&gt;
-
-&lt;p&gt;“为了确保自由给予同意，不得提供同意在特定情况下处理个人数据的有效法律依据 是数据主体和控制器之间的明显失衡，尤其是在 控权人是公共机构，因此不太可能自由同意在特定情况下的所有情况下都应考虑在内。”（欧洲委员会， 2016年，第43条）。&lt;/p&gt;
-
-&lt;p&gt;换句话说，政府与公民之间的关系通常被认为是不平衡的关系，因为政府拥有比公民更多的权力。因此，获得公民的同意后重用政府信息系统中管理的权威数据，不能认为是自由提供的。欧洲政府部门之间共享数据不是基于给定的同意，而是具有特定的合法依据。&lt;/p&gt;
-
-&lt;p&gt;因此，&lt;strong&gt;我们主要研究的问题是：政府程序如何实现通过使公民控制其个人数据来简化 GDPR 合规成本？&lt;/strong&gt;这个研究问题有两个观点：&lt;strong&gt;一方面，公民如何与政府部门共享数据？另一方面，公民如何重用存储在政府信息中的数据（这些数据的用途各不一样）？&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;该项目评估了 SoLiD 的去中心化原则来解决这些障碍。SoLiD 是一个生态系统，可让个人将数据存储在他们的Data Pod（数据柜）。这使用户可以真正控制其数据，因为他们可以选择在何处存储他们的数据以及谁可以访问。&lt;strong&gt;整套技术基于语义网技术（Linked Data）和去中心化，对于想让用户重新控制数据的政府部门和私人组织有很大价值。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;3-solid&quot;&gt;&lt;strong&gt;3. SoLiD&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;SoLiD 是一个基于 Web 的生态系统，它通过提供&lt;strong&gt;个人数据柜将数据与应用程序分开&lt;/strong&gt;。个人数据柜让他们可以存储任意数据，同时可以授权哪些人、哪些应用有哪些权限读写他们的个人数据柜。&lt;/p&gt;
-
-&lt;p&gt;图1 显示了 SoLiD 与当前应用程序体系结构的对比。其特点是不用依赖一些应用程序，公民可以控制自己的个人数据。应用程序需要从公民那里请求访问权限，以便能够对其数据进行操作。&lt;/p&gt;
-
-&lt;p&gt;重要的是，&lt;strong&gt;SoLiD 不是应用程序或平台，而是协议：开放的标准和约定&lt;/strong&gt;。它基于现有的 Web 标准，包括 Linked Data 技术栈，任何人都可以实现他们。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200205231734.png&quot; alt=&quot;&quot; /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;图片 1. Current applications are a combination of app and data. Thereby, the app becomes a centralisation point, as all interactions with that data have to go through the app. By introducing the concept of a personal data pod, Solid pushes data out of applications, such that the same data can be managed with different applications. This removes the dependency on a centralised application, as data can be stored independently in a location of the citizen’s choice.&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Data Pod 是个人存储柜，可以存在于 Web 上的任何位置&lt;/strong&gt;，例如你自己搭建的服务器，社区搭建的免费服务器或政府提供的存储空间。在 Pod 中，所有者拥有数据创建、编辑、和控制管理的权限。所有者可以决定授予哪些人拥有权限，例如允许家庭成员看到他们的假期照片或允许同事阅读会议笔记。而且，人员、组织和应用程序可以向 Pod 的公共收件箱发布请求以获取对个人数据的访问权限。人们至少拥有一个数据柜，但他们还可以拥有其他多个 Pod，例如用于家庭数据、工作数据和医疗数据等。&lt;/p&gt;
-
-&lt;p&gt;而&lt;strong&gt;典型的中心化应用程序要求用户将数据存储在应用程序，SoLiD 通过使数据个人化来扭转这一局面，并允许用户授权哪些应用程序可以用我的数据。&lt;/strong&gt;虽然简单的应用程序只需要一个 Pod，但 SoLiD 的真正功能在于让应用程序组合来自多个 Pod 的数据，这减少了很多数据对齐会产生的成本。例如，SoLiD 上的社交网络应用程序可以将个人信息（例如帖子、朋友、评论和喜欢的信息）存储在个人数据柜中，而他们的可视化需要组合不同数据 Pod 的数据。这解决了两个基本问题，首先，数据不再需要在不同的应用程序中复制，因为应用程序将指向单个副本。二是，不再出现同步问题：因为只有一个副本数据，应用程序不会再有不同步的数据。&lt;/p&gt;
-
-&lt;h3 id=&quot;solid-的巨大优势主要体现在以下特点上&quot;&gt;SoLiD 的巨大优势主要体现在以下特点上：&lt;/h3&gt;
-
-&lt;h4 id=&quot;1--独立身份&quot;&gt;1.  &lt;strong&gt;独立身份&lt;/strong&gt;：&lt;/h4&gt;
-&lt;p&gt;用户选择他们的身份以及身份所处的位置。在 SoLiD 中，个人标识符（WebID）是一个像 URL 一样的唯一地址；&lt;/p&gt;
-
-&lt;h4 id=&quot;2-控制数据&quot;&gt;2. &lt;strong&gt;控制数据&lt;/strong&gt;：&lt;/h4&gt;
-&lt;p&gt;用户可以授予和撤消对任何人和应用的细粒度访问权限；&lt;/p&gt;
-
-&lt;h4 id=&quot;3-随意切换应用程序&quot;&gt;3. &lt;strong&gt;随意切换应用程序&lt;/strong&gt;：&lt;/h4&gt;
-&lt;p&gt;由于数据可以灵活被不同应用访问，&lt;strong&gt;避免了供应商锁定的危险&lt;/strong&gt;，用户可以选择他们最喜欢的公司推出的产品。&lt;/p&gt;
-
-&lt;p&gt;为了我们的目的，&lt;strong&gt;SoLiD 精确地解决了上述“数据传输”问题。数据不再在不同的政府机构之间移动，每个政府机构都直接使用原始数据来源，即公民的数据柜。这解决了多个副本和同步的问题，以及 GDPR 问题，即哪个机构有权访问哪些公民的哪些数据。&lt;/strong&gt;因为每个机构都单独对 Pod 进行请求，因此对 Pod 的读写是一个重要的话题，接下来我们会讨论这个问题。&lt;/p&gt;
-
-&lt;h2 id=&quot;4-解决方案使用-solid-交换公民个人信息&quot;&gt;4. 解决方案：使用 SoLiD 交换公民个人信息&lt;/h2&gt;
-&lt;p&gt;在本节中，我们解释了使用 SoLiD 在公民和政府之间共享数据的方法。我们首先会解释需求， 之后我们会讨论两种场景， 在这两个场景中：
-（1）公民的数据（例如：电子邮件地址、电话号码）存储在 Pod 中；
-（2）重用权威政府数据，例如文凭等信息。&lt;/p&gt;
-
-&lt;h3 id=&quot;41-需求&quot;&gt;&lt;strong&gt;4.1 需求&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;对于我们的用例，我们假设所有公民都可以使用全局唯一的统一资源标识符（URI）（称为WebID）来唯一标识。该 WebID 指向有关公民的更多详细信息的，尤其是指向个人数据柜（Pod）。此外，我们假设所有政府部门和组织都具有 WebID 和 Pod。所需的组件 Fig2 所示。通常，SoLiD Pod 具有公共收件箱，任何人都可以在其中发布消息。然后消息只能由所有者读取、修改和删除。我们假定所有 Pod 都满足此约定，因为我们使用了此约定来保证用户之间的通信。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200205232012.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;42-用例公民共享个人信息&quot;&gt;&lt;strong&gt;4.2 用例：公民共享个人信息&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Flemish 政府开发了一种数字助理，可提供市民与不同政府部门互动&lt;/strong&gt;。一个有用的例子是向公民提供有关公共服务状态的通知。由于大多数公民几乎没有与政府之间的互动，相比较与私营部门之间的互动， 联系信息以及有关其偏好的信息通常已经过时。用了 SoLiD 之后，角色互换了，市民的 Pod 成为主要联系信息和偏好的来源。该用例解决了第一个挑战， 避免了用户必须在各个公共和门户网站中保持其数据的最新状态。&lt;/p&gt;
-
-&lt;p&gt;我们使用电子邮件地址说明此用例，该用例适用于任何个人信息。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;前提条件：&lt;/strong&gt;公民爱丽丝（A）可以通过其 WebID 唯一标识，同时 A 在 SoLiD Server（S）上托管有一个个人在线数据存储（Pod）。同样，组织（O）具有一个WebID 和一个 Pod。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;用例 1.1：&lt;/strong&gt;共享个人数据。A 使用安全的令牌访问向 O 请求身份验证，成功通过身份验证后，A 可以通过网页按钮授权的形式授予 O 访问其电子邮件地址的权限，成功后，O 可以从 A 的 Pod 中读取电子邮件地址。拓展功能：若 A 不再信任 O，A 可以撤回 O 对她电子邮件地址的访问权限。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;用例 1.2：&lt;/strong&gt;管理个人数据。A 使用安全的另外访问 O 请求身份验证，身份验证成功后，A 可以在 O 提供的用户界面将其电子邮件地址添加到其自己的 Pod 中。扩展功能：A 可以修改或删除她的电子邮件地址。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;用例 1.3：&lt;/strong&gt;请求访问个人数据。O 将「访问 A 的电子邮件地址」请求发布到 A 的公共收件箱。看到此请求后，A 授予 O 读取对她电子邮件地址的访问权限，并将通知发送到O 的公共收件箱。收到通知后， O 可以查看 A 的电子邮件地址。&lt;/p&gt;
-
-&lt;h3 id=&quot;42-用例公民授权权威个人信息&quot;&gt;&lt;strong&gt;4.2 用例：公民授权权威个人信息&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;政府的目标是使公民能够重用存储在不同政府级别的权威数据源中的个人信息&lt;/strong&gt;。比如，在申请新工作时共享大学颁发的文凭。或者在申请贷款时获得有关其收入的信息（如 Fig3 所示）。该用例解决了上文提到的第二个挑战。首先，公民不同意政府与其他人共享他们的数据，因此我们将公民的学位信息存储在公民自己的 Pod 中。换句话说，&lt;strong&gt;在 GDPR 的上下文中，数据主体是数据的控制者&lt;/strong&gt;。这种情况表明，&lt;strong&gt;SoLiD 重塑了公民、其权威数据以及应用程序之间的关系&lt;/strong&gt;。如果公民拒绝授权，则政府可以像今天在税收领域一样行使这项权利。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;前提条件：&lt;/strong&gt;公民爱丽丝（A）拥有一个 WebID，同时有一个 Pod，托管在 SoLiD Server（S）上。同样，大学（U）具有一个 WebID 和一个 Pod。A 的雇主（E）也具有 WebID。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;用例 2.1：&lt;/strong&gt;A 注册为 U 的学生，并且必须提供她的 WebID，这将使A 在大学毕业后收到证书。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;用例 2.2：&lt;/strong&gt;A 保持对 U 的授权直到毕业。U 维护 A 的所有信息，直到 A 毕业。这些信息包括课程、年级、教师等。此类信息是不能公开访问的，只有 A 对此有读写权限。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;用例 2.3：&lt;/strong&gt;A 大学毕业后向 U 索要证书。A 要求提供证书的（摘要）副本，以便她可以与第三方共享。U 会生成此证书的摘要，并将其发送到 A Pod 中的收件箱。该证书由 U 使用非对称加密进行数字签名。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;用例 2.4：&lt;/strong&gt;共享文凭。现在 A 在她的收件箱中有她的文凭副本，她可以与任何人分享。例如，她可以将其发布到她的数据 Pod 中，然后授予其雇主 E 的 WebID 的读取权限。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;用例 2.5：&lt;/strong&gt;检查文凭的有效性。如果 E 要检查文凭 A 的有效期，E 必须在该文凭上检查 U 的签名。E 通过从文凭中提取签名，确定权限（U）来完成此操作。这可以是&lt;/p&gt;
-
-&lt;p&gt;使用现有的文档签名机制（例如 XAdES）完成。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200205232033.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;5-flemish-公民的个人助理&quot;&gt;5. Flemish 公民的个人助理&lt;/h2&gt;
-&lt;p&gt;在本节中，我们将讨论结合 “Mijn Burgerprofiel” 的实施方法。Mijn Burgerprofiel 的意思是&lt;strong&gt;「我的公民资料」&lt;/strong&gt;，他是 Flemish 公民的智能数字助手，通过该助手，公民可以看到其所有授权状态和数据。此外，&lt;strong&gt;欧洲还有一个标准的电子身份验证规范，名为：eIDAS&lt;/strong&gt;。该规范减少了身份被滥用或改动的风险。用户可以使用以下方式通过“我的公民”个人资料访问个人数据：&lt;/p&gt;
-
-&lt;p&gt;1）通过智能卡读卡器或通过手机获取比利时电子身份证；
-2）在手机上安装应用程序。&lt;/p&gt;
-
-&lt;p&gt;我们在上一节详细介绍了第一个用例，即公民共享个人信息（例如，电子邮件地址）。如第 3 节所述，我们的应用程序和数据是分离的。因此，我们方法的实施还需要两个组件：
-（1）数据 Pod，（2）用于查看和使用数据的应用程序界面。&lt;/p&gt;
-
-&lt;p&gt;接下来，我们将讨论这两个组件。&lt;/p&gt;
-
-&lt;h3 id=&quot;51-data-pod-应用程序&quot;&gt;&lt;strong&gt;5.1 Data Pod 应用程序&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;在我们的实施中，我们使用 Node Solid Server 5.0.1（NSS）创建和托管数据 Pod。如果用户已经有一个 Pod，则可以用来共享个人信息。&lt;strong&gt;NSS允许我们为任何公民和政府组织创建安全的数据柜&lt;/strong&gt;。默认情况下，政府为所有公民提供数据 Pod。但是，如果公民渴望对 Pod 拥有更多控制，他们可以选择自己托管数据 Pod，例如在自己的服务器上运行 NSS。&lt;/p&gt;
-
-&lt;h3 id=&quot;52-个人信息管理基础设施&quot;&gt;&lt;strong&gt;5.2 个人信息管理基础设施&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;为了允许政府能方便的访问公民的特定信息，我们扩展了“我的公民资料”，所有 Flemish 公民都拥有一个资料。目前，这个信息集中存储在“我的公民资料”的数据库中。为了能和 SoLiD 和谐的工作，我们修改了“我的公民资料”，该修改版本不是将信息存储在每个公民的数据 Pod 中，而是存储在 Flemish 政府的服务器中，“我的公民资料”就像一个公民，也拥有一个WebID。&lt;/p&gt;
-
-&lt;p&gt;对于我们的用例，我们专注于存储和获取公民的电子邮件地址。为了达到这个目的，我们实现了三个组件：SoLid Linker（将原来的市民与 SoLiD 连接起来）、电子邮件提取器和电子邮件可视化工具。这些组件将在后面说明。&lt;/p&gt;
-
-&lt;h3 id=&quot;53-solid-linker&quot;&gt;&lt;strong&gt;5.3 SoLiD Linker&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;在“我的公民个人资料”的个人资料设置中，我们添加了一个字段，人们可以将其帐户与任何 SoLiD WebID 关联起来，如 Fig4 所示。默认情况下，公民使用政府提供的默认 WebID。&lt;/p&gt;
-
-&lt;h3 id=&quot;54-email-extractor&quot;&gt;&lt;strong&gt;5.4 Email Extractor&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;如果某个公民有一个有效的 SoLid WebID 链接到其“我的公民个人资料”帐户，则应用程序可以尝试通过跟踪文件中的链接来提取其电子邮件地址。公民的数据 Pod 中包含电子邮件地址。基于WebID，电子邮件提取器组件可以确定用户的 Pod。使用此 URL，提取程序将使用“我的公民个人资料” WebID 的身份验证令牌向 SoLiD Pod 发送 HTTP GET 请求。如果公民已授予“我的公民个人资料”对该文件的读取权限，则该文件的内容将被返回；否则将返回授权错误。如果没有遇到错误，则电子邮件提取器组件将返回公民的电子邮件地址。&lt;/p&gt;
-
-&lt;h3 id=&quot;55-email-可视化工具&quot;&gt;&lt;strong&gt;5.5 Email 可视化工具&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;我们在“我的公民资料”概述页面上，添加了一个字段，该字段显示用户的电子邮件地址（如果用户有或用户授权后才显示）。该信息是从用户链接到的 WebID 中读取的，此信息始终即时提取，不会再存储在其他地方。这意味着当公民修改了该值，这个页面能立即显示更新后的值。该可视化工具可用于自动化流程，例如在即将举行的选举中发送提醒。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200205232131.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;6-总结&quot;&gt;6. 总结&lt;/h2&gt;
-
-&lt;p&gt;在本文中，我们介绍了有关 SoLiD 在政府治理中的实施经验。Flemish 政府接受了我们对“我的公民资料”进行的修改，这样我们可以让其与 SoLiD 生态系统互操作，从而使公民可以控制其数据。我们解决了两个引人注目的挑战；首先，政府部门努力保持个人数据是最新的，其次是允许公民重复使用存储在其中的数据，这些数据存储在不同背景下的政府信息系统。该案例证明了 SoLiD 可以解决公民对数据的控制权问题。&lt;/p&gt;
-
-&lt;p&gt;未来研究的新途径包括如何保持对用户权威数据（如住所）最大程度的利用。这应确保公民共享的信息与私营部门的关系始终是最新的。另一个明显的点是，这项研究旨在告知用户同意重用数据是他们的天赋人权。这个概念称为 “知情同意”。此外，所有操作都应透明地记录在 SoLiD Pod 中，包括：访问数据、修改数据、授权同意和撤销权利，这与我们银行帐户中的财产相当。这种细粒度和结构化的日志还可以通过使用机器学习算法来检测异常和数据泄露。为了更完整，未来的研究应该关注于不同的挑战，如如何打造可持续的商业模式。&lt;/p&gt;
-
-&lt;p&gt;SoLiD 建立在现有 Web 标准和方法上（例如关联数据和去中心化，因此 SoLiD 可以被视为过程创新，而不是技术创新），因此与 SoLiD Pod 的集成非常简单。我们已经使用电子邮件地址说明了这种简单度，但目的是将其扩展到所有个人数据。&lt;/p&gt;
-
-&lt;p&gt;我们希望这个在 Flemish 地区的 SoLiD 试验可以加快解决政府在公共管理和私人组织中面临着的同样的复杂性问题，同时让用户重新控制自己的数据。&lt;/p&gt;
-
-&lt;h2 id=&quot;引用&quot;&gt;引用&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;Belgisch Staatsblad. Wijzigingen met betrekking tot de onderzoeksmiddelen van de administratie. (2011).
-http://www.ejustice.just.fgov.be/cgi_loi/change_lg.pl?language=nl&amp;amp;la=N&amp;amp;table_name=w
-et&amp;amp;cn=2011041406 Accessed 9 July 2019&lt;/li&gt;
-  &lt;li&gt;Berners-Lee, T.; Verborgh, R. Welcome to Solid. (2019).
-https://rubenverborgh.github.io/Solid-DeSemWeb-2018/#title Accessed 9 July 2019&lt;/li&gt;
-  &lt;li&gt;Buyle, R., Van Compernolle, M., De Paepe, D., Scheerlinck, J., Mechant, P., Mannens, E.,
-&amp;amp; Vanlishout, Z. Semantics in the wild: a digital assistant for Flemish citizens. In Proceedings of the 11th International Conference on Theory and Practice of Electronic Governance (pp. 1-6). ACM (2018). doi: https://doi.org/10.1145/3209415.3209421&lt;/li&gt;
-  &lt;li&gt;Cruellas, J. C., Karlinger, G., Pinkas, D., &amp;amp; Ross, J. Xml advanced electronic signatures
-(xades). W3C Recommendation (2003). http://www.w3.org/TR/XAdES Accessed 9 July
-2019&lt;/li&gt;
-  &lt;li&gt;Decker, C., &amp;amp; Wattenhofer, R. (2013, September). Information propagation in the bitcoin
-network. In IEEE P2P 2013 Proceedings (pp. 1-10). IEEE.&lt;/li&gt;
-  &lt;li&gt;de Montjoye, Y. A., Wang, S. S., Pentland, A., Anh, D. T. T., &amp;amp; Datta, A. On the Trusted
-Use of Large-Scale Personal Data. IEEE Data Eng. Bull., 35(4), 5-8 (2012)&lt;/li&gt;
-  &lt;li&gt;Esposito, C., De Santis, A., Tortora, G., Chang, H., &amp;amp; Choo, K. K. R. (2018). Blockchain:
-A panacea for healthcare cloud-based data security and privacy?. IEEE Cloud Computing,
-5(1), 31-37.&lt;/li&gt;
-  &lt;li&gt;European Commission. Regulation (EU) 2016/679 of the European Parliament and of the
-Council of 27 April 2016 on the protection of natural persons with regard to the processing
-of personal data and on the free movement of such data, and repealing Directive 95/46. Official Journal of the European Union (OJ), 59(1-88), 294 (2016)&lt;/li&gt;
-  &lt;li&gt;European Commission. Guidelines on Consent under Regulation 2016/679 Luxembourg:
-Publications Office (2018) https://ec.europa.eu/newsroom/article29/itemdetail.cfm?item_id=623051 Accessed 9 July 2019&lt;/li&gt;
-  &lt;li&gt;European Commission. It’s your data – take control. Luxembourg: Publications Office
-(2018). https://ec.europa.eu/commission/sites/beta-political/files/data-protection-overviewcitizens_en.pdf Accessed 9 July 2019&lt;/li&gt;
-  &lt;li&gt;Fatema, K., Hadziselimovic, E., Pandit, H. J., Debruyne, C., Lewis, D., &amp;amp; O’Sullivan, D.
-Compliance through Informed Consent: Semantic Based Consent Permission and Data
-Management Model. In Proceedings of the 5th Workshop on Society, Privacy and the Semantic Web - Policy and Technology (PrivOn2017), Vienna, Austria (2017)&lt;/li&gt;
-  &lt;li&gt;Harrison, T. M., Pardo, T. A., &amp;amp; Cook, M. Creating open government ecosystems: A research and development agenda. Future Internet, 4(4), 900-928. MDPI AG (2012). doi:
-https://doi.org/10.3390/fi4040900&lt;/li&gt;
-  &lt;li&gt;Janssen, M., Charalabidis, Y., &amp;amp; Zuiderwijk, A. Benefits, adoption barriers and myths of
-open data and open government. Information systems management, 29(4), 258-268 (2012).
-doi: https://doi.org/10.1080/10580530.2012.716740&lt;/li&gt;
-  &lt;li&gt;Jia, J., Jin, G. Z., &amp;amp; Wagman, L. The short-run effects of GDPR on technology venture investment (No. w25248). National Bureau of Economic Research (2018). doi:
-10.3386/w25248&lt;/li&gt;
-  &lt;li&gt;Mansour, E., Sambra, A. V., Hawke, S., Zereba, M., Capadisli, S., Ghanem, A., … &amp;amp;
-Berners-Lee, T. A demonstration of the solid platform for social web applications. In Proceedings of the 25th International Conference Companion on World Wide Web (pp. 223-
-15
-226). International World Wide Web Conferences Steering Committee (2016). doi:
-https://doi.org/10.1145/2872518.2890529&lt;/li&gt;
-  &lt;li&gt;Mun, M., Hao, S., Mishra, N., Shilton, K., Burke, J., Estrin, D., … &amp;amp; Govindan, R. Personal data vaults: a locus of control for personal data streams. In Proceedings of the 6th International Conference on Emerging Networking Experiments and Technologies (p. 17).
-ACM (2010). doi: https://doi.org/10.1145/1921168.1921191&lt;/li&gt;
-  &lt;li&gt;Narayanan, A., Toubiana, V., Barocas, S., Nissenbaum, H., &amp;amp; Boneh, D. A critical look at
-decentralized personal data architectures. arXiv preprint arXiv:1202.4503 (2012)&lt;/li&gt;
-  &lt;li&gt;Pollock, R. (2011, March 11). Building the (Open) Data Ecosystem.
-http://blog.okfn.org/2011/03/31/building-the-open-data-ecosystem/ Accessed 9 July 2019&lt;/li&gt;
-  &lt;li&gt;Solid. Welcome to Solid (2019). https://solid.inrupt.com/ Accessed 9 July 2019&lt;/li&gt;
-  &lt;li&gt;Van Kleek, M., &amp;amp; OHara, K. The future of social is personal: The potential of the personal
-data store. In Social Collective Intelligence (pp. 125-158). Springer, Cham (2014)&lt;/li&gt;
-  &lt;li&gt;Verborgh, R. Ruben Verborgh on data &amp;amp; privacy. Imec Magazine (2019).
-https://www.imec-int.com/en/imec-magazine/imec-magazine-january-2019/back-to-thefuture-how-we-will-regain-control-of-our-personal-data Accessed 9 July 2019&lt;/li&gt;
-  &lt;li&gt;Vescovi, M., Perentis, C., Leonardi, C., Lepri, B., &amp;amp; Moiso, C. My data store: toward user
-awareness and control on personal data. In Proceedings of the 2014 ACM International
-Joint Conference on Pervasive and Ubiquitous Computing: Adjunct Publication (pp. 179-
-182). ACM (2014). doi: http://dx.doi.org/10.1145/2638728.2638745&lt;/li&gt;
-  &lt;li&gt;Whitley, E. A. Informational privacy, consent and the “control” of personal data. Information security technical report, 14(3), 154-159 (2009). doi:
-https://doi.org/10.1016/j.istr.2009.10.001&lt;/li&gt;
-  &lt;li&gt;Yeung, C. M. A., Liccardi, I., Lu, K., Seneviratne, O., &amp;amp; Berners-Lee, T. Decentralization:
-The future of online social networking. In W3C Workshop on the Future of Social Networking Position Papers (Vol. 2, pp. 2-7) (2009)&lt;/li&gt;
-  &lt;li&gt;Zuiderwijk, A., Janssen, M., &amp;amp; Davis, C. Innovation with open data: Essential elements of
-open data ecosystems. Information Polity, 19(1, 2), 17-33 (2014)&lt;/li&gt;
-  &lt;li&gt;Zyskind, G., &amp;amp; Nathan, O. Decentralizing privacy: Using blockchain to protect personal
-data. In 2015 IEEE Security and Privacy Workshops (pp. 180-184). IEEE (2015). doi:
-0.1109/SPW.2015.27&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/以活服人.jpeg&quot; style=&quot;zoom:40%;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;本文译者：&lt;/strong&gt;蒸汽记忆——Authing 身份云运营主体和 SoLiD 中文社区维护主体。
-&lt;strong&gt;原文地址：&lt;/strong&gt;https://drive.verborgh.org/publications/buyle_egose_2019.pdf&lt;/p&gt;
-
-&lt;h2 id=&quot;关于-authing&quot;&gt;关于 Authing&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200205182918.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Authing 是中国领先的 IDaaS 服务提供商，对标美国独角兽 Auth0。创始团队来自字节跳动、百度、IBM、阿里云、滴滴出行等互联网企业。Authing 提供开发者友好、易拓展的身份认证和授权平台，赋能企业在云端管理身份，主要功能包括：单点登录、用户分析、扫码登录、多因素认证、行为审计、风险控制、跨平台设备管理、IoT 身份认证等；兼容国际各类标准协议：OAuth2.0、OIDC、SAML、AD/LDAP、WS-Fed、JWT 等。 支持云交付和私有化部署方式，帮助企业和开发者千倍级提升生产效率。&lt;/p&gt;
-
-&lt;p&gt;Authing 自上线以来已经服务海内外超过 3000 名企业开发者、拥有约 50 万的开发者社区和托管数百万终端用户，每月百万人次通过 Authing 平台进行认证，并已经服务数十家付费企业客户，覆盖教育、人工智能、出版社、 物联网等多个行业。&lt;/p&gt;</content><author><name>ivy</name></author><category term="featured" /><summary type="html">SoLiD 是一个令人兴奋的新项目，由万维网发明者 Tim Berners-Lee 爵士在麻省理工学院启动。 该项目旨在从根本上改变 Web 应用程序的中心化趋势， 它将真正地让数据所有权属于用户，并改善隐私问题。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://inrupt.com/sites/default/files/2018-10/Thomas_explainer.png" /></entry></feed>
+&lt;p&gt;&lt;img src=&quot;https://cdn.authing.cn/blog/20200211202415.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>ivy</name></author><category term="serverless" /><summary type="html">本次与大家探讨 Serverless 生态中缺少的工具以及潜在的创业机会。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.authing.cn/blog/20200211201759.png" /></entry></feed>

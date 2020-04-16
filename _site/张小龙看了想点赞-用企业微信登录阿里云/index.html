@@ -4,24 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>RBAC | 组织机构管理最佳实践 | Authing 官方博客</title>
+    <title>张小龙看了想点赞 —— 用企业微信登录阿里云 ¿ | Authing 官方博客</title>
 
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>RBAC 组织机构管理最佳实践 | Authing 官方博客</title>
+<title>张小龙看了想点赞 —— 用企业微信登录阿里云 ¿ | Authing 官方博客</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="RBAC 组织机构管理最佳实践" />
+<meta property="og:title" content="张小龙看了想点赞 —— 用企业微信登录阿里云 ¿" />
 <meta name="author" content="cj" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。" />
-<meta property="og:description" content="在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。" />
-<link rel="canonical" href="https://authing.cn/blog/rbac/" />
-<meta property="og:url" content="https://authing.cn/blog/rbac/" />
+<meta name="description" content="Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。" />
+<meta property="og:description" content="Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。" />
+<link rel="canonical" href="https://authing.cn/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E-%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91/" />
+<meta property="og:url" content="https://authing.cn/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E-%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91/" />
 <meta property="og:site_name" content="Authing 官方博客" />
-<meta property="og:image" content="https://inrupt.com/sites/default/files/2018-10/Layer%200%20(1)_0.png" />
+<meta property="og:image" content="https://cdn.authing.cn/blog/20200403144431.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-02-05T00:00:00+08:00" />
+<meta property="article:published_time" content="2020-04-02T00:00:00+08:00" />
 <script type="application/ld+json">
-{"url":"https://authing.cn/blog/rbac/","headline":"RBAC 组织机构管理最佳实践","dateModified":"2020-02-05T00:00:00+08:00","datePublished":"2020-02-05T00:00:00+08:00","image":"https://inrupt.com/sites/default/files/2018-10/Layer%200%20(1)_0.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://authing.cn/blog/assets/images/logo.png"},"name":"cj"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://authing.cn/blog/rbac/"},"description":"在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。","author":{"@type":"Person","name":"cj"},"@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"url":"https://authing.cn/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E-%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91/","headline":"张小龙看了想点赞 —— 用企业微信登录阿里云 ¿","dateModified":"2020-04-02T00:00:00+08:00","datePublished":"2020-04-02T00:00:00+08:00","image":"https://cdn.authing.cn/blog/20200403144431.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://authing.cn/blog/assets/images/logo.png"},"name":"cj"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://authing.cn/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E-%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91/"},"description":"Authing 为个人和企业提供安全的云端身份认证服务，是行业领先的身份认证云。","author":{"@type":"Person","name":"cj"},"@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -366,16 +366,16 @@ function lunr_search(term) {
                         
                         </span>
 					</p>
-					<h1 class="display-4 mb-4 article-headline">RBAC | 组织机构管理最佳实践</h1>
+					<h1 class="display-4 mb-4 article-headline">张小龙看了想点赞 —— 用企业微信登录阿里云 ¿</h1>
 					<div class="d-flex align-items-center">
                         
                         <img class="rounded-circle" src="/blog//assets/images/cj.png" alt="廖长江" width="70"/>
                         
 						<small class="ml-3"> 廖长江 <span><a target="_blank" href="https://www.zhihu.com/people/lcj1024" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
-                            <span class="text-muted d-block mt-1">Feb 05, 2020 · <span class="reading-time">
+                            <span class="text-muted d-block mt-1">Apr 02, 2020 · <span class="reading-time">
   
   
-    4 mins read
+    1 min read
   
 </span>
     </span>
@@ -384,7 +384,7 @@ function lunr_search(term) {
 				</div>
                 
 				<div class="col-md-6 pr-0 align-self-center">
-					<img class="rounded" src="https://inrupt.com/sites/default/files/2018-10/Layer%200%20%281%29_0.png" alt="RBAC | 组织机构管理最佳实践">
+					<img class="rounded" src="https://cdn.authing.cn/blog/20200403144431.png" alt="张小龙看了想点赞 —— 用企业微信登录阿里云 ¿">
 				</div>
                 
 			</div>
@@ -434,407 +434,154 @@ function lunr_search(term) {
             
             <!-- Article -->
 			<article class="article-post">                
-			<p>在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。</p>
+			<p><img src="/blog/assets/images/wechatwork/1.gif" alt="assets/images/pipeline/4.gif" /></p>
 
-<p>借助 Authing，可以快速<a href="https://mp.weixin.qq.com/s/zRiymhIjTqfUlymjkGfEsA">实现基于角色的访问控制（RBAC）</a>。简单来说，RBAC 指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。</p>
+<p>很多企业都在使用企业微信进行组织机构管理，同时又使用了阿里云的服务，我们不希望单独为每个员工创建一个阿里云子账号，要是能够直接使用企业微信登录就好了。这时候如何统一用户目录和实现单点登录就成了一个我们需要思考的问题。</p>
 
-<p>而在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会设想一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。</p>
+<p>阿里云在自己的单点登录管理（SSO）中介绍到，可以使用 SAML 协议提供单点登录管理，流程图如下：</p>
 
-<!-- more -->
+<p><img src="https://cdn.authing.cn/blog/20200403144540.png" alt="" /></p>
 
-<h2 id="一非凡科技有限公司背景介绍">一、非凡科技有限公司背景介绍</h2>
-
-<p>该公司约 300 名员工，其公司架构大致如下：</p>
-
-<ul>
-  <li>
-    <p>一级部门有产品部、研发部、运营部、综合管理部</p>
-  </li>
-  <li>
-    <p>一级部门下面又有二级部门，如产品部中包含产品经理和设计等。</p>
-  </li>
-</ul>
-
-<p><img src="https://cdn.authing.cn/blog/20200205182710.png" alt="" /></p>
-
-<p>这是一个典型的树状数据结构，有且仅有一个根节点，以及多个分层的节点。一般而言，根节点就是一家公司、一个组织，其他的每个节点都对应一个部门。</p>
-
-<p>‌</p>
-
-<p>这里有一点需要注意：在 Authing 中，这样的节点对应的是一个 Group，比如「非凡科技有限公司」是一个 Group，「产品部」也是一个 Group。我们要做的，是要把这些 Group 放到他在树上所属的位置。</p>
-
-<p>一个 Group 可以拥有多个角色（Role），一个角色包含一个或多个权限（Permission）；而一个 Group 由若干用户（User）组成，某个 Group 中的用户会继承该 Group 下的所有角色，从而具备相关权限。</p>
-
-<p>了解如何管理  Group 中的 User、如何管理 Group 中的 Role、如何配置 Role 的 Permission，请见文档：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/rbac">角色权限管理</a>。</p>
-
-<p>了解如何查询单个用户的 Group, Role, Permission 列表，请见文档：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/query-permissions">查询用户权限</a>。</p>
-
-<p>如何使用 Authing 完成组织机构管理</p>
-
-<h3 id="1梳理组织机构节点">1、梳理组织机构节点</h3>
-
-<p>首先，我们需要列举出该组织结构拥有的所有节点：</p>
-
-<ul>
-  <li>
-    <p>非凡科技有限公司</p>
-  </li>
-  <li>
-    <p>产品部</p>
-  </li>
-  <li>
-    <p>研发部</p>
-  </li>
-  <li>
-    <p>运营部</p>
-  </li>
-  <li>
-    <p>综合管理部</p>
-  </li>
-  <li>
-    <p>产品经理</p>
-  </li>
-  <li>
-    <p>设计</p>
-  </li>
-  <li>
-    <p>开发</p>
-  </li>
-  <li>
-    <p>测试</p>
-  </li>
-  <li>
-    <p>运维</p>
-  </li>
-  <li>
-    <p>用户运营</p>
-  </li>
-  <li>
-    <p>渠道运营</p>
-  </li>
-  <li>
-    <p>HR</p>
-  </li>
-  <li>
-    <p>财务</p>
-  </li>
-  <li>
-    <p>行政</p>
-  </li>
-</ul>
-
-<p>这些节点在 Authing 中都是一个 Group，所以需要先创建这些 Group：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const 非凡科技有限公司 = await createGroup("非凡科技有限公司")
-const 产品部 = await createGroup('产品部')
-const 产品经理 = await createGroup('产品经理')
-const 设计 = await createGroup('设计')
-const 研发部 = await createGroup('研发部')
-const 开发 = await createGroup('开发')
-const 测试 = await createGroup('测试')
-const 运维 = await createGroup('运维')
-const 运营部 = await createGroup('运营部')
-const 用户运营 = await createGroup('用户运营')
-const 渠道运营 = await createGroup('渠道运营')
-const 综合管理部 = await createGroup('综合管理部')
-const HR = await createGroup('HR')
-const 财务 = await createGroup('财务')
-const 行政 = await createGroup('行政')
-</code></pre></div></div>
-
-<p>‌</p>
-
-<h3 id="2创建组织机构">2、创建组织机构</h3>
-
-<p>接着创建组织机构（一组树状的 Group），这需要指定根节点对应的 Group:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let org = await authing.org.createOrg({
- rootGroupId: 非凡科技有限公司._id
-})
-</code></pre></div></div>
-
-<h3 id="3加入产品部及其子部门节点">3、加入产品部及其子部门节点</h3>
-
-<p>‌</p>
-
-<p>接着插入产品部的各级节点：</p>
-
-<p>‌</p>
-
-<p>这里需要指定以下参数：</p>
-
-<ul>
-  <li>
-    <p>组织机构 ID</p>
-  </li>
-  <li>
-    <p>该节点对应的 Group ID</p>
-  </li>
-  <li>
-    <p>该节点的父节点的 Group ID</p>
-  </li>
-</ul>
-
-<p>如加入产品部节点时，groupId 为 Group<产品部> 的 ID，parentGroupId 为 Group<非凡科技有限公司> 的 ID。</非凡科技有限公司></产品部></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>await authing.org.addNode({
- orgId: org._id,
- groupId: 产品部._id,
- parentGroupId: 非凡科技有限公司._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 产品经理._id,
- parentGroupId: 产品部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 设计._id,
- parentGroupId: 产品部._id
-})
-</code></pre></div></div>
-
-<h3 id="4以此类推加入所有节点">4、以此类推，加入所有节点</h3>
-
-<p>研发部：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 添加研发部
-await authing.org.addNode({
- orgId: org._id,
- groupId: 研发部._id,
- parentGroupId: 非凡科技有限公司._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 开发._id,
- parentGroupId: 研发部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 测试._id,
- parentGroupId: 研发部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 运维._id,
- parentGroupId: 研发部._id
-})
-</code></pre></div></div>
-
-<p>运营部：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>await authing.org.addNode({
- orgId: org._id,
- groupId: 运营部._id,
- parentGroupId: 非凡科技有限公司._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 用户运营._id,
- parentGroupId: 运营部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 渠道运营._id,
- parentGroupId: 运营部._id
-})
-</code></pre></div></div>
-
-<p>‌</p>
-
-<p>综合管理部：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 添加综合管理部
-await authing.org.addNode({
- orgId: org._id,
- groupId: 综合管理部._id,
- parentGroupId: 非凡科技有限公司._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: HR._id,
- parentGroupId: 综合管理部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 财务._id,
- parentGroupId: 综合管理部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 行政._id,
- parentGroupId: 综合管理部._id
-})
-</code></pre></div></div>
-
-<h3 id="5查看最新组织机构结构">5、查看最新组织机构结构</h3>
-
-<p>到现在，我们的非凡科技有限公司组织机构见建模完成了，是时候获取其最新的树状结构了：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const { tree } = await authing.org.findById(org._id)
-</code></pre></div></div>
-
-<p>​               <img src="https://internal-api-space-hl.feishu.cn/space/api/file/out/zSOvcI4ejux1n1410JnoDNfAHpsLAUIVoA9J04p9ssf7lQ2DlO/" alt="img" /></p>
-
-<h2 id="二如何向组织机构中添加用户和配置权限">二、如何向组织机构中添加用户和配置权限</h2>
-
-<p>前面说过，Authing 中一个组织结构节点对应一个  Group，对此我们提供了完整的 SDK。</p>
-
-<h3 id="1为组织机构节点配置权限">1、为组织机构节点配置权限</h3>
-
-<p>相关 SDK 见：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/rbac">角色权限管理</a>。</p>
-
-<p>非凡科技有限公司的所有员工，都具备开具发票、使用公司邮箱的权限。与此对应，在此我们创建两个角色：Invoice Submitter 和 Corp Email User。</p>
-
-<p>‌</p>
-
-<p>其中 Invoice Submitter 具备以下权限：</p>
-
-<ul>
-  <li>
-    <p>invoice:login</p>
-  </li>
-  <li>
-    <p>invoice:create</p>
-  </li>
-  <li>
-    <p>invoice:query</p>
-  </li>
-  <li>
-    <p>invoice:list</p>
-  </li>
-  <li>
-    <p>invoice:delete</p>
-  </li>
-</ul>
-
-<p>Corp Email User 具备以下权限：</p>
-
-<ul>
-  <li>
-    <p>corp-email:login</p>
-  </li>
-  <li>
-    <p>corp-email:send</p>
-  </li>
-  <li>
-    <p>corp-email:receive</p>
-  </li>
-  <li>
-    <p>corp-email:list</p>
-  </li>
-  <li>
-    <p>corp-email:detail</p>
-  </li>
-</ul>
-
-<p>这可以通过以下代码完成：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const InvoiceSubmitter = await createRole('Invoice Submitter')
-let permissions = await createPermissionBatch(['invoice:login', 'invoice:create', 'invoice:query', 'invoice:list', 'invoice:delete'])
-await authing.authz.addPermissionToRoleBatch({
- roleId: InvoiceSubmitter._id,
- permissionIdList: permissions.map(x =&gt; x._id)
-})
-const CorpEmailUser = await createRole('Corp Email Use')
-permissions = await createPermissionBatch(['corp-email:login', 'corp-email:send', 'corp-email:receive', 'corp-email:list', 'corp-email:detail'])
-await authing.authz.addPermissionToRoleBatch({
- roleId: CorpEmailUser._id,
- permissionIdList: permissions.map(x =&gt; x._id)
-})
-</code></pre></div></div>
-
-<p>接着让 Group 非凡科技有限公司具备 Invoice Submitter 和 Corp Email User 两个角色：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>await authing.authz.addRoleToGroup({
- roleId: InvoiceSubmitter._id,
- groupId: 非凡科技有限公司._id
-})
-await authing.authz.addRoleToGroup({
- roleId: InvoiceSubmitter._id,
- groupId: 非凡科技有限公司._id
-})
-</code></pre></div></div>
-
-<p>现在，非凡科技有限公司这个节点将会具备  Invoice Submitter 和 Corp Email User 两个角色</p>
-
-<h3 id="2向组织机构节点添加用户">2、向组织机构节点添加用户</h3>
-
-<p>相关 API 见：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/rbac">角色权限管理</a>。</p>
+<p>阿里云与企业进行用户 SSO 时，阿里云是服务提供商（SP），而企业自有的身份管理系统则是身份提供商（IdP）。通过用户SSO，企业员工在登录后，将以 RAM 用户身份访问阿里云。</p>
 
 <blockquote>
-  <p>某个 Group 内的用户会继承该 Group 内所有角色的权限（如果有重叠，将会取并集）。</p>
+  <p>暂时先不用管 SAML 是什么，下文会详细讲到，这里简单理解为一种用户身份问答协议就行了。</p>
 </blockquote>
 
-<p>下面我们往用户池中注册新用户，然后将其加入非凡科技有限公司 Group 中：</p>
+<p>当管理员在完成用户 SSO 的相关配置后，企业员工 Alice 可以通过上图所示的方法登录到阿里云。</p>
+<ol>
+  <li>Alice 使用浏览器登录阿里云，阿里云将 SAML 认证请求返回给浏览器。</li>
+  <li>浏览器向 IdP 转发 SAML 认证请求。</li>
+  <li>IdP 提示 Alice 登录，并在Alice登录成功后生成 SAML 响应返回给浏览器。</li>
+  <li>浏览器将 SAML 响应转发给 SSO 服务。</li>
+  <li>SSO 服务通过SAML互信配置，验证 SAML 响应的数字签名来判断 SAML 断言的真伪，并通过 SAML断言的 NameID 元素值，匹配到对应阿里云账号中的 RAM 用户身份。</li>
+  <li>SSO服务向浏览器返回控制台的URL。</li>
+</ol>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const user = await createUser()
-await authing.authz.addUserToGroup({
- groupId: 非凡科技有限公司._id,
- userId: user._id
-})
-</code></pre></div></div>
+<p>总结一下重要的点：IdP （身份提供商），也即企业用户，有一套自己的用户目录，至于这个用户目录具体是怎样的，你是用数据库存还是 Excel 存，你是用账号密码登录还是支持第三方社会化登录，阿里云并不操心。重要的是你的用户目录需要和阿里云 RAM 用户身份建立一对一关系。具体到 SAML 协议，你需要把你的用户目录的用户唯一字段作为 NameID 传给阿里云，这样阿里云就能够知道该以哪个 RAM 用户身份登录阿里云了。</p>
 
-<h3 id="3查询用户具备的权限">3、查询用户具备的权限</h3>
+<p>于是我们的问题就 Break Down 为下面几步：</p>
+<ol>
+  <li>为你的用户目录支持 SAML 协议</li>
+  <li>为你的用户目录支持企业微信登录</li>
+  <li>将你的用户目录和阿里云用户角色之间建立一对一关系。</li>
+</ol>
 
-<p>相关 API  见：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/query-permissions">查询用户权限</a>。</p>
+<p>如果你对其中某一部分很了解，可以跳过对应章节。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const { rawList: permissionList } = await authing.userPermissionList(user._id)‌
-</code></pre></div></div>
+<h2 id="支持-saml-协议">支持 SAML 协议</h2>
 
-<p>permissionList 如下：可见，此用户已经继承了 Invoice Submitter 和 Corp Email User 两个角色的所有权限：</p>
+<p>首先科普一下 SAML 是什么：SAML 全称是 Security Assertion Markup Language （中文直译为「安全断言标记语言」），从字面意义我们还看不出什么头绪。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
-  'invoice:login',
-  'invoice:create',
-  'invoice:query',
-  'invoice:list',
-  'invoice:delete',
-  'corp-email:login',
-  'corp-email:send',
-  'corp-email:receive',
-  'corp-email:list',
-  'corp-email:detail',
- ]
-</code></pre></div></div>
+<p>我们从协议交互角度切入：SAML 认证流程一般都会牵涉到两方：服务提供方（SP）和身份提供方（IdP），典型的 SP 有阿里云、腾讯云以及很多很多的 SaaS 服务；IdP 其实就是我们企业自己，因为用户目录在我们这里。访问 SP 服务的时候，SP 会向 IdP 发送一个 SAML Request（具体是什么我们暂时不关心），请求 IdP 判断用户身份。IdP 收到 SAML Request 后，可以通过某种手段对用户身份进行认证，如果已登录，可以直接返回用户身份信息给 SP；如果未登录，可以弹出一个登录框，用户登录之后再将用户身份返回给 SP。SP 收到用户信息之后，再在自己的数据库里面找出对应的用户，然后以这个用户的身份访问 SP 服务。</p>
 
-<p>开发者拿到用户权限列表之后，可以在业务代码层判断用户是否具备某一特定权限，如：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if "corp-email:login" not in user.permissionList:
-  return "Permission Denied"
-</code></pre></div></div>
-
-<h3 id="4使用-rbac-的优势">4、<strong>使用 RBAC 的优势</strong></h3>
-
+<p>SAML 协议的具体实现过于复杂，不建议自己从零实现，可以借助已有开源库实现，比如：</p>
 <ul>
-  <li>
-    <p>系统性、可重复性的权限指派</p>
-  </li>
-  <li>
-    <p>更方便的用户权限审计，快速定位问题</p>
-  </li>
-  <li>
-    <p>快速地添加、修改角色，甚至可以调用 API 实现</p>
-  </li>
-  <li>
-    <p>减少授予用户权限时发生错误的可能性</p>
-  </li>
-  <li>
-    <p>引入第三方用户/新用户/未登录用户时，赋予他们预先配置好的角色，比如 guest 分组</p>
-
-    <p>更多关于 RBAC 的介绍请参考<a href="https://mp.weixin.qq.com/s?__biz=MzU1OTk1NjU4MA==&amp;mid=2247484085&amp;idx=1&amp;sn=c59e44be19951c8f08725e8e25985b3f&amp;scene=21#wechat_redirect">实现基于角色的访问控制（RBAC）</a>。</p>
-  </li>
+  <li>NodeJS 的 <a href="https://github.com/tngan/samlify">samlify</a></li>
+  <li>Python 的 <a href="https://github.com/onelogin/python-saml">python-saml</a></li>
+  <li>Java 的 <a href="https://github.com/onelogin/java-saml">java-saml</a></li>
 </ul>
 
-<h2 id="三总结">三、总结</h2>
+<p>一般来说，如果你作为 IdP ，需要将自己内部用户目录数据库的字段和 SAML 字段对齐，并实现 metadata 、 SingleSignOnService 和  SingleLogoutService 接口，分别实现获取  IdP 元信息、单点登录和单点登出。具体代码实现这里就不详细讲了，感兴趣的可以用开源库实现一下，或者你也可以考虑使用<a href="https://docs.authing.cn/authing/authentication/use-saml">我们的 SAML 服务</a>。</p>
 
-<p>本文我们以「非凡科技有限公司」为例，介绍了如何将一棵组织机构树转换成一组嵌套、有层次的 Group。通过 Authing 提供的分组角色权限管理 API，可以为 Group 配置角色、指派成员，使得该 Group 中的用户继承所需的权限，从而完成组织机构建模与权限控制。</p>
+<h2 id="支持企业微信登录">支持企业微信登录</h2>
 
-<h3 id="关于-authing">关于 Authing</h3>
+<p>企业微信支持两种身份认证方式：<a href="https://work.weixin.qq.com/api/doc/90000/90135/91020">网页授权登录</a>（指在企业微信 APP  内打开的网页，不适用于普通的浏览器网页）和<a href="https://work.weixin.qq.com/api/doc/90000/90135/90988">扫码登录</a>，这里我们主要讲如何接入扫码登录。</p>
 
-<p><img src="https://cdn.authing.cn/blog/20200205182918.png" alt="" />Authing 是中国领先的 IDaaS 服务提供商，对标美国独角兽 Auth0。创始团队来自字节跳动、百度、IBM、阿里云、滴滴出行等互联网企业。Authing 提供开发者友好、易拓展的身份认证和授权平台，赋能企业在云端管理身份，主要功能包括：单点登录、用户分析、扫码登录、多因素认证、行为审计、风险控制、跨平台设备管理、IoT 身份认证等；兼容国际各类标准协议：OAuth2.0、OIDC、SAML、AD/LDAP、WS-Fed、JWT 等。 支持云交付和私有化部署方式，帮助企业和开发者千倍级提升生产效率。</p>
+<blockquote>
+  <p>BTW: 如果你对扫码登录原理感兴趣，可以看看我们之前写的如何从零<a href="https://juejin.im/post/5e083565e51d45581308a3e5">实现扫码登录系列文章</a>。</p>
+</blockquote>
 
-<p>Authing 自上线以来已经服务海内外超过 3000 名企业开发者、拥有约 50 万的开发者社区和托管数百万终端用户，每月百万人次通过 Authing 平台进行认证，并已经服务数十家付费企业客户，覆盖教育、人工智能、出版社、 物联网等多个行业。</p>
+<p>企业微信扫码登录流程如下：用户进入第三方网站，且这个网站支持使用企业微信登录，用户使用企业微信扫码登录之后，企业微信会将登录授权码返回给你，接着你就可以使用这个授权码换取用户信息了。</p>
+
+<p><img src="https://cdn.authing.cn/blog/20200403144934.png" alt="" /></p>
+
+<p>首先你需要拼接一个微信扫码登录链接，如下图所示：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://open.work.weixin.qq.com/wwopen/sso/3rd_qrConnect?appid=ww100000a5f2191&amp;redirect_uri=http%3A%2F%2Fwww.oa.com&amp;state=web_login@gyoss9&amp;usertype=member
+</code></pre></div></div>
+
+<ul>
+  <li>appid 为服务商的CorpID</li>
+  <li>redirect_uri 为用户授权之后企业微信服务器转发授权码的地址。</li>
+  <li>usertype 为支持登录的类型。admin代表管理员登录（使用微信扫码）,member代表成员登录（使用企业微信扫码），默认为admin。</li>
+</ul>
+
+<p>用户同意授权之后，会转发登录授权码给上面填写的 redirect_uri，你可以用它来换取用户信息：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST https://qyapi.weixin.qq.com/cgi-bin/service/get_login_info?access_token=PROVIDER_ACCESS_TOKEN
+</code></pre></div></div>
+
+<p>POST 请求 body 为：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "auth_code":"xxxxx"
+}
+</code></pre></div></div>
+
+<p>其中 auth_code 就是登录授权码，PROVIDER_ACCESS_TOKEN 是服务商凭证，你可以在这里看到如何<a href="https://work.weixin.qq.com/api/doc/90001/90142/90593#%e6%9c%8d%e5%8a%a1%e5%95%86%e7%9a%84token">获取服务商凭证</a>。换取用户信息之后，你可以将其保持至自己的数据库。</p>
+
+<p>具体的细节就不多说了，还牵涉到配置 IP 白名单，添加可信任域名等，如果你感兴趣，可以看企业微信的<a href="https://work.weixin.qq.com/api/doc/90001/90143/91123">开发文档</a>。当然，如果你不想自己实现，我们也提供这个<a href="https://docs.authing.cn/authing/social-login/web/wechatwork-qrconnect">服务</a>。</p>
+
+<h2 id="用户目录和阿里云用户角色对齐">用户目录和阿里云用户角色对齐</h2>
+
+<p>如果你实现好了 SAML 协议，你有个有一个接口可以用于下载  IdP Metadata，需要将其上传给阿里云。</p>
+
+<h3 id="在阿里云添加用户">在阿里云添加用户</h3>
+
+<p>使用你的阿里云账号登录阿里云的<a href="https://www.aliyun.com/">控制台</a>。在你的用户头像上悬停鼠标，出现下拉菜单，点击「访问控制」。</p>
+
+<p><img src="https://cdn.authing.cn/blog/20200403145330.png" alt="" /></p>
+
+<p>进入左侧菜单 -&gt; 人员管理 -&gt; 用户，点击「新建用户」。</p>
+
+<p><img src="https://cdn.authing.cn/blog/20200403145342.png" alt="" /></p>
+
+<p>输入用户名称、显示名称，勾选控制台密码登录并点击「确认」。本教程中输入的登录名称是 authing，显示名称也是 authing。</p>
+
+<p><img src="https://cdn.authing.cn/blog/20200403145351.png" alt="" /></p>
+
+<p>点击左侧菜单 -&gt; 人员管理 -&gt; 用户，在右侧页面的列表中可以看到刚刚添加的用户，记录下用户登录名称（xxx@xxx.onaliyun.com），随后会用到。点击对应用户条目右侧的「添加权限」。</p>
+
+<p>在权限列表中选择需要赋予该账户的权限，本教程选择「AdministratorAccess」最高权限。点击「确定」。</p>
+
+<p><img src="https://cdn.authing.cn/blog/20200403145412.png" alt="" /></p>
+
+<p>进入左侧菜单 -&gt; SSO 管理，右侧页面点击「用户 SSO」选项卡，在下方 SSO 登录设置处点击「编辑」。</p>
+
+<p><img src="https://cdn.authing.cn/blog/20200403145421.png" alt="" /></p>
+
+<p>SSO 功能状态选择「开启」。点击「上传文件」，上传你的 SAML IdP Metadata。点击「确认」。</p>
+
+<p><img src="https://cdn.authing.cn/blog/20200403145433.png" alt="" /></p>
+
+<h3 id="在你的用户目录进行对齐">在你的用户目录进行对齐</h3>
+
+<p>上一步在阿里云配置好了账号，用户名为 xxx@xxx.onaliyun.com ，接下来需要将其映射到你的用户目录。方法很简单，你只需要将对应企业微信登录用户的 NameID 设置成 xxx@xxx.onaliyun.com 即可。</p>
+
+<h2 id="总结">总结</h2>
+
+<p>这篇文章，我们介绍了如何利用 SAML 协议将企业微信和阿里云建立起联系。总结一下，我们一共实现了三件事情：</p>
+
+<ol>
+  <li>接入 SAML 协议</li>
+  <li>接入企业微信登录</li>
+  <li>将阿里云 RAM 用户和自己的用户目录打通</li>
+</ol>
+
+<p>事实上，企业微信登录只是<strong>某种</strong>登录手段，你也完全可以支持 GitHub 登录、微博登录、手机号验证码登录、生物指纹登录 ….. 任何你能想到的登录方式都可以。</p>
+
+<p>而上述这些东西，Authing 都支持，我们有非常丰富的社会化登录手段，除了企业微信，我们还支持 GitHub、微信、微博、钉钉、QQ、支付宝、小程序等。</p>
+
+<p><img src="https://cdn.authing.cn/blog/20200403145514.png" alt="" /></p>
+
+<p>我们还封装了简单易用的 SAML 协议，让你可以只需要填写自己简单的配置文件，就拥有一个完整的 SAML 协议实现以及一个美观易用的登录表单：</p>
+
+<p><img src="https://cdn.authing.cn/blog/20200403145524.png" alt="" /></p>
+
+<p>如果你不想关心具体的技术细节，完全可以直接使用 Authing 开箱即用的服务，将更多的精力集中到核心业务上。</p>
+
+<p>欢迎体验：<a href="https://authing.cn">https://authing.cn</a></p>
+
                 
 			</article>
 			
@@ -842,7 +589,9 @@ await authing.authz.addUserToGroup({
 			<div class="mb-4">
 				<span class="taglist">
 				
-				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#rbac">rbac</a>
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#sso">sso</a>
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#saml">saml</a>
 				
 				</span>
 			</div>
@@ -901,12 +650,12 @@ await authing.authz.addUserToGroup({
         <div class="row prevnextlinks small font-weight-bold">
           
             <div class="col-md-6 rightborder pl-0">
-                <a class="text-dark" href="/blog/a-intro-about-authing-to-everyone/"> <img height="30px" class="mr-1" src="/blog/https://cdn.authing.cn/blog/wtfauthing.jpg">  一份所有人都能理解的关于 Authing 的介绍</a>
+                <a class="text-dark" href="/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/"> <img height="30px" class="mr-1" src="/blog/https://cdn.authing.cn/blog/20200403150326.png">  五分钟理解什么是 OIDC</a>
             </div>
           
           
             <div class="col-md-6 text-right pr-0">
-                <a class="text-dark" href="/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/"> Geek Talk 036：Serverless 的前景和机会  <img height="30px" class="ml-1" src="/blog/https://cdn.authing.cn/blog/20200211201759.png"> </a>
+                <a class="text-dark" href="/blog/AWS-KMS-%E7%A7%91%E6%99%AE-What-Why-and-How/"> AWS KMS 科普: What Why and How?  <img height="30px" class="ml-1" src="/blog/https://cdn.authing.cn/blog/20200403150535.png"> </a>
             </div>
           
         </div>

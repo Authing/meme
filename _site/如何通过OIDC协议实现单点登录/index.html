@@ -4,24 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>RBAC | 组织机构管理最佳实践 | Authing 官方博客</title>
+    <title>五分钟理解什么是 OIDC | Authing 官方博客</title>
 
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>RBAC 组织机构管理最佳实践 | Authing 官方博客</title>
+<title>五分钟理解什么是 OIDC | Authing 官方博客</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="RBAC 组织机构管理最佳实践" />
-<meta name="author" content="cj" />
+<meta property="og:title" content="五分钟理解什么是 OIDC" />
+<meta name="author" content="叶祖伟" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。" />
-<meta property="og:description" content="在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。" />
-<link rel="canonical" href="https://authing.cn/blog/rbac/" />
-<meta property="og:url" content="https://authing.cn/blog/rbac/" />
+<meta name="description" content="如何通过OIDC协议实现单点登录" />
+<meta property="og:description" content="如何通过OIDC协议实现单点登录" />
+<link rel="canonical" href="https://authing.cn/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" />
+<meta property="og:url" content="https://authing.cn/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" />
 <meta property="og:site_name" content="Authing 官方博客" />
-<meta property="og:image" content="https://inrupt.com/sites/default/files/2018-10/Layer%200%20(1)_0.png" />
+<meta property="og:image" content="https://cdn.authing.cn/blog/20200403150326.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-02-05T00:00:00+08:00" />
+<meta property="article:published_time" content="2020-03-27T00:00:00+08:00" />
 <script type="application/ld+json">
-{"url":"https://authing.cn/blog/rbac/","headline":"RBAC 组织机构管理最佳实践","dateModified":"2020-02-05T00:00:00+08:00","datePublished":"2020-02-05T00:00:00+08:00","image":"https://inrupt.com/sites/default/files/2018-10/Layer%200%20(1)_0.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://authing.cn/blog/assets/images/logo.png"},"name":"cj"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://authing.cn/blog/rbac/"},"description":"在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。","author":{"@type":"Person","name":"cj"},"@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"url":"https://authing.cn/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/","headline":"五分钟理解什么是 OIDC","dateModified":"2020-03-27T00:00:00+08:00","datePublished":"2020-03-27T00:00:00+08:00","image":"https://cdn.authing.cn/blog/20200403150326.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://authing.cn/blog/assets/images/logo.png"},"name":"叶祖伟"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://authing.cn/blog/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87OIDC%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/"},"description":"如何通过OIDC协议实现单点登录","author":{"@type":"Person","name":"叶祖伟"},"@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -362,20 +362,18 @@ function lunr_search(term) {
 						
                           <a class="sscroll text-danger" href="/blog/categories.html#developers">developers</a><span class="sep">, </span>
                         
-                          <a class="sscroll text-danger" href="/blog/categories.html#tutorial">tutorial</a><span class="sep">, </span>
-                        
                         </span>
 					</p>
-					<h1 class="display-4 mb-4 article-headline">RBAC | 组织机构管理最佳实践</h1>
+					<h1 class="display-4 mb-4 article-headline">五分钟理解什么是 OIDC</h1>
 					<div class="d-flex align-items-center">
                         
-                        <img class="rounded-circle" src="/blog//assets/images/cj.png" alt="廖长江" width="70"/>
+                        <img class="rounded-circle" src="/blog//assets/images/yelexin.svg" alt="叶祖伟" width="70"/>
                         
-						<small class="ml-3"> 廖长江 <span><a target="_blank" href="https://www.zhihu.com/people/lcj1024" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
-                            <span class="text-muted d-block mt-1">Feb 05, 2020 · <span class="reading-time">
+						<small class="ml-3"> 叶祖伟 <span><a target="_blank" href="" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Mar 27, 2020 · <span class="reading-time">
   
   
-    4 mins read
+    8 mins read
   
 </span>
     </span>
@@ -384,7 +382,7 @@ function lunr_search(term) {
 				</div>
                 
 				<div class="col-md-6 pr-0 align-self-center">
-					<img class="rounded" src="https://inrupt.com/sites/default/files/2018-10/Layer%200%20%281%29_0.png" alt="RBAC | 组织机构管理最佳实践">
+					<img class="rounded" src="https://cdn.authing.cn/blog/20200403150326.png" alt="五分钟理解什么是 OIDC">
 				</div>
                 
 			</div>
@@ -434,407 +432,417 @@ function lunr_search(term) {
             
             <!-- Article -->
 			<article class="article-post">                
-			<p>在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。</p>
+			<h1 id="如何通过oidc协议实现单点登录">如何通过OIDC协议实现单点登录</h1>
 
-<p>借助 Authing，可以快速<a href="https://mp.weixin.qq.com/s/zRiymhIjTqfUlymjkGfEsA">实现基于角色的访问控制（RBAC）</a>。简单来说，RBAC 指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。</p>
+<h1 id="什么是单点登录">什么是单点登录</h1>
 
-<p>而在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会设想一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。</p>
+<p>我们通过一个例子来说明，假设有一所大学，内部有两个系统，一个是邮箱系统，一个是课表查询系统。现在想实现这样的效果：在邮箱系统中登录一遍，然后此时进入课表系统的网站，无需再次登录，课表网站系统直接跳转到个人课表页面，反之亦然。比较专业的定义如下：</p>
 
-<!-- more -->
+<p><strong>单点登录</strong>（Single Sign On），简称为 <strong>SSO</strong>，是目前比较流行的企业业务整合的解决方案之一。 SSO 的定义是在多个应用系统中，<strong>用户只需要登录一次</strong>就可以<strong>访问所有</strong>相互信任的应用系统。</p>
 
-<h2 id="一非凡科技有限公司背景介绍">一、非凡科技有限公司背景介绍</h2>
+<h1 id="为什么要实现单点登录">为什么要实现单点登录</h1>
 
-<p>该公司约 300 名员工，其公司架构大致如下：</p>
+<p>单点登录的意义在于能够在不同的系统中统一账号、统一登录。用户不必在每个系统中都进行注册、登录，只需要使用一个统一的账号，登录一次，就可以访问所有系统。</p>
 
-<ul>
-  <li>
-    <p>一级部门有产品部、研发部、运营部、综合管理部</p>
-  </li>
-  <li>
-    <p>一级部门下面又有二级部门，如产品部中包含产品经理和设计等。</p>
-  </li>
-</ul>
+<h1 id="通过-oidc-协议实现单点登录">通过 OIDC 协议实现单点登录</h1>
 
-<p><img src="https://cdn.authing.cn/blog/20200205182710.png" alt="" /></p>
+<h2 id="创建自己的用户目录">创建自己的用户目录</h2>
 
-<p>这是一个典型的树状数据结构，有且仅有一个根节点，以及多个分层的节点。一般而言，根节点就是一家公司、一个组织，其他的每个节点都对应一个部门。</p>
+<p><strong>用户目录</strong>这个词很贴切，你的系统的总用户表就像一本书一样，书的封皮上写着“所有用户”四个字。打开第一页，就是目录，里面列满了用户的名字，翻到对应的页码就能看到这个人的邮箱，手机号，生日信息等等。无论你开发多少个应用，要确保你有一份这些应用所有用户信息的 truth source。所有的注册、认证、注销都要到你的用户目录中进行增加、查询、删除操作。你要做的就是<strong>创建一个中央数据表，专门用于存储用户信息</strong>，不论这个用户是来自 A 应用、B 应用还是 C 应用。</p>
 
-<p>‌</p>
+<h2 id="什么是-oidc-协议">什么是 OIDC 协议</h2>
 
-<p>这里有一点需要注意：在 Authing 中，这样的节点对应的是一个 Group，比如「非凡科技有限公司」是一个 Group，「产品部」也是一个 Group。我们要做的，是要把这些 Group 放到他在树上所属的位置。</p>
+<p>OIDC 的全称是 OpenID Connect，是一个基于 OAuth 2.0 的轻量级认证 + 授权协议，是 OAuth 2.0 的超集。它规定了其他应用，例如你开发的应用 A（XX 邮件系统），应用 B（XX 聊天系统），应用 C（XX 文档系统），如何到你的<strong>中央数据表</strong>中取出用户数据，约定了交互方式、安全规范等，确保了你的用户能够在访问所有应用时，只需登录一遍，而不是反反复复地输入密码，而且遵循这些规范，你的用户认证环节会很安全。</p>
 
-<p>一个 Group 可以拥有多个角色（Role），一个角色包含一个或多个权限（Permission）；而一个 Group 由若干用户（User）组成，某个 Group 中的用户会继承该 Group 下的所有角色，从而具备相关权限。</p>
+<h2 id="架设自己的-oidc-provider">架设自己的 OIDC Provider</h2>
 
-<p>了解如何管理  Group 中的 User、如何管理 Group 中的 Role、如何配置 Role 的 Permission，请见文档：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/rbac">角色权限管理</a>。</p>
+<p>什么是 OIDC Provider 呢？我来举一个例子：你经常见到一些网站的登录页面上有「使用 Github 登录」、「使用 Google 登录」这样的按钮。要想集成这样的功能，你<strong>要先去 Github 那里注册一个 OAuth App，填写一些资料，然后 Github 分配给你一对 id 和 key。</strong> 此时 Github 扮演的角色就是 OIDC Provider，你要做的就是把 Github 的这种角色的行为，搬到你自己的服务器来。</p>
 
-<p>了解如何查询单个用户的 Group, Role, Permission 列表，请见文档：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/query-permissions">查询用户权限</a>。</p>
+<p>在 Github 上面搜索 OIDC Provider 会有很多结果：</p>
 
-<p>如何使用 Authing 完成组织机构管理</p>
+<p>JS：<a href="https://github.com/panva/node-oidc-provider">https://github.com/panva/node-oidc-provider</a></p>
 
-<h3 id="1梳理组织机构节点">1、梳理组织机构节点</h3>
+<p>Golang：<a href="https://github.com/dexidp/dex">https://github.com/dexidp/dex</a></p>
 
-<p>首先，我们需要列举出该组织结构拥有的所有节点：</p>
+<p>Python：<a href="https://github.com/juanifioren/django-oidc-provider">https://github.com/juanifioren/django-oidc-provider</a></p>
 
-<ul>
-  <li>
-    <p>非凡科技有限公司</p>
-  </li>
-  <li>
-    <p>产品部</p>
-  </li>
-  <li>
-    <p>研发部</p>
-  </li>
-  <li>
-    <p>运营部</p>
-  </li>
-  <li>
-    <p>综合管理部</p>
-  </li>
-  <li>
-    <p>产品经理</p>
-  </li>
-  <li>
-    <p>设计</p>
-  </li>
-  <li>
-    <p>开发</p>
-  </li>
-  <li>
-    <p>测试</p>
-  </li>
-  <li>
-    <p>运维</p>
-  </li>
-  <li>
-    <p>用户运营</p>
-  </li>
-  <li>
-    <p>渠道运营</p>
-  </li>
-  <li>
-    <p>HR</p>
-  </li>
-  <li>
-    <p>财务</p>
-  </li>
-  <li>
-    <p>行政</p>
-  </li>
-</ul>
+<p>…</p>
 
-<p>这些节点在 Authing 中都是一个 Group，所以需要先创建这些 Group：</p>
+<p>不再一一列举，你需要选择适合你的编程语言的 OIDC Provider 包，然后让它在你的服务器上运行起来。本文使用 JS 语言的 node-oidc-provider。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const 非凡科技有限公司 = await createGroup("非凡科技有限公司")
-const 产品部 = await createGroup('产品部')
-const 产品经理 = await createGroup('产品经理')
-const 设计 = await createGroup('设计')
-const 研发部 = await createGroup('研发部')
-const 开发 = await createGroup('开发')
-const 测试 = await createGroup('测试')
-const 运维 = await createGroup('运维')
-const 运营部 = await createGroup('运营部')
-const 用户运营 = await createGroup('用户运营')
-const 渠道运营 = await createGroup('渠道运营')
-const 综合管理部 = await createGroup('综合管理部')
-const HR = await createGroup('HR')
-const 财务 = await createGroup('财务')
-const 行政 = await createGroup('行政')
+<h3 id="示例代码-github">示例代码 Github</h3>
+<p>可以在 Github 找到本文示例代码：</p>
+
+<p><a href="https://github.com/Authing/implement-oidc-sso-demo.git">https://github.com/Authing/implement-oidc-sso-demo.git</a></p>
+
+<h3 id="创建文件夹">创建文件夹</h3>
+
+<p>我们首先创建一个文件夹，用于存放代码：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>demo
+<span class="nv">$ </span><span class="nb">cd </span>demo
 </code></pre></div></div>
 
-<p>‌</p>
+<h3 id="克隆仓库">克隆仓库</h3>
 
-<h3 id="2创建组织机构">2、创建组织机构</h3>
+<p>然后我们将 <a href="https://github.com/panva/node-oidc-provider.git">https://github.com/panva/node-oidc-provider.git</a> 仓库 clone 到本地</p>
 
-<p>接着创建组织机构（一组树状的 Group），这需要指定根节点对应的 Group:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let org = await authing.org.createOrg({
- rootGroupId: 非凡科技有限公司._id
-})
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone https://github.com/panva/node-oidc-provider.git
 </code></pre></div></div>
 
-<h3 id="3加入产品部及其子部门节点">3、加入产品部及其子部门节点</h3>
+<h3 id="安装依赖">安装依赖</h3>
 
-<p>‌</p>
-
-<p>接着插入产品部的各级节点：</p>
-
-<p>‌</p>
-
-<p>这里需要指定以下参数：</p>
-
-<ul>
-  <li>
-    <p>组织机构 ID</p>
-  </li>
-  <li>
-    <p>该节点对应的 Group ID</p>
-  </li>
-  <li>
-    <p>该节点的父节点的 Group ID</p>
-  </li>
-</ul>
-
-<p>如加入产品部节点时，groupId 为 Group<产品部> 的 ID，parentGroupId 为 Group<非凡科技有限公司> 的 ID。</非凡科技有限公司></产品部></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>await authing.org.addNode({
- orgId: org._id,
- groupId: 产品部._id,
- parentGroupId: 非凡科技有限公司._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 产品经理._id,
- parentGroupId: 产品部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 设计._id,
- parentGroupId: 产品部._id
-})
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>node-oidc-provider
+<span class="nv">$ </span>npm <span class="nb">install</span>
 </code></pre></div></div>
 
-<h3 id="4以此类推加入所有节点">4、以此类推，加入所有节点</h3>
+<h3 id="在-oidc-provider-申请一个-client">在 OIDC Provider 申请一个 Client</h3>
 
-<p>研发部：</p>
+<p>上一步讲到，Github 会分配给你一对 id 和 key，这一步其实就是你在 Github 申请了一个 Client。那么如何向我们自己的服务器上的 OIDC Provider 申请一对这样的 id 和 key 呢？</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 添加研发部
-await authing.org.addNode({
- orgId: org._id,
- groupId: 研发部._id,
- parentGroupId: 非凡科技有限公司._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 开发._id,
- parentGroupId: 研发部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 测试._id,
- parentGroupId: 研发部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 运维._id,
- parentGroupId: 研发部._id
-})
+<p>以 <a href="https://github.com/panva/node-oidc-provider/tree/master/example">node-oidc-provider</a> 举例，最快的获得一个 Client 的方法就是将 OIDC Client 所需的元数据直接写入 node-oidc-provider 的配置文件里面。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled.png" /></p>
+
+<p>Wait wait wait，跨度有些大，这两者之间有什么关系？首先我们看，在 Github 上填写应用信息，然后提交，会发送一个 HTTP 请求到 Github 服务器。Github 服务器会生成一对 id 和 key，还会把它们与你的应用信息存储到 Github 自己的数据库里。所以，我们将 OIDC Client 所需的元数据直接写入到配置文件，可以理解成，我们在自己的数据库里手动插入了一条数据，为自己指定了一对 id 和 key 还有其他的一些 OIDC Client 信息。</p>
+
+<h3 id="修改配置文件">修改配置文件</h3>
+
+<p>进入 node-oidc-provider 项目下的 example 文件夹：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ./example
 </code></pre></div></div>
 
-<p>运营部：</p>
+<p>编辑 <code class="highlighter-rouge">./support/configuration.js</code> ，更改第 16 行的 clients 配置，我们为自己指定了一个 client_id 和一个 client_secret，其中的 grant_types 为授权模式，authorization_code 即授权码模式，redirect_uris 数组是允许的业务回调地址，需要填写 Web App 应用的地址，OIDC Provider 会将临时授权码发送到这个地址，以便后续换取 token。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>await authing.org.addNode({
- orgId: org._id,
- groupId: 运营部._id,
- parentGroupId: 非凡科技有限公司._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 用户运营._id,
- parentGroupId: 运营部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 渠道运营._id,
- parentGroupId: 运营部._id
-})
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">clients</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">client_id</span><span class="p">:</span> <span class="s1">'1'</span><span class="p">,</span>
+      <span class="na">client_secret</span><span class="p">:</span> <span class="s1">'1'</span><span class="p">,</span>
+      <span class="na">grant_types</span><span class="p">:</span> <span class="p">[</span><span class="s1">'refresh_token'</span><span class="p">,</span> <span class="s1">'authorization_code'</span><span class="p">],</span>
+      <span class="na">redirect_uris</span><span class="p">:</span> <span class="p">[</span><span class="s1">'http://localhost:8080/app1.html'</span><span class="p">,</span> <span class="s1">'http://localhost:8080/app2.html'</span><span class="p">],</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+<span class="p">...</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
-<p>‌</p>
+<h3 id="启动-node-oidc-provider">启动 node-oidc-provider</h3>
 
-<p>综合管理部：</p>
+<p>在 node-oidc-provider/example 文件夹下，运行以下命令来启动我们的 OP：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 添加综合管理部
-await authing.org.addNode({
- orgId: org._id,
- groupId: 综合管理部._id,
- parentGroupId: 非凡科技有限公司._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: HR._id,
- parentGroupId: 综合管理部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 财务._id,
- parentGroupId: 综合管理部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 行政._id,
- parentGroupId: 综合管理部._id
-})
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>node express.js
 </code></pre></div></div>
 
-<h3 id="5查看最新组织机构结构">5、查看最新组织机构结构</h3>
+<p>到现在，我们的准备工作已经完成了，在讲如何在 Web App 中进行单点登录之前，我们先了解一下 OIDC 授权码模式。刚刚提到的许多术语：<strong>授权码模式</strong>、<strong>业务回调地址</strong>、<strong>临时授权码</strong>，可能这些概念你会感到陌生，下文会详细介绍。</p>
 
-<p>到现在，我们的非凡科技有限公司组织机构见建模完成了，是时候获取其最新的树状结构了：</p>
+<h2 id="oidc-授权码模式">OIDC 授权码模式</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const { tree } = await authing.org.findById(org._id)
+<p>以下是 OIDC 授权码模式的交互模式，你的应用和 OP 之间要通过这样的交互方式来获取用户信息。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%201.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%201.png" /></p>
+
+<p>我们的 OIDC Provider 对外暴露一些接口</p>
+
+<h3 id="授权接口">授权接口</h3>
+
+<p>每次调用这个接口，就像是对 OIDC Provider 喊话：我要登录，如第一步所示。</p>
+
+<p>然后 OIDC Provider 会<strong>检查当前用户在 OIDC Provider 的登录状态</strong>，如果是未登录状态，OIDC Provider 会弹出一个登录框，与终端用户确认身份，登录成功后会将一个<strong>临时授权码</strong>（一个随机字符串）发到你的应用（<strong>业务回调地址</strong>）；如果是已登录状态，OIDC Provider 会将浏览器直接重定向到你的应用（<strong>业务回调地址</strong>），并携带<strong>临时授权码</strong>（一个随机字符串）。如第二、三步所示。</p>
+
+<h3 id="token-接口">token 接口</h3>
+
+<p>每次调用这个接口，就像是对 OIDC Provider 说：这是我的授权码，给我换一个 access_token。如第四、五步所示。</p>
+
+<h3 id="用户信息接口">用户信息接口</h3>
+
+<p>每次调用这个接口，就像是对 OIDC Provider 说：这是我的 access_token，给我换一下用户信息。到此用户信息获取完毕。</p>
+
+<p>为什么这么麻烦？直接返回用户信息不行吗？</p>
+
+<p>因为安全，关于 OIDC 协议的安全性，又可以展开很大的篇幅，现在简单解释一下：code 的有效期一般只有十分钟，而且一次使用过后作废。OIDC 协议授权码模式中，只有 code 的传输经过了用户的浏览器，一旦泄露，攻击者很难抢在应用服务器拿这个 code 换 token 之前，先去 OP 使用这个 code 换掉 token。而如果 access_token 的传输经过浏览器，一般 access_token 的有效期都是一个小时左右，攻击者可以利用 access_token 获取用户的信息，而应用服务器和 OP 也很难察觉到，更不必说去手动撤退了。如果直接传输用户信息，那安全性就更低了。一句话：避免让攻击者偷走用户信息。</p>
+
+<h2 id="编写第一个应用">编写第一个应用</h2>
+
+<p>我们创建一个 app1.html 文件来编写第一个应用 demo，在 demo/app 目录下创建：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">touch </span>app1.html
 </code></pre></div></div>
 
-<p>​               <img src="https://internal-api-space-hl.feishu.cn/space/api/file/out/zSOvcI4ejux1n1410JnoDNfAHpsLAUIVoA9J04p9ssf7lQ2DlO/" alt="img" /></p>
+<p>并写入以下内容：</p>
 
-<h2 id="二如何向组织机构中添加用户和配置权限">二、如何向组织机构中添加用户和配置权限</h2>
-
-<p>前面说过，Authing 中一个组织结构节点对应一个  Group，对此我们提供了完整的 SDK。</p>
-
-<h3 id="1为组织机构节点配置权限">1、为组织机构节点配置权限</h3>
-
-<p>相关 SDK 见：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/rbac">角色权限管理</a>。</p>
-
-<p>非凡科技有限公司的所有员工，都具备开具发票、使用公司邮箱的权限。与此对应，在此我们创建两个角色：Invoice Submitter 和 Corp Email User。</p>
-
-<p>‌</p>
-
-<p>其中 Invoice Submitter 具备以下权限：</p>
-
-<ul>
-  <li>
-    <p>invoice:login</p>
-  </li>
-  <li>
-    <p>invoice:create</p>
-  </li>
-  <li>
-    <p>invoice:query</p>
-  </li>
-  <li>
-    <p>invoice:list</p>
-  </li>
-  <li>
-    <p>invoice:delete</p>
-  </li>
-</ul>
-
-<p>Corp Email User 具备以下权限：</p>
-
-<ul>
-  <li>
-    <p>corp-email:login</p>
-  </li>
-  <li>
-    <p>corp-email:send</p>
-  </li>
-  <li>
-    <p>corp-email:receive</p>
-  </li>
-  <li>
-    <p>corp-email:list</p>
-  </li>
-  <li>
-    <p>corp-email:detail</p>
-  </li>
-</ul>
-
-<p>这可以通过以下代码完成：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const InvoiceSubmitter = await createRole('Invoice Submitter')
-let permissions = await createPermissionBatch(['invoice:login', 'invoice:create', 'invoice:query', 'invoice:list', 'invoice:delete'])
-await authing.authz.addPermissionToRoleBatch({
- roleId: InvoiceSubmitter._id,
- permissionIdList: permissions.map(x =&gt; x._id)
-})
-const CorpEmailUser = await createRole('Corp Email Use')
-permissions = await createPermissionBatch(['corp-email:login', 'corp-email:send', 'corp-email:receive', 'corp-email:list', 'corp-email:detail'])
-await authing.authz.addPermissionToRoleBatch({
- roleId: CorpEmailUser._id,
- permissionIdList: permissions.map(x =&gt; x._id)
-})
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>第一个应用<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://localhost:3000/auth?client_id=1&amp;redirect_uri=http://localhost:8080/app1.html&amp;scope=openid profile&amp;response_type=code&amp;state=455356436"</span><span class="nt">&gt;</span>登录<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
 </code></pre></div></div>
 
-<p>接着让 Group 非凡科技有限公司具备 Invoice Submitter 和 Corp Email User 两个角色：</p>
+<h2 id="编写第二个应用">编写第二个应用</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>await authing.authz.addRoleToGroup({
- roleId: InvoiceSubmitter._id,
- groupId: 非凡科技有限公司._id
-})
-await authing.authz.addRoleToGroup({
- roleId: InvoiceSubmitter._id,
- groupId: 非凡科技有限公司._id
-})
+<p>我们创建一个 app2.html 文件来编写第二个应用 demo，注意 redirect_uri 的变化，在 demo/app 目录下创建：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">touch </span>app2.html
 </code></pre></div></div>
 
-<p>现在，非凡科技有限公司这个节点将会具备  Invoice Submitter 和 Corp Email User 两个角色</p>
+<p>并写入以下内容：</p>
 
-<h3 id="2向组织机构节点添加用户">2、向组织机构节点添加用户</h3>
-
-<p>相关 API 见：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/rbac">角色权限管理</a>。</p>
-
-<blockquote>
-  <p>某个 Group 内的用户会继承该 Group 内所有角色的权限（如果有重叠，将会取并集）。</p>
-</blockquote>
-
-<p>下面我们往用户池中注册新用户，然后将其加入非凡科技有限公司 Group 中：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const user = await createUser()
-await authing.authz.addUserToGroup({
- groupId: 非凡科技有限公司._id,
- userId: user._id
-})
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>第二个应用<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://localhost:3000/auth?client_id=1&amp;redirect_uri=http://localhost:8080/app2.html&amp;scope=openid profile&amp;response_type=code&amp;state=455356436"</span><span class="nt">&gt;</span>登录<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
 </code></pre></div></div>
 
-<h3 id="3查询用户具备的权限">3、查询用户具备的权限</h3>
+<h2 id="向-oidc-provider-发起登录请求">向 OIDC Provider 发起登录请求</h2>
 
-<p>相关 API  见：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/query-permissions">查询用户权限</a>。</p>
+<p>现在我们启动一个 web 服务器，推荐使用 http-server</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const { rawList: permissionList } = await authing.userPermissionList(user._id)‌
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">-g</span> http-server <span class="c"># 安装 http-server</span>
+<span class="nv">$ </span><span class="nb">cd </span>demo/app
+<span class="nv">$ </span>http-server <span class="nb">.</span>
 </code></pre></div></div>
 
-<p>permissionList 如下：可见，此用户已经继承了 Invoice Submitter 和 Corp Email User 两个角色的所有权限：</p>
+<p>我们访问第一个应用：<a href="http://localhost:8080/app1.html">http://localhost:8080/app1.html</a></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
-  'invoice:login',
-  'invoice:create',
-  'invoice:query',
-  'invoice:list',
-  'invoice:delete',
-  'corp-email:login',
-  'corp-email:send',
-  'corp-email:receive',
-  'corp-email:list',
-  'corp-email:detail',
- ]
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%202.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%202.png" /></p>
+
+<p>然后点击「登录」，也就是访问 OIDC Provider 的<strong>授权接口</strong>。然后我们来到了 OIDC Provider 交互环节，OIDC Provider 发现用户没有登录，要求用户先登录。node-oidc-provider demo 会放通任意用户名 + 密码，但是你在真正实施单点登录时，你必须使用你的<strong>用户目录</strong>即<strong>中央数据表中的用户数据</strong>来鉴权用户，相关的代码可能会涉及到<a href="https://github.com/panva/node-oidc-provider/tree/master/docs#adapter">数据库适配器</a>，自定义<a href="https://github.com/panva/node-oidc-provider/tree/master/docs#accounts">用户查询逻辑</a>，这些在 node-oidc-provider 包的相关配置中需要自行插入。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%203.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%203.png" /></p>
+
+<p>现在点击「登录」，转到确权页面，这个页面会显示你的应用需要获取那些用户权限，本例中请求用户授权获取他的基础资料。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%204.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%204.png" /></p>
+
+<p>点击「继续」，完成在 OP 的登录，之后 OP 会将浏览器重定向到预先设置的业务回调地址，所以我们又回到了 app1.html。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%205.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%205.png" /></p>
+
+<p>在 url query 中有一个 code 参数，这个参数就是临时授权码。code 最终对应一条用户信息，接下来看我们如何获取用户信息。</p>
+
+<h2 id="web-app-从-oidc-provider-获取用户信息">Web App 从 OIDC Provider 获取用户信息</h2>
+
+<p>事实上，code 可以直接发送到后端，然后在后端使用 code 换取 access_token。这里我使用 postman 演示如何通过 code 换取 access_token。</p>
+
+<p>你可以使用 curl 命令来发送 HTTP 请求：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://localhost:3000/token'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'client_id=1'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'client_secret=1'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'redirect_uri=http://localhost:8080/app2.html'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'code=QL10pBYMjVSw5B3Ir3_KdmgVPCLFOMfQHOcclKd2tj1'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'grant_type=authorization_code'</span>
 </code></pre></div></div>
 
-<p>开发者拿到用户权限列表之后，可以在业务代码层判断用户是否具备某一特定权限，如：</p>
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%206.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%206.png" /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if "corp-email:login" not in user.permissionList:
-  return "Permission Denied"
+<p>获取到 access_token 之后，我们可以使用 access_token 访问 OP 上面的资源，主要用于获取用户信息，即<strong>你的应用</strong>从你的<strong>用户目录</strong>中读取一条用户信息。</p>
+
+<p>你可以使用 curl 来发送 HTTP 请求：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://localhost:3000/me'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'access_token=I6WB2g0Rq9G307pPVTDhN5vKuyC9eWjrGjxsO2j6jm-'</span>
 </code></pre></div></div>
 
-<h3 id="4使用-rbac-的优势">4、<strong>使用 RBAC 的优势</strong></h3>
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%207.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%207.png" /></p>
 
-<ul>
-  <li>
-    <p>系统性、可重复性的权限指派</p>
-  </li>
-  <li>
-    <p>更方便的用户权限审计，快速定位问题</p>
-  </li>
-  <li>
-    <p>快速地添加、修改角色，甚至可以调用 API 实现</p>
-  </li>
-  <li>
-    <p>减少授予用户权限时发生错误的可能性</p>
-  </li>
-  <li>
-    <p>引入第三方用户/新用户/未登录用户时，赋予他们预先配置好的角色，比如 guest 分组</p>
+<p>到此，App 1 的登录已经完成，接下来，让我们看进入 App 2 是怎样的情形。</p>
 
-    <p>更多关于 RBAC 的介绍请参考<a href="https://mp.weixin.qq.com/s?__biz=MzU1OTk1NjU4MA==&amp;mid=2247484085&amp;idx=1&amp;sn=c59e44be19951c8f08725e8e25985b3f&amp;scene=21#wechat_redirect">实现基于角色的访问控制（RBAC）</a>。</p>
-  </li>
-</ul>
+<h2 id="登录第二个-web-app">登录第二个 Web App</h2>
 
-<h2 id="三总结">三、总结</h2>
+<p>我们打开第二个应用，<a href="http://localhost:8080/app2.html">http://localhost:8080/app2.html</a></p>
 
-<p>本文我们以「非凡科技有限公司」为例，介绍了如何将一棵组织机构树转换成一组嵌套、有层次的 Group。通过 Authing 提供的分组角色权限管理 API，可以为 Group 配置角色、指派成员，使得该 Group 中的用户继承所需的权限，从而完成组织机构建模与权限控制。</p>
+<p>然后点击「登录」。</p>
 
-<h3 id="关于-authing">关于 Authing</h3>
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%208.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%208.png" /></p>
 
-<p><img src="https://cdn.authing.cn/blog/20200205182918.png" alt="" />Authing 是中国领先的 IDaaS 服务提供商，对标美国独角兽 Auth0。创始团队来自字节跳动、百度、IBM、阿里云、滴滴出行等互联网企业。Authing 提供开发者友好、易拓展的身份认证和授权平台，赋能企业在云端管理身份，主要功能包括：单点登录、用户分析、扫码登录、多因素认证、行为审计、风险控制、跨平台设备管理、IoT 身份认证等；兼容国际各类标准协议：OAuth2.0、OIDC、SAML、AD/LDAP、WS-Fed、JWT 等。 支持云交付和私有化部署方式，帮助企业和开发者千倍级提升生产效率。</p>
+<p>用户已经在 App 1 登录时与 OP 建立了会话，User ←→ OP 已经是登录状态，所以 OP 检查到之后，没有再让用户输入登录凭证，而是直接将用户重定向回业务地址，并返回了授权码 code。</p>
 
-<p>Authing 自上线以来已经服务海内外超过 3000 名企业开发者、拥有约 50 万的开发者社区和托管数百万终端用户，每月百万人次通过 Authing 平台进行认证，并已经服务数十家付费企业客户，覆盖教育、人工智能、出版社、 物联网等多个行业。</p>
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%209.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%209.png" /></p>
+
+<p>同样，App 2 使用 code 换 access_token</p>
+
+<p>curl 命令代码：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://localhost:3000/token'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'client_id=1'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'client_secret=1'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'redirect_uri=http://localhost:8080/app2.html'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'code=QL10pBYMjVSw5B3Ir3_KdmgVPCLFOMfQHOcclKd2tj1'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'grant_type=authorization_code'</span>
+</code></pre></div></div>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2010.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2010.png" /></p>
+
+<p>再使用 access_token 换用户信息，可以看到，是同一个用户。</p>
+
+<p>curl 命令代码：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://localhost:3000/me'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+<span class="nt">--data-urlencode</span> <span class="s1">'access_token=I6WB2g0Rq9G307pPVTDhN5vKuyC9eWjrGjxsO2j6jm-'</span>
+</code></pre></div></div>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2011.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2011.png" /></p>
+
+<p>到此，我们实现了 App 1 与 App 2 之间的账号打通与单点登录。</p>
+
+<h2 id="登录态管理">登录态管理</h2>
+
+<p>到目前为止，看起来还不错，我们已经实现了两个应用之间账号的统一，而且在 App 1 中登录时输入一次密码，在 App 2 中登录，无需再次让用户输入密码进行登录，可以直接返回授权码到业务地址然后完成后续的用户信息获取。</p>
+
+<p>现在我们来考虑一下退出问题</p>
+
+<h3 id="只退出-app-1-而不退出-app-2">只退出 App 1 而不退出 App 2</h3>
+
+<p>这个问题实质上是<strong>登录态的管理问题</strong>。我们应该管理<strong>三个会话</strong>：User ←→ App 1、User ←→ App 2、User ←→ OP。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2012.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2012.png" /></p>
+
+<p>当 OP 给 App 1 返回 code 时，App 1 的后端在完成用户信息获取后，应该与浏览器建立会话，也就是说 App 1 与用户需要自己保持一套自己的登录状态，方式上可以通过 App 1 自签的 JWT Token 或 App 1 的 cookie-session。对于 App 2，也是同样的做法。</p>
+
+<p>当用户在 App 1 退出时，App 1 只需清理掉自己的登录状态就完成了退出，而用户访问 App 2 时，仍然和 App 2 存在会话，因此用户在 App 2 是登录状态。</p>
+
+<h3 id="同时退出-app-1-和-app-2">同时退出 App 1 和 App 2</h3>
+
+<p>刚才说到<strong>单点登录</strong>，与之相对的就是<strong>单点登出</strong>，即用户只需退出一次，就能在所有的应用中退出，变成未登录状态。</p>
+
+<p>最先想到的是这种方式，我们在 OIDC Provider 进行登出。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2013.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2013.png" /></p>
+
+<p>之后我们的状态是这样的：</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2014.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2014.png" /></p>
+
+<p>好吧，其实没有任何效果，因为用户和 App 1 之间的会话依然保持，用户和 App 2 之间的会话同样依然保持，所以用户在 App 1 和 App 2 的状态仍然是登录态。</p>
+
+<p>所以，有没有什么办法在用户从 OIDC Provider 登出之后，App 1 和 App 2 的会话也被切断呢？我们可以通过 OIDC Session Mangement 来解决这个问题。</p>
+
+<p>简单来说，App 1 的前端需要轮询 OP，不断询问 OP：用户在你那还登录着吗？如果答案是否定的，App 1 主动将用户踢下线，并将会话释放掉，让用户重新登录，App 2 也是同样的操作。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2015.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2015.png" /></p>
+
+<p>当用户在 OP 登出后，App 1、App 2 轮询 OP 时会收到用户已经从 OP 登出的响应，接下来，应该释放掉自己的会话状态，并将用户踢出系统，重新登录。</p>
+
+<p>刚刚我们提到 OIDC Session Management，这部分的核心就是两个 iframe，一个是我们自己应用中写的（以下叫做 RP iframe），用于不断发送 PostMessage 给 OP iframe，OP iframe 负责查询用户登录状态，并返回给 RP iframe。</p>
+
+<p>让我们把这部分的代码加上：</p>
+
+<p>首先打开 node-oidc-provider 的 sessionManangement 功能，编辑 <code class="highlighter-rouge">./support/configuration.js</code> 文件，在 42 行附近，进行以下修改：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="nx">features</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nl">sessionManagement</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">enabled</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">keepHeaders</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">},</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<p>然后和 app1.html、app2.html 平级新建一个 rp.html 文件，并加入以下内容：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+  <span class="kd">var</span> <span class="nx">stat</span> <span class="o">=</span> <span class="s1">'unchanged'</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">URL</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">location</span><span class="p">);</span>
+  <span class="c1">// 这里的 '1' 是我们的 client_id，之前在 node-oidc-provider 中填写的</span>
+  <span class="kd">var</span> <span class="nx">mes</span> <span class="o">=</span> <span class="s1">'1'</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="nx">url</span><span class="p">.</span><span class="nx">searchParams</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'session_state'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'mes: '</span><span class="p">)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mes</span><span class="p">)</span>
+  <span class="kd">function</span> <span class="nx">check_session</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">targetOrigin</span> <span class="o">=</span> <span class="s1">'http://localhost:3000'</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">win</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'op'</span><span class="p">).</span><span class="nx">contentWindow</span><span class="p">;</span>
+    <span class="nx">win</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="nx">mes</span><span class="p">,</span> <span class="nx">targetOrigin</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">setTimer</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">check_session</span><span class="p">();</span>
+    <span class="nx">timerID</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(</span><span class="s1">'check_session()'</span><span class="p">,</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="nx">receiveMessage</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+  <span class="nx">setTimer</span><span class="p">()</span>
+  <span class="kd">function</span> <span class="nx">receiveMessage</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">targetOrigin</span> <span class="o">=</span> <span class="s1">'http://localhost:3000'</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">origin</span> <span class="o">!==</span> <span class="nx">targetOrigin</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">stat</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">stat</span> <span class="o">==</span> <span class="s1">'changed'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'should log out now!!'</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>在 app1.html 和 app2.html 中加入两个 iframe 标签：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">"rp.html"</span> <span class="na">hidden</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+<span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">"http://localhost:3000/session/check"</span> <span class="na">id=</span><span class="s">"op"</span> <span class="na">hidden</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+</code></pre></div></div>
+
+<p>使用 Ctrl + C 关闭我们的 node-oidc-provider 和 http-server，然后再次启动。访问 app1.html，打开浏览器控制台，会得到以下信息，这意味着，用户当前处于未登录状态，应该进行 App 自身会话的销毁等操作</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2016.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2016.png" /></p>
+
+<p>然后我们点击「登录」，在 OP 完成登录之后，回调到 app1.html，此时用户变成了登录状态，注意地址栏多了一个参数：session_state，这个参数就是我们上文用于在代码中向 OP iframe 轮询时需要携带的参数。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2017.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2017.png" /></p>
+
+<p>现在我们试一试单点登出，对于 node-oidc-provider 包提供的 OIDC Provider，只需要前端访问 <a href="http://localhost:3000/session/end">localhost:3000/session/end</a></p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2018.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2018.png" /></p>
+
+<p>收到来自 OP 的登出成功信息</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2019.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2019.png" /></p>
+
+<p>我们转到 app1.html 看一下，此时控制台输出，用户已经登出，现在要执行会话销毁等操作了。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2020.png" alt="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2020.png" /></p>
+
+<h3 id="不想维护-app-1-与用户的登录状态app-2-与用户的登录状态">不想维护 App 1 与用户的登录状态、App 2 与用户的登录状态</h3>
+
+<p>如果不各自维护 App 1、App 2 与用户的登录状态，那么无法实现只退出 App 1 而不退出 App 2 这样的需求。所有的登录状态将会完全依赖用户与 OP 之间的登录状态，在效果上是：用户在 OP 一次登录，之后访问所有的应用，都不必再输入密码，实现单点登录；用户在 OP 登出，则在所有应用登出，实现单点登出。</p>
+
+<h1 id="使用-authing-解决单点登录">使用 Authing 解决单点登录</h1>
+
+<p>以上就是一个完整的单点登录系统的轮廓，我们需要维护一份全体用户目录，进行用户注册、登录；我们需要自己搭建一个 OIDC Provider，并申请一个 OIDC Client；我们需要使用 code 换 token，token 换用户信息；我们需要在自己的应用中不断轮询 OP 的登录状态。</p>
+
+<p>读到这里，你可能会觉得实现一套完整的单点登录系统十分繁琐，不仅要对 OIDC 协议非常熟悉，还要自己架设 OIDC Provider，并且需要自行处理应用、用户、OP 之间登录状态。有没有开箱即用的登录服务呢？Authing 能够提供云上的 OP，云上的用户目录和直观的控制台，能够轻松管理所有用户、完成对 OP 的配置。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2021.png" alt="dashboard" /></p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2022.png" alt="op" /></p>
+
+<p>Authing 对开发者十分友好，提供丰富的 SDK，进行快速集成。</p>
+
+<p><img src="https://usercontents.authing.cn/how-to-implement-sso/Untitled%2023.png" alt="sdk" /></p>
+
+<p>如果你不想关心登录的细节，将 Authing 集成到你的系统必定能够大幅提升开发效率，能够将更多的精力集中到核心业务上。</p>
+
+<p>欢迎体验：<a href="https://authing.cn">https://authing.cn</a></p>
+
+<p>实现单点登录：<a href="https://docs.authing.cn/authing/quickstart/implement-sso-with-authing">https://docs.authing.cn/authing/quickstart/implement-sso-with-authing</a></p>
                 
 			</article>
 			
@@ -842,7 +850,11 @@ await authing.authz.addUserToGroup({
 			<div class="mb-4">
 				<span class="taglist">
 				
-				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#rbac">rbac</a>
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#oidc">oidc</a>
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#sso">sso</a>
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#单点登录">单点登录</a>
 				
 				</span>
 			</div>
@@ -856,12 +868,12 @@ await authing.authz.addUserToGroup({
 				<div class="row mt-5">
 					<div class="col-md-2 align-self-center">
                          
-                        <img class="rounded-circle" src="/blog//assets/images/cj.png" alt="廖长江" width="90"/>
+                        <img class="rounded-circle" src="/blog//assets/images/yelexin.svg" alt="叶祖伟" width="90"/>
                          
 					</div>
 					<div class="col-md-10">		
-                        <h5 class="font-weight-bold">Written by 廖长江 <span><a target="_blank" href="https://www.zhihu.com/people/lcj1024" class="btn btn-outline-success btn-sm btn-round ml-2">Follow</a></span></h5>
-						Web fullstack developer.					
+                        <h5 class="font-weight-bold">Written by 叶祖伟 </h5>
+						Fullstack developer who plays music.					
 					</div>
 				</div>				
                 
@@ -901,12 +913,12 @@ await authing.authz.addUserToGroup({
         <div class="row prevnextlinks small font-weight-bold">
           
             <div class="col-md-6 rightborder pl-0">
-                <a class="text-dark" href="/blog/a-intro-about-authing-to-everyone/"> <img height="30px" class="mr-1" src="/blog/https://cdn.authing.cn/blog/wtfauthing.jpg">  一份所有人都能理解的关于 Authing 的介绍</a>
+                <a class="text-dark" href="/blog/Authing%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/"> <img height="30px" class="mr-1" src="/blog/https://cdn.authing.cn/blog/20200302113736.png">  Authing 移动端登录方式, 10 行代码实现 App 扫码登录</a>
             </div>
           
           
             <div class="col-md-6 text-right pr-0">
-                <a class="text-dark" href="/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/"> Geek Talk 036：Serverless 的前景和机会  <img height="30px" class="ml-1" src="/blog/https://cdn.authing.cn/blog/20200211201759.png"> </a>
+                <a class="text-dark" href="/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E-%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91/"> 张小龙看了想点赞 —— 用企业微信登录阿里云 ¿  <img height="30px" class="ml-1" src="/blog/https://cdn.authing.cn/blog/20200403144431.png"> </a>
             </div>
           
         </div>

@@ -4,24 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>RBAC | 组织机构管理最佳实践 | Authing 官方博客</title>
+    <title>AWS KMS 科普: What Why and How? | Authing 官方博客</title>
 
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>RBAC 组织机构管理最佳实践 | Authing 官方博客</title>
+<title>AWS KMS 科普: What Why and How? | Authing 官方博客</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="RBAC 组织机构管理最佳实践" />
+<meta property="og:title" content="AWS KMS 科普: What Why and How?" />
 <meta name="author" content="cj" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。" />
-<meta property="og:description" content="在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。" />
-<link rel="canonical" href="https://authing.cn/blog/rbac/" />
-<meta property="og:url" content="https://authing.cn/blog/rbac/" />
+<meta name="description" content="AWS KMS 科普: What Why and How?" />
+<meta property="og:description" content="AWS KMS 科普: What Why and How?" />
+<link rel="canonical" href="https://authing.cn/blog/AWS-KMS-%E7%A7%91%E6%99%AE-What-Why-and-How/" />
+<meta property="og:url" content="https://authing.cn/blog/AWS-KMS-%E7%A7%91%E6%99%AE-What-Why-and-How/" />
 <meta property="og:site_name" content="Authing 官方博客" />
-<meta property="og:image" content="https://inrupt.com/sites/default/files/2018-10/Layer%200%20(1)_0.png" />
+<meta property="og:image" content="https://cdn.authing.cn/blog/20200403150535.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-02-05T00:00:00+08:00" />
+<meta property="article:published_time" content="2020-04-03T00:00:00+08:00" />
 <script type="application/ld+json">
-{"url":"https://authing.cn/blog/rbac/","headline":"RBAC 组织机构管理最佳实践","dateModified":"2020-02-05T00:00:00+08:00","datePublished":"2020-02-05T00:00:00+08:00","image":"https://inrupt.com/sites/default/files/2018-10/Layer%200%20(1)_0.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://authing.cn/blog/assets/images/logo.png"},"name":"cj"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://authing.cn/blog/rbac/"},"description":"在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。","author":{"@type":"Person","name":"cj"},"@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"url":"https://authing.cn/blog/AWS-KMS-%E7%A7%91%E6%99%AE-What-Why-and-How/","headline":"AWS KMS 科普: What Why and How?","dateModified":"2020-04-03T00:00:00+08:00","datePublished":"2020-04-03T00:00:00+08:00","image":"https://cdn.authing.cn/blog/20200403150535.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://authing.cn/blog/assets/images/logo.png"},"name":"cj"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://authing.cn/blog/AWS-KMS-%E7%A7%91%E6%99%AE-What-Why-and-How/"},"description":"AWS KMS 科普: What Why and How?","author":{"@type":"Person","name":"cj"},"@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -366,16 +366,16 @@ function lunr_search(term) {
                         
                         </span>
 					</p>
-					<h1 class="display-4 mb-4 article-headline">RBAC | 组织机构管理最佳实践</h1>
+					<h1 class="display-4 mb-4 article-headline">AWS KMS 科普: What Why and How?</h1>
 					<div class="d-flex align-items-center">
                         
                         <img class="rounded-circle" src="/blog//assets/images/cj.png" alt="廖长江" width="70"/>
                         
 						<small class="ml-3"> 廖长江 <span><a target="_blank" href="https://www.zhihu.com/people/lcj1024" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
-                            <span class="text-muted d-block mt-1">Feb 05, 2020 · <span class="reading-time">
+                            <span class="text-muted d-block mt-1">Apr 03, 2020 · <span class="reading-time">
   
   
-    4 mins read
+    1 min read
   
 </span>
     </span>
@@ -384,7 +384,7 @@ function lunr_search(term) {
 				</div>
                 
 				<div class="col-md-6 pr-0 align-self-center">
-					<img class="rounded" src="https://inrupt.com/sites/default/files/2018-10/Layer%200%20%281%29_0.png" alt="RBAC | 组织机构管理最佳实践">
+					<img class="rounded" src="https://cdn.authing.cn/blog/20200403150535.png" alt="AWS KMS 科普: What Why and How?">
 				</div>
                 
 			</div>
@@ -434,407 +434,87 @@ function lunr_search(term) {
             
             <!-- Article -->
 			<article class="article-post">                
-			<p>在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会假设一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。</p>
+			<h1 id="aws-kms-科普-what-why-and-how">AWS KMS 科普: What Why and How?</h1>
 
-<p>借助 Authing，可以快速<a href="https://mp.weixin.qq.com/s/zRiymhIjTqfUlymjkGfEsA">实现基于角色的访问控制（RBAC）</a>。简单来说，RBAC 指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。</p>
+<h2 id="what-密钥管理--加密并不难难的是密钥管理">What: 密钥管理 —— 加密并不难，难的是密钥管理</h2>
 
-<p>而在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会设想一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。</p>
+<p>AWS  KMS 全称为 Key Management Service，中文直译过来为密钥管理服务 —— 这一点很重要，它提供的核心服务是<strong>密钥管理</strong>，帮助企业、开发者方便安全地管理密钥。很多刚接触 KMS 的同学经常搞不清 KMS 到底做是做什么的，很大原因也是没仔细注意到 Key Management 这两个词。</p>
 
-<!-- more -->
-
-<h2 id="一非凡科技有限公司背景介绍">一、非凡科技有限公司背景介绍</h2>
-
-<p>该公司约 300 名员工，其公司架构大致如下：</p>
-
-<ul>
-  <li>
-    <p>一级部门有产品部、研发部、运营部、综合管理部</p>
-  </li>
-  <li>
-    <p>一级部门下面又有二级部门，如产品部中包含产品经理和设计等。</p>
-  </li>
-</ul>
-
-<p><img src="https://cdn.authing.cn/blog/20200205182710.png" alt="" /></p>
-
-<p>这是一个典型的树状数据结构，有且仅有一个根节点，以及多个分层的节点。一般而言，根节点就是一家公司、一个组织，其他的每个节点都对应一个部门。</p>
-
-<p>‌</p>
-
-<p>这里有一点需要注意：在 Authing 中，这样的节点对应的是一个 Group，比如「非凡科技有限公司」是一个 Group，「产品部」也是一个 Group。我们要做的，是要把这些 Group 放到他在树上所属的位置。</p>
-
-<p>一个 Group 可以拥有多个角色（Role），一个角色包含一个或多个权限（Permission）；而一个 Group 由若干用户（User）组成，某个 Group 中的用户会继承该 Group 下的所有角色，从而具备相关权限。</p>
-
-<p>了解如何管理  Group 中的 User、如何管理 Group 中的 Role、如何配置 Role 的 Permission，请见文档：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/rbac">角色权限管理</a>。</p>
-
-<p>了解如何查询单个用户的 Group, Role, Permission 列表，请见文档：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/query-permissions">查询用户权限</a>。</p>
-
-<p>如何使用 Authing 完成组织机构管理</p>
-
-<h3 id="1梳理组织机构节点">1、梳理组织机构节点</h3>
-
-<p>首先，我们需要列举出该组织结构拥有的所有节点：</p>
-
-<ul>
-  <li>
-    <p>非凡科技有限公司</p>
-  </li>
-  <li>
-    <p>产品部</p>
-  </li>
-  <li>
-    <p>研发部</p>
-  </li>
-  <li>
-    <p>运营部</p>
-  </li>
-  <li>
-    <p>综合管理部</p>
-  </li>
-  <li>
-    <p>产品经理</p>
-  </li>
-  <li>
-    <p>设计</p>
-  </li>
-  <li>
-    <p>开发</p>
-  </li>
-  <li>
-    <p>测试</p>
-  </li>
-  <li>
-    <p>运维</p>
-  </li>
-  <li>
-    <p>用户运营</p>
-  </li>
-  <li>
-    <p>渠道运营</p>
-  </li>
-  <li>
-    <p>HR</p>
-  </li>
-  <li>
-    <p>财务</p>
-  </li>
-  <li>
-    <p>行政</p>
-  </li>
-</ul>
-
-<p>这些节点在 Authing 中都是一个 Group，所以需要先创建这些 Group：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const 非凡科技有限公司 = await createGroup("非凡科技有限公司")
-const 产品部 = await createGroup('产品部')
-const 产品经理 = await createGroup('产品经理')
-const 设计 = await createGroup('设计')
-const 研发部 = await createGroup('研发部')
-const 开发 = await createGroup('开发')
-const 测试 = await createGroup('测试')
-const 运维 = await createGroup('运维')
-const 运营部 = await createGroup('运营部')
-const 用户运营 = await createGroup('用户运营')
-const 渠道运营 = await createGroup('渠道运营')
-const 综合管理部 = await createGroup('综合管理部')
-const HR = await createGroup('HR')
-const 财务 = await createGroup('财务')
-const 行政 = await createGroup('行政')
-</code></pre></div></div>
-
-<p>‌</p>
-
-<h3 id="2创建组织机构">2、创建组织机构</h3>
-
-<p>接着创建组织机构（一组树状的 Group），这需要指定根节点对应的 Group:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let org = await authing.org.createOrg({
- rootGroupId: 非凡科技有限公司._id
-})
-</code></pre></div></div>
-
-<h3 id="3加入产品部及其子部门节点">3、加入产品部及其子部门节点</h3>
-
-<p>‌</p>
-
-<p>接着插入产品部的各级节点：</p>
-
-<p>‌</p>
-
-<p>这里需要指定以下参数：</p>
-
-<ul>
-  <li>
-    <p>组织机构 ID</p>
-  </li>
-  <li>
-    <p>该节点对应的 Group ID</p>
-  </li>
-  <li>
-    <p>该节点的父节点的 Group ID</p>
-  </li>
-</ul>
-
-<p>如加入产品部节点时，groupId 为 Group<产品部> 的 ID，parentGroupId 为 Group<非凡科技有限公司> 的 ID。</非凡科技有限公司></产品部></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>await authing.org.addNode({
- orgId: org._id,
- groupId: 产品部._id,
- parentGroupId: 非凡科技有限公司._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 产品经理._id,
- parentGroupId: 产品部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 设计._id,
- parentGroupId: 产品部._id
-})
-</code></pre></div></div>
-
-<h3 id="4以此类推加入所有节点">4、以此类推，加入所有节点</h3>
-
-<p>研发部：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 添加研发部
-await authing.org.addNode({
- orgId: org._id,
- groupId: 研发部._id,
- parentGroupId: 非凡科技有限公司._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 开发._id,
- parentGroupId: 研发部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 测试._id,
- parentGroupId: 研发部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 运维._id,
- parentGroupId: 研发部._id
-})
-</code></pre></div></div>
-
-<p>运营部：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>await authing.org.addNode({
- orgId: org._id,
- groupId: 运营部._id,
- parentGroupId: 非凡科技有限公司._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 用户运营._id,
- parentGroupId: 运营部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 渠道运营._id,
- parentGroupId: 运营部._id
-})
-</code></pre></div></div>
-
-<p>‌</p>
-
-<p>综合管理部：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 添加综合管理部
-await authing.org.addNode({
- orgId: org._id,
- groupId: 综合管理部._id,
- parentGroupId: 非凡科技有限公司._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: HR._id,
- parentGroupId: 综合管理部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 财务._id,
- parentGroupId: 综合管理部._id
-})
-await authing.org.addNode({
- orgId: org._id,
- groupId: 行政._id,
- parentGroupId: 综合管理部._id
-})
-</code></pre></div></div>
-
-<h3 id="5查看最新组织机构结构">5、查看最新组织机构结构</h3>
-
-<p>到现在，我们的非凡科技有限公司组织机构见建模完成了，是时候获取其最新的树状结构了：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const { tree } = await authing.org.findById(org._id)
-</code></pre></div></div>
-
-<p>​               <img src="https://internal-api-space-hl.feishu.cn/space/api/file/out/zSOvcI4ejux1n1410JnoDNfAHpsLAUIVoA9J04p9ssf7lQ2DlO/" alt="img" /></p>
-
-<h2 id="二如何向组织机构中添加用户和配置权限">二、如何向组织机构中添加用户和配置权限</h2>
-
-<p>前面说过，Authing 中一个组织结构节点对应一个  Group，对此我们提供了完整的 SDK。</p>
-
-<h3 id="1为组织机构节点配置权限">1、为组织机构节点配置权限</h3>
-
-<p>相关 SDK 见：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/rbac">角色权限管理</a>。</p>
-
-<p>非凡科技有限公司的所有员工，都具备开具发票、使用公司邮箱的权限。与此对应，在此我们创建两个角色：Invoice Submitter 和 Corp Email User。</p>
-
-<p>‌</p>
-
-<p>其中 Invoice Submitter 具备以下权限：</p>
-
-<ul>
-  <li>
-    <p>invoice:login</p>
-  </li>
-  <li>
-    <p>invoice:create</p>
-  </li>
-  <li>
-    <p>invoice:query</p>
-  </li>
-  <li>
-    <p>invoice:list</p>
-  </li>
-  <li>
-    <p>invoice:delete</p>
-  </li>
-</ul>
-
-<p>Corp Email User 具备以下权限：</p>
-
-<ul>
-  <li>
-    <p>corp-email:login</p>
-  </li>
-  <li>
-    <p>corp-email:send</p>
-  </li>
-  <li>
-    <p>corp-email:receive</p>
-  </li>
-  <li>
-    <p>corp-email:list</p>
-  </li>
-  <li>
-    <p>corp-email:detail</p>
-  </li>
-</ul>
-
-<p>这可以通过以下代码完成：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const InvoiceSubmitter = await createRole('Invoice Submitter')
-let permissions = await createPermissionBatch(['invoice:login', 'invoice:create', 'invoice:query', 'invoice:list', 'invoice:delete'])
-await authing.authz.addPermissionToRoleBatch({
- roleId: InvoiceSubmitter._id,
- permissionIdList: permissions.map(x =&gt; x._id)
-})
-const CorpEmailUser = await createRole('Corp Email Use')
-permissions = await createPermissionBatch(['corp-email:login', 'corp-email:send', 'corp-email:receive', 'corp-email:list', 'corp-email:detail'])
-await authing.authz.addPermissionToRoleBatch({
- roleId: CorpEmailUser._id,
- permissionIdList: permissions.map(x =&gt; x._id)
-})
-</code></pre></div></div>
-
-<p>接着让 Group 非凡科技有限公司具备 Invoice Submitter 和 Corp Email User 两个角色：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>await authing.authz.addRoleToGroup({
- roleId: InvoiceSubmitter._id,
- groupId: 非凡科技有限公司._id
-})
-await authing.authz.addRoleToGroup({
- roleId: InvoiceSubmitter._id,
- groupId: 非凡科技有限公司._id
-})
-</code></pre></div></div>
-
-<p>现在，非凡科技有限公司这个节点将会具备  Invoice Submitter 和 Corp Email User 两个角色</p>
-
-<h3 id="2向组织机构节点添加用户">2、向组织机构节点添加用户</h3>
-
-<p>相关 API 见：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/rbac">角色权限管理</a>。</p>
+<p>所以我们的第一个问题「What」就已经回答了，KMS 就是一个管理密钥的服务，它并不是某种 super super magic 的高超加密方法。</p>
 
 <blockquote>
-  <p>某个 Group 内的用户会继承该 Group 内所有角色的权限（如果有重叠，将会取并集）。</p>
+  <p>我希望本文的读者通过阅读能意识到一个观念：加密是简单的，难的是管理密钥本身。</p>
 </blockquote>
 
-<p>下面我们往用户池中注册新用户，然后将其加入非凡科技有限公司 Group 中：</p>
+<h2 id="why-kms-能确保你密钥的安全性">Why: KMS 能确保你密钥的安全性</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const user = await createUser()
-await authing.authz.addUserToGroup({
- groupId: 非凡科技有限公司._id,
- userId: user._id
-})
-</code></pre></div></div>
+<p>接着来看第二个问题：Why ？为什么我需要把我的密钥给你管理，我自己保存不行了吗？事实上你完全可以自己管理，就像你完全可以自建机房一样，only if 你清楚各种最佳实践并愿意花时间自己去维护。<strong>服务之所以叫服务，是服务提供商为你做了各种各样麻烦的事情</strong>（They deal with those heavy lifting），从而让你把更多的时间精力花在更有价值的事情上。</p>
 
-<h3 id="3查询用户具备的权限">3、查询用户具备的权限</h3>
+<p>那么 AWS KMS 为用户做了哪些麻烦的工作呢？</p>
 
-<p>相关 API  见：<a href="https://docs.authing.cn/authing/sdk/sdk-for-node/query-permissions">查询用户权限</a>。</p>
+<ol>
+  <li>完全托管：你不需要额外的服务器，不需要额外的维护人员。</li>
+  <li>简化加密过程：你不需要去在意繁琐的加密细节过程，只需要调用相关接口就行了。</li>
+  <li><strong>安全审计功能</strong>：关能够确保安全是不够的，你还需要知道谁具备这个密钥的使用权限，谁在什么时候用了这个密钥，谁又在什么时候删了这个密钥。这一点对大型企业以及提供平台服务的公司非常重要。而这些能够精确到非常细颗粒度的审计功能，已经被 AWS 通过 AWS Cloud Trail Service 完全内置在整个 AWS 生态内了。（It’s not enough to be secure, you have to demonstrate to somebody, whether that’s internal audit, your boss, or maybe your customers .  ）</li>
+  <li><strong>确保你的密钥是安全的</strong>：你不需要费劲脑汁想办法把你的密钥保存在某个机密的、不对外网暴露的地方。事实上  AWS KMS 的密钥（确切来说是 Matser Key）是完全保存在内存中的，没有任何人（包括  AWS 自己）能够获取到密钥的原始内容，下文会介绍为什么。</li>
+  <li>密钥 rotate 流程：AWS 会定时或手动刷新密钥内容，这也是密钥管理的一个最佳实践。</li>
+</ol>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const { rawList: permissionList } = await authing.userPermissionList(user._id)‌
-</code></pre></div></div>
+<h2 id="how-its-complicated-but-they-do-it-for-you">How: It’s complicated but they do it for you</h2>
 
-<p>permissionList 如下：可见，此用户已经继承了 Invoice Submitter 和 Corp Email User 两个角色的所有权限：</p>
+<p>知道了为什么使用 AWS KMS，接下来也是本文重点内容，了解一下 How: KMS 内部实现原理。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
-  'invoice:login',
-  'invoice:create',
-  'invoice:query',
-  'invoice:list',
-  'invoice:delete',
-  'corp-email:login',
-  'corp-email:send',
-  'corp-email:receive',
-  'corp-email:list',
-  'corp-email:detail',
- ]
-</code></pre></div></div>
+<p>首先了解一下对称加密与非对称加密：简要来说，对称加密指的是加密、解密用的是同一个密钥；非对称加密指的是加密、解密使用一对密钥：公钥和私钥，你可以使用公钥加密私钥解密，也可以反过来。如 HTTPS 用的就是非对称加密。</p>
 
-<p>开发者拿到用户权限列表之后，可以在业务代码层判断用户是否具备某一特定权限，如：</p>
+<p>接下来看看 KMS 内部是如何保存你的密钥的：假设我们有一个用于加密数据的密钥，叫做 Data Key，将 Data 加密过后得到 Encrypted Data，这个过程很简单。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if "corp-email:login" not in user.permissionList:
-  return "Permission Denied"
-</code></pre></div></div>
+<p><img src="https://cdn.authing.cn/blog/20200403143826.png" alt="" /></p>
 
-<h3 id="4使用-rbac-的优势">4、<strong>使用 RBAC 的优势</strong></h3>
+<p>但是问题来了，该怎么处理 Data Key 呢，要是攻击者获取到了 Data Key，那不相当于数据也就被破解了？正确的选择是把 Data Key 也用某种密钥（这里把它叫做 Matser Key）加密一下（术语叫做 Wrapping），得到 Encrypted Data Key 。接着我们把 Encrypted Data 和 Encrypted Data Key 保存在一起，如下图所示：</p>
 
-<ul>
-  <li>
-    <p>系统性、可重复性的权限指派</p>
-  </li>
-  <li>
-    <p>更方便的用户权限审计，快速定位问题</p>
-  </li>
-  <li>
-    <p>快速地添加、修改角色，甚至可以调用 API 实现</p>
-  </li>
-  <li>
-    <p>减少授予用户权限时发生错误的可能性</p>
-  </li>
-  <li>
-    <p>引入第三方用户/新用户/未登录用户时，赋予他们预先配置好的角色，比如 guest 分组</p>
+<p><img src="https://cdn.authing.cn/blog/20200403143843.png" alt="" /></p>
 
-    <p>更多关于 RBAC 的介绍请参考<a href="https://mp.weixin.qq.com/s?__biz=MzU1OTk1NjU4MA==&amp;mid=2247484085&amp;idx=1&amp;sn=c59e44be19951c8f08725e8e25985b3f&amp;scene=21#wechat_redirect">实现基于角色的访问控制（RBAC）</a>。</p>
-  </li>
-</ul>
+<p>可是问题又来了：Master Key 怎么加密？相信你已经察觉出来了，<del>这很像一个俄罗斯套娃（划掉）</del></p>
 
-<h2 id="三总结">三、总结</h2>
+<p><img src="https://cdn.authing.cn/blog/20200403145809.png" alt="" /></p>
 
-<p>本文我们以「非凡科技有限公司」为例，介绍了如何将一棵组织机构树转换成一组嵌套、有层次的 Group。通过 Authing 提供的分组角色权限管理 API，可以为 Group 配置角色、指派成员，使得该 Group 中的用户继承所需的权限，从而完成组织机构建模与权限控制。</p>
+<p>你没有看错，AWS KMS  还真就是这么做的，他们这样一层一层加密密钥（专业名词叫做 KMS Key Hierarchy），到最终的那个 Key 的时候，它的确是一个明文，但是：</p>
+<ol>
+  <li>它完完全全保存在内存里面，永远不会在物理介质里面保存下来。</li>
+  <li>它永远不会在公网传输。</li>
+</ol>
 
-<h3 id="关于-authing">关于 Authing</h3>
+<p>以至于连 AWS 员工都没有办法获取到原始内容。</p>
 
-<p><img src="https://cdn.authing.cn/blog/20200205182918.png" alt="" />Authing 是中国领先的 IDaaS 服务提供商，对标美国独角兽 Auth0。创始团队来自字节跳动、百度、IBM、阿里云、滴滴出行等互联网企业。Authing 提供开发者友好、易拓展的身份认证和授权平台，赋能企业在云端管理身份，主要功能包括：单点登录、用户分析、扫码登录、多因素认证、行为审计、风险控制、跨平台设备管理、IoT 身份认证等；兼容国际各类标准协议：OAuth2.0、OIDC、SAML、AD/LDAP、WS-Fed、JWT 等。 支持云交付和私有化部署方式，帮助企业和开发者千倍级提升生产效率。</p>
+<p>那么其他的 Data Key 呢？我真正加密的数据的数据用的是 Data Key，要是 Data  Key 泄漏了怎么办？这个问题很重要。那么 KMS 是如何解决的呢？</p>
 
-<p>Authing 自上线以来已经服务海内外超过 3000 名企业开发者、拥有约 50 万的开发者社区和托管数百万终端用户，每月百万人次通过 Authing 平台进行认证，并已经服务数十家付费企业客户，覆盖教育、人工智能、出版社、 物联网等多个行业。</p>
+<p>KMS 的 Data Key 是在内存中动态生成的，用于加密数据过后，它就在内存中被删掉了，只有加密过后的 Encrypted Data Key 保留了下来。</p>
+
+<p>借用 AWS re:Invent 2019 上 AWS Solution Architect Peter M.O’Donnell  的话：</p>
+
+<blockquote>
+  <p>KMS is a very serious service, built by very serious people for very serious customers .</p>
+</blockquote>
+
+<p>总结一下：</p>
+<ol>
+  <li>Data 是用 Data Key 加密的，得到 Encrypted Data。</li>
+  <li>Encrypted Data 和 Encrypted Data Key 保存在了一起。</li>
+  <li>你就算得到了 Encrypted Data 和 Encrypted Data Key 也没用，你还得得到上一层加密此 Encrypted Data Key 的 Matser Key，一层一层往上，你得知道最终那个在 Top Level 的 Master Key。</li>
+  <li>KMS 在根本上通过设计，确保了没有任何人能够获取到 Top Level Master Key。</li>
+  <li>所以你的数据是安全的。</li>
+</ol>
+
+<p>这篇文章介绍了 AWS KMS 是什么、为什么要用 KMS 以及 KMS 是如何保护你的密钥从而保护你的数据的，下一篇我们从实际应用的角度，来看看该怎么将 KMS  具体应用到你的系统中。</p>
+
+<p>相关阅读：</p>
+
+<ol>
+  <li><a href="https://amazonaws-china.com/kms/">https://amazonaws-china.com/kms/</a></li>
+  <li><a href="https://www.youtube.com/watch?v=hxWvbNvj2lg">AWS re:Invent 2019: Using AWS KMS for data protection, access control, and audit</a></li>
+  <li><a href="https://www.youtube.com/watch?v=SOnJyqwGn1I">AWS Security Basics - AWS KMS</a></li>
+</ol>
+
                 
 			</article>
 			
@@ -842,7 +522,11 @@ await authing.authz.addUserToGroup({
 			<div class="mb-4">
 				<span class="taglist">
 				
-				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#rbac">rbac</a>
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#kms">kms</a>
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#aws">aws</a>
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/blog/tags.html#网络安全">网络安全</a>
 				
 				</span>
 			</div>
@@ -901,13 +585,9 @@ await authing.authz.addUserToGroup({
         <div class="row prevnextlinks small font-weight-bold">
           
             <div class="col-md-6 rightborder pl-0">
-                <a class="text-dark" href="/blog/a-intro-about-authing-to-everyone/"> <img height="30px" class="mr-1" src="/blog/https://cdn.authing.cn/blog/wtfauthing.jpg">  一份所有人都能理解的关于 Authing 的介绍</a>
+                <a class="text-dark" href="/blog/%E5%BC%A0%E5%B0%8F%E9%BE%99%E7%9C%8B%E4%BA%86%E6%83%B3%E7%82%B9%E8%B5%9E-%E7%94%A8%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91/"> <img height="30px" class="mr-1" src="/blog/https://cdn.authing.cn/blog/20200403144431.png">  张小龙看了想点赞 —— 用企业微信登录阿里云 ¿</a>
             </div>
           
-          
-            <div class="col-md-6 text-right pr-0">
-                <a class="text-dark" href="/blog/GeekTalk036Serverless-%E7%9A%84%E5%89%8D%E6%99%AF%E5%92%8C%E6%9C%BA%E4%BC%9A/"> Geek Talk 036：Serverless 的前景和机会  <img height="30px" class="ml-1" src="/blog/https://cdn.authing.cn/blog/20200211201759.png"> </a>
-            </div>
           
         </div>
 	</div>
