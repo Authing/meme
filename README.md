@@ -34,7 +34,8 @@ That's it! Soon I'll be merging your changes into the master branch of this proj
 
 1. Follow the instructions [here](https://jekyllrb.com/docs/installation) to install bundle and Jekyll.
 2. Run `bundle install`
-3. Run `bundle exec jekyll serve .`
+3. Run `bundle exec jekyll serve .` to preview site.
+4. Run `bundle exec jekyll build` to ship a new site.
 
 ### Copyright
 
